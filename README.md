@@ -4,10 +4,10 @@
 ****************************************************************************************************************************************
 
 Principal commande de git :
-  git commit -a -m "votre message du commit" = commit votre repo enindexant vos nouveaux fichier
-  git clone "lien du repo sur gitHub" = copy le repo sur github dans votre repertoire courant
-  git push origin master = envoie les modif à gitHub
-  git pull origin master = récupère les modif de gitHub
+  - git commit -a -m "votre message du commit" = commit votre repo en indexant vos nouveaux fichier
+  - git clone "lien du repo sur gitHub" = copy le repo sur github dans votre repertoire courant
+  - git push origin master = envoie les modif à gitHub
+  - git pull origin master = récupère les modif de gitHub
  
 ****************************************************************************************************************************************
 ****************************************************************************************************************************************
