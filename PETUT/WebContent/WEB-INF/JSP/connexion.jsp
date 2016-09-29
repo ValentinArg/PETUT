@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel ="stylesheet" href = "/CSS/main.css"/>	
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="conteneur_general">
+	<div class="conteneurGeneral">
 		<form method="post" action="connexion">
 	    	<fieldset>
 	        	<legend>Connexion</legend>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Connexion extends HttpServlet{
 
-	private String VUE = "/WEB-INF/JSP/index.jsp";
+	private String VUE = "/WEB-INF/JSP/connexion.jsp";
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
