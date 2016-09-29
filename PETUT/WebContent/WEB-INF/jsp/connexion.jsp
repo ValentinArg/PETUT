@@ -6,9 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel ="stylesheet" href = "/PETUT/css/main.css"/>
 <link rel ="stylesheet" href = "/PETUT/css/connexion.css"/>	
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="enTete.jsp" />
 	<div class="conteneurGeneral">
 		<form method="post" action="connexion">
 			<div class="radio">
