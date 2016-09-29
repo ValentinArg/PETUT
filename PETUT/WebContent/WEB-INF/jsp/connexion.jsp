@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel ="stylesheet" href = "/PETUT/css/main.css"/>
-<link rel ="stylesheet" href = "/PETUT/css/inscription.css"/>	
+<link rel ="stylesheet" href = "/PETUT/css/connexion.css"/>	
 <title>Insert title here</title>
 </head>
 <body>
