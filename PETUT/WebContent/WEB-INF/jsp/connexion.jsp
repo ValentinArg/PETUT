@@ -18,12 +18,10 @@
 			<br/>
 	    	<fieldset>
 	        	<legend>Connexion</legend>
-	            <p>Vous possedez déjà un compte :</p>
-	
-	                
-				<label for="connexionEmail">Adresse email <span class="requis"></span></label>
-	            <input type="email" id="connexionEmail" name="connexionEmail" size="20" maxlength="60" />
-	            <span class="erreur">${traitement.erreurs['connexionEmail']}</span>
+	                           
+				<label for="nomCompte">Nom de compte<span class="requis"></span></label>
+	            <input type="nomCompte" id="connexionNomCompte" name="connexionNomCompte" size="20" maxlength="60" />
+	            <span class="erreur">${traitement.erreurs['connexionNomCompte']}</span>
 	            <br />
 	                
 	            <label for="connexionMotdepasse">Mot de passe <span class="requis"></span></label>
