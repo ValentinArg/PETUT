@@ -50,13 +50,13 @@ form .succes {
     color: #090;
 }
 
-.textCheckBox {
+.textRadio {
 	
 	display:inline-block;
 	margin:0;
 	vertical-align:top;
 }
-.checkbox{
+.radio{
 	text-align:center;
 	margin:0;
 	display:block;
