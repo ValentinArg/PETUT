@@ -16,4 +16,8 @@ public class Connexion extends HttpServlet{
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
 	}
+	
+	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+
+	}
 }
