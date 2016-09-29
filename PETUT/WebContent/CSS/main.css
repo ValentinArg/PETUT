@@ -1,1 +1,6 @@
 @CHARSET "ISO-8859-1";
+.conteneurGeneral{
+	display: block;
+	width: 70%;
+	margin-left: 15%;
+}

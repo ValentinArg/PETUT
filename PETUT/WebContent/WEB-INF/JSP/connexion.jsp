@@ -7,6 +7,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<div class="conteneur_general">
+		<form method="post" action="connexion">
+	    	<fieldset>
+	        	<legend>Connexion</legend>
+	            <p>Vous possedez déjà un compte :</p>
+	
+	                
+				<label for="connexionEmail">Adresse email <span class="requis"></span></label>
+	            <input type="email" id="connexionEmail" name="connexionEmail" size="20" maxlength="60" />
+	            <span class="erreur">${traitement.erreurs['connexionEmail']}</span>
+	            <br />
+	                
+	            <label for="connexionMotdepasse">Mot de passe <span class="requis"></span></label>
+	            <input type="password" id="connexionMotdepasse" name="connexionMotdepasse" value="" size="20" maxlength="20" />
+	            <span class="erreur">${traitement.erreurs['connexionMotdepasse']}</span>
+	            <br />
+	                
+	            <input type="submit" value="connexion" class="sansLabel" />
+	            <br />
+	                
+	            <!-- <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>-->
+	     	</fieldset>
+		</form>
+	</div>
 </body>
 </html>
