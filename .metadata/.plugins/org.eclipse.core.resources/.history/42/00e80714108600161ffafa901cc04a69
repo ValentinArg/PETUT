@@ -1,0 +1,29 @@
+package SQL;
+
+import java.sql.*;
+
+public class connection {
+
+	private static String url = "jdbc:mysql://localhost:3306/db_lespetitschefs";
+	private static String utilisateur = "root";
+	private static String motDePasse = "admin";
+	private static Connection connexion = null;
+	Statement statement;
+	
+	private void connect() {
+		  /* Chargement du driver JDBC pour MySQL */
+		  try {
+		      Class.forName( "com.mysql.jdbc.Driver" );
+		  } catch ( ClassNotFoundException e ) {
+		      /* Gérer les éventuelles erreurs ici. */
+		  }
+		  /* Connexion à la base de données */
+		  try {
+		      connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
+		      System.out.println("connexion réussi");
+		  } catch ( SQLException e ) {
+		     System.out.println("exeption dans la methode connect : " + e);
+		  } 
+	}
+	
+}

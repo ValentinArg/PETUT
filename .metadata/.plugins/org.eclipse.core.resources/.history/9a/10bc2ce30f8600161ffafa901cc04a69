@@ -1,0 +1,13 @@
+package SQL;
+
+import java.sql.*;
+
+public class connection {
+
+	private static String url = "jdbc:mysql://localhost:3306/db_lespetitschefs";
+	private static String utilisateur = "root";
+	private static String motDePasse = "admin";
+	private static Connection connexion = null;
+	Statement statement;
+	
+}
