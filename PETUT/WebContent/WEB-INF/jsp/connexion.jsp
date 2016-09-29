@@ -11,6 +11,11 @@
 <body>
 	<div class="conteneurGeneral">
 		<form method="post" action="connexion">
+			<div class="checkbox">
+				<input type="checkbox"  id="case1" class="case" name="id" value="enseignant"><p class="textCheckBox"> enseignant</p>
+				<input type="checkbox"  id="case2" class="case" name="id" value="eleve"><p class="textCheckBox"> élève</p>
+			</div>
+			<br/>
 	    	<fieldset>
 	        	<legend>Connexion</legend>
 	            <p>Vous possedez déjà un compte :</p>

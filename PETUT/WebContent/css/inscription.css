@@ -50,3 +50,29 @@ form .succes {
     color: #090;
 }
 
+.textCheckBox {
+	
+	display:inline-block;
+	margin:0;
+	vertical-align:top;
+}
+.checkbox{
+	text-align:center;
+	margin:0;
+	display:block;
+	position:relative;
+	
+}
+
+.case{
+	vertical-align:top;	
+	margin-top:0;
+}
+
+#case1{
+	margin-right:5px;
+}
+
+#case2{
+	margin-left:5px;
+}
