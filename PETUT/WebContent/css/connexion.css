@@ -3,6 +3,9 @@
 @CHARSET "UTF-8";
 /* Général ------------------------------------------------------------------------------------- */
 
+.coteneurGeneral{
+	
+}
 p,legend, label, input {
     font: normal 8pt verdana, helvetica, sans-serif;
 }
@@ -11,6 +14,7 @@ fieldset {
     padding: 10px;
     border: 1px black solid;
     display:inline-block;
+    text-align:left;
 }
 
 legend {
@@ -21,9 +25,13 @@ legend {
 /* Forms --------------------------------------------------------------------------------------- */
 
 form{
-	display:inline-block;
+	display:block;
 	vertical-align: top;
-	margin-left:30%;
+	margin-top:5%;
+	position:absolute;
+	margin-left:25%;
+	margin-right:25%;
+	width:50%;
 	
 }
 
@@ -50,29 +58,22 @@ form .succes {
     color: #090;
 }
 
-.textRadio {
-	
-	display:inline-block;
-	margin:0;
-	vertical-align:top;
+.boutonEleve{
+	width:100px;
+	height:60px;
+	margin-left:10px;
+			
 }
-.radio{
+
+.boutonEnseignant{
+	width:100px;
+	height:60px;
+	margin-right:10px;
+		
+}
+
+.connexion{
 	text-align:center;
-	margin:0;
-	display:block;
 	position:relative;
-	
 }
 
-.case{
-	vertical-align:top;	
-	margin-top:0;
-}
-
-#case1{
-	margin-right:5px;
-}
-
-#case2{
-	margin-left:5px;
-}

@@ -7,37 +7,75 @@
 <link rel ="stylesheet" href = "/PETUT/css/main.css"/>
 <link rel ="stylesheet" href = "/PETUT/css/connexion.css"/>	
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="enTete.jsp" />
 	<div class="conteneurGeneral">
-		<form method="post" action="connexion">
-			<div class="radio">
-				<input type="radio"  id="case1" class="case" name="id" value="enseignant"><p class="textRadio"> enseignant</p>
-				<input type="radio"  id="case2" class="case" name="id" value="eleve"><p class="textRadio"> élève</p>
-			</div>
-			<br/>
-	    	<fieldset>
-	        	<legend>Connexion</legend>
-	                           
-				<label for="nomCompte">Nom de compte<span class="requis"></span></label>
-	            <input type="nomCompte" id="connexionNomCompte" name="connexionNomCompte" size="20" maxlength="60" />
-	            <span class="erreur">${traitement.erreurs['connexionNomCompte']}</span>
-	            <br />
-	                
-	            <label for="connexionMotdepasse">Mot de passe <span class="requis"></span></label>
-	            <input type="password" id="connexionMotdepasse" name="connexionMotdepasse" value="" size="20" maxlength="20" />
-	            <span class="erreur">${traitement.erreurs['connexionMotdepasse']}</span>
-	            <br />
-	                
-	            <input type="submit" value="connexion" class="sansLabel" />
-	            <br />
-	                
-	            <!-- <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>-->
-	     	</fieldset>
-		</form>
+		<div class="connexion">
+			<button class="boutonEnseignant" id="boutonEnseignant" type="button">Enseignant</button>
+			<button class="boutonEleve" id="boutonEleve" type="button">Elève</button>
+			<form id="formEnseignant" method="post" action="connexion">
+		    	<fieldset>
+		        	<legend>Connexion enseignant</legend>
+		                           
+					<label for="nomCompte">Nom de compte<span class="requis"></span></label>
+		            <input type="nomCompte" id="connexionNomCompte" name="connexionNomCompte" size="20" maxlength="60" />
+		            <span class="erreur">${traitement.erreurs['connexionNomCompte']}</span>
+		            <br />
+		                
+		            <label for="connexionMotdepasse">Mot de passe <span class="requis"></span></label>
+		            <input type="password" id="connexionMotdepasse" name="connexionMotdepasse" value="" size="20" maxlength="20" />
+		            <span class="erreur">${traitement.erreurs['connexionMotdepasse']}</span>
+		            <br />
+		                
+		            <input type="submit" value="connexion" class="sansLabel" />
+		            <br />
+		                
+		            <!-- <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>-->
+		     	</fieldset>
+			</form>
+			<form id="formEleve" method="post" action="connexion">
+		    	<fieldset>
+		        	<legend>Connexion élève</legend>
+		                           
+					<label for="nomCompte">Nom de compte<span class="requis"></span></label>
+		            <input type="nomCompte" id="connexionNomCompte" name="connexionNomCompte" size="20" maxlength="60" />
+		            <span class="erreur">${traitement.erreurs['connexionNomCompte']}</span>
+		            <br />
+		                
+		            <label for="connexionMotdepasse">Mot de passe <span class="requis"></span></label>
+		            <input type="password" id="connexionMotdepasse" name="connexionMotdepasse" value="" size="20" maxlength="20" />
+		            <span class="erreur">${traitement.erreurs['connexionMotdepasse']}</span>
+		            <br />
+		                
+		            <input type="submit" value="connexion" class="sansLabel" />
+		            <br />
+		                
+		            <!-- <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>-->
+		     	</fieldset>
+			</form>
+		</div>
 	</div>
+	<script>
+	
+		document.getElementById('formEnseignant').style.visibility = 'hidden';
+		
+		
+		$( '#boutonEleve' ).click(function(){
+			runEffect('boutonEleve')});
+		$( '#boutonEnseignant' ).click(function(){
+			runEffect('boutonEnseignant')});
+		
+		function runEffect(bouton){
+			if(bouton == 'boutonEleve'){
+				document.getElementById('formEleve').style.visibility = 'visible';
+				document.getElementById('formEnseignant').style.visibility = 'hidden';
+			}else{
+				document.getElementById('formEleve').style.visibility = 'hidden';
+				document.getElementById('formEnseignant').style.visibility = 'visible';
+			}
+		}
+	</script>
 </body>
 </html>

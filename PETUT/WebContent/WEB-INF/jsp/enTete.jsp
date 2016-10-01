@@ -7,11 +7,12 @@
 	<title>Insert title here</title>
 	<link rel ="stylesheet" href = "/PETUT/css/main.css"/>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	
 </head>
 <body>
 	<div class="conteneurEnTete">
-		<img id="derouleur" class= "derouleur" src = "/PETUT/images/menu.png"/>
+		<img  id="derouleur" class= "derouleur" src = "/PETUT/images/menu.png"/>
 		<ul class="nav" id="nav">
 			<li class="partie"><a>Accueil</a></li>
 			<li class="partie"><a>Première Année</a></li>
@@ -19,33 +20,22 @@
 		</ul>
 	</div>
 	
-	<script>
+	 <script>
+		 var left = true;
+		 $( "#nav" ).animate({left: "-500px"});
+		 // run the currently selected effect
+		 function runEffect() {
+		 	if(left){
+		 		$( "#nav" ).animate({left: "0px"},1000);
+		 		left=false;
+		 	}
+		 	else{
+		 		$( "#nav" ).animate({left: "-500px"},1000);
+		 		left=true;
+		 	}
+		 }
 
-		
-
-			var left = true;
-			$( "#nav" ).animate({left: "-500px"});
-		    // run the currently selected effect
-		    function runEffect() {
-		      if(left){
-		    	  $( "#nav" ).animate({left: "0px"},1000);
-		    	  left=false;
-		      }
-		      else{
-		    	  $( "#nav" ).animate({left: "-500px"},1000);
-		    	  left=true;
-		      }
-		    }
-		 
-		    // Set effect from select menu value
-		    $( "#derouleur" ).on( "click", function() {
-		      runEffect();
-		    });
-
-		  
-		
-		
-	</script>
+	 </script>
 
 </body>
 </html>
