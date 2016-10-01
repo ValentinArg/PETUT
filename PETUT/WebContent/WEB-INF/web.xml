@@ -18,4 +18,14 @@
     	<servlet-name>Connexion</servlet-name>
     	<url-pattern>/connexion</url-pattern>
   	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>Semestre1</servlet-name>
+    	<servlet-class>Servlets.Semestre1</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>Semestre1</servlet-name>
+    	<url-pattern>/eleves/semestre1</url-pattern>
+  	</servlet-mapping>
+  	
 </web-app>
