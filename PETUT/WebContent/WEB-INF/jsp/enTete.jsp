@@ -11,31 +11,12 @@
   	
 </head>
 <body>
-	<div class="conteneurEnTete">
-		<img  id="derouleur" class= "derouleur" src = "/PETUT/images/menu.png"/>
+		
 		<ul class="nav" id="nav">
-			<li class="partie"><a>Accueil</a></li>
-			<li class="partie"><a>Première Année</a></li>
-			<li class="partie"><a>Deuxième Année</a></li>
+			<!-- <li class="partie" id="banniere"><a>PETUT</a></li>-->
+			<li class="partie"><a>Semestre</a></li>
 		</ul>
-	</div>
 	
-	 <script>
-		 var left = true;
-		 $( "#nav" ).animate({left: "-500px"});
-		 // run the currently selected effect
-		 function runEffect() {
-		 	if(left){
-		 		$( "#nav" ).animate({left: "0px"},1000);
-		 		left=false;
-		 	}
-		 	else{
-		 		$( "#nav" ).animate({left: "-500px"},1000);
-		 		left=true;
-		 	}
-		 }
-
-	 </script>
 
 </body>
 </html>
