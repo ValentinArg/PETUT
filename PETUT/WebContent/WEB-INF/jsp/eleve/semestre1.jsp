@@ -46,20 +46,16 @@
 		var haut = false
 		function slideUp(){
 			if(!haut){
-				$('#navigation').slideUp(250);
-				//document.getElementById('conteneurGeneral').style.marginLeft="0px"
+				//$('#navigation').slideUp(250);
+				$('#navigation').animate({top:"-=100%"},500)
 				haut = true;
 			}else{
-				$('#navigation').slideDown(250);
+				$('#navigation').animate({top:"+=100%"},500)
 				haut = false;
 			}
 		}
 		
-		function sleep(milliSeconds){
-	        var startTime = new Date().getTime();
-	        while (new Date().getTime() < startTime + milliSeconds);
-		}
-		
+
 		
 		
 		$( '#boutonHautBas' ).click(function(){
