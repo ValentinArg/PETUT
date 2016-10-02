@@ -10,7 +10,7 @@
 </head>
 <body>
 	
-	<p class="boutonHautBas" id="boutonHautBas">module</p>
+	
 	<jsp:include page="../enTete.jsp"/>
 	<div class="navigation" id="navigation">
 		<ul>
@@ -40,27 +40,27 @@
 	</div>
 	<div class="conteneurGeneral" id="conteneurGeneral">
 
-		<ul class="selection" id="selection">
-			<li class=" type"><p>Cours</p></li>
-			<li class="type"><p>Travaux Dirigées</p></li>
-			<li class="type"><p>Travaux Pratiques</p></li>
-			<li class="type"><p>Partiels</p></li>
-		</ul>
 	</div>
 	<script type="text/javascript">
 		
 		var haut = false
 		function slideUp(){
 			if(!haut){
-				$('#navigation').slideUp();
-				document.getElementById('conteneurGeneral').style.marginLeft="0px"
+				$('#navigation').slideUp(250);
+				//document.getElementById('conteneurGeneral').style.marginLeft="0px"
 				haut = true;
 			}else{
-				$('#navigation').slideDown();
-				document.getElementById('conteneurGeneral').style.marginLeft="20%"
+				$('#navigation').slideDown(250);
 				haut = false;
 			}
 		}
+		
+		function sleep(milliSeconds){
+	        var startTime = new Date().getTime();
+	        while (new Date().getTime() < startTime + milliSeconds);
+		}
+		
+		
 		
 		$( '#boutonHautBas' ).click(function(){
 			slideUp()});
