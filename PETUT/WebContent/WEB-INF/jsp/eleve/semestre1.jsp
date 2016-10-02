@@ -10,7 +10,6 @@
 </head>
 <body>
 	
-	
 	<jsp:include page="../enTete.jsp"/>
 	<div class="navigation" id="navigation">
 		<ul>
@@ -39,24 +38,37 @@
 		
 	</div>
 	<div class="conteneurGeneral" id="conteneurGeneral">
-
 	</div>
 	<script type="text/javascript">
 		
 		var haut = false
 		function slideUp(){
 			if(!haut){
-				//$('#navigation').slideUp(250);
-				$('#navigation').animate({top:"-=100%"},500)
+				$('#navigation').animate({ top: "-=100%"}, 200 );
+				if($('#navigation').is(':animated')){
+					checkAnimate();
+				}
 				haut = true;
 			}else{
-				$('#navigation').animate({top:"+=100%"},500)
+				document.getElementById('conteneurGeneral').style.marginLeft="20%";
+				document.getElementById('conteneurGeneral').style.width="80%";
+				$('#navigation').animate({ top: "+=100%"}, 200 );
 				haut = false;
 			}
 		}
 		
-
-		
+		function checkAnimate() {
+            if( $( '#navigation' ).is( ':animated' )) {
+                setTimeout(function() {
+                    checkAnimate();
+                }, 0 );
+            }else{
+            	if(haut){
+            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
+            		document.getElementById('conteneurGeneral').style.width="100%";
+            	}	
+            }
+        }
 		
 		$( '#boutonHautBas' ).click(function(){
 			slideUp()});
