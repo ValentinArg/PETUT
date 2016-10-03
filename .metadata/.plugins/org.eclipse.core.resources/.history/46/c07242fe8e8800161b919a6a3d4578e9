@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel ="stylesheet" href = "/PETUT/css/main.css"/>
+<link rel ="stylesheet" href = "/PETUT/css/allSemestres.css"/>	
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<jsp:include page="../enTete.jsp"/>
+	<div class="navigation" id="navigation">
+		<ul>
+			<li class="parent" id="parent1"><p class="module">M1101</p></li>
+			<li class="parent" id="parent2"><p class="module">M1102</p></li>
+			<li class="parent" id="parent1"><p class="module">M1103</p></li>
+			<li class="parent" id="parent2"><p class="module">M1104</p></li>
+			<li class="parent" id="parent1"><p class="module">M1105</p></li>
+			<li class="parent" id="parent2"><p class="module">M1106</p></li>
+			<li class="parent" id="parent1"><p class="module">M1107</p></li>
+			<li class="parent" id="parent2"><p class="module">M1201</p></li>
+			<li class="parent" id="parent1"><p class="module">M1202</p></li>
+			<li class="parent" id="parent2"><p class="module">M1203</p></li>
+			<li class="parent" id="parent1"><p class="module">M1204</p></li>
+			<li class="parent" id="parent2"><p class="module">M1205</p></li>
+			<li class="parent" id="parent1"><p class="module">M1206</p></li>
+			<li class="parent" id="parent1"><p class="module">Groupe A</p></li>
+			<li class="parent" id="parent2"><p class="module">Groupe B</p></li>
+			<li class="parent" id="parent1"><p class="module">Groupe C</p></li>
+			<li class="parent" id="parent2"><p class="module">Groupe D</p></li>
+			<li class="parent" id="parent1"><p class="module">Groupe E</p></li>
+			<li class="parent" id="parent2"><p class="module">Groupe F</p></li>
+			<li class="parent" id="parent1"><p class="module">Evênement BDE</p></li>
+			
+		</ul>
+		
+	</div>
+	<div class="conteneurGeneral" id="conteneurGeneral">
+		test
+	</div>
+	<script type="text/javascript">
+		
+		var haut = false
+		function slideUp(){
+			if(!haut){
+				$('#navigation').animate({ top: "-=100%"}, 200 );
+				if($('#navigation').is(':animated')){
+					checkAnimate();
+				}
+				haut = true;
+			}else{
+				$('#conteneurGeneral').animate({ "left": "+=20%","width": "-=20%" }, 200 );
+				if($('#conteneurGeneral').is(':animated')){
+					checkAnimate();
+				}
+				haut = false;
+			}
+		}
+		
+		function checkAnimate() {
+            if( $( '#navigation' ).is( ':animated' ) ||  $( '#conteneurGeneral' ).is( ':animated' )) {
+                setTimeout(function() {
+                    checkAnimate();
+                }, 0 );
+            }else{
+            	if(haut){
+            		$('#conteneurGeneral').animate({ "margin-left": "-=20%","width": "+=20%" }, 200 );
+            	}	
+            	else{
+            		$('#navigation').animate({ top: "+=100%"}, 200 );
+            		
+            	}
+            }
+        }
+		
+		$( '#boutonHautBas' ).click(function(){
+			slideUp()});
+	</script>
+</body>
+</html>

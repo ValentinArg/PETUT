@@ -1,0 +1,73 @@
+.parent{
+	
+	list-style:none;
+	font-size:20px;
+	cursor:pointer;
+	
+}
+
+.conteneurGeneral{
+	margin:0;
+}
+
+ul{
+	margin:0;
+	padding:0;
+}
+	
+.page {
+	
+	border:solid 1px white;
+	display:block;
+	padding:25px;
+	text-align:center;
+	background-color:#4CAF50;
+	margin:0;
+	
+	
+}
+
+
+a{
+	cursor:pointer;
+}
+
+
+
+
+
+body{
+	
+	margin:0;
+	padding:0;	
+}
+
+
+
+.nav{
+	
+	list-style : none;
+	margin:0;
+	padding:0;
+	background:#333;
+	margin-left:20%;
+	position:fixed;
+	padding-left:105px;
+	z-index:5;
+	width:80%;
+	border-bottom:solid 1px white;
+	text-align:center;
+	
+}
+
+
+
+
+.enfant a {
+	color:white;
+	text-decoration: none;
+}
+
+.enfant a:hover {
+	color:black;
+}

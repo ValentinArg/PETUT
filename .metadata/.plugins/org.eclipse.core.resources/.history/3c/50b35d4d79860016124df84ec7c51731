@@ -1,0 +1,75 @@
+@CHARSET "ISO-8859-1";
+
+.conteneurGeneral{
+	display: block;
+	width: 70%;
+	margin-left: 15%;
+	padding-top:5%;
+}
+
+.conteneurEnTete{
+	width:100%;
+	position:relative;
+}
+
+.nav{
+	
+	list-style : none;
+	margin:0;
+	padding:0;
+	/*background:#333;*/
+	background: Grey;
+	position:fixed;
+	z-index:5;
+	
+	border-bottom:solid 1px white;
+	text-align:center;
+	display:inline-block;
+	
+	
+	
+}
+
+.partie {
+	
+	
+	display: inline-block;
+	padding:8px;
+	font-size:20px;
+	height:20px;
+	vertical-align:top;
+	
+
+	
+}
+
+.partie:hover{
+	
+	/*background: LightCoral;*/
+	background:#333;
+}
+
+.partie a{
+	
+	
+	color:white;
+	text-decoration:none;
+	display:block;
+	position:relative;
+	top: 50%; /* poussé de la moitié de hauteur du référent */
+	transform: translateY(-50%); 
+	padding:10px;
+
+}
+
+a{
+	cursor:pointer;
+	text-decoration: none;
+	
+}
+
+body{
+	
+	margin:0;
+	padding:0;	
+}

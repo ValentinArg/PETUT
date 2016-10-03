@@ -1,0 +1,28 @@
+var haut = false
+function slideUp(){
+			if(!haut){
+				$('#navigation').slideUp()
+				if($('#navigation').is(':animated')){
+					checkAnimate();
+				}
+				haut = true;
+			}else{
+				document.getElementById('conteneurGeneral').style.marginLeft="20%";
+				document.getElementById('conteneurGeneral').style.width="80%";
+				$('#navigation').slideDown();
+				haut = false;
+			}
+		}
+				
+		function checkAnimate() {
+            if( $( '#navigation' ).is( ':animated' )) {
+                setTimeout(function() {
+                    checkAnimate();
+                }, 0 );
+            }else{
+            	if(haut){
+            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
+            		document.getElementById('conteneurGeneral').style.width="100%";
+            	}	
+            }
+        }
