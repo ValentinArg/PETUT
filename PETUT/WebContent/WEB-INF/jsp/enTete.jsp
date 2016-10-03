@@ -11,6 +11,7 @@
   	
 </head>
 <body>
+	<div class=enTete>
 		<p class="boutonHautBas" id="boutonHautBas">module</p>
 		<ul class="nav" id="nav">
 			<!-- <li class="partie" id="banniere"><a>PETUT</a></li>-->
@@ -20,7 +21,6 @@
 			<li class="partie"><a>Travaux Pratiques</a></li>
 			<li class="partie"><a>Partiels</a></li>
 		</ul>
-	
-
+	</div>
 </body>
 </html>

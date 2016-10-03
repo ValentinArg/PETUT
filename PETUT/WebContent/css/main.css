@@ -3,9 +3,16 @@
 
 
 
-
+.enTete{
+	position:fixed;
+	width:100%;
+	top:0;
+	z-index:15;
+}
 
 .nav{
+	top:0;
+	left:top;
 	display:block;
 	vertical-align:top;
 	list-style : none;
@@ -15,7 +22,6 @@
 	height:4.7%;
 	border-bottom:solid 1px white;
 	text-align:left;
-	z-index:10;
 }
 
 
@@ -76,7 +82,7 @@ body{
 	height:20px;
 	font-size:20px;
 	display:inline-block;
-	width:19%;
+	width:20%;
 	text-align:center;
 	vertical-align:top;
 	padding-top:6px;
@@ -90,3 +96,4 @@ body{
 	background:#333;
 	cursor:pointer;
 }
+
