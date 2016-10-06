@@ -13,7 +13,7 @@
 	<jsp:include page="../enTete.jsp"/>
 	<div class="navigation" id="navigation">
 		<ul>
-			<li class="parent" id="parent1"><p class="moduleGeneral" id="moduleGeneral1">module 1</p>
+			<li class="parent" id="parent1"><p class="moduleGeneral" id="moduleGeneral1">UE 1</p>
 				<div class="rubrique" id="module1">
 					<ul >
 						<li><p class="module">M1101</p></li>
@@ -27,7 +27,7 @@
 				</div>
 			</li>
 			
-			<li class="parent" id="parent2"><p class="moduleGeneral" id="moduleGeneral2">module 2</p>
+			<li class="parent" id="parent2"><p class="moduleGeneral" id="moduleGeneral2">UE 2</p>
 				<div class="rubrique" id="module2">
 					<ul>
 						<li><p class="module">M1201</p></li>
