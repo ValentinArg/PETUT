@@ -4,7 +4,7 @@
 
 
 .enTete{
-	position:fixed;
+	position:relative;
 	width:100%;
 	top:0;
 	z-index:15;
@@ -77,7 +77,7 @@ body{
 
 
 .boutonHautBas{
-	position:fixed;
+	position: absolute;
 	margin:0;
 	height:20px;
 	font-size:20px;
