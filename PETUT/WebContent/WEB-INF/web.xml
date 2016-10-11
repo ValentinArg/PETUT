@@ -28,13 +28,7 @@
     	<url-pattern>/eleves/semestre1</url-pattern>
   	</servlet-mapping>
   	
-  	 <filter>
-   	<filter-name>FiltrePagesEleves</filter-name>
-    <filter-class>com.sdzee.filters.FiltrePagesEleves</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>FiltrePagesEleves</filter-name>
-    <url-pattern>/eleves/*</url-pattern>
-  </filter-mapping>
+  	
+  
   	
 </web-app>

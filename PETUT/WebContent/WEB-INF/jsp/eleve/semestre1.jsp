@@ -11,7 +11,7 @@
 <body>
 	
 	<div style="position: fixed;width:100%;z-index:10;">
-	<jsp:include page="../enTete.jsp"/>
+	<jsp:include page="/WEB-INF/jsp/enTete.jsp"/>
 	<div class="navigation" id="navigation">
 		<ul>
 			<li class="parent" id="parent1"><p class="moduleGeneral" id="moduleGeneral1">UE 1</p>
