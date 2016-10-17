@@ -10,10 +10,11 @@
 </head>
 <body>
 	
-	<jsp:include page="../enTete.jsp"/>
+	<div style="position: fixed;width:100%;z-index:10;">
+	<jsp:include page="/WEB-INF/jsp/enTete.jsp"/>
 	<div class="navigation" id="navigation">
 		<ul>
-			<li class="parent" id="parent1"><p class="moduleGeneral" id="moduleGeneral1">module 1</p>
+			<li class="parent" id="parent1"><p class="moduleGeneral" id="moduleGeneral1">UE 1</p>
 				<div class="rubrique" id="module1">
 					<ul >
 						<li><p class="module">M1101</p></li>
@@ -27,7 +28,7 @@
 				</div>
 			</li>
 			
-			<li class="parent" id="parent2"><p class="moduleGeneral" id="moduleGeneral2">module 2</p>
+			<li class="parent" id="parent2"><p class="moduleGeneral" id="moduleGeneral2">UE 2</p>
 				<div class="rubrique" id="module2">
 					<ul>
 						<li><p class="module">M1201</p></li>
@@ -43,6 +44,7 @@
 			
 		</ul>
 		
+	</div>
 	</div>
 	<div class="conteneurGeneral" id="conteneurGeneral">
 	 <p> eefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufzeefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeu eefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufzeefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufzefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze eefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufzeefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeu eefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufzeefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze efzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufzefzfezygfze fezfez fzeu fezgf uzeg fuegzf ezfuezgf yuezg fyuezfuy zefyez fuyze fzyeufezuf zf gzegf ezfg uyez fue fezugf yuegf efg zeu fzeu fzeufze</p>

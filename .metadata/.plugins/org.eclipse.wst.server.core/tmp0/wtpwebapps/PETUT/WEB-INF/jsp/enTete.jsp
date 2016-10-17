@@ -20,6 +20,7 @@
 			<li class="partie"><a>Travaux Dirigées</a></li>
 			<li class="partie"><a>Travaux Pratiques</a></li>
 			<li class="partie"><a>Partiels</a></li>
+			<li class="partie"><a>Mon Compte</a></li>
 		</ul>
 	</div>
 </body>
