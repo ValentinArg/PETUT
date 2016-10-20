@@ -19,9 +19,9 @@
 		    	<fieldset>
 		        	<legend>Connexion enseignant</legend>
 		                           
-					<label for="nomCompte">Nom de compte<span class="requis"></span></label>
-		            <input type="nomCompte" id="connexionNomCompte" name="connexionNomCompte" size="20" maxlength="60" />
-		            <span class="erreur">${traitement.erreurs['connexionNomCompte']}</span>
+					<label for="Identifiant">Nom de compte<span class="requis"></span></label>
+		            <input type="Identifiant" id="connexionIdentifiant" name="connexionIdentifiant" size="20" maxlength="60" />
+		            <span class="erreur">${traitement.erreurs['connexionIdentifiant']}</span>
 		            <br />
 		                
 		            <label for="connexionMotdepasse">Mot de passe <span class="requis"></span></label>
@@ -39,9 +39,9 @@
 		    	<fieldset>
 		        	<legend>Connexion élève</legend>
 		                           
-					<label for="nomCompte">Nom de compte<span class="requis"></span></label>
-		            <input type="nomCompte" id="connexionNomCompte" name="connexionNomCompte" size="20" maxlength="60" />
-		            <span class="erreur">${traitement.erreurs['connexionNomCompte']}</span>
+					<label for="Identifiant">Identifiant<span class="requis"></span></label>
+		            <input type="Identifiant" id="connexionIdentifiant" name="connexionIdentifiant" size="20" maxlength="60" />
+		            <span class="erreur">${traitement.erreurs['connexionIdentifiant']}</span>
 		            <br />
 		                
 		            <label for="connexionMotdepasse">Mot de passe <span class="requis"></span></label>
@@ -52,7 +52,7 @@
 		            <input type="submit" value="connexion" class="sansLabel" />
 		            <br />
 		                
-		            <!-- <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>-->
+		            <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
 		     	</fieldset>
 			</form>
 		</div>

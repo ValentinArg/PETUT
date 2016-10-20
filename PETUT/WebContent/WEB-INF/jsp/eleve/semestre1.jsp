@@ -14,6 +14,14 @@
 	<jsp:include page="/WEB-INF/jsp/enTete.jsp"/>
 	<div class="navigation" id="navigation">
 		<ul>
+			<li>
+				<form>
+					<input type="radio" name="semestre" value="0">S1</>
+					<input type="radio" name="semestre" value="1">S2</>
+					<input type="radio" name="semestre" value="0">S3</>
+					<input type="radio" name="semestre" value="1">S4</>
+				</form>
+			</li>
 			<li class="parent" id="parent1"><p class="moduleGeneral" id="moduleGeneral1">UE 1</p>
 				<div class="rubrique" id="module1">
 					<ul >

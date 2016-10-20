@@ -2,7 +2,7 @@ package SQL;
 
 import java.sql.*;
 
-public class Connect {
+public abstract class Connect {
 
 	private static String url = "jdbc:mysql://localhost:3306/Musculation";
 	private static String utilisateur = "root";
