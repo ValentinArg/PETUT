@@ -2,7 +2,7 @@ package SQL;
 
 import java.sql.*;
 
-public abstract class Connect {
+public abstract class SQL {
 
 	private static String url = "jdbc:mysql://localhost:3306/Musculation";
 	private static String utilisateur = "root";
@@ -11,9 +11,11 @@ public abstract class Connect {
 	private static Statement statement = null;
 	private static ResultSet resultat;
 	
-	
+	public SQL(){
+		this.connect();
+	}
 	  
-	public static void connect() {
+	private void connect() {
 		  /* Chargement du driver JDBC pour MySQL */
 		try {
 			Class.forName( "com.mysql.jdbc.Driver" );
@@ -29,7 +31,7 @@ public abstract class Connect {
 		  } 
 	 }
 	
-	 public static void disconnect(){
+	 public void disconnect(){
 		  try {
 	            /* Fermeture de la connexion */
 	            connexion.close();
@@ -43,7 +45,7 @@ public abstract class Connect {
 	}
 
 	public static void setStatement(Statement statement) {
-		Connect.statement = statement;
+		SQL.statement = statement;
 	}
 
 	public static ResultSet getResultat() {
@@ -51,7 +53,7 @@ public abstract class Connect {
 	}
 
 	public static void setResultat(ResultSet resultat) {
-		Connect.resultat = resultat;
+		SQL.resultat = resultat;
 	}
 
 	public static Connection getConnexion() {
@@ -59,7 +61,7 @@ public abstract class Connect {
 	}
 
 	public static void setConnexion(Connection connexion) {
-		Connect.connexion = connexion;
+		SQL.connexion = connexion;
 	}
 	
 }

@@ -33,6 +33,7 @@ public class Connexion {
 			throw new Exception("Mot de passe invalide");
 		}
         id = sql.recupererIdUtilisateur(email);
+        sql.disconnect();
         return id;
         
     }

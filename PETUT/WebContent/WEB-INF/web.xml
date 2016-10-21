@@ -20,12 +20,12 @@
   	</servlet-mapping>
   	
   	<servlet>
-    	<servlet-name>Semestre1</servlet-name>
-    	<servlet-class>Servlets.Semestre1</servlet-class>
+    	<servlet-name>Forum</servlet-name>
+    	<servlet-class>Servlets.Forum</servlet-class>
   	</servlet>
   	<servlet-mapping>
-    	<servlet-name>Semestre1</servlet-name>
-    	<url-pattern>/eleves/semestre1</url-pattern>
+    	<servlet-name>Forum</servlet-name>
+    	<url-pattern>/eleves/forum</url-pattern>
   	</servlet-mapping>
   	
   	
