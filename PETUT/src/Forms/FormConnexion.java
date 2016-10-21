@@ -8,7 +8,7 @@ import SQL.*;
 
 
 
-public class Connexion {
+public class FormConnexion {
 	
 	private static final String CHAMP_ID    = "connexionIdentifiant";
     private static final String CHAMP_PASS   = "connexionMotdepasse";
