@@ -8,4 +8,6 @@ public class Forum {
 	private String Type; // type = vie etudiante ou vie scolaire
 	private String nom;
 	private List<Sujet> listeSujets;
+	
+	
 }
