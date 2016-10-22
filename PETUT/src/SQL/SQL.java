@@ -14,7 +14,9 @@ public abstract class SQL {
 	public SQL(){
 		this.connect();
 	}
-	  
+	/**
+	 * Connecte l'instance à la base de données
+	 */
 	private void connect() {
 		  /* Chargement du driver JDBC pour MySQL */
 		try {
@@ -30,7 +32,9 @@ public abstract class SQL {
 		     System.out.println("exeption dans la methode connect : " + e);
 		  } 
 	 }
-	
+	/**
+	 * Deconnecte l'instance de la base de données
+	 */
 	 public void disconnect(){
 		  try {
 	            /* Fermeture de la connexion */
