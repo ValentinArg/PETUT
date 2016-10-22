@@ -7,7 +7,6 @@ public class Groupe {
 	private String libelle;
 	private List<Eleve> compositionGroupe;
 	private int numeroSemestre;
-	private 
 	
 	public Groupe(String id, String libelle, List<Eleve> compositionGroupe, int s) {
 		super();
