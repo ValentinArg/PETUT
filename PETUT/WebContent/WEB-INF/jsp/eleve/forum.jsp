@@ -134,6 +134,7 @@
 			idModule = this.getAttribute('id');
 			
 		});
+		//function ajax pour afficher les sujets d'une matière donnée et d'un forum donnée
 		$( '.forum' ).click(function(){
 			if(idModule != null){
 				$.ajax({
@@ -141,8 +142,8 @@
 					type : 'POST',
 					data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
 					success : function(valeur){
-						var user = JSON.parse(valeur);
-						alert(user.messages);
+						var listeSujets = JSON.parse(valeur);
+						
 				    },
 					dataType : 'text'
 				});
