@@ -28,14 +28,14 @@
     	<url-pattern>/eleves/forum</url-pattern>
   	</servlet-mapping>
   	
-  <filter>
+  <!--<filter>
    	<filter-name>FilterPagesEleve</filter-name>
     <filter-class>Filters.FilterPagesEleve</filter-class>
   </filter>
   <filter-mapping>
   	<filter-name>FilterPagesEleve</filter-name>
     <url-pattern>/eleves/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping> -->
   	
   
   	

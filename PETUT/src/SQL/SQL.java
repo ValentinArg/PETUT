@@ -37,7 +37,7 @@ public abstract class SQL {
 	            connexion.close();
 	        } catch ( SQLException ignore ) {
 	            /* Si une erreur survient lors de la fermeture, il suffit de l'ignorer. */
-	        }  
+	        }
 	  }
 
 	public static Statement getStatement() {

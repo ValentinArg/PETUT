@@ -6,6 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import Forms.FormConnexion;
+import SQL.SQLConnexion;
 
 public class ServletConnexion extends HttpServlet{
 
@@ -19,17 +23,25 @@ public class ServletConnexion extends HttpServlet{
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
       
     	
-    	/*Forms.Connexion form = new Forms.Connexion();
-        try {
+    	FormConnexion form = new FormConnexion();
+    	try {
+			int idEleve = form.connexionUtilisateur(request);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+        /*try {
 			int id = form.connexionUtilisateur(request);
 			HttpSession session = request.getSession();
-			SQLConnect sql = new SQLConnect();
+			SQLConnexion sql = new SQLConnexion();
         	session.setAttribute("idUtilisateur", sql.recupererIdUtilisateur(request.getParameter("connexionEmail")) );
         	response.sendRedirect( "/LesPetitsChefs");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			request.setAttribute( "traitement", form );
-			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );*/
+			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+		}*/
 	}
 	
 	

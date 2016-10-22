@@ -17,22 +17,22 @@ public class FormConnexion {
     public int connexionUtilisateur( HttpServletRequest request ) throws Exception {
         
     	String motDePasse = getValeurChamp( request, CHAMP_PASS );
-        String email = getValeurChamp( request, CHAMP_ID );
-        boolean valideEmail;
+        String identifiant = getValeurChamp( request, CHAMP_ID );
+        boolean valideId;
         boolean valideMotdepasse;
         int id = 0;
         SQLConnexion sql = new SQLConnexion();
-		valideEmail = sql.validerEmail(email);
-		if(!valideEmail){
+        valideId = sql.validerId(identifiant);
+		if(!valideId){
 			this.setErreur(CHAMP_ID, "Email invalide");
 			throw new Exception("Email invalide");
 		}
-		valideMotdepasse = sql.validerMotPasse(email, motDePasse);
+		valideMotdepasse = sql.validerMotPasse(identifiant, motDePasse);
 		if(!valideMotdepasse){
 			this.setErreur(CHAMP_PASS, "Mot de passe invalide");
 			throw new Exception("Mot de passe invalide");
 		}
-        id = sql.recupererIdUtilisateur(email);
+        id = sql.recupererIdUtilisateur(identifiant);
         sql.disconnect();
         return id;
         

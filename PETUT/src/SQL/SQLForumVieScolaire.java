@@ -14,7 +14,7 @@ public class SQLForumVieScolaire extends SQL{
 	}
 	
 	
-	public List<Integer> recupererSemestres(){
+	public List<Semestre> getSemestresByIdEnseigne(int idEnseigne){
 		return null;
 	}
 	/**
@@ -22,7 +22,7 @@ public class SQLForumVieScolaire extends SQL{
 	 * @param numeroSemestre numéro du semestre
 	 * @return la liste des modules d'un semestres donnée
 	 */
-	public List<Module> recupererModules(int numeroSemestre){
+	public List<Module> getModulesByIdSemestre(int idSemestre){
 		return null;
 	}
 	/**
@@ -31,7 +31,7 @@ public class SQLForumVieScolaire extends SQL{
 	 * @param nomForum nom du forum
 	 * @return la liste des Sujets d'un module et d'un nom de forum donné, nomForum E {Cours,Partiels,Travaux Pratique,Travaux Dirigé} pour forum.type = vieScolaire
 	 */
-	public List<Sujet> recupererSujets(Module m, String nomForum){
+	public List<Sujet> getSujetsByIdModuleAndIdForum(int idModule, int idForum){
 		return null;
 	}
 	/**
