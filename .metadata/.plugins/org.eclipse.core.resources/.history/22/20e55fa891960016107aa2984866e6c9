@@ -1,0 +1,10 @@
+package SQL;
+
+public class SQLConnexion extends Connect{
+
+	public boolean validerEmail(String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

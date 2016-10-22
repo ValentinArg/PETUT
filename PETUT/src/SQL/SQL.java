@@ -20,7 +20,7 @@ public abstract class SQL {
 		try {
 			Class.forName( "com.mysql.jdbc.Driver" );
 		  } catch ( ClassNotFoundException e ) {
-		      /* Gérer les éventuelles erreurs ici. */
+			  System.out.println("exeption dans la methode connect (nom de la base de donnée) : " + e);
 		  }
 		  /* Connexion à la base de données */
 		  try {
@@ -35,8 +35,9 @@ public abstract class SQL {
 		  try {
 	            /* Fermeture de la connexion */
 	            connexion.close();
-	        } catch ( SQLException ignore ) {
-	            /* Si une erreur survient lors de la fermeture, il suffit de l'ignorer. */
+	            System.out.println("deconnexion réussi");
+	        } catch ( SQLException e ) {
+	        	System.out.println("exeption dans la methode disconnect : " + e);
 	        }
 	  }
 

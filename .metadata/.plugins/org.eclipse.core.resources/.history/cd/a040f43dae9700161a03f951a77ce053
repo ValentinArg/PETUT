@@ -1,0 +1,12 @@
+package Beans;
+
+import java.util.List;
+
+public class Semestre {
+	
+	private int id;
+	private int numero;
+	private List<Module> listeModule;
+	
+	
+}

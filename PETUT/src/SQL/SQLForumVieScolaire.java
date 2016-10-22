@@ -19,7 +19,7 @@ public class SQLForumVieScolaire extends SQL{
 	}
 	/**
 	 * Récupère la liste des module d'un semestre donnée
-	 * @param numeroSemestre numéro du semestre
+	 * @param idSemestre identifiant du semestre
 	 * @return la liste des modules d'un semestres donnée
 	 */
 	public List<Module> getModulesByIdSemestre(int idSemestre){
@@ -27,8 +27,8 @@ public class SQLForumVieScolaire extends SQL{
 	}
 	/**
 	 * Récupère la liste des Sujets d'un module et d'un nom de forum donné, nomForum E {Cours,Partiels,Travaux Pratique,Travaux Dirigé} pour forum.type = vieScolaire
-	 * @param m module
-	 * @param nomForum nom du forum
+	 * @param idModule identifiant du module
+	 * @param idForum id du forum
 	 * @return la liste des Sujets d'un module et d'un nom de forum donné, nomForum E {Cours,Partiels,Travaux Pratique,Travaux Dirigé} pour forum.type = vieScolaire
 	 */
 	public List<Sujet> getSujetsByIdModuleAndIdForum(int idModule, int idForum){

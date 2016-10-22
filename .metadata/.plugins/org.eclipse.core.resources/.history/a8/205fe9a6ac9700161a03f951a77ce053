@@ -1,0 +1,10 @@
+package SQL;
+
+public class SQLSemestre extends SQL{
+	
+	public SQLSemestre(){
+		super();
+	}
+	
+	
+}

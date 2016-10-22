@@ -1,0 +1,8 @@
+package Beans;
+
+public class Groupe {
+
+	private String id;
+	private String libelle;
+	private List<Eleve> compositionGroupe;
+}

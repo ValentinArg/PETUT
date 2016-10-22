@@ -1,0 +1,10 @@
+package SQL;
+
+public class SQLForum extends SQL{
+	
+	public SQLForum(){
+		super();
+	}
+	
+	
+}

@@ -1,0 +1,18 @@
+package SQL;
+
+import java.util.*;
+
+import Beans.Groupe;
+
+public class SQLForum extends SQL{
+	
+	public SQLForum(){
+		super();
+	}
+	
+	public List<Integer> recupererSemestre(Groupe g){
+		return null;
+	}
+	
+	
+}

@@ -1,0 +1,13 @@
+package Beans;
+
+public class Eleve {
+	
+	private int id;
+	private String nom;
+	private String adresse;
+	private String telephone;
+	private String mailPerso;
+	private String mdp;
+	private String mailSite;
+	
+}

@@ -153,9 +153,10 @@
 					type : 'POST',
 					data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
 					success : function(valeur){
+						$('.sujet').remove();
 						var listeSujets = JSON.parse(valeur);
 						//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
-						var tr = $('<tr class="rubrique" id=""/>');
+						var tr = $('<tr class="sujet" id=""/>');
 						$(tr).appendTo($("#listeSujet"));
 						var tdQuestion = $('<td/>');
 						var tdAuteur = $('<td/>');

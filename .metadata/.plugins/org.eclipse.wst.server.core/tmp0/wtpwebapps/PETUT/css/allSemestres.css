@@ -22,7 +22,7 @@ ul{
 	padding:0;
 }
 
-.moduleGeneral {
+.ue {
 	
 	border:solid 1px white;
 	display:block;
@@ -32,24 +32,31 @@ ul{
 	margin:0;
 }
 
-.moduleGeneral:hover{
+.ue:hover{
 	color:white;
 }
 	
 .module {
 	
-	border:solid 1px white;
-	display:block;
+	border:none;
+	border-bottom:solid 1px white;
+	display: block;
 	padding:10px;
 	text-align:center;
 	background-color:#333;
 	margin:0;
+	
+	
 }
 
 .module:hover{
 	color:white;
+	cursor:pointer;
 }
 
+.semestre{
+	background-color:#4CAF50;
+}
 
 a{
 	cursor:pointer;
@@ -89,11 +96,12 @@ body{
 	display:inline-block;
 	height:100%;
 	position:relative;
-	float:right;
-	vertical-align:top;
+	width: 80%;
 	margin:0;
 	margin-left:20%;
 	padding:0;
+	margin-top:50px;
+	
 }
 
 .selection{
@@ -133,7 +141,12 @@ body{
 	
 }
 
-
+.tableauTopic{
+	text-align: center;
+	position:relative;
+	display:block;
+	
+}
 
 
 

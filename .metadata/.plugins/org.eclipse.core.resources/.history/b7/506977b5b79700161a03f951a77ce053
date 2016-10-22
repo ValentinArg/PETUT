@@ -1,0 +1,19 @@
+package SQL;
+
+import java.util.*;
+
+import Beans.Groupe;
+
+public class SQLForum extends SQL{
+	
+	public SQLForum(){
+		super();
+	}
+	
+	//recupère les semestre d'une promotion dans une ensseigne
+	public List<Integer> recupererSemestre(){
+		return null;
+	}
+	
+	
+}

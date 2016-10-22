@@ -1,0 +1,13 @@
+package Beans;
+
+import java.util.*;
+
+public class Sujet {
+	
+	private int id;
+	private String nom;
+	private int numero;
+	private List<Document> documents;
+	
+
+}
