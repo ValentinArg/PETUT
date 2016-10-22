@@ -55,7 +55,18 @@
 	</div>
 	</div>
 	<div class="conteneurGeneral" id="conteneurGeneral">
-		
+		<div class="tableauTopic">
+			<div style="position:relative;display:inline-block">
+				<table id="listeSujet">
+					<tr>
+						<td>Question</td>
+						<td>Auteur</td>
+						<td>Date de publication</td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript">
 		
@@ -143,7 +154,18 @@
 					data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
 					success : function(valeur){
 						var listeSujets = JSON.parse(valeur);
-						
+						//identifiant = identifiant du sujet
+						var tr = $('<tr class="rubrique" id=""/>');
+						$(tr).appendTo($("#listeSujet"));
+						var tdQuestion = $('<td/>');
+						var tdAuteur = $('<td/>');
+						var tdDate = $('<td/>');
+						tdQuestion.text("quel est le resultat de la requete");
+						tdAuteur.text("Bremec Florian");
+						tdDate.text("14/05/2016");
+						$(tdQuestion).appendTo(tr);
+						$(tdAuteur).appendTo(tr);
+						$(tdDate).appendTo(tr);
 				    },
 					dataType : 'text'
 				});

@@ -96,11 +96,12 @@ body{
 	display:inline-block;
 	height:100%;
 	position:relative;
-	float:right;
-	vertical-align:top;
+	width: 80%;
 	margin:0;
 	margin-left:20%;
 	padding:0;
+	margin-top:50px;
+	
 }
 
 .selection{
@@ -140,7 +141,12 @@ body{
 	
 }
 
-
+.tableauTopic{
+	text-align: center;
+	position:relative;
+	display:block;
+	
+}
 
 
 
