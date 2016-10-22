@@ -143,7 +143,7 @@
 		var idModule = null;
 		$( '.module' ).click(function(){
 			idModule = this.getAttribute('id');
-			
+			slideUp();
 		});
 		//function ajax pour afficher les sujets d'une matière donnée et d'un forum donnée
 		$( '.forum' ).click(function(){
@@ -154,7 +154,7 @@
 					data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
 					success : function(valeur){
 						var listeSujets = JSON.parse(valeur);
-						//identifiant = identifiant du sujet
+						//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 						var tr = $('<tr class="rubrique" id=""/>');
 						$(tr).appendTo($("#listeSujet"));
 						var tdQuestion = $('<td/>');
