@@ -141,7 +141,8 @@
 					type : 'POST',
 					data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
 					success : function(valeur){
-						alert(valeur);
+						var user = JSON.parse(valeur);
+						alert(user.messages);
 				    },
 					dataType : 'text'
 				});
