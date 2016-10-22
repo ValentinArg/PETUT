@@ -22,7 +22,7 @@ ul{
 	padding:0;
 }
 
-.moduleGeneral {
+.ue {
 	
 	border:solid 1px white;
 	display:block;
@@ -32,24 +32,31 @@ ul{
 	margin:0;
 }
 
-.moduleGeneral:hover{
+.ue:hover{
 	color:white;
 }
 	
 .module {
 	
-	border:solid 1px white;
-	display:block;
+	border:none;
+	border-bottom:solid 1px white;
+	display: block;
 	padding:10px;
 	text-align:center;
 	background-color:#333;
 	margin:0;
+	
+	
 }
 
 .module:hover{
 	color:white;
+	cursor:pointer;
 }
 
+.semestre{
+	background-color:#4CAF50;
+}
 
 a{
 	cursor:pointer;
