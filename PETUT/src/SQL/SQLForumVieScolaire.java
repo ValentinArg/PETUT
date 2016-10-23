@@ -13,7 +13,11 @@ public class SQLForumVieScolaire extends SQL{
 		super();
 	}
 	
-	
+	/**
+	 * Retourne la liste des semestres d'une enseigne donné
+	 * @param idEnseigne identifiant de l'enseigne
+	 * @return la liste des semestres en fonction d'une enseigne donné
+	 */
 	public List<Semestre> getSemestresByIdEnseigne(int idEnseigne){
 		return null;
 	}
