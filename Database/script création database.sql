@@ -2,7 +2,7 @@ create database pe2idatabase;
 
 
 create table Utilisateur(
-	Identifiant varchar(30) PRIMARY KEY,
+	id_Utilisateur varchar(30) PRIMARY KEY,
     Nom varchar(30) NOT NULL,
     Prenom varchar(30) NOT NULL,
     Adresse varchar(100),
@@ -11,7 +11,7 @@ create table Utilisateur(
     Photo varchar(500),
     Telephone int,
     Adresse_Mail varchar(50) NOT NULL check(AdresseMail like "%@%"),
-    Type_Utilisateur varchar(10) NOT NULL check(Type_Utilisateur="enseignant" || Type_Utilisateur="etudiant")
+    Type_Utilisateur varchar(10) NOT NULL check(Type_Utilisateur="enseignant" || Type_Utilisateur="etudiant" || Type_Utilisateur="bde")
 );
 
 
@@ -24,9 +24,9 @@ create table Enseigne(
 );
 
 create table UtilisateurEnseigne(
-	Identifiant varchar(30) NOT NULL,
+	id_Utilisateur varchar(30) NOT NULL,
     id_Enseigne int NOT NULL,
-    FOREIGN KEY(Identifiant) REFERENCES Utilisateur(Identifiant),
+    FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur),
     FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne)
 );
 
@@ -96,37 +96,37 @@ create table Sujet(
 
 create table Commentaire(
 	id_Commentaire int PRIMARY KEY,
-    Identifiant varchar(30) NOT NULL,
+    id_Utilisateur varchar(30) NOT NULL,
     id_Sujet int NOT NULL,
     Question varchar(100) NOT NULL,
     Texte varchar(10000) NOT NULL,
     Date_Commentaire char(10) NOT NULL check(date_Commentaire like "%%/%%/%%%%"),
     FOREIGN KEY(id_Sujet) REFERENCES Sujet(id_Sujet),
-    FOREIGN KEY(Identifiant) REFERENCES Utilisateur(Identifiant)
+    FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur)
 );
 
 create table Reponse(
 	id_Reponse int PRIMARY KEY,
     id_Commentaire int NOT NULL,
-    Identifiant varchar(30) NOT NULL,
+    id_Utilisateur varchar(30) NOT NULL,
     Texte varchar(10000) NOT NULL,
     Date_Reponse char(10) NOT NULL check(date_Reponse like "%%/%%/%%%%"),
     FOREIGN KEY(id_Commentaire) REFERENCES Commentaire(id_Commentaire),
-    FOREIGN KEY(Identifiant) REFERENCES Utilisateur(Identifiant)
+    FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur)
 );
 
 create table Document(
 	id_Document int PRIMARY KEY,
     id_Reponse int NOT NULL,
     id_Commentaire int NOT NULL,
-    Identifiant varchar(30) NOT NULL,
+    id_Utilisateur varchar(30) NOT NULL,
     Lien varchar(500) NOT NULL,
     date_Document char(10) NOT NULL check(date_Document like "%%/%%/%%%%"),
     Nom varchar(50),
     Type_Document varchar(50) NOT NULL,
     FOREIGN KEY(id_Commentaire) REFERENCES Commentaire(id_Commentaire),
     FOREIGN KEY(id_Reponse) REFERENCES Reponse(id_Reponse),
-    FOREIGN KEY(Identifiant) REFERENCES Utilisateur(Identifiant)
+    FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur)
 );
 
 create table DocumentSujet(
@@ -141,6 +141,7 @@ create table DocumentSujet(
 create table Evenement(
 	id_Evenement int NOT NULL,
 	id_Enseigne int NOT NULL,
+    id_Utilisateur int NOT NULL,
     Nom varchar(50) NOT NULL,
     Adresse varchar(50) NOT NULL,
     Code_Postal int NOT NULL,
@@ -148,6 +149,7 @@ create table Evenement(
     Date_Evenement char(10) NOT NULL check(date_Reponse like "%%/%%/%%%%"),
     Heure char(5) NOT NULL check(Heure like "%%H%%"),
     Type_Evenement varchar(30) check(Type_Forum = "viescolaire" || Type_Forum = "vieetudiante"),
-    FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne)
+    FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne),
+	FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur)
 );
     
