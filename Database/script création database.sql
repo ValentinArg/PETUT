@@ -68,7 +68,7 @@ create table ModuleSemestre(
 create table Groupe(
 	id_Groupe int PRIMARY KEY,
     id_Semestre int NOT NULL,
-    Numero tinyint NOT NULL,
+    libelle varchar(10) NOT NULL,
     FOREIGN KEY(id_Semestre) REFERENCES Semestre(id_Semestre)
 );
 
