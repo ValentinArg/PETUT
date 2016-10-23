@@ -72,7 +72,7 @@ create table ModuleSemestre(
 create table Groupe(
 	id_Groupe int PRIMARY KEY,
     id_Semestre int NOT NULL,
-    libelle varchar(10) NOT NULL,
+    Libelle varchar(10) NOT NULL,
     FOREIGN KEY(id_Semestre) REFERENCES Semestre(id_Semestre)
 );
 
@@ -100,7 +100,7 @@ create table Commentaire(
     id_Sujet int NOT NULL,
     Question varchar(100) NOT NULL,
     Texte varchar(10000) NOT NULL,
-    date_Commentaire char(10) NOT NULL check(date_Commentaire like "%%/%%/%%%%"),
+    Date_Commentaire char(10) NOT NULL check(date_Commentaire like "%%/%%/%%%%"),
     FOREIGN KEY(id_Sujet) REFERENCES Sujet(id_Sujet),
     FOREIGN KEY(Identifiant) REFERENCES Utilisateur(Identifiant)
 );
@@ -140,6 +140,7 @@ create table DocumentSujet(
 
 create table Evenement(
 	id_Evenement int NOT NULL,
+	id_Enseigne int NOT NULL,
     Nom varchar(50) NOT NULL,
     Adresse varchar(50) NOT NULL,
     Code_Postal int NOT NULL,
@@ -147,7 +148,6 @@ create table Evenement(
     Date_Evenement char(10) NOT NULL check(date_Reponse like "%%/%%/%%%%"),
     Heure char(5) NOT NULL check(Heure like "%%H%%"),
     Type_Evenement varchar(30) check(Type_Forum = "viescolaire" || Type_Forum = "vieetudiante"),
-    id_Enseigne int NOT NULL,
     FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne)
 );
     
