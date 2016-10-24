@@ -44,6 +44,16 @@ create table Semestre(
     FOREIGN KEY(id_Promotion) REFERENCES Promotion(id_Promotion)
 );
 
+create table Ue(
+	id_Ue int PRIMARY KEY,
+    id_Semestre int NOT NULL,
+    id_Enseigne int NOT NULL,
+    numero char(1),
+    libelle varchar(50),
+    FOREIGN KEY(id_Semestre) REFERENCES Semestre(id_Semestre),
+    FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne)
+);
+
 create table Forum(
 	id_Forum int PRIMARY KEY,
     id_Enseigne int NOT NULL,
@@ -54,19 +64,10 @@ create table Forum(
 
 create table Module(
 	id_Module int PRIMARY KEY,
-    id_Enseigne int NOT NULL,
+    id_Ue int NOT NULL,
     Numero varchar(10),
-    Libellé varchar(30) NOT NULL,
-    UE tinyint,
-    FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne)
-);
-
-create table ModuleSemestre(
-	id_Module int NOT NULL,
-    id_Semestre int NOT NULL,
-    FOREIGN KEY(id_Module) REFERENCES Module(id_Module),
-    FOREIGN KEY(id_Semestre) REFERENCES Semestre(id_Semestre),
-    PRIMARY KEY(id_Module,id_Semestre)
+    Libellé varchar(30) NOT NULL
+    
 );
 
 create table Groupe(

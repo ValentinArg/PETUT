@@ -16,7 +16,11 @@ public class ServletForum extends HttpServlet{
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
-		
+	
+		SQLForumVieScolaire sql = new SQLForumVieScolaire();
+		List<Semestre> listeSemestre = new ArrayList<Semestre>();
+		listeSemestre = sql.getSemestresByIdEnseigne(1);
+		request.setAttribute("listeSemestre", listeSemestre);
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
 	}
