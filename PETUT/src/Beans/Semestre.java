@@ -6,12 +6,12 @@ public class Semestre {
 
 	private int id;
 	private int numero;
-	private List<Module> listeModuleEnseigne;
-	public Semestre(int id, int numero) {
+	private List<Ue> listeUe;
+	public Semestre(int id, int numero, List<Ue> listeUe) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.listeModuleEnseigne = new ArrayList<Module>();
+		this.listeUe = listeUe;
 	}
 	public int getId() {
 		return id;
@@ -25,16 +25,13 @@ public class Semestre {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public List<Module> getListeModuleEnseigne() {
-		return listeModuleEnseigne;
+	public List<Ue> getListeUe() {
+		return listeUe;
 	}
-	public void setListeModuleEnseigne(List<Module> listeModuleEnseigne) {
-		this.listeModuleEnseigne = listeModuleEnseigne;
+	public void setListeUe(List<Ue> listeUe) {
+		this.listeUe = listeUe;
 	}
 	
-	public void addListeModuleEnseigne(Module m) {
-		this.listeModuleEnseigne.add(m);
-	}
 	
 	
 	

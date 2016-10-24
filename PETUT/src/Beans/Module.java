@@ -6,6 +6,7 @@ public class Module {
 	private String numero;
 	private String libelle;
 	private int ue;
+	
 	public Module(int id, String numero, String libelle, int ue) {
 		super();
 		this.id = id;

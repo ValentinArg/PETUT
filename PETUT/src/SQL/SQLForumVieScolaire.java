@@ -19,24 +19,22 @@ public class SQLForumVieScolaire extends SQL{
 	 * @return la liste des semestres en fonction d'une enseigne donné
 	 */
 	public List<Semestre> getSemestresByIdEnseigne(int idEnseigne){
-		List<Semestre> l = new ArrayList<Semestre>();
-		Semestre s1 = new Semestre(1,1);
-		Semestre s2 = new Semestre(2,2);
-		Semestre s3 = new Semestre(3,3);
-		Semestre s4 = new Semestre(4,4);
-		s1.setListeModuleEnseigne(this.getModulesByIdSemestre(s1.getId()));
-		l.add(s1);
-		l.add(s2);
-		l.add(s3);
-		l.add(s4);
-		return l;
+		return null;
+	}
+	/**
+	 * 
+	 * @param idSemestre identifiant du semestre
+	 * @return
+	 */
+	public List<Ue> getUesByIdSemestre(int idSemestre){
+		return null;
 	}
 	/**
 	 * Récupère la liste des module d'un semestre donnée
 	 * @param idSemestre identifiant du semestre
 	 * @return la liste des modules d'un semestres donnée
 	 */
-	public List<Module> getModulesByIdSemestre(int idSemestre){
+	public List<Module> getModulesByIdSemestre(int idUe){
 		List<Module> l = new ArrayList<Module>();
 		Module m1 = new Module(1, "M1101", "Architecture", 1);
 		l.add(m1);
