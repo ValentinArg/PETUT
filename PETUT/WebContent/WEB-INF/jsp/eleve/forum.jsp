@@ -205,6 +205,9 @@
 					document.getElementById('conteneurGeneral').style.marginLeft="20%";
 					document.getElementById('conteneurGeneral').style.width="80%";
 					$('#navigation').slideDown();
+					if($('#navigation').is(':animated')){
+						checkAnimate();
+					}
 					haut = false;
 				}
 			}	
