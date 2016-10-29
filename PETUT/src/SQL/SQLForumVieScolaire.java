@@ -15,7 +15,7 @@ public class SQLForumVieScolaire extends SQL{
 	}
 	
 	/**
-	 * Retourne la liste des semestres d'une enseigne donné
+	 * Récupère la liste des semestres d'une enseigne donné
 	 * @param idEnseigne identifiant de l'enseigne
 	 * @return la liste des semestres en fonction d'une enseigne donné
 	 */
@@ -45,9 +45,9 @@ public class SQLForumVieScolaire extends SQL{
 		return listeSemestre;
 	}
 	/**
-	 * 
+	 * Récupère la liste des Ue en fonction d'un identifiant de semestre
 	 * @param idSemestre identifiant du semestre
-	 * @return
+	 * @return la liste des Ue en fonction d'un identifiant de semestre
 	 */
 	public List<Ue> getUesByIdSemestre(int idSemestre){
 		List<Ue> listeUe = new ArrayList<Ue>();
