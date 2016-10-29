@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import Beans.*;
 import SQL.SQLForumVieScolaire;
 
-public class ServletForum extends HttpServlet{
+public class ServletForumVieScolaire extends HttpServlet{
 
 	private String VUE = "/WEB-INF/jsp/eleve/forum.jsp";
 

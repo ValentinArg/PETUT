@@ -20,11 +20,11 @@
   	</servlet-mapping>
   	
   	<servlet>
-    	<servlet-name>ServletForum</servlet-name>
-    	<servlet-class>Servlets.ServletForum</servlet-class>
+    	<servlet-name>ServletForumVieScolaire</servlet-name>
+    	<servlet-class>Servlets.ServletForumVieScolaire</servlet-class>
   	</servlet>
   	<servlet-mapping>
-    	<servlet-name>ServletForum</servlet-name>
+    	<servlet-name>ServletForumVieScolaire</servlet-name>
     	<url-pattern>/eleves/forum</url-pattern>
   	</servlet-mapping>
   	
