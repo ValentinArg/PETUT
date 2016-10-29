@@ -15,8 +15,14 @@
 	</head>
 	<body>
 		<div style="position: fixed;width:100%;z-index:10;">
-			<jsp:include page="/WEB-INF/jsp/enTete.jsp"/>
-			
+			<div class=enTete>
+				<p class="boutonHautBas" id="boutonHautBas">module</p>
+				<ul class="nav" id="nav">
+					<c:forEach var="forum" items="${listeForum}">
+						<li class=" partie"><a class="forum" id="forum${forum.id}"><c:out value="${forum.nom}"/></a></li>
+					</c:forEach>
+				</ul>
+			</div>
 			<div class="navigation" id="navigation">
 				<ul id="context">
 					<li class="semestres" id="semestre">

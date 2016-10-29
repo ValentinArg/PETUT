@@ -116,8 +116,30 @@ public class SQLForumVieScolaire extends SQL{
 	 * Récupère la liste des forums de la vie scolaire des étudiants d'une enseigne donnée (forum.type = "vieScolaire" in BDD)
 	 * @return la liste des forums de la vie scolaire des étudiants d'une enseigne donnée
 	 */
-	public List<Forum> recupererForums(){
-		return null;
+	public List<Forum> getForumByIdEnseigne(int idEnseigne){
+		List<Forum> listeForum = new ArrayList<Forum>();
+		try {
+			this.setStatement(this.getConnexion().createStatement());
+		} catch (SQLException e) {
+			System.out.println("erreur dans la création du statement");
+			e.printStackTrace();
+		}
+		try {
+			this.setResultat(this.getStatement().executeQuery("SELECT * FROM Forum WHERE id_Enseigne = "+idEnseigne+" AND type_forum='viescolaire';"));
+		} catch (SQLException e) {
+			System.out.println("erreur dans l'execution de la requete SQL");
+			e.printStackTrace();
+		}
+		try {
+			while ( this.getResultat().next() ) {
+				Forum f = new Forum(this.getResultat().getInt("id_Forum"),this.getResultat().getString("nom"));
+				listeForum.add(f);
+			}
+		} catch (SQLException e) {
+			System.out.println("erreur dans la recupération des données");
+			e.printStackTrace();
+		}
+		return listeForum;
 	}
 	/**
 	 * Récupère la liste des topics d'un sujet donné

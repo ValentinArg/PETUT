@@ -14,12 +14,15 @@
 	<div class=enTete>
 		<p class="boutonHautBas" id="boutonHautBas">module</p>
 		<ul class="nav" id="nav">
-			<!-- <li class="partie" id="banniere"><a>PETUT</a></li>-->
+			<c:forEach var="forum" items="${listeForum}">
+				<li class=" partie"><a class="forum" id="${forum.id}"><c:out value="${forum.nom}"/></a></li>
+			</c:forEach>
+			<!-- <li class="partie" id="banniere"><a>PETUT</a></li>-
 			<li class=" partie"><a class="forum" id="1">Cours</a></li>
 			<li class="partie"><a class="forum" id="2">Travaux Dirigées</a></li>
 			<li class="partie"><a class="forum" id="3">Travaux Pratiques</a></li>
 			<li class="partie"><a class="forum" id="4">Partiels</a></li>
-			<li class="partie"><a>Mon Compte</a></li>
+			<li class="partie"><a>Mon Compte</a></li>-->
 		</ul>
 	</div>
 	
