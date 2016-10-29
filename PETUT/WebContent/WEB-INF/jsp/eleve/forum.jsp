@@ -189,7 +189,6 @@
 			});		
 			var haut = false;
 			function slideUp(){
-				alert(listeSemestreClick)
 				if(!haut){
 					$('#navigation').slideUp()
 					if($('#navigation').is(':animated')){
