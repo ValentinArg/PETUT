@@ -41,8 +41,10 @@ create table Promotion(
 create table Semestre(
 	id_Semestre int PRIMARY KEY,
     id_Promotion int NOT NULL,
+    id_Enseigne int not null,
     Numero tinyint,
-    FOREIGN KEY(id_Promotion) REFERENCES Promotion(id_Promotion)
+    FOREIGN KEY(id_Promotion) REFERENCES Promotion(id_Promotion),
+    FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne)
 );
 
 create table Ue(
