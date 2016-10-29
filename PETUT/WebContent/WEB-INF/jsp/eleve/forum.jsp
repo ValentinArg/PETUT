@@ -194,7 +194,7 @@
 				}
 			});		
 			var haut = false;
-			function slideUp(){
+			function slide(){
 				if(!haut){
 					$('#navigation').slideUp()
 					if($('#navigation').is(':animated')){
@@ -224,7 +224,7 @@
 	            }
 	        }
 			$( '#boutonHautBas' ).click(function(){
-				slideUp()});
+				slide()});
 		</script>
 	</body>
 </html>
