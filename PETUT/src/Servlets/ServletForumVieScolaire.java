@@ -16,7 +16,6 @@ public class ServletForumVieScolaire extends HttpServlet{
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
-	
 		SQLForumVieScolaire sql = new SQLForumVieScolaire();
 		List<Semestre> listeSemestre = new ArrayList<Semestre>();
 		List<Forum> listeForum = new ArrayList<Forum>();

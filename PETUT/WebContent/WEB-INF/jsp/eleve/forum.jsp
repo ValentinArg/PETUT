@@ -16,7 +16,7 @@
 	<body>
 		<div style="position: fixed;width:100%;z-index:10;">
 			<div class=enTete>
-				<p class="boutonHautBas" id="boutonHautBas">module</p>
+				<p class="boutonHautBas" id="boutonHautBas">Modules</p>
 				<ul class="nav" id="nav">
 					<c:forEach var="forum" items="${listeForum}">
 						<li class=" partie"><a class="forum" id="forum${forum.id}"><c:out value="${forum.nom}"/></a></li>
@@ -104,6 +104,7 @@
 			
 			//listeSemestreCLick = new listeSemestre();
 			$( '.semestre' ).click(function(){
+				$('.forum').hide(200);
 				$("#navigation").find('li').each(
 					function(){
 						if(this.id != "semestre"){
@@ -158,7 +159,7 @@
 								$("#"+id).slideUp();
 							}
 							$(".module").click(function(){
-								alert("je suis la");
+								$('.forum').show(200);
 								return false;
 							});
 						},
@@ -225,6 +226,8 @@
 	        }
 			$( '#boutonHautBas' ).click(function(){
 				slide()});
+			
+			$('.forum').hide();
 		</script>
 	</body>
 </html>

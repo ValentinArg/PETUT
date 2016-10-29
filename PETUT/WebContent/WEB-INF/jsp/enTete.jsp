@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class=enTete>
-		<p class="boutonHautBas" id="boutonHautBas">module</p>
+		<p class="boutonHautBas" id="boutonHautBas">Module</p>
 		<ul class="nav" id="nav">
 			<c:forEach var="forum" items="${listeForum}">
 				<li class=" partie"><a class="forum" id="${forum.id}"><c:out value="${forum.nom}"/></a></li>
