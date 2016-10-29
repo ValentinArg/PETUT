@@ -19,7 +19,7 @@
 			
 			<div class="navigation" id="navigation">
 				<ul id="context">
-					<li class="semestres">
+					<li class="semestres" id="semestre">
 						<form>
 							<c:forEach var="semestre" items="${listeSemestre}">
 								<input class= "semestre" id = "${semestre.id}" type="radio" name="semestre"><c:out value="S${semestre.numero}"/></>
@@ -32,7 +32,15 @@
 		<div class="conteneurGeneral" id="conteneurGeneral">
 		</div>
 		<script type="text/javascript">
+			var listeSemestreClick
 			$( '.semestre' ).click(function(){
+				$("#navigation").find('li').each(
+					function(){
+						if(this.id != "semestre"){
+							$("#"+this.id).remove();
+						}
+					}
+				)
 				idSemestre = this.getAttribute('id');
 				if(idSemestre != null){
 					$.ajax({
@@ -50,7 +58,6 @@
 								$(p).appendTo(li);
 								$(div).appendTo(li);
 								$(ul).appendTo(div);
-								
 							}
 							for(j = 0; j < listeUes.length; j++){
 								for(k=0;k<listeUes[j].l.length;k++){

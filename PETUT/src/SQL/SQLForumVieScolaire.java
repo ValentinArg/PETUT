@@ -1,19 +1,15 @@
 package SQL;
-
 import java.sql.SQLException;
 import java.util.*;
-
 import Beans.*;
 
 public class SQLForumVieScolaire extends SQL{
-	
 	/**
 	 * Créer une instance de la class SQLForumVieScolaire et la connecte à la base de données
 	 */
 	public SQLForumVieScolaire(){
 		super();
 	}
-	
 	/**
 	 * Récupère la liste des semestres d'une enseigne donné
 	 * @param idEnseigne identifiant de l'enseigne
@@ -106,7 +102,6 @@ public class SQLForumVieScolaire extends SQL{
 			listeUe.get(i).setL(listeModule);
 		}
 		return listeUe;
-		
 	}
 	/**
 	 * Récupère la liste des Sujets d'un module et d'un nom de forum donné, nomForum E {Cours,Partiels,Travaux Pratique,Travaux Dirigé} pour forum.type = vieScolaire
