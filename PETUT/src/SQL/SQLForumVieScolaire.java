@@ -72,18 +72,41 @@ public class SQLForumVieScolaire extends SQL{
 			System.out.println("erreur dans la recupération des données");
 			e.printStackTrace();
 		}
-		return listeUe;
+		return this.getModulesByListeUe(listeUe);
 	}
 	/**
-	 * Récupère la liste des module d'un semestre donnée
-	 * @param idSemestre identifiant du semestre
-	 * @return la liste des modules d'un semestres donnée
+	 * Récupère la liste des module d'un Ue donné
+	 * @param listeUe liste des Ue d'un semestre
+	 * @return la liste des modules d'un Ue donné
 	 */
-	public List<Module> getModulesByIdSemestre(int idUe){
-		List<Module> l = new ArrayList<Module>();
-		Module m1 = new Module(1, "M1101", "Architecture", 1);
-		l.add(m1);
-		return l;
+	private List<Ue> getModulesByListeUe(List<Ue> listeUe){
+		for(int i =0; i<listeUe.size();i++){
+			List<Module> listeModule = new ArrayList<Module>();
+			try {
+				this.setStatement(this.getConnexion().createStatement());
+			} catch (SQLException e) {
+				System.out.println("erreur dans la création du statement");
+				e.printStackTrace();
+			}
+			try {
+				this.setResultat(this.getStatement().executeQuery("SELECT * FROM Module WHERE id_Ue ="+listeUe.get(i).getId()+";"));
+			} catch (SQLException e) {
+				System.out.println("erreur dans l'execution de la requete SQL");
+				e.printStackTrace();
+			}
+			try {
+				while ( this.getResultat().next() ) {
+					Module m = new Module(this.getResultat().getInt("id_Module"),this.getResultat().getString("numero"),this.getResultat().getString("libellé"),this.getResultat().getInt("id_Ue"));
+					listeModule.add(m);
+				}
+			} catch (SQLException e) {
+				System.out.println("erreur dans la recupération des données");
+				e.printStackTrace();
+			}
+			listeUe.get(i).setL(listeModule);
+		}
+		return listeUe;
+		
 	}
 	/**
 	 * Récupère la liste des Sujets d'un module et d'un nom de forum donné, nomForum E {Cours,Partiels,Travaux Pratique,Travaux Dirigé} pour forum.type = vieScolaire

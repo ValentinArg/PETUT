@@ -24,7 +24,7 @@ ul{
 
 .ue {
 	
-	border:solid 1px white;
+	border-top:solid 1px white;
 	display:block;
 	padding:10px;
 	text-align:center;
@@ -36,7 +36,7 @@ ul{
 	color:white;
 }
 	
-.module {
+.module p{
 	
 	border:none;
 	border-bottom:solid 1px white;
@@ -49,13 +49,14 @@ ul{
 	
 }
 
-.module:hover{
+.module p:hover{
 	color:white;
 	cursor:pointer;
 }
 
 .semestres{
 	background-color:#4CAF50;
+	
 }
 
 a{
@@ -101,6 +102,7 @@ body{
 	margin-left:20%;
 	padding:0;
 	margin-top:50px;
+	vertical-align:top;
 	
 }
 

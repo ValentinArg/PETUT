@@ -15,7 +15,7 @@
 </head>
 <body>
 	
-	<div style="position: fixed;width:100%;z-index:10;">
+	<!-- <div style="position: fixed;width:100%;z-index:10;">-->
 	<jsp:include page="/WEB-INF/jsp/enTete.jsp"/>
 	<div class="navigation" id="navigation">
 		<ul id="context">
@@ -58,115 +58,13 @@
 		
 	</div>
 	
-	<div class="arborescence" style="display:inline-block;">
-		<!-- <ul>
-			<li class="dossier" onclick='slideDossier(this,"dossier")'> TP1: Machine virtuelle linux
-				<ul>
-					<li class="sousDossier"> Comment on fait ?</li>
-				</ul>
-			</li>
-			<li class="dossier"> TP2: serveur virtuelle
-				<ul>
-					<li class="sousDossier"> Ca marche pas</li>
-				</ul>
-			</li>
-		</ul>-->
-	</div>
+	
 	<div class="conteneurGeneral" id="conteneurGeneral">
-		<div class="tableauTopic">
-			<div style="position:relative;display:inline-block">
-				<table id="listeSujet">
-					<tr>
-						<td>Question</td>
-						<td>Auteur</td>
-						<td>Date de publication</td>
-					</tr>
-					
-				</table>
-			</div>
-		</div>
+		fzefezyfezgfzeauyfgzeuygfezugfzegfez
 	</div>
 	<script type="text/javascript">
 		
-		var haut = false
-		function slideUp(){
-			if(!haut){
-				$('#navigation').slideUp()
-				if($('#navigation').is(':animated')){
-					checkAnimate();
-				}
-				haut = true;
-			}else{
-				document.getElementById('conteneurGeneral').style.marginLeft="20%";
-				document.getElementById('conteneurGeneral').style.width="80%";
-				$('#navigation').slideDown();
-				haut = false;
-			}
-		}
-				
-		function checkAnimate() {
-            if( $( '#navigation' ).is( ':animated' )) {
-                setTimeout(function() {
-                    checkAnimate();
-                }, 0 );
-            }else{
-            	if(haut){
-            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
-            		document.getElementById('conteneurGeneral').style.width="100%";
-            	}	
-            }
-        }
 		
-		
-		
-		var hautModule1 = true;
-		function sildeModule1(){
-			if(!hautModule2){
-				$("#module1").slideUp();
-				hautModule2=true;
-			}
-			if(hautModule1){
-				$("#module0").slideDown();
-				hautModule1=false;
-				
-			}else{
-				$("#module0").slideUp();
-				hautModule1=true;
-			}
-		}
-		
-		var hautModule2 = true;
-		function sildeModule2(){
-			if(!hautModule1){
-				$("#module0").slideUp();
-				hautModule1=true;
-			}
-			if(hautModule2){
-				$("#module1").slideDown();
-				hautModule2=false;
-				
-			}else{
-				$("#module1").slideUp();
-				hautModule2=true;
-			}
-		}
-		
-		function slideDosier(nom,numero,nombrePere){
-			for(var i = 1; i<nombrePere+1;i++){
-				$(nom+i).slideUp();
-			}
-			if(!$(nom+numero).is(":visible"))
-				$(nom+numero).slideDown();
-		}
-		
-		$( '#boutonHautBas' ).click(function(){
-			slideUp()});
-		
-		$( '#parent0' ).click(function(){
-			alert("je suis la");
-			sildeModule1()});
-		$( '#parent1' ).click(function(){
-			sildeModule2()});
 		
 		
 		var idModule = null;
@@ -182,13 +80,11 @@
 					type : 'POST',
 					data : 'idSemestre=' + idSemestre,
 					success: function(valeur){
-						var listeContext = JSON.parse(valeur);
-						var listeUes = listeContext[0];
-						var listeModules = listeContext[1];
+						var listeUes = JSON.parse(valeur);
 						for(i = 0; i < listeUes.length; i++){
 							var li = $("<li class='parent' id='parent"+i+"'/>");
 							var p = $("<p class='ue' id='ue"+i+"'> UE "+listeUes[i].numero + " : " +listeUes[i].libelle+"</p>");
-							var div = $("<div class='rubrique' id='module"+i+"'/>");
+							var div = $("<div class='rubrique' id='rubrique"+i+"'/>");
 							var ul = $("<ul id=moduleUe"+i+"></ul>")
 							$(li).appendTo($("#context"));
 							$(p).appendTo(li);
@@ -196,13 +92,50 @@
 							$(ul).appendTo(div);
 							
 						}
-						for(j = 0; j < listeModules.length; j++){
-							var li2 = $("<li><p class='module'>"+listeModules[j].numero+"</p></li>")
-							$(li2).appendTo($("#moduleUe0"))
+						for(j = 0; j < listeUes.length; j++){
+							for(k=0;k<listeUes[j].l.length;k++){
+								var li2 = $("<li class='module' id='module"+listeUes[j].l[k].id+"'><p>"+listeUes[j].l[k].numero+"</p></li>")
+								$(li2).appendTo($("#moduleUe"+j));
+							}
 						}
-						
-						
-						
+						$(".module").slideUp();
+						$( '.parent' ).click(function(){
+							$("#"+this.id).find('li').each( 
+								function(){
+									if(($(this)).is(":visible")){
+										cacher($(this).attr('id'));
+									}else{
+										afficher($(this).attr('id'));
+									}
+									
+								}
+							)
+						});
+						function afficher(id){
+							$("#"+id).slideDown();
+						}
+						function cacher(id){
+							$("#"+id).slideUp();
+						}
+						//var hautModule1 = true;
+						//var hautModule2 = true;
+						//function slideModule1(){
+						//	if(!hautModule2){
+						//		$("#moduleUe1").slideUp();
+						//		hautModule2=true;
+						//	}
+						//	if(hautModule1){
+						//		$("#moduleUe0").slideDown();
+						//		hautModule1=false;
+						//		
+						//	}else{
+						//		$("#moduleUe0").slideUp();
+						//		hautModule1=true;
+						//	}
+						//}
+						//$( '#parent0' ).click(function(){
+						//	slideModule1();
+						//});	
 					},
 					dataType : 'text'
 				})
@@ -238,16 +171,78 @@
 			}
 		});
 		
-		$( '.sousDossier').slideUp();
-		
-		
-		function slideDossier(dossierClicker,nom){
-			
-			$(nom).slideUp();
-		
-			if(!$(dossierClicker).is(":visible"))
-				$(dossierClicker).slideDown();
+		//$( '.sousDossier').slideUp();
+		var haut = false
+		function slideUp(){
+			if(!haut){
+				$('#navigation').slideUp()
+				if($('#navigation').is(':animated')){
+					checkAnimate();
+				}
+				haut = true;
+			}else{
+				document.getElementById('conteneurGeneral').style.marginLeft="20%";
+				document.getElementById('conteneurGeneral').style.width="80%";
+				$('#navigation').slideDown();
+				haut = false;
+			}
 		}
+				
+		function checkAnimate() {
+            if( $( '#navigation' ).is( ':animated' )) {
+                setTimeout(function() {
+                    checkAnimate();
+                }, 0 );
+            }else{
+            	if(haut){
+            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
+            		document.getElementById('conteneurGeneral').style.width="100%";
+            	}	
+            }
+        }
+		
+		
+		
+		
+		
+		//var hautModule2 = true;
+		//function sildeModule2(){
+		//	if(!hautModule1){
+		//		$("#module0").slideUp();
+		//		hautModule1=true;
+		//	}
+		//	if(hautModule2){
+		//		$("#module1").slideDown();
+		//		hautModule2=false;
+				
+		//	}else{
+		//		$("#module1").slideUp();
+		//		hautModule2=true;
+		//	}
+		//}
+		
+		//function slideDosier(nom,numero,nombrePere){
+		//	for(var i = 1; i<nombrePere+1;i++){
+		//		$(nom+i).slideUp();
+		//	}
+		//	if(!$(nom+numero).is(":visible"))
+		//		$(nom+numero).slideDown();
+		//}
+		
+		$( '#boutonHautBas' ).click(function(){
+			slideUp()});
+		
+		
+		//$( '#parent1' ).click(function(){
+		//	sildeModule2()});
+		
+		//function slideDossier(dossierClicker,nom){
+			
+		//	$(nom).slideUp();
+		
+		//	if(!$(dossierClicker).is(":visible"))
+		//		$(dossierClicker).slideDown();
+		//}
 		
 			
 		

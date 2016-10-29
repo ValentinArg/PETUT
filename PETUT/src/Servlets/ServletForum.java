@@ -33,16 +33,8 @@ public class ServletForum extends HttpServlet{
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
 			 List<Ue> listeUe =  new ArrayList<Ue>();
 			 listeUe = sql.getUesByIdSemestre(idSemestre);
-			 List<Module> listeModule =  new ArrayList<Module>();
-			 listeModule = sql.getModulesByIdSemestre(idSemestre);
-			 
-			 List<Object> l = new ArrayList<Object>();
-			 l.add(listeUe);
-			 l.add(listeModule);
-			 
 			 ObjectMapper mapper = new ObjectMapper();
-			 String string = mapper.writeValueAsString(l);
-			 
+			 String string = mapper.writeValueAsString(listeUe);
 			 response.setContentType("application/json");
 			 response.setCharacterEncoding("UTF-8");
 			 response.getWriter().write(string);
