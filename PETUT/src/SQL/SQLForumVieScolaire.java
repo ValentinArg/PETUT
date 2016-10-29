@@ -1,5 +1,6 @@
 package SQL;
 
+import java.sql.SQLException;
 import java.util.*;
 
 import Beans.*;
@@ -19,7 +20,29 @@ public class SQLForumVieScolaire extends SQL{
 	 * @return la liste des semestres en fonction d'une enseigne donné
 	 */
 	public List<Semestre> getSemestresByIdEnseigne(int idEnseigne){
-		return null;
+		List<Semestre> listeSemestre = new ArrayList<Semestre>();
+		try {
+			this.setStatement(this.getConnexion().createStatement());
+		} catch (SQLException e) {
+			System.out.println("erreur dans la création du statement");
+			e.printStackTrace();
+		}
+		try {
+			this.setResultat(this.getStatement().executeQuery("SELECT * FROM SEMESTRE WHERE id_Enseigne = "+idEnseigne+";"));
+		} catch (SQLException e) {
+			System.out.println("erreur dans l'execution de la requete SQL");
+			e.printStackTrace();
+		}
+		try {
+			while ( this.getResultat().next() ) {
+				Semestre s = new Semestre(this.getResultat().getInt("id_Semestre"),this.getResultat().getInt("numero"));
+				listeSemestre.add(s);
+			}
+		} catch (SQLException e) {
+			System.out.println("erreur dans la recupération des données");
+			e.printStackTrace();
+		}
+		return listeSemestre;
 	}
 	/**
 	 * 
@@ -27,7 +50,29 @@ public class SQLForumVieScolaire extends SQL{
 	 * @return
 	 */
 	public List<Ue> getUesByIdSemestre(int idSemestre){
-		return null;
+		List<Ue> listeUe = new ArrayList<Ue>();
+		try {
+			this.setStatement(this.getConnexion().createStatement());
+		} catch (SQLException e) {
+			System.out.println("erreur dans la création du statement");
+			e.printStackTrace();
+		}
+		try {
+			this.setResultat(this.getStatement().executeQuery("SELECT * FROM Ue WHERE id_Semestre = "+idSemestre+";"));
+		} catch (SQLException e) {
+			System.out.println("erreur dans l'execution de la requete SQL");
+			e.printStackTrace();
+		}
+		try {
+			while ( this.getResultat().next() ) {
+				Ue ue = new Ue(this.getResultat().getInt("id_Ue"),this.getResultat().getInt("numero"),this.getResultat().getString("libelle"));
+				listeUe.add(ue);
+			}
+		} catch (SQLException e) {
+			System.out.println("erreur dans la recupération des données");
+			e.printStackTrace();
+		}
+		return listeUe;
 	}
 	/**
 	 * Récupère la liste des module d'un semestre donnée

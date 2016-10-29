@@ -10,14 +10,12 @@ public class Ue {
 	private Semestre s;
 	private Enseigne e;
 	private List<Module> l;
-	public Ue(int id, int numero, String libelle, Semestre s, Enseigne e, List<Module> l) {
+	
+	public Ue(int id, int numero, String libelle) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.libelle = libelle;
-		this.s = s;
-		this.e = e;
-		this.l = l;
 	}
 	public int getId() {
 		return id;

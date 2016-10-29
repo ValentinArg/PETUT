@@ -4,7 +4,7 @@ import java.sql.*;
 
 public abstract class SQL {
 
-	private static String url = "jdbc:mysql://localhost:3306/Musculation";
+	private static String url = "jdbc:mysql://localhost:3306/pe2idatabase";
 	private static String utilisateur = "root";
 	private static String motDePasse = "admin";
 	protected static Connection connexion;

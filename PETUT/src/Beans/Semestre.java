@@ -7,11 +7,10 @@ public class Semestre {
 	private int id;
 	private int numero;
 	private List<Ue> listeUe;
-	public Semestre(int id, int numero, List<Ue> listeUe) {
+	public Semestre(int id, int numero) {
 		super();
 		this.id = id;
 		this.numero = numero;
-		this.listeUe = listeUe;
 	}
 	public int getId() {
 		return id;

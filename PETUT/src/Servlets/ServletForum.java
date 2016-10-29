@@ -21,11 +21,35 @@ public class ServletForum extends HttpServlet{
 		List<Semestre> listeSemestre = new ArrayList<Semestre>();
 		listeSemestre = sql.getSemestresByIdEnseigne(1);
 		request.setAttribute("listeSemestre", listeSemestre);
+		sql.disconnect();
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
 	}
 	 public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
-		 String idModule = request.getParameter("idModule");
+		 
+		 if(request.getParameter("idSemestre")!= null){
+			 //cast de string vers int
+			 int idSemestre = Integer.parseInt(request.getParameter("idSemestre"));
+			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
+			 List<Ue> listeUe =  new ArrayList<Ue>();
+			 listeUe = sql.getUesByIdSemestre(idSemestre);
+			 List<Module> listeModule =  new ArrayList<Module>();
+			 listeModule = sql.getModulesByIdSemestre(idSemestre);
+			 
+			 List<Object> l = new ArrayList<Object>();
+			 l.add(listeUe);
+			 l.add(listeModule);
+			 
+			 ObjectMapper mapper = new ObjectMapper();
+			 String string = mapper.writeValueAsString(l);
+			 
+			 response.setContentType("application/json");
+			 response.setCharacterEncoding("UTF-8");
+			 response.getWriter().write(string);
+			 sql.disconnect();
+ 
+		 }
+		 /*String idModule = request.getParameter("idModule");
 		 String idForum = request.getParameter("idForum");
 		 
 		 ObjectMapper mapper = new ObjectMapper();
@@ -39,7 +63,7 @@ public class ServletForum extends HttpServlet{
 		 
 		 response.setContentType("application/json");
 		 response.setCharacterEncoding("UTF-8");
-		 response.getWriter().write(string);
+		 response.getWriter().write(string);*/
 		 
 	 }
 	 

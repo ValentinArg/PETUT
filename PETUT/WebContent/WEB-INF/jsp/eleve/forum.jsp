@@ -18,19 +18,15 @@
 	<div style="position: fixed;width:100%;z-index:10;">
 	<jsp:include page="/WEB-INF/jsp/enTete.jsp"/>
 	<div class="navigation" id="navigation">
-		<ul>
-			<li class="semestre">
+		<ul id="context">
+			<li class="semestres">
 				<form>
 					<c:forEach var="semestre" items="${listeSemestre}">
-						<input type="radio" name="semestre"><c:out value="S${semestre.numero}"/></>
+						<input class= "semestre" id = "${semestre.id}" type="radio" name="semestre"><c:out value="S${semestre.numero}"/></>
 					</c:forEach>
-					<!-- <input type="radio" name="semestre" value="0">S1</>
-					<input type="radio" name="semestre" value="1">S2</>
-					<input type="radio" name="semestre" value="0">S3</>
-					<input type="radio" name="semestre" value="1">S4</>-->
 				</form>
 			</li>
-			<li class="parent" id="parent1"><p class="ue" id="ue1">UE 1</p>
+			<!-- ><li class="parent" id="parent1"><p class="ue" id="ue1">UE 1</p>
 				<div class="rubrique" id="module1">
 					<ul >
 						<li><p class="module" id="1101" >M1101</p></li>
@@ -56,7 +52,7 @@
 						<li><p class="module">M1207</p></li>
 					</ul>
 				</div>
-			</li>
+			</li>-->
 			
 		</ul>
 		
@@ -121,21 +117,20 @@
             }
         }
 		
-		$("#module2").slideUp();
-		$("#module1").slideUp();
+		
 		
 		var hautModule1 = true;
 		function sildeModule1(){
 			if(!hautModule2){
-				$("#module2").slideUp();
+				$("#module1").slideUp();
 				hautModule2=true;
 			}
 			if(hautModule1){
-				$("#module1").slideDown();
+				$("#module0").slideDown();
 				hautModule1=false;
 				
 			}else{
-				$("#module1").slideUp();
+				$("#module0").slideUp();
 				hautModule1=true;
 			}
 		}
@@ -143,15 +138,15 @@
 		var hautModule2 = true;
 		function sildeModule2(){
 			if(!hautModule1){
-				$("#module1").slideUp();
+				$("#module0").slideUp();
 				hautModule1=true;
 			}
 			if(hautModule2){
-				$("#module2").slideDown();
+				$("#module1").slideDown();
 				hautModule2=false;
 				
 			}else{
-				$("#module2").slideUp();
+				$("#module1").slideUp();
 				hautModule2=true;
 			}
 		}
@@ -167,9 +162,10 @@
 		$( '#boutonHautBas' ).click(function(){
 			slideUp()});
 		
-		$( '#parent1' ).click(function(){
+		$( '#parent0' ).click(function(){
+			alert("je suis la");
 			sildeModule1()});
-		$( '#parent2' ).click(function(){
+		$( '#parent1' ).click(function(){
 			sildeModule2()});
 		
 		
@@ -177,6 +173,40 @@
 		$( '.module' ).click(function(){
 			idModule = this.getAttribute('id');
 			slideUp();
+		});
+		$( '.semestre' ).click(function(){
+			idSemestre = this.getAttribute('id');
+			if(idSemestre != null){
+				$.ajax({
+					url : '/PETUT/eleves/forum',
+					type : 'POST',
+					data : 'idSemestre=' + idSemestre,
+					success: function(valeur){
+						var listeContext = JSON.parse(valeur);
+						var listeUes = listeContext[0];
+						var listeModules = listeContext[1];
+						for(i = 0; i < listeUes.length; i++){
+							var li = $("<li class='parent' id='parent"+i+"'/>");
+							var p = $("<p class='ue' id='ue"+i+"'> UE "+listeUes[i].numero + " : " +listeUes[i].libelle+"</p>");
+							var div = $("<div class='rubrique' id='module"+i+"'/>");
+							var ul = $("<ul id=moduleUe"+i+"></ul>")
+							$(li).appendTo($("#context"));
+							$(p).appendTo(li);
+							$(div).appendTo(li);
+							$(ul).appendTo(div);
+							
+						}
+						for(j = 0; j < listeModules.length; j++){
+							var li2 = $("<li><p class='module'>"+listeModules[j].numero+"</p></li>")
+							$(li2).appendTo($("#moduleUe0"))
+						}
+						
+						
+						
+					},
+					dataType : 'text'
+				})
+			}
 		});
 		
 		
