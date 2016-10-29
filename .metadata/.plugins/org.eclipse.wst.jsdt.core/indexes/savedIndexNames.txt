@@ -1,17 +1,8 @@
 INDEX VERSION 1.3+C:\Users\Flo\Desktop\Travail\PETUT S3\PETUT\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3978046152.index
-1144773225.index
-2889897990.index
 3271571070.index
-3350771461.index
-790848837.index
-1598386796.index
-3903270496.index
 2004073995.index
-2577202335.index
 3102474230.index
-3495149929.index
-2999809466.index
+790848837.index
 508705479.index
 2653467771.index
 680777932.index

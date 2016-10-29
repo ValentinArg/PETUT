@@ -1,0 +1,18 @@
+package Beans;
+
+public class Enseigne {
+	
+	private int id;
+	private String nom;
+	private String adresse;
+	public Enseigne(int id, String nom, String adresse) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.adresse = adresse;
+	}
+	
+	
+
+
+}

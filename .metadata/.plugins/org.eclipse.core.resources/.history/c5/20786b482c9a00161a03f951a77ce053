@@ -1,0 +1,11 @@
+package Beans;
+
+public class Ue {
+	
+	private int id;
+	private int numero;
+	private String libelle;
+	private Semestre s;
+	private Enseigne e;
+
+}

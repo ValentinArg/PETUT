@@ -1,0 +1,9 @@
+package Beans;
+
+public class Module {
+	
+	private int id;
+	private int numero;
+	private String libelle;
+
+}

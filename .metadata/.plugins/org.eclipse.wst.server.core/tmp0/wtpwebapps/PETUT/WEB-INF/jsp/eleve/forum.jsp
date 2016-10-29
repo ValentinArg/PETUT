@@ -219,11 +219,7 @@
 				$(dossierClicker).slideDown();
 		}
 		
-		
-		
-		
-		
-		
+			
 		
 	</script>
 </body>

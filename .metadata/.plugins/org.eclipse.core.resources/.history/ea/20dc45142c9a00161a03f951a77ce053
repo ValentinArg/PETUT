@@ -1,0 +1,8 @@
+package Beans;
+
+public class Ue {
+	
+	private int id;
+	private int numero;
+
+}
