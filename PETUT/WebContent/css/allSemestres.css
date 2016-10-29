@@ -94,6 +94,7 @@ body{
 }
 
 .conteneurGeneral{
+	text-align:justify;
 	display:inline-block;
 	height:100%;
 	position:relative;

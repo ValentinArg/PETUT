@@ -15,8 +15,9 @@
 </head>
 <body>
 	
-	<!-- <div style="position: fixed;width:100%;z-index:10;">-->
+	<div style="position: fixed;width:100%;z-index:10;">
 	<jsp:include page="/WEB-INF/jsp/enTete.jsp"/>
+	
 	<div class="navigation" id="navigation">
 		<ul id="context">
 			<li class="semestres">
@@ -57,10 +58,10 @@
 		</ul>
 		
 	</div>
-	
+	</div>
 	
 	<div class="conteneurGeneral" id="conteneurGeneral">
-		fzefezyfezgfzeauyfgzeuygfezugfzegfez
+		
 	</div>
 	<script type="text/javascript">
 		
@@ -98,8 +99,9 @@
 								$(li2).appendTo($("#moduleUe"+j));
 							}
 						}
-						$(".module").slideUp();
+						$(".module").hide();
 						$( '.parent' ).click(function(){
+							$(".module").slideUp();
 							$("#"+this.id).find('li').each( 
 								function(){
 									if(($(this)).is(":visible")){
@@ -117,6 +119,10 @@
 						function cacher(id){
 							$("#"+id).slideUp();
 						}
+						$(".module").click(function(){
+							alert("je suis la");
+							return false;
+						});
 						//var hautModule1 = true;
 						//var hautModule2 = true;
 						//function slideModule1(){
@@ -172,7 +178,7 @@
 		});
 		
 		//$( '.sousDossier').slideUp();
-		var haut = false
+		var haut = false;
 		function slideUp(){
 			if(!haut){
 				$('#navigation').slideUp()
