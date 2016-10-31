@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
-		<title>Insert title here</title>
+		<title>PE2I</title>
 	</head>
 	<body>
 		<div style="position: fixed;width:100%;z-index:10;">
@@ -38,78 +38,13 @@
 		<div class="conteneurGeneral" id="conteneurGeneral">
 		</div>
 		<script type="text/javascript">
-			//function afficherElement(valeur){
-			//	listeSemestreCLick.addNumeroSemestre(idSemestre,valeur);
-			//	var listeUes = JSON.parse(valeur);
-			//	for(i = 0; i < listeUes.length; i++){
-			//		var li = $("<li class='parent' id='parent"+i+"'/>");
-			//		var p = $("<p class='ue' id='ue"+i+"'> UE "+listeUes[i].numero + " : " +listeUes[i].libelle+"</p>");
-			//		var div = $("<div class='rubrique' id='rubrique"+i+"'/>");
-			//		var ul = $("<ul id=moduleUe"+i+"></ul>")
-			//		$(li).appendTo($("#context"));
-			//		$(p).appendTo(li);
-			//		$(div).appendTo(li);
-			//		$(ul).appendTo(div);
-			//	}
-			//	for(j = 0; j < listeUes.length; j++){
-			//		for(k=0;k<listeUes[j].l.length;k++){
-			//			var li2 = $("<li class='module' id='module"+listeUes[j].l[k].id+"'><p>"+listeUes[j].l[k].numero+"</p></li>")
-			//			$(li2).appendTo($("#moduleUe"+j));
-			//		}
-			//	}
-			//	$(".module").hide();
-			//	$( '.parent' ).click(function(){
-			//		$(".module").slideUp();
-			//		$("#"+this.id).find('li').each( 
-			//			function(){
-			//				if(($(this)).is(":visible")){
-			//					cacher($(this).attr('id'));
-			//				}else{
-			//					afficher($(this).attr('id'));
-			//				}
-			//				
-			//			}
-			//		)
-			//	});
-			//	function afficher(id){
-			//		$("#"+id).slideDown();
-			//	}
-			//	function cacher(id){
-			//		$("#"+id).slideUp();
-			//	}
-			//	$(".module").click(function(){
-			//		alert("je suis la");
-			//		return false;
-			//	});
-			//}
-			//function listeSemestre(){
-			//	this.listeSemestre = new Array();
-			//	this.addNumeroSemestre = function(semestre,texte){
-			//		s = new Semestre(semestre,texte);
-			//		this.listeSemestre[this.listeSemestre.length]=s;
-			//	};
-			//	this.getTexteSemestre = function(idSemestre){
-			//		for(i=0;i<this.listeSemestre.length;i++){
-			//			if(this.listeSemestre[i].numero == idSemestre){
-			//				return this.listeSemestre[i].texte;
-			//			}
-			//		}
-			//	};
-			//};
-			
-			//function Semestre(numero,texte){
-			//	this.numero = numero;
-			//	this.texte = texte;
-			//};
-			
-			//listeSemestreCLick = new listeSemestre();
+			var idModuleClick;
 			$( '.semestre' ).click(function(){
 				$('.forum').hide(200);
 				$("#navigation").find('li').each(
 					function(){
 						if(this.id != "semestre"){
 							$("#"+this.id).remove();
-							//afficherElement(listeSemestreCLick.getTexteSemestre(this.getAttribute('id')));
 						}
 					}
 				)
@@ -160,6 +95,7 @@
 							}
 							$(".module").click(function(){
 								$('.forum').show(200);
+								idModuleClick = (this.id).replace('module', '');
 								return false;
 							});
 						},
@@ -169,11 +105,12 @@
 			});
 			//function ajax pour afficher les sujets d'une matière donnée et d'un forum donnée
 			$( '.forum' ).click(function(){
-				if(idModule != null){
+				slideBarreModule();
+				if(idModuleClick != null){
 					$.ajax({
 						url : '/PE2I/eleves/forum',
 						type : 'POST',
-						data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
+						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
 							$('.sujet').remove();
 							var listeSujets = JSON.parse(valeur);
@@ -195,7 +132,7 @@
 				}
 			});		
 			var haut = false;
-			function slide(){
+			function slideBarreModule(){
 				if(!haut){
 					$('#navigation').slideUp()
 					if($('#navigation').is(':animated')){
@@ -225,7 +162,7 @@
 	            }
 	        }
 			$( '#boutonHautBas' ).click(function(){
-				slide()});
+				slideBarreModule()});
 				
 			$('.forum').hide();
 		</script>

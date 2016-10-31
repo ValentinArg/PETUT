@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
-		<title>Insert title here</title>
+		<title>PE2I</title>
 	</head>
 	<body>
 		<div style="position: fixed;width:100%;z-index:10;">
