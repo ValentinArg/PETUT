@@ -13,8 +13,6 @@ create table Utilisateur(
     Adresse_Mail varchar(50) NOT NULL check(AdresseMail like "%@%"),
     Type_Utilisateur varchar(10) NOT NULL check(Type_Utilisateur like "enseignant" || Type_Utilisateur like "etudiant" || Type_Utilisateur like "bde")
 );
-
-
 create table Enseigne(
 	id_Enseigne int PRIMARY KEY,
     Nom varchar(30) NOT NULL,
@@ -156,6 +154,23 @@ create table Evenement(
 );
 
 
+/*****************************************************************************************************************************************************************/
+/********************************************************************Jeu de données*******************************************************************************/
+/*****************************************************************************************************************************************************************/
 
-
+INSERT INTO Utilisateur VALUES (1,'Bremec Florian','17C Avenu du Gers',31270,'Frouzins',0781734740,'fbremec@gmail.com','etudiant');
+INSERT INTO Enseigne VALUES (1,'IUT Informatique','128 Route de Rangueil',31100,'Toulouse');
+INSERT INTO Utilisateurenseigne VALUES (1,1);
+INSERT INTO Promotion VALUES (1,1,2017);
+INSERT INTO Semestre VALUES (1,1,1,1),(2,1,1,2),(3,1,1,3),(4,1,1,4);
+INSERT INTO Groupe VALUES (1,1,'E');
+INSERT INTO Ue VALUES (1,1,1,1,'Base de l\'informatique'),(2,1,1,2,'Gestion d\'un système');
+INSERT INTO Module VALUES (1,1,'M1101','Base de l\'architecture système'),(2,1,'M1102','Base d\'un système');
+INSERT INTO Forum VALUES (1,1,'Travaux Pratiques','viescolaire'),(2,1,'Cours','viescolaire'),(3,1,'Travaux Dirigés','viescolaire'),(4,1,'Partiels','viescolaire');
+INSERT INTO Sujet VALUES (1,1,1,'Installation d\'une machine virtuelle Linux',1);
+INSERT INTO Commentaire VALUES (1,1,1,'Comment on fais ?','Bonjour j\'ai un problème.','29/10/2016');
+INSERT INTO Reponse VALUES (1,1,1,'on fais comme ca','29/10/2016');
+INSERT INTO Document VALUES (1,1,1,'29/10/2016','document installation linux');
+INSERT INTO Document (id_Document,id_Utilisateur,Lien,date_Document,Nom) VALUES (2,1,'29/10/2016','correction');
+INSERT INTO Documentsujet VALUES (2,1,'correction');
     
