@@ -42,23 +42,27 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 response.setCharacterEncoding("UTF-8");
 			 response.getWriter().write(string);
 			 sql.disconnect();
- 
 		 }
-		 /*String idModule = request.getParameter("idModule");
-		 String idForum = request.getParameter("idForum");
+		 else if (request.getParameter("idModule")!= null && request.getParameter("idForum")!=null){
+			 String idModule = request.getParameter("idModule");
+			 String idForum = request.getParameter("idForum");
+			 System.out.println(idForum);
+			 ObjectMapper mapper = new ObjectMapper();
+			 List<Sujet> listeSujets =  new ArrayList<Sujet>();
+			 
+			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
+			 listeSujets = sql.getSujetsByIdModuleAndIdForum(Integer.parseInt(idModule), Integer.parseInt(idForum));
+			 sql.disconnect();
+			 
+			 String string = mapper.writeValueAsString(listeSujets);
+			 
+			 response.setContentType("application/json");
+			 response.setCharacterEncoding("UTF-8");
+			 response.getWriter().write(string);
+		 }
 		 
-		 ObjectMapper mapper = new ObjectMapper();
-		 List<Sujet> listeSujets =  new ArrayList<Sujet>();
 		 
-		 SQLForumVieScolaire sql = new SQLForumVieScolaire();
-		 listeSujets = sql.getSujetsByIdModuleAndIdForum(Integer.parseInt(idModule), Integer.parseInt(idForum));
-		 sql.disconnect();
 		 
-		 String string = mapper.writeValueAsString(listeSujets);
-		 
-		 response.setContentType("application/json");
-		 response.setCharacterEncoding("UTF-8");
-		 response.getWriter().write(string);*/
 		 
 	 }
 	 

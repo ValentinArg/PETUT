@@ -39,7 +39,6 @@
 		</div>
 		<script type="text/javascript">
 			var idModuleClick;
-			
 			$( '.semestre' ).click(function(){
 				$('.forum').hide(200);
 				$("#navigation").find('li').each(
@@ -107,11 +106,11 @@
 			//function ajax pour afficher les sujets d'une matière donnée et d'un forum donnée
 			$( '.forum' ).click(function(){
 				slideBarreModule();
-				if(idModule != null){
+				if(idModuleClick != null){
 					$.ajax({
 						url : '/PE2I/eleves/forum',
 						type : 'POST',
-						data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
+						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
 							$('.sujet').remove();
 							var listeSujets = JSON.parse(valeur);
