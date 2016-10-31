@@ -5,8 +5,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel ="stylesheet" href = "/PETUT/css/main.css"/>
-		<link rel ="stylesheet" href = "/PETUT/css/forum.css"/>
+		<link rel ="stylesheet" href = "/PE2I/css/main.css"/>
+		<link rel ="stylesheet" href = "/PE2I/css/forum.css"/>
 		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
 		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
@@ -116,7 +116,7 @@
 				idSemestre = this.getAttribute('id');
 				if(idSemestre != null){
 					$.ajax({
-						url : '/PETUT/eleves/forum',
+						url : '/PE2I/eleves/forum',
 						type : 'POST',
 						data : 'idSemestre=' + idSemestre,
 						success: function(valeur){
@@ -171,7 +171,7 @@
 			$( '.forum' ).click(function(){
 				if(idModule != null){
 					$.ajax({
-						url : '/PETUT/eleves/forum',
+						url : '/PE2I/eleves/forum',
 						type : 'POST',
 						data : 'idModule=' + idModule + '&idForum='+this.getAttribute('id'),
 						success : function(valeur){
@@ -226,7 +226,7 @@
 	        }
 			$( '#boutonHautBas' ).click(function(){
 				slide()});
-			
+				
 			$('.forum').hide();
 		</script>
 	</body>

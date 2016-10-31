@@ -22,8 +22,8 @@ public class ServletForumVieScolaire extends HttpServlet{
 		listeSemestre = sql.getSemestresByIdEnseigne(1);
 		listeForum = sql.getForumByIdEnseigne(1);
 		request.setAttribute("listeForum", listeForum);
-		System.out.println(listeForum.get(0).getNom());
 		request.setAttribute("listeSemestre", listeSemestre);
+		System.out.println(listeForum.get(0).getNom());
 		sql.disconnect();
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
