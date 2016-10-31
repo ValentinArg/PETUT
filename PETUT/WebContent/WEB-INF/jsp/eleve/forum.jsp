@@ -134,23 +134,23 @@
 			var haut = false;
 			function slideBarreModule(){
 				if(!haut){
-					$('#navigation').slideUp()
-					if($('#navigation').is(':animated')){
+					$('#context').slideUp()
+					if($('#context').is(':animated')){
 						checkAnimate();
 					}
 					haut = true;
 				}else{
 					document.getElementById('conteneurGeneral').style.marginLeft="20%";
 					document.getElementById('conteneurGeneral').style.width="80%";
-					$('#navigation').slideDown();
-					if($('#navigation').is(':animated')){
+					$('#context').slideDown();
+					if($('#context').is(':animated')){
 						checkAnimate();
 					}
 					haut = false;
 				}
 			}	
 			function checkAnimate() {
-	            if( $( '#navigation' ).is( ':animated' )) {
+	            if( $( '#context' ).is( ':animated' )) {
 	                setTimeout(function() {
 	                    checkAnimate();
 	                }, 0 );
