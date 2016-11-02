@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class ServletIndex extends HttpServlet{
+public class ServletAccueil extends HttpServlet{
 	
 	private String VUE = "/WEB-INF/jsp/index.jsp";
 
