@@ -11,7 +11,7 @@
 		<title>PE2I</title>
 	</head>
 	<body>
-		<div style="position: fixed;width:100%;z-index:10;">
+		<div style="position: fixed;width:100%;z-index:10;"></div>
 			<div class=enTete>
 				<p class="boutonHautBas" id="boutonHautBas">Modules</p>
 				<ul class="nav" id="nav">
