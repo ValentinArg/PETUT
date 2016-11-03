@@ -116,7 +116,7 @@ public class SQLForumVieScolaire extends SQL {
             try {
                 while ( this.getResultat().next() ) {
                     Module m = new Module( this.getResultat().getInt( "id_Module" ),
-                            this.getResultat().getString( "numero" ), this.getResultat().getString( "libelle" ),
+                            this.getResultat().getString( "numero" ), this.getResultat().getString( "libellé" ),
                             this.getResultat().getInt( "id_Ue" ) );
                     listeModule.add( m );
                 }

@@ -36,7 +36,23 @@
 			</div>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			
+			<table id="tableauSujets" class="tableau">
+				<tr class="enteteTableau">
+			       <th><p>N°</p></th>
+			       <th>Nom</th>
+			       <th>Document</th>
+   				</tr>
+				<tr class="champTableau">
+			       <td>TP : 1</td>
+			       <td>Premier contact avec PHP</td>
+			       <td></td>
+			   </tr>
+			   <tr class="champTableau">
+			       <td>TP : 2</td>
+			       <td>PHP, la conception orienté objet</td>
+			       <td></td>
+			   </tr>
+			</table>
 		</div>
 		<script type="text/javascript">
 			var idModuleClick;

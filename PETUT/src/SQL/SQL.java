@@ -10,7 +10,7 @@ public abstract class SQL {
 
     private static String       url         = "jdbc:mysql://localhost:3306/pe2idatabase";
     private static String       utilisateur = "root";
-    private static String       motDePasse  = "ChIpS31270";
+    private static String       motDePasse  = "admin";
     protected static Connection connexion;
     private static Statement    statement   = null;
     private static ResultSet    resultat;
@@ -20,32 +20,32 @@ public abstract class SQL {
     }
 
     /**
-     * Connecte l'instance ï¿½ la base de donnï¿½es
+     * Connecte l'instance à la base de données
      */
     private void connect() {
         /* Chargement du driver JDBC pour MySQL */
         try {
             Class.forName( "com.mysql.jdbc.Driver" );
         } catch ( ClassNotFoundException e ) {
-            System.out.println( "exeption dans la methode connect (nom de la base de donnï¿½e) : " + e );
+            System.out.println( "exeption dans la methode connect (nom de la base de donnée) : " + e );
         }
-        /* Connexion ï¿½ la base de donnï¿½es */
+        /* Connexion à la base de données */
         try {
             connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
-            System.out.println( "connexion rï¿½ussi" );
+            System.out.println( "connexion réussi" );
         } catch ( SQLException e ) {
             System.out.println( "exeption dans la methode connect : " + e );
         }
     }
 
     /**
-     * Deconnecte l'instance de la base de donnï¿½es
+     * Deconnecte l'instance de la base de données
      */
     public void disconnect() {
         try {
             /* Fermeture de la connexion */
             connexion.close();
-            System.out.println( "deconnexion rï¿½ussi" );
+            System.out.println( "deconnexion réussi" );
         } catch ( SQLException e ) {
             System.out.println( "exeption dans la methode disconnect : " + e );
         }
