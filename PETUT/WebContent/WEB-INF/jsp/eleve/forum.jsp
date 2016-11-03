@@ -10,7 +10,7 @@
 		<title>PE2I</title>
 	</head>
 	<body>
-		<div style="position: fixed;width:100%;z-index:10;"></div>
+		<div style="position: fixed;width:100%;z-index:10;">
 			<div class=enTete>
 				<p class="boutonHautBas" id="boutonHautBas">Modules</p>
 				<ul class="nav" id="nav">
@@ -32,23 +32,25 @@
 			</div>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			<table id="tableauSujets" class="tableau">
-				<tr class="enteteTableau">
-			       <th><p>N°</p></th>
-			       <th>Nom</th>
-			       <th>Document</th>
-   				</tr>
-				<tr class="champTableau">
-			       <td>TP : 1</td>
-			       <td>Premier contact avec PHP</td>
-			       <td></td>
-			   </tr>
-			   <tr class="champTableau">
-			       <td>TP : 2</td>
-			       <td>PHP, la conception orienté objet</td>
-			       <td></td>
-			   </tr>
-			</table>
+			<div class="listeSujets">
+				<table id="tableauSujets" class="tableau">
+					<tr class="enteteTableau">
+				       <th>N°</th>
+				       <th>Nom</th>
+				       <th>Document</th>
+	   				</tr>
+					<tr class="champTableau">
+				       <td style="text-align: center;">1</td>
+				       <td>TP1 : Premier contact avec PHP</td>
+				       <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
+				   </tr>
+				   <tr class="champTableau">
+				       <td style="text-align: center;">2</td>
+				       <td>TP2 : PHP, la conception orienté objet</td>
+				      <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
+				   </tr>
+				</table>
+			</div>
 		</div>
 		<script type="text/javascript">
 			var idModuleClick;
@@ -178,6 +180,12 @@
 				slideBarreModule()});
 				
 			$('.forum').hide();
+			//var longueurDivTableau = ($(".tableau").width()*100);
+			//var pourcentage = (longueurDivTableau/($(document).width()));
+			//var resultat = ((100-pourcentage)/2)-20;
+			//alert(resultat);	
+			//var string = resultat+'%';
+			//document.getElementById('tableauSujets').style.marginLeft = string;
 		</script>
 	</body>
 </html>

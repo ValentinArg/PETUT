@@ -1,8 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-
-
-
 .enTete{
 	position:relative;
 	width:100%;
@@ -209,12 +206,51 @@ body{
 	
 }
 .tableau{
+	border-collapse: collapse;
+  	font-size:13px;
+}
+
+.enteteTableau th{
+	border:solid 1px black;
 	text-align: center;
-	color:red;
+	padding-left:8px;
+	padding-right:8px;
 }
 
 
+.champTableau td{
+	
+	border:solid 1px black;
+	padding-left:8px;
+	padding-right:8px;
+}
 
+tr:hover{
+	background-color:grey;
+	cursor:pointer;
+}
+
+.champTableau p:hover{
+	background-color:#A7A8AA;
+}
+
+.champTableau p{
+	
+	margin:0;
+	display:inline-block;
+	font-size:10px;
+	padding-right:2px;
+	padding-left:2px;
+	text-decoration:underline;
+	cursor:pointer;
+	
+}
+
+.listeSujets{
+
+	
+  	
+}
 
 
 
