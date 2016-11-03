@@ -5,7 +5,6 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel ="stylesheet" href = "/PE2I/css/main.css"/>
 		<link rel ="stylesheet" href = "/PE2I/css/forum.css"/>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 		<title>PE2I</title>
