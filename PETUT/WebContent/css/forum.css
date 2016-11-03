@@ -208,10 +208,9 @@ body{
 	background:#A7A8AA;
 	
 }
-.tableauTopic{
+.tableau{
 	text-align: center;
-	position:relative;
-	display:block;
+	color:red;
 }
 
 
