@@ -44,15 +44,18 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 sql.disconnect();
 		 }
 		 else if (request.getParameter("idModule")!= null && request.getParameter("idForum")!=null){
-			 String idModule = request.getParameter("idModule");
-			 String idForum = request.getParameter("idForum");
-			 System.out.println(idForum);
-			 ObjectMapper mapper = new ObjectMapper();
-			 List<Sujet> listeSujets =  new ArrayList<Sujet>();
+			 int idModule = Integer.parseInt(request.getParameter("idModule"));
+			 int idForum = Integer.parseInt(request.getParameter("idForum"));
 			 
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
-			 listeSujets = sql.getSujetsByIdModuleAndIdForum(Integer.parseInt(idModule), Integer.parseInt(idForum));
+			 List<Sujet> listeSujets = new ArrayList<Sujet>();
+			 listeSujets = sql.getSujetsByIdModuleAndIdForum(idModule, idForum);
 			 sql.disconnect();
+			 
+			 System.out.println(listeSujets.get(0).getCorrection().getIdDocument());
+			 
+			 ObjectMapper mapper = new ObjectMapper();
+
 			 
 			 String string = mapper.writeValueAsString(listeSujets);
 			 

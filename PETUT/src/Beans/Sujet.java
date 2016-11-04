@@ -7,15 +7,18 @@ public class Sujet {
 	private int id;
 	private String nom;
 	private int numero;
-	private List<Document> listeDocuments;
+	private Document sujet;
+	private Document correction;
+	private List<Document> listeDocumentsAImporter;
 	private List<Commentaire> listeCommentaire;
-	public Sujet(int id, String nom, int numero, List<Document> listeDocuments, List<Commentaire> listeCommentaire) {
+	
+	public Sujet(int id, String nom, int numero) {
 		super();
+		this.listeDocumentsAImporter = new ArrayList<Document>();
+		this.listeCommentaire = new ArrayList<Commentaire>();
 		this.id = id;
 		this.nom = nom;
 		this.numero = numero;
-		this.listeDocuments = listeDocuments;
-		this.listeCommentaire = listeCommentaire;
 	}
 	public int getId() {
 		return id;
@@ -35,17 +38,32 @@ public class Sujet {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public List<Document> getListeDocuments() {
-		return listeDocuments;
+	public List<Document> getListeDocumentsAImporter() {
+		return listeDocumentsAImporter;
 	}
-	public void setListeDocuments(List<Document> listeDocuments) {
-		this.listeDocuments = listeDocuments;
+	public void addListeDocumentsAImporter(Document documentAImporter) {
+		this.listeDocumentsAImporter.add(documentAImporter);
 	}
 	public List<Commentaire> getListeCommentaire() {
 		return listeCommentaire;
 	}
 	public void setListeCommentaire(List<Commentaire> listeCommentaire) {
 		this.listeCommentaire = listeCommentaire;
+	}
+	public Document getSujet() {
+		return sujet;
+	}
+	public void setSujet(Document sujet) {
+		this.sujet = sujet;
+	}
+	public Document getCorrection() {
+		return correction;
+	}
+	public void setCorrection(Document correction) {
+		this.correction = correction;
+	}
+	public void setListeDocumentsAImporter(List<Document> listeDocumentsAImporter) {
+		this.listeDocumentsAImporter = listeDocumentsAImporter;
 	}
 	
 	
