@@ -6,7 +6,7 @@ public class Document {
 	
 	private int idDocument;
 	private Sujet sujet;
-	//private Utilisateur utilisateur;
+	private Utilisateur utilisateur;
 	//private Reponse reponse;
 	private String nom;
 	private String lien;
@@ -36,13 +36,13 @@ public class Document {
 		this.sujet = sujet;
 	}
 
-	/*public Utilisateur getUtilisateur() {
+	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
-	}*/
+	}
 
 	public String getNom() {
 		return nom;

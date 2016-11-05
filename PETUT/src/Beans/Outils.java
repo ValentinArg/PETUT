@@ -6,13 +6,13 @@ public abstract class Outils {
 	
 	public static void decouperListDocumentSujet(Document d,Sujet s){
 		if(d.getNom().compareTo("document à importer")==0){
-			//s.addListeDocumentsAImporter(d);
+			s.addListeDocumentsAImporter(d);
 		}
 		else if(d.getNom().compareTo("correction")==0){
 			s.setCorrection(d);
 		}
 		else if(d.getNom().compareTo("sujet")==0){
-			//s.setSujet(d);
+			s.setSujet(d);
 		}
 		
 	}
