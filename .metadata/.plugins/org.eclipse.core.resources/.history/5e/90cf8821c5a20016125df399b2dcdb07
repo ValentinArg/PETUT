@@ -1,0 +1,14 @@
+package Beans;
+
+public class Document {
+	
+	private int idDocument;
+	private int idSujet;
+	private int idUtilisateur;
+	private String nom;
+	private String lien;
+	private String date;
+	
+	
+	
+}

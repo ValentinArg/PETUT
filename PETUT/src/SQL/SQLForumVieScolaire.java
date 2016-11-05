@@ -165,7 +165,7 @@ public class SQLForumVieScolaire extends SQL {
         return this.getDocumentSujetsByListSujet(listeSujet);
     }
     
-    private List<Sujet> getDocumentSujetsByListSujet(List<Sujet> listeSujet){
+    private List<DocumentSujet> getDocumentSujetsByListSujet(List<Sujet> listeSujet){
     	for ( Sujet s : listeSujet) {
             try {
                 this.setStatement( this.getConnexion().createStatement() );
@@ -229,6 +229,62 @@ public class SQLForumVieScolaire extends SQL {
 	            }
     		}
     		s.setListeDocumentsAImporter(listeDocumentAImporter);
+        }
+    	return getDocumentsCorrectionByListSujet(listeSujet);
+    }
+    
+    private List<Sujet> getDocumentsCorrectionByListSujet(List<Sujet> listeSujet){
+    	for ( Sujet s : listeSujet) {
+    		try {
+    			this.setStatement( this.getConnexion().createStatement() );
+	        } catch ( SQLException e ) {
+	        	System.out.println( "erreur dans la création du statement" );
+	            e.printStackTrace();
+	        }
+	        try {
+	        	this.setResultat( this.getStatement()
+	                .executeQuery( "SELECT * FROM Sujet WHERE id_Sujet ="+s.getCorrection().getIdSujet()+";"));
+	        } catch ( SQLException e ) {
+	        	System.out.println( "erreur dans l'execution de la requete SQL" );
+	            e.printStackTrace();
+	        }
+	        try {
+	        	while ( this.getResultat().next() ) {
+	        		Document de = new Document(s.getCorrection().getIdSujet(),s.getCorrection().getNom(),this.getResultat().getString("lien"),this.getResultat().getString("date_document"));
+	                s.setCorrection(de);
+	            }
+	        } catch ( SQLException e ) {
+	        	System.out.println( "erreur dans la recupération des données" );
+	            e.printStackTrace();
+	        }
+        }
+    	return getDocumentsSujetByListSujet(listeSujet);
+    }
+    
+    private List<Sujet> getDocumentsSujetByListSujet(List<Sujet> listeSujet){
+    	for ( Sujet s : listeSujet) {
+    		try {
+    			this.setStatement( this.getConnexion().createStatement() );
+	        } catch ( SQLException e ) {
+	        	System.out.println( "erreur dans la création du statement" );
+	            e.printStackTrace();
+	        }
+	        try {
+	        	this.setResultat( this.getStatement()
+	                .executeQuery( "SELECT * FROM Sujet WHERE id_Sujet ="+s.getSujet().getIdSujet()+";"));
+	        } catch ( SQLException e ) {
+	        	System.out.println( "erreur dans l'execution de la requete SQL" );
+	            e.printStackTrace();
+	        }
+	        try {
+	        	while ( this.getResultat().next() ) {
+	        		Document de = new Document(s.getSujet().getIdSujet(),s.getSujet().getNom(),this.getResultat().getString("lien"),this.getResultat().getString("date_document"));
+	                s.setSujet(de);
+	            }
+	        } catch ( SQLException e ) {
+	        	System.out.println( "erreur dans la recupération des données" );
+	            e.printStackTrace();
+	        }
         }
     	return listeSujet;
     }

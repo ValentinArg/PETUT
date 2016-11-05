@@ -1,8 +1,0 @@
-package Beans;
-
-public class Document {
-	
-	private int id;
-	private String lienAcces;
-	private String date;
-}

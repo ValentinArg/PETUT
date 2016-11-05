@@ -5,12 +5,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel ="stylesheet" href = "/PE2I/css/main.css"/>
 		<link rel ="stylesheet" href = "/PE2I/css/forum.css"/>
-		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
-		<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
-		<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
 		<title>PE2I</title>
 	</head>
 	<body>
@@ -36,6 +32,25 @@
 			</div>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
+			<div class="listeSujets">
+				<table id="tableauSujets" class="tableau">
+					<tr class="enteteTableau">
+				       <th>N°</th>
+				       <th>Nom</th>
+				       <th>Document</th>
+	   				</tr>
+					<tr class="champTableau">
+				       <td style="text-align: center;">1</td>
+				       <td>TP1 : Premier contact avec PHP</td>
+				       <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
+				   </tr>
+				   <tr class="champTableau">
+				       <td style="text-align: center;">2</td>
+				       <td>TP2 : PHP, la conception orienté objet</td>
+				      <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
+				   </tr>
+				</table>
+			</div>
 		</div>
 		<script type="text/javascript">
 			var idModuleClick;
@@ -134,23 +149,23 @@
 			var haut = false;
 			function slideBarreModule(){
 				if(!haut){
-					$('#navigation').slideUp()
-					if($('#navigation').is(':animated')){
+					$('#context').slideUp()
+					if($('#context').is(':animated')){
 						checkAnimate();
 					}
 					haut = true;
 				}else{
 					document.getElementById('conteneurGeneral').style.marginLeft="20%";
 					document.getElementById('conteneurGeneral').style.width="80%";
-					$('#navigation').slideDown();
-					if($('#navigation').is(':animated')){
+					$('#context').slideDown();
+					if($('#context').is(':animated')){
 						checkAnimate();
 					}
 					haut = false;
 				}
 			}	
 			function checkAnimate() {
-	            if( $( '#navigation' ).is( ':animated' )) {
+	            if( $( '#context' ).is( ':animated' )) {
 	                setTimeout(function() {
 	                    checkAnimate();
 	                }, 0 );
@@ -165,6 +180,12 @@
 				slideBarreModule()});
 				
 			$('.forum').hide();
+			//var longueurDivTableau = ($(".tableau").width()*100);
+			//var pourcentage = (longueurDivTableau/($(document).width()));
+			//var resultat = ((100-pourcentage)/2)-20;
+			//alert(resultat);	
+			//var string = resultat+'%';
+			//document.getElementById('tableauSujets').style.marginLeft = string;
 		</script>
 	</body>
 </html>

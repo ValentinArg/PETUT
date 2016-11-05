@@ -119,22 +119,15 @@ create table Reponse(
 
 create table Document(
 	id_Document int PRIMARY KEY,
+    id_Sujet int,
     id_Reponse int,
-    id_Utilisateur varchar(30) NOT NULL,
+    id_Utilisateur varchar(30),
     Lien varchar(500) NOT NULL,
     date_Document char(20) NOT NULL check(date_Document like "%/%/%"),
     Nom varchar(50),
+    FOREIGN KEY(id_Sujet) REFERENCES Sujet(id_Sujet),
     FOREIGN KEY(id_Reponse) REFERENCES Reponse(id_Reponse),
     FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur)
-);
-
-create table DocumentSujet(
-	id_Document int NOT NULL,
-    id_Sujet int NOT NULL,
-    Type_Document varchar(30) NOT NULL check(type_Document like "sujet" || type_Document like "correction" || type_Document like "docimporte"),
-    FOREIGN KEY(id_Document) REFERENCES Document(id_Document),
-    FOREIGN KEY(id_Sujet) REFERENCES Sujet(id_Sujet),
-	PRIMARY KEY(id_Document, id_Sujet)
 );
 
 create table Evenement(
@@ -164,7 +157,7 @@ INSERT INTO Utilisateurenseigne VALUES ('brf2125a',1);
 INSERT INTO Promotion VALUES (1,1,2017);
 INSERT INTO Semestre VALUES (1,1,1,1),(2,1,1,2),(3,1,1,3),(4,1,1,4);
 INSERT INTO Groupe VALUES (1,1,'E');
-INSERT INTO Ue VALUES (1,1,1,1,'Base de l\'informatique'),(2,1,1,2ueue,'Gestion d\'un système');
+INSERT INTO Ue VALUES (1,1,1,1,'Base de l\'informatique'),(2,1,1,2,'Gestion d\'un système');
 INSERT INTO Module VALUES (1,1,'M1101','Base de l\'architecture système'),(2,1,'M1102','Base d\'un système');
 INSERT INTO Module VALUES (3,2,'M1201','caca');
 INSERT INTO Forum VALUES (1,1,'Travaux Pratiques','viescolaire'),(2,1,'Cours','viescolaire'),(3,1,'Travaux Dirigés','viescolaire'),(4,1,'Partiels','viescolaire');
@@ -172,7 +165,8 @@ INSERT INTO ForumModule VALUES (1,1);
 INSERT INTO Sujet VALUES (1,1,1,'Installation d\'une machine virtuelle Linux',1);
 INSERT INTO Commentaire VALUES (1,'brf2125a',1,'Comment on fais ?','Bonjour j\'ai un problème.','29/10/2016');
 INSERT INTO Reponse VALUES (1,1,'brf2125a','on fais comme ca','29/10/2016');
-INSERT INTO Document VALUES (1,1,'brf2125a','29/10/2016','document installation linux');
-INSERT INTO Document (id_Document,id_Utilisateur,Lien,date_Document,Nom) VALUES (2,'brf2125a','','29/10/2016','correction');
-INSERT INTO Documentsujet VALUES (2,1,'correction');
+INSERT INTO Document (id_Document,id_Utilisateur,Lien,date_Document,Nom) VALUES (1,'brf2125a','','29/10/2016','document installation linux');
+INSERT INTO Document (id_Document,id_Sujet,Lien,date_Document,Nom) VALUES (2,1,'','29/10/2016','correction');
+
+
     

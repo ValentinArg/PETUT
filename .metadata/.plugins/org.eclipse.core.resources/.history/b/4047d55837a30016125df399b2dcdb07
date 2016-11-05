@@ -1,0 +1,15 @@
+package Beans;
+
+import java.util.*;
+
+public abstract class Outils {
+	
+	public static void decouperListDocumentSujet(List<Document> listeDocuments,Sujet s){
+		List<Document> documentAImporter = new ArrayList<Document>();
+		
+		for(Document d : listeDocuments){
+			
+		}
+	}
+
+}
