@@ -1,6 +1,8 @@
 package Beans;
 import java.util.*;
 
+import Beans.Eleve;
+
 public class Groupe {
 
 	private String id;

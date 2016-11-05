@@ -1,5 +1,6 @@
 package Beans;
 
+
 public class Utilisateur {
 	
 	private int identifiant;
