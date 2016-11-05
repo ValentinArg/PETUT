@@ -226,6 +226,7 @@ body{
 	border:solid 1px black;
 	padding-left:8px;
 	padding-right:8px;
+	text-align:center;
 }
 
 .champTableau:hover{
@@ -247,7 +248,7 @@ body{
 	padding-left:2px;
 	text-decoration:underline;
 	cursor:pointer;
-	
+		
 }
 
 .listeSujets{

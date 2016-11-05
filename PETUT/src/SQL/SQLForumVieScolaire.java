@@ -162,10 +162,10 @@ public class SQLForumVieScolaire extends SQL {
             System.out.println( "erreur dans la recupération des données" );
             e.printStackTrace();
         }
-        return this.getListSujetDocumentByListSujet(listeSujet);
+        return listeSujet;
     }
     
-    private List<Sujet> getListSujetDocumentByListSujet(List<Sujet> listeSujet){
+    public List<Sujet> getListSujetDocumentByListSujet(List<Sujet> listeSujet){
     	for ( Sujet s : listeSujet) {
             try {
                 this.setStatement( this.getConnexion().createStatement() );

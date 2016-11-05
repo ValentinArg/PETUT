@@ -39,6 +39,8 @@
 		
 			var idModuleClick;
 			$( '.semestre' ).click(function(){
+				$(".listeSujets").remove();
+				$(".listeTopics").remove();
 				$('.forum').hide(200);
 				$("#navigation").find('li').each(
 					function(){
@@ -93,6 +95,8 @@
 								$("#"+id).slideUp();
 							}
 							$(".module").click(function(){
+								$(".listeSujets").remove();
+								$(".listeTopics").remove();
 								$('.forum').show(200);
 								idModuleClick = (this.id).replace('module', '');
 								return false;
@@ -104,7 +108,8 @@
 			});
 			//function ajax pour afficher les sujets d'une matière donnée et d'un forum donnée
 			$( '.forum' ).click(function(){
-				slideBarreModule();
+				if(!haut)
+					slideBarreModule();
 				if(idModuleClick != null){
 					$.ajax({
 						url : '/PE2I/eleves/forum',
@@ -112,12 +117,13 @@
 						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
 							$(".listeSujets").remove();
+							$(".listeTopics").remove();
 							var listeSujets = JSON.parse(valeur);
 							//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 							var div = $('<div class="listeSujets">');
 							var table = $("<table id='tableauSujets' class='tableau'>");
 							var tbody = $('<tbody class="body">');
-							var entete = $('<tr class="enteteTableau"> <th>N°</th> <th>Nom</th> <th>Document</th> </tr>');
+							var entete = $('<tr class="enteteTableau"> <th>N°</th> <th>Nom</th></tr>');
 							$(div).appendTo($('.conteneurGeneral'));
 							$(table).appendTo(div);
 							$(tbody).appendTo(table);
@@ -126,14 +132,11 @@
 								var tr = $("<tr class='champTableau' id='sujet"+listeSujets[i].id+"'></tr>");
 								var tdNumero = $("<td></td>");
 								var tdNom = $('<td></td>');
-								var tdDocument = $('<td></td>');
 								tdNumero.text(listeSujets[i].numero);
 								tdNom.text(listeSujets[i].nom);
-								tdDocument.text("14/05/2016");
 								$(tr).appendTo(tbody);
 								$(tdNumero).appendTo(tr);
 								$(tdNom).appendTo(tr);
-								$(tdDocument).appendTo(tr);
 							}
 							
 							$('.champTableau').click(function(){
