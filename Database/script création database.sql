@@ -102,7 +102,9 @@ create table Commentaire(
     id_Sujet int NOT NULL,
     Question varchar(1000) NOT NULL,
     Texte varchar(10000) NOT NULL,
+    Statut varchar (20) NOT NULL check(Statut like "en cours" || Statut like "résolu"),
     Date_Commentaire char(20) NOT NULL check(date_Commentaire like "%/%/%"),
+    nbReponse int,
     FOREIGN KEY(id_Sujet) REFERENCES Sujet(id_Sujet),
     FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur)
 );
@@ -163,7 +165,7 @@ INSERT INTO Module VALUES (3,2,'M1201','caca');
 INSERT INTO Forum VALUES (1,1,'Travaux Pratiques','viescolaire'),(2,1,'Cours','viescolaire'),(3,1,'Travaux Dirigés','viescolaire'),(4,1,'Partiels','viescolaire');
 INSERT INTO ForumModule VALUES (1,1);
 INSERT INTO Sujet VALUES (1,1,1,'Installation d\'une machine virtuelle Linux',1);
-INSERT INTO Commentaire VALUES (1,'brf2125a',1,'Comment on fais ?','Bonjour j\'ai un problème.','29/10/2016');
+INSERT INTO Commentaire VALUES (1,'brf2125a',1,'Comment on fais ?','Bonjour j\'ai un problème.','en cours','29/10/2016',1);
 INSERT INTO Reponse VALUES (1,1,'brf2125a','on fais comme ca','29/10/2016');
 INSERT INTO Document (id_Document,id_Utilisateur,Lien,date_Document,Nom) VALUES (1,'brf2125a','','29/10/2016','document installation linux');
 INSERT INTO Document (id_Document,id_Sujet,Lien,date_Document,Nom) VALUES (2,1,'','29/10/2016','correction');

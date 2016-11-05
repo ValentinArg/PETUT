@@ -232,12 +232,36 @@ public class SQLForumVieScolaire extends SQL {
     /**
      * Récupère la liste des topics d'un sujet donné
      * 
-     * @param s
-     *            sujet
+     * @param idSujet
+     *         
      * @return la liste des topics d'un sujet donné
      */
-    public List<Commentaire> recupererTopics( Sujet s ) {
-        return null;
+    public List<Topic> getTopicsByIdSujet( int idSujet ){
+    	List<Topic> listeCommentaire = new ArrayList<Topic>();
+        try {
+            this.setStatement( this.getConnexion().createStatement() );
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la création du statement" );
+            e.printStackTrace();
+        }
+        try {
+            this.setResultat(
+                    this.getStatement().executeQuery( "SELECT * FROM Commentaire WHERE id_Sujet = " + idSujet + ";" ) );
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans l'execution de la requete SQL" );
+            e.printStackTrace();
+        }
+        try {
+            while ( this.getResultat().next() ) {
+            	Topic t = new Topic( this.getResultat().getInt( "id_Commentaire" ),this.getResultat().getString("id_Utilisateur"), this.getResultat().getString( "question" ),
+                        this.getResultat().getString( "Date_Commentaire" ),this.getResultat().getInt("nbReponse"),this.getResultat().getString("statut") );
+                listeCommentaire.add( t );
+            }
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la recupération des données" );
+            e.printStackTrace();
+        }
+        return listeCommentaire;
     }
 
 }

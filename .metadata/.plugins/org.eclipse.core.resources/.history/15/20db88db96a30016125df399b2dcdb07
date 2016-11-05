@@ -1,0 +1,11 @@
+package Beans;
+
+public class Topic {
+	
+	private int id;
+	private String question;
+	private String date;
+	private int nbReponse;
+	private String statut;
+
+}

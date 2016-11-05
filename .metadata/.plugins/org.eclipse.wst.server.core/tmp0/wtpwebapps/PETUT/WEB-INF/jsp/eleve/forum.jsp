@@ -30,29 +30,13 @@
 					</li>
 				</ul>
 			</div>
+		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			<div class="listeSujets">
-				<table id="tableauSujets" class="tableau">
-					<tr class="enteteTableau">
-				       <th>N°</th>
-				       <th>Nom</th>
-				       <th>Document</th>
-	   				</tr>
-					<tr class="champTableau">
-				       <td style="text-align: center;">1</td>
-				       <td>TP1 : Premier contact avec PHP</td>
-				       <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
-				   </tr>
-				   <tr class="champTableau">
-				       <td style="text-align: center;">2</td>
-				       <td>TP2 : PHP, la conception orienté objet</td>
-				      <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
-				   </tr>
-				</table>
-			</div>
+		
 		</div>
 		<script type="text/javascript">
+		
 			var idModuleClick;
 			$( '.semestre' ).click(function(){
 				$('.forum').hide(200);
@@ -127,25 +111,80 @@
 						type : 'POST',
 						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
-							$('.sujet').remove();
+							$(".listeSujets").remove();
 							var listeSujets = JSON.parse(valeur);
 							//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
-							var tr = $('<tr class="sujet" id=""/>');
-							$(tr).appendTo($("#listeSujet"));
-							var tdQuestion = $('<td/>');
-							var tdAuteur = $('<td/>');
-							var tdDate = $('<td/>');
-							tdQuestion.text("quel est le resultat de la requete");
-							tdAuteur.text("Bremec Florian");
-							tdDate.text("14/05/2016");
-							$(tdQuestion).appendTo(tr);
-							$(tdAuteur).appendTo(tr);
-							$(tdDate).appendTo(tr);
+							var div = $('<div class="listeSujets">');
+							var table = $("<table id='tableauSujets' class='tableau'>");
+							var tbody = $('<tbody class="body">');
+							var entete = $('<tr class="enteteTableau"> <th>N°</th> <th>Nom</th> <th>Document</th> </tr>');
+							$(div).appendTo($('.conteneurGeneral'));
+							$(table).appendTo(div);
+							$(tbody).appendTo(table);
+							$(entete).appendTo(tbody);
+							for(i = 0; i < listeSujets.length; i++){
+								var tr = $("<tr class='champTableau' id='sujet"+listeSujets[i].id+"'></tr>");
+								var tdNumero = $("<td></td>");
+								var tdNom = $('<td></td>');
+								var tdDocument = $('<td></td>');
+								tdNumero.text(listeSujets[i].numero);
+								tdNom.text(listeSujets[i].nom);
+								tdDocument.text("14/05/2016");
+								$(tr).appendTo(tbody);
+								$(tdNumero).appendTo(tr);
+								$(tdNom).appendTo(tr);
+								$(tdDocument).appendTo(tr);
+							}
+							
+							$('.champTableau').click(function(){
+								idSujet = ((this.id).replace('sujet',''));
+								$.ajax({
+									url : '/PE2I/eleves/forum',
+									type : 'POST',
+									data : 'idSujet=' + idSujet,
+									success : function(valeur){
+										$(".listeSujets").remove();
+										$(".listeTopics").remove();
+										var listeTopics = JSON.parse(valeur);
+										//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
+										var div = $('<div class="listeTopics">');
+										var table = $("<table id='tableauTopic' class='tableau'>");
+										var tbody = $('<tbody class="body">');
+										var entete = $('<tr class="enteteTableau"> <th>statut</th> <th>question</th> <th>auteur</th> <th>date</th> <th>reponse</th> </tr>');
+										$(div).appendTo($('.conteneurGeneral'));
+										$(table).appendTo(div);
+										$(tbody).appendTo(table);
+										$(entete).appendTo(tbody);
+										for(i = 0; i < listeSujets.length; i++){
+											var tr = $("<tr class='champTableau' id='sujet"+listeTopics[i].id+"'></tr>");
+											var tdStatut = $("<td></td>");
+											var tdQuestion = $('<td></td>');
+											var tdAuteur = $('<td></td>');
+											var tdDate = $('<td></td>');
+											var tdReponse = $('<td></td>');
+											tdStatut.text(listeTopics[i].statut);
+											tdQuestion.text(listeTopics[i].question);
+											tdAuteur.text(listeTopics[i].auteur);
+											tdDate.text(listeTopics[i].date);
+											tdReponse.text(listeTopics[i].nbReponse);
+											$(tr).appendTo(tbody);
+											$(tdStatut).appendTo(tr);
+											$(tdQuestion).appendTo(tr);
+											$(tdAuteur).appendTo(tr);
+											$(tdDate).appendTo(tr);
+											$(tdReponse).appendTo(tr);
+										}
+										
+									},
+									dataType : 'text'
+								});
+							});
 					    },
 						dataType : 'text'
 					});
 				}
-			});		
+			});
+			
 			var haut = false;
 			function slideBarreModule(){
 				if(!haut){

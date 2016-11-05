@@ -228,9 +228,10 @@ body{
 	padding-right:8px;
 }
 
-tr:hover{
+.champTableau:hover{
 	background-color:grey;
 	cursor:pointer;
+	color:white;
 }
 
 .champTableau p:hover{
