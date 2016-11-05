@@ -33,27 +33,10 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			<div class="listeSujets">
-				<table id="tableauSujets" class="tableau">
-					<tbody class="body">
-						<tr class="enteteTableau">
-					       <th>N°</th>
-					       <th>Nom</th>
-					       <th>Document</th>
-		   				</tr>
-	   				</tbody>
-					<!--<c:forEach var="sujet" items="${listeSujets}">
-						<tr class="champTableau">
-				       		<td style="text-align: center;"><c:out value="${sujet.numero}"/></td>
-				       		<td><c:out value="${sujet.nom}"/></td>
-				      		<td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
-				   		</tr>	
-					</c:forEach>-->
-				   
-				</table>
-			</div>
+		
 		</div>
 		<script type="text/javascript">
+		
 			var idModuleClick;
 			$( '.semestre' ).click(function(){
 				$('.forum').hide(200);
@@ -128,24 +111,40 @@
 						type : 'POST',
 						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
-							//var listeSujets = JSON.parse(valeur);
+							var listeSujets = JSON.parse(valeur);
 							//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
-							var tr = $("<tr class='champTableau'/>");
-							//var tdNumero = $('<td/>');
-							//var tdNom = $('<td/>');
-							//var tdDocument = $('<td/>');
-							//tdNumero.text("quel est le resultat de la requete");
-							//tdNom.text("Bremec Florian");
-							//tdDocument.text("14/05/2016");
-							$(tr).appendTo($("#body"));
-							//$(tdNumero).appendTo(tr);
-							//$(tdNom).appendTo(tr);
-							//$(tdDocument).appendTo(tr);
+							var div = $('<div class="listeSujets">');
+							var table = $("<table id='tableauSujets' class='tableau'>");
+							var tbody = $('<tbody class="body">');
+							var entete = $('<tr class="enteteTableau"> <th>N°</th> <th>Nom</th> <th>Document</th> </tr>');
+							$(div).appendTo($('.conteneurGeneral'));
+							$(table).appendTo(div);
+							$(tbody).appendTo(table);
+							$(entete).appendTo(tbody);
+							for(i = 0; i < listeSujets.length; i++){
+								var tr = $("<tr class='champTableau' id='sujet"+listeSujets[i].id+"'></tr>");
+								var tdNumero = $("<td></td>");
+								var tdNom = $('<td></td>');
+								var tdDocument = $('<td></td>');
+								tdNumero.text(listeSujets[i].numero);
+								tdNom.text(listeSujets[i].nom);
+								tdDocument.text("14/05/2016");
+								$(tr).appendTo(tbody);
+								$(tdNumero).appendTo(tr);
+								$(tdNom).appendTo(tr);
+								$(tdDocument).appendTo(tr);
+							}
+							
+							$('.champTableau').click(function(){
+								idSujet = ((this.id).replace('sujet',''))
+								alert(idSujet);
+							});
 					    },
 						dataType : 'text'
 					});
 				}
-			});		
+			});
+			
 			var haut = false;
 			function slideBarreModule(){
 				if(!haut){
