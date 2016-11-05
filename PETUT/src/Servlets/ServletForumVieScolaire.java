@@ -23,7 +23,6 @@ public class ServletForumVieScolaire extends HttpServlet{
 		listeForum = sql.getForumByIdEnseigne(1);
 		request.setAttribute("listeForum", listeForum);
 		request.setAttribute("listeSemestre", listeSemestre);
-		System.out.println(listeForum.get(0).getNom());
 		sql.disconnect();
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
@@ -36,37 +35,26 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
 			 List<Ue> listeUe =  new ArrayList<Ue>();
 			 listeUe = sql.getUesByIdSemestre(idSemestre);
-			 ObjectMapper mapper = new ObjectMapper();
-			 String string = mapper.writeValueAsString(listeUe);
+			 ObjectMapper mapper1 = new ObjectMapper();
+			 String string1 = mapper1.writeValueAsString(listeUe);
 			 response.setContentType("application/json");
 			 response.setCharacterEncoding("UTF-8");
-			 response.getWriter().write(string);
+			 response.getWriter().write(string1);
 			 sql.disconnect();
 		 }
 		 else if (request.getParameter("idModule")!= null && request.getParameter("idForum")!=null){
 			 int idModule = Integer.parseInt(request.getParameter("idModule"));
 			 int idForum = Integer.parseInt(request.getParameter("idForum"));
-			 
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
 			 List<Sujet> listeSujets = new ArrayList<Sujet>();
 			 listeSujets = sql.getSujetsByIdModuleAndIdForum(idModule, idForum);
 			 sql.disconnect();
-			 
-			 System.out.println(listeSujets.get(0).getCorrection().getIdDocument());
-			 
-			 ObjectMapper mapper = new ObjectMapper();
-
-			 
-			 String string = mapper.writeValueAsString(listeSujets);
-			 
+			 ObjectMapper mapper2 = new ObjectMapper();
+			 String string2 = mapper2.writeValueAsString(listeSujets);
 			 response.setContentType("application/json");
 			 response.setCharacterEncoding("UTF-8");
-			 response.getWriter().write(string);
-		 }
-		 
-		 
-		 
-		 
+			 response.getWriter().write(string2);
+		 }		 
 	 }
 	 
 }

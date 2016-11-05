@@ -30,25 +30,26 @@
 					</li>
 				</ul>
 			</div>
+		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
 			<div class="listeSujets">
 				<table id="tableauSujets" class="tableau">
-					<tr class="enteteTableau">
-				       <th>N°</th>
-				       <th>Nom</th>
-				       <th>Document</th>
-	   				</tr>
-					<tr class="champTableau">
-				       <td style="text-align: center;">1</td>
-				       <td>TP1 : Premier contact avec PHP</td>
-				       <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
-				   </tr>
-				   <tr class="champTableau">
-				       <td style="text-align: center;">2</td>
-				       <td>TP2 : PHP, la conception orienté objet</td>
-				      <td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
-				   </tr>
+					<tbody class="body">
+						<tr class="enteteTableau">
+					       <th>N°</th>
+					       <th>Nom</th>
+					       <th>Document</th>
+		   				</tr>
+	   				</tbody>
+					<!--<c:forEach var="sujet" items="${listeSujets}">
+						<tr class="champTableau">
+				       		<td style="text-align: center;"><c:out value="${sujet.numero}"/></td>
+				       		<td><c:out value="${sujet.nom}"/></td>
+				      		<td><p>sujet</p><p>corrigé</p><p>document à importer</p></td>
+				   		</tr>	
+					</c:forEach>-->
+				   
 				</table>
 			</div>
 		</div>
@@ -127,20 +128,19 @@
 						type : 'POST',
 						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
-							$('.sujet').remove();
-							var listeSujets = JSON.parse(valeur);
+							//var listeSujets = JSON.parse(valeur);
 							//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
-							var tr = $('<tr class="sujet" id=""/>');
-							$(tr).appendTo($("#listeSujet"));
-							var tdQuestion = $('<td/>');
-							var tdAuteur = $('<td/>');
-							var tdDate = $('<td/>');
-							tdQuestion.text("quel est le resultat de la requete");
-							tdAuteur.text("Bremec Florian");
-							tdDate.text("14/05/2016");
-							$(tdQuestion).appendTo(tr);
-							$(tdAuteur).appendTo(tr);
-							$(tdDate).appendTo(tr);
+							var tr = $("<tr class='champTableau'/>");
+							//var tdNumero = $('<td/>');
+							//var tdNom = $('<td/>');
+							//var tdDocument = $('<td/>');
+							//tdNumero.text("quel est le resultat de la requete");
+							//tdNom.text("Bremec Florian");
+							//tdDocument.text("14/05/2016");
+							$(tr).appendTo($("#body"));
+							//$(tdNumero).appendTo(tr);
+							//$(tdNom).appendTo(tr);
+							//$(tdDocument).appendTo(tr);
 					    },
 						dataType : 'text'
 					});

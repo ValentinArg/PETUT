@@ -2,20 +2,22 @@ package Beans;
 
 import java.util.*;
 
-public class Sujet {
-	
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
+public class Sujet{
+
 	private int id;
 	private String nom;
 	private int numero;
 	private Document sujet;
 	private Document correction;
-	private List<Document> listeDocumentsAImporter;
-	private List<Commentaire> listeCommentaire;
+	//private List<Document> listeDocumentsAImporter;
+	//private List<Commentaire> listeCommentaire;
 	
 	public Sujet(int id, String nom, int numero) {
 		super();
-		this.listeDocumentsAImporter = new ArrayList<Document>();
-		this.listeCommentaire = new ArrayList<Commentaire>();
+		//this.listeDocumentsAImporter = new ArrayList<Document>();
+		//this.listeCommentaire = new ArrayList<Commentaire>();
 		this.id = id;
 		this.nom = nom;
 		this.numero = numero;
@@ -38,7 +40,7 @@ public class Sujet {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public List<Document> getListeDocumentsAImporter() {
+	/*public List<Document> getListeDocumentsAImporter() {
 		return listeDocumentsAImporter;
 	}
 	public void addListeDocumentsAImporter(Document documentAImporter) {
@@ -55,16 +57,16 @@ public class Sujet {
 	}
 	public void setSujet(Document sujet) {
 		this.sujet = sujet;
-	}
+	}*/
 	public Document getCorrection() {
 		return correction;
 	}
 	public void setCorrection(Document correction) {
 		this.correction = correction;
 	}
-	public void setListeDocumentsAImporter(List<Document> listeDocumentsAImporter) {
+	/*public void setListeDocumentsAImporter(List<Document> listeDocumentsAImporter) {
 		this.listeDocumentsAImporter = listeDocumentsAImporter;
-	}
+	}*/
 	
 	
 	

@@ -1,18 +1,17 @@
 package Beans;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 public class Document {
 	
 	private int idDocument;
-	private int idSujet;
-	private int idUtilisateur;
+	private Sujet sujet;
+	//private Utilisateur utilisateur;
+	//private Reponse reponse;
 	private String nom;
 	private String lien;
 	private String date;
 	
-	public Document(int idDocument,String nom){
-		this.idDocument = idDocument;
-		this.nom = nom;
-	}
 	public Document(int idDocument, String nom, String lien, String date) {
 		super();
 		this.idDocument = idDocument;
@@ -20,42 +19,60 @@ public class Document {
 		this.lien = lien;
 		this.date = date;
 	}
+
 	public int getIdDocument() {
 		return idDocument;
 	}
+
 	public void setIdDocument(int idDocument) {
 		this.idDocument = idDocument;
 	}
-	public int getIdSujet() {
-		return idSujet;
+
+	public Sujet getSujet() {
+		return sujet;
 	}
-	public void setIdSujet(int idSujet) {
-		this.idSujet = idSujet;
+
+	public void setSujet(Sujet sujet) {
+		this.sujet = sujet;
 	}
-	public int getIdUtilisateur() {
-		return idUtilisateur;
+
+	/*public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
-	public void setIdUtilisateur(int idUtilisateur) {
-		this.idUtilisateur = idUtilisateur;
-	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}*/
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getLien() {
 		return lien;
 	}
+
 	public void setLien(String lien) {
 		this.lien = lien;
 	}
+
 	public String getDate() {
 		return date;
 	}
+
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+	
+	
+	
+
+	
 	
 	
 	
