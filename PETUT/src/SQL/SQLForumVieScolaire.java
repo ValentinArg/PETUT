@@ -165,32 +165,31 @@ public class SQLForumVieScolaire extends SQL {
         return listeSujet;
     }
     
-    public List<Sujet> getListSujetDocumentByListSujet(List<Sujet> listeSujet){
-    	for ( Sujet s : listeSujet) {
-            try {
-                this.setStatement( this.getConnexion().createStatement() );
-            } catch ( SQLException e ) {
-                System.out.println( "erreur dans la création du statement" );
-                e.printStackTrace();
-            }
-            try {
-                this.setResultat( this.getStatement()
-                        .executeQuery( "SELECT * FROM Document WHERE id_Sujet ="+s.getId()+";"));
-            } catch ( SQLException e ) {
-                System.out.println( "erreur dans l'execution de la requete SQL" );
-                e.printStackTrace();
-            }
-            try {
-                while ( this.getResultat().next() ) {
-                    Document d = new Document(this.getResultat().getInt("id_Document"),this.getResultat().getString("nom"),this.getResultat().getString("lien"),this.getResultat().getString("date_Document"));
-                    Outils.decouperListDocumentSujet(d, s);
-                }
-            } catch ( SQLException e ) {
-                System.out.println( "erreur dans la recupération des données" );
-                e.printStackTrace();
-            }
+    public SujetDocument getSujetsDocumentByidSujet(int idSujet){
+    	SujetDocument listeDocuments = new SujetDocument();
+    	try {
+    		this.setStatement( this.getConnexion().createStatement() );
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la création du statement" );
+            e.printStackTrace();
         }
-    	return listeSujet;
+        try {
+        	this.setResultat( this.getStatement()
+            .executeQuery( "SELECT * FROM Document WHERE id_Sujet ="+idSujet+";"));
+        } catch ( SQLException e ) {
+        	System.out.println( "erreur dans l'execution de la requete SQL" );
+            e.printStackTrace();
+        }
+        try {
+            while ( this.getResultat().next() ) {
+            	Document d = new Document(this.getResultat().getInt("id_Document"),this.getResultat().getString("nom"),this.getResultat().getString("lien"),this.getResultat().getString("date_Document"));
+                Outils.decouperListDocumentSujet(d, listeDocuments);
+            }
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la recupération des données" );
+            e.printStackTrace();
+        }
+    	return listeDocuments;
     }
     
     

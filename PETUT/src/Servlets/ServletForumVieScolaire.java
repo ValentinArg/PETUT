@@ -60,9 +60,14 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
 			 List<Topic> listeTopics = new ArrayList<Topic>();
 			 listeTopics = sql.getTopicsByIdSujet(idSujet);
+			 SujetDocument sd = new SujetDocument();
+			 sd = sql.getSujetsDocumentByidSujet(idSujet);
 			 sql.disconnect();
+			 List<Object> listeObjet = new ArrayList<Object>();
+			 listeObjet.add(sd);
+			 listeObjet.add(listeTopics);
 			 ObjectMapper mapper3 = new ObjectMapper();
-			 String string3 = mapper3.writeValueAsString(listeTopics);
+			 String string3 = mapper3.writeValueAsString(listeObjet);
 			 response.setContentType("application/json");
 			 response.setCharacterEncoding("UTF-8");
 			 response.getWriter().write(string3);

@@ -33,7 +33,21 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-		
+			<!-- <div class="documents">
+				<table>
+					
+						<td><img src="/PE2I/images/eleves/forum/sujet.jpg"/></td>
+						<td><img src="/PE2I/images/eleves/forum/corriger.jpg"/></td>
+						<td><img src="/PE2I/images/eleves/forum/documentAImporter.jpg"/></td>
+					</tr>
+					<tr>
+						<td>sujet</td>
+						<td>corrigé</td>
+						<td>document à importer</td>
+					</tr>
+				</table>
+			</div>-->
+			
 		</div>
 		<script type="text/javascript">
 		
@@ -148,7 +162,43 @@
 									success : function(valeur){
 										$(".listeSujets").remove();
 										$(".listeTopics").remove();
-										var listeTopics = JSON.parse(valeur);
+										var listeObjet = JSON.parse(valeur);
+										
+										var div = $('<div class="documents">');
+										var table = $("<table>");
+										var tbody = $('<tbody>');
+										var tr1 = $("<tr></tr>");
+										var tr2 = $("<tr></tr>");
+										$(div).appendTo($('.conteneurGeneral'));
+										$(table).appendTo(div);
+										$(tbody).appendTo(table);
+										$(tr1).appendTo(tbody);
+										$(tr2).appendTo(tbody);
+										if(listeObjet[0].sujet != null){
+											var td1 = $("<td></td>");
+											var td2 = $("<td></td>");
+											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].sujet.nom+".jpg'/>");
+											$(td1).appendTo(tr1);
+											$(td2).appendTo(tr2);
+											$(img).appendTo(td1);
+										}
+										if(listeObjet[0].correction != null){
+											var td1 = $("<td></td>");
+											var td2 = $("<td></td>");
+											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].correction.nom+".jpg'/>");
+											$(td1).appendTo(tr1);
+											$(td2).appendTo(tr2);
+											$(img).appendTo(td1);
+										}
+										if(listeObjet[0].listeDocumentsAImporter[0] != null){
+											var td1 = $("<td></td>");
+											var td2 = $("<td></td>");
+											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].listeDocumentsAImporter[0].nom+".jpg'/>");
+											$(td1).appendTo(tr1);
+											$(td2).appendTo(tr2);
+											$(img).appendTo(td1);
+										}
+
 										//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 										var div = $('<div class="listeTopics">');
 										var table = $("<table id='tableauTopic' class='tableau'>");
@@ -158,18 +208,18 @@
 										$(table).appendTo(div);
 										$(tbody).appendTo(table);
 										$(entete).appendTo(tbody);
-										for(i = 0; i < listeSujets.length; i++){
-											var tr = $("<tr class='champTableau' id='sujet"+listeTopics[i].id+"'></tr>");
+										for(i = 0; i < listeObjet[1].length; i++){
+											var tr = $("<tr class='champTableau' id='sujet"+listeObjet[1][i].id+"'></tr>");
 											var tdStatut = $("<td></td>");
 											var tdQuestion = $('<td></td>');
 											var tdAuteur = $('<td></td>');
 											var tdDate = $('<td></td>');
 											var tdReponse = $('<td></td>');
-											tdStatut.text(listeTopics[i].statut);
-											tdQuestion.text(listeTopics[i].question);
-											tdAuteur.text(listeTopics[i].auteur);
-											tdDate.text(listeTopics[i].date);
-											tdReponse.text(listeTopics[i].nbReponse);
+											tdStatut.text(listeObjet[1][i].statut);
+											tdQuestion.text(listeObjet[1][i].question);
+											tdAuteur.text(listeObjet[1][i].auteur);
+											tdDate.text(listeObjet[1][i].date);
+											tdReponse.text(listeObjet[1][i].nbReponse);
 											$(tr).appendTo(tbody);
 											$(tdStatut).appendTo(tr);
 											$(tdQuestion).appendTo(tr);
@@ -177,6 +227,8 @@
 											$(tdDate).appendTo(tr);
 											$(tdReponse).appendTo(tr);
 										}
+										
+											
 										
 									},
 									dataType : 'text'
@@ -198,7 +250,8 @@
 					haut = true;
 				}else{
 					document.getElementById('conteneurGeneral').style.marginLeft="20%";
-					document.getElementById('conteneurGeneral').style.width="80%";
+					document.getElementById('conteneurGeneral').style.marginRight="20%";
+					document.getElementById('conteneurGeneral').style.width="60%";
 					$('#context').slideDown();
 					if($('#context').is(':animated')){
 						checkAnimate();
@@ -214,6 +267,7 @@
 	            }else{
 	            	if(haut){
 	            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
+	            		document.getElementById('conteneurGeneral').style.marginRight="0%";
 	            		document.getElementById('conteneurGeneral').style.width="100%";
 	            	}	
 	            }
