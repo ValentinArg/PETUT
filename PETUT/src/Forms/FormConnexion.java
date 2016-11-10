@@ -14,28 +14,24 @@ public class FormConnexion {
     private static final String CHAMP_PASS   = "connexionMotdepasse";
     private Map<String, String> erreurs      = new HashMap<String, String>();
     
-    public int connexionUtilisateur( HttpServletRequest request ) throws Exception {
+    public String connexionUtilisateur( HttpServletRequest request ) throws Exception {
         
     	String motDePasse = getValeurChamp( request, CHAMP_PASS );
         String identifiant = getValeurChamp( request, CHAMP_ID );
         boolean valideId;
         boolean valideMotdepasse;
-        int id = 0;
         SQLConnexion sql = new SQLConnexion();
         valideId = sql.validerId(identifiant);
 		if(!valideId){
-			this.setErreur(CHAMP_ID, "Email invalide");
-			throw new Exception("Email invalide");
+			this.setErreur(CHAMP_ID, "Identifiant invalide");
+			throw new Exception("Identifiant invalide");
 		}
 		valideMotdepasse = sql.validerMotPasse(identifiant, motDePasse);
 		if(!valideMotdepasse){
 			this.setErreur(CHAMP_PASS, "Mot de passe invalide");
 			throw new Exception("Mot de passe invalide");
 		}
-        id = sql.recupererIdUtilisateur(identifiant);
-        sql.disconnect();
-        return id;
-        
+        return identifiant;
     }
     
     public Map<String, String> getErreurs() {

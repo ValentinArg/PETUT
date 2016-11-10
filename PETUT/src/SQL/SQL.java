@@ -10,7 +10,7 @@ public abstract class SQL {
 
     private static String       url         = "jdbc:mysql://localhost:3306/pe2idatabase";
     private static String       utilisateur = "root";
-    private static String       motDePasse  = "admin";
+    private static String       motDePasse  = "ChIpS31270";
     protected static Connection connexion;
     private static Statement    statement   = null;
     private static ResultSet    resultat;
@@ -27,14 +27,14 @@ public abstract class SQL {
         try {
             Class.forName( "com.mysql.jdbc.Driver" );
         } catch ( ClassNotFoundException e ) {
-            System.out.println( "exeption dans la methode connect (nom de la base de donnée) : " + e );
+            System.out.println( "Exception dans la methode connect (nom de la base de données) : " + e );
         }
         /* Connexion à la base de données */
         try {
             connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
-            System.out.println( "connexion réussi" );
+            System.out.println( "Connexion réussie" );
         } catch ( SQLException e ) {
-            System.out.println( "exeption dans la methode connect : " + e );
+            System.out.println( "Exception dans la methode connect : " + e );
         }
     }
 
@@ -45,9 +45,9 @@ public abstract class SQL {
         try {
             /* Fermeture de la connexion */
             connexion.close();
-            System.out.println( "deconnexion réussi" );
+            System.out.println( "Déconnexion réussie" );
         } catch ( SQLException e ) {
-            System.out.println( "exeption dans la methode disconnect : " + e );
+            System.out.println( "Exception dans la methode disconnect : " + e );
         }
     }
 

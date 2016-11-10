@@ -7,6 +7,7 @@ import org.codehaus.jackson.annotate.JsonManagedReference;
 public class Sujet{
 
 	private int id;
+	private String forum;
 	private String nom;
 	private int numero;
 	private List<Commentaire> listeCommentaire;
@@ -15,6 +16,13 @@ public class Sujet{
 		super();
 		this.listeCommentaire = new ArrayList<Commentaire>();
 		this.id = id;
+		this.nom = nom;
+		this.numero = numero;
+	}
+	public Sujet(String forum, int numero, String nom) {
+		super();
+		this.listeCommentaire = new ArrayList<Commentaire>();
+		this.forum = forum;
 		this.nom = nom;
 		this.numero = numero;
 	}
@@ -42,7 +50,13 @@ public class Sujet{
 	public void setListeCommentaire(List<Commentaire> listeCommentaire) {
 		this.listeCommentaire = listeCommentaire;
 	}
-
+	public String getForum() {
+		return forum;
+	}
+	public void setForum(String forum) {
+		this.forum = forum;
+	}
+	
 	
 	
 	

@@ -14,6 +14,7 @@ import SQL.SQLConnexion;
 public class ServletConnexion extends HttpServlet{
 
 	private String VUE = "/WEB-INF/jsp/connexion.jsp";
+	private String REDIRECT = "/PE2I/accueil";
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
@@ -25,23 +26,22 @@ public class ServletConnexion extends HttpServlet{
     	
     	FormConnexion form = new FormConnexion();
     	try {
-			int idEleve = form.connexionUtilisateur(request);
+			String idEleve = form.connexionUtilisateur(request);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
-        /*try {
-			int id = form.connexionUtilisateur(request);
+        try {
+			String id = form.connexionUtilisateur(request);
 			HttpSession session = request.getSession();
-			SQLConnexion sql = new SQLConnexion();
-        	session.setAttribute("idUtilisateur", sql.recupererIdUtilisateur(request.getParameter("connexionEmail")) );
-        	response.sendRedirect( "/LesPetitsChefs");
+			session.setAttribute("idUtilisateur", id );
+        	response.sendRedirect( REDIRECT);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			request.setAttribute( "traitement", form );
 			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-		}*/
+		}
 	}
 	
 	

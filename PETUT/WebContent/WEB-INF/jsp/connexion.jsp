@@ -20,7 +20,7 @@
 		        	<legend>Connexion enseignant</legend>
 		                           
 					<label for="Identifiant">Nom de compte<span class="requis"></span></label>
-		            <input type="Identifiant" id="connexionIdentifiant" name="connexionIdentifiant" size="20" maxlength="60" />
+		            <input type="text" id="connexionIdentifiant" name="connexionIdentifiant" size="20" maxlength="60" />
 		            <span class="erreur">${traitement.erreurs['connexionIdentifiant']}</span>
 		            <br />
 		                
@@ -40,7 +40,7 @@
 		        	<legend>Connexion élève</legend>
 		                           
 					<label for="Identifiant">Identifiant<span class="requis"></span></label>
-		            <input type="Identifiant" id="connexionIdentifiant" name="connexionIdentifiant" size="20" maxlength="60" />
+		            <input type="text" id="connexionIdentifiant" name="connexionIdentifiant" size="20" maxlength="60" />
 		            <span class="erreur">${traitement.erreurs['connexionIdentifiant']}</span>
 		            <br />
 		                
