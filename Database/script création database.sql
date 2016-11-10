@@ -154,6 +154,8 @@ create table Evenement(
 /*****************************************************************************************************************************************************************/
 
 INSERT INTO Utilisateur VALUES ('brf2125a','Bremec','Florian','17C Avenu du Gers',31270,'Frouzins','',0781734740,'fbremec@gmail.com','etudiant');
+INSERT INTO Utilisateur VALUES ('rgv2021a','Argenty','Valentin','13 rue Jules Verne',31270,'Frouzins','',0666247082,'valentin.argenty@gmail.com','etudiant', 'toto');
+INSERT INTO Utilisateur VALUES ('test','Test','Test','13 rue Test',12345,'Testville','',012346789,'test.test@test.com','etudiant', 'test');
 INSERT INTO Enseigne VALUES (1,'IUT Informatique','128 Route de Rangueil',31100,'Toulouse');
 INSERT INTO Utilisateurenseigne VALUES ('brf2125a',1);
 INSERT INTO Promotion VALUES (1,1,2017);
@@ -164,11 +166,30 @@ INSERT INTO Module VALUES (1,1,'M1101','Base de l\'architecture système'),(2,1,
 INSERT INTO Module VALUES (3,2,'M1201','caca');
 INSERT INTO Forum VALUES (1,1,'Travaux Pratiques','viescolaire'),(2,1,'Cours','viescolaire'),(3,1,'Travaux Dirigés','viescolaire'),(4,1,'Partiels','viescolaire');
 INSERT INTO ForumModule VALUES (1,1);
+INSERT INTO ForumModule VALUES (1,2);
 INSERT INTO Sujet VALUES (1,1,1,'Installation d\'une machine virtuelle Linux',1);
 INSERT INTO Commentaire VALUES (1,'brf2125a',1,'Comment on fais ?','Bonjour j\'ai un problème.','en cours','29/10/2016',1);
 INSERT INTO Reponse VALUES (1,1,'brf2125a','on fais comme ca','29/10/2016');
 INSERT INTO Document (id_Document,id_Utilisateur,Lien,date_Document,Nom) VALUES (1,'brf2125a','','29/10/2016','document installation linux');
 INSERT INTO Document (id_Document,id_Sujet,Lien,date_Document,Nom) VALUES (2,1,'','29/10/2016','correction');
 
+alter table Utilisateur add motdepasse varchar(20);
 
-    
+SELECT motdepasse FROM Utilisateur WHERE id_Utilisateur='rgv2021a';
+delete from Utilisateur where id_utilisateur = 'rgv2021a';
+
+Select f.nom, s.numero, s.nom 
+from sujet as s, forummodule as fm, forum as f
+where s.id_forum = fm.id_forum
+and fm.id_forum = f.id_forum
+and f.id_enseigne = 1;
+
+select *
+from forum;
+
+update Sujet set datePubli = 12/10/2016
+where id_sujet = 1;
+
+INSERT INTO Sujet VALUES (2,1,1,'Configuration de Linux',2, 13/10/2016);
+INSERT INTO Sujet VALUES (3,1,1,'Suppression de linux',3, 14/10/2016);
+INSERT INTO Sujet VALUES (4,1,2,'Suppression de linux',4, 14/10/2016);

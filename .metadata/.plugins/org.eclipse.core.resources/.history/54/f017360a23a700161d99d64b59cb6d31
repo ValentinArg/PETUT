@@ -1,0 +1,18 @@
+package SQL;
+
+import java.sql.SQLException;
+
+
+public class SQLAccueil extends SQL{
+	
+	
+
+	public SQLAccueil() {
+		super();
+	}
+
+	public 
+
+	}
+
+}

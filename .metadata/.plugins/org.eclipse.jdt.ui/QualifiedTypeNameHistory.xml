@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="SQL.Connect"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="Forms.Connexion"/>
-<fullyQualifiedTypeName name="Beans.Groupe"/>
-<fullyQualifiedTypeName name="Forms.FormConnexion"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-<fullyQualifiedTypeName name="SQL.SQLConnexion"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="com.google.gson.Gson"/>
-<fullyQualifiedTypeName name="org.apache.tomcat.util.http.mapper.Mapper"/>
-<fullyQualifiedTypeName name="org.codehaus.jackson.map.ObjectMapper"/>
-<fullyQualifiedTypeName name="Beans.Sujet"/>
-<fullyQualifiedTypeName name="SQL.SQLForumVieScolaire"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="SQL.SQLAccueil"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="Beans.Semestre"/>
-<fullyQualifiedTypeName name="Beans.Module"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="Beans.Sujet"/>
 </qualifiedTypeNameHistroy>

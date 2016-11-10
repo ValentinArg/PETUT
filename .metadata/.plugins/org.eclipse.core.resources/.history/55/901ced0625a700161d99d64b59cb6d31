@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel ="stylesheet" href = "/PE2I/css/main.css"/>
+<link rel ="stylesheet" href = "/PE2I/css/connexion.css"/>	
+<title>PETUT - Accueil</title>
+</head>
+<body>
+	<div class="conteneurGeneral">
+		 <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Numero</th>                   
+                </tr>
+                <c:forEach items="${ listeSujets }" var="listeSujets">
+                <tr>
+                    <td><c:out value="${ listeSujets[0].getId }"/></td>
+                    <td><c:out value="${ listeSujets[0].getNom }"/></td>
+                    <td><c:out value="${ listeSujets[0].getNumero }"/></td>
+
+                    <%-- Lien vers la servlet de suppression, avec passage de la date de la commande - c'est-à-dire la clé de la Map - en paramètre grâce à la balise <c:param/>. --%>
+                    <td class="action">
+                        <a href="<c:url value="/suppressionCommande"><c:param name="dateCommande" value="${ mapCommandes.key }" /></c:url>">
+                            <img src="<c:url value="/inc/supprimer.png"/>" alt="Supprimer" />
+                        </a>
+                    </td>
+                </tr>
+                </c:forEach>
+            </table>
+	</div>
+</body>
+</html>

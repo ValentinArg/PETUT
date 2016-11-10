@@ -1,0 +1,87 @@
+package SQL;
+
+import java.sql.SQLException;
+
+
+public class SQLConnexion extends SQL{
+	
+	
+
+	public SQLConnexion() {
+		super();
+	}
+
+	public static boolean validerId(String id_Utilisateur) throws SQLException {
+		
+			int resultat;
+	        try {
+	            setStatement( getConnexion().createStatement() );
+	        } catch ( SQLException e ) {
+	            System.out.println( "Erreur dans la création du statement" );
+	            e.printStackTrace();
+	        }
+	        try {
+	            setResultat(getStatement().executeQuery( "SELECT COUNT(*) FROM Utilisateur WHERE id_Utilisateur = '" + id_Utilisateur + "';" ));
+	        } catch ( SQLException e ) {
+	            System.out.println( "Erreur dans l'execution de la requete SQL" );
+	            e.printStackTrace();
+	        }finally{
+	            getResultat().next();
+	        	resultat = getResultat().getInt(1);
+	        	getResultat().close();
+	        	getStatement().close();
+	        	getConnexion().close();
+	        }
+	        return resultat == 1;
+	}
+
+	public static boolean validerMotPasse(String id_Utilisateur, String motDePasse) throws SQLException {
+			String resultat;
+			try {
+	            setStatement( getConnexion().createStatement() );
+	        } catch ( SQLException e ) {
+	            System.out.println( "Erreur dans la création du statement" );
+	            e.printStackTrace();
+	        }
+	        try {
+	            setResultat(getStatement().executeQuery( "SELECT motdepasse FROM Utilisateur WHERE id_Utilisateur = '" + id_Utilisateur + "';" ));       
+	        } catch ( SQLException e ) {
+	            System.out.println( "Erreur dans l'execution de la requete SQL" );
+	            e.printStackTrace();
+	        }finally{
+	            getResultat().next();
+	        	resultat = getResultat().getString(1);
+	        	getResultat().close();
+	        	getStatement().close();
+	        	getConnexion().close();
+	        }
+	        return resultat == motDePasse;
+
+	}
+
+	public static String recupererIdUtilisateur(String id_Utilisateur) throws SQLException {
+			String resultat;
+			try {
+	            setStatement( getConnexion().createStatement() );
+	        } catch ( SQLException e ) {
+	            System.out.println( "Erreur dans la création du statement" );
+	            e.printStackTrace();
+	        }
+	        try {
+	            setResultat(getStatement()
+	                    .executeQuery( "SELECT id_Utilisateur FROM Utilisateur WHERE id_Utilisateur = '" + id_Utilisateur +" ';" ));
+
+	        } catch ( SQLException e ) {
+	            System.out.println( "Erreur dans l'execution de la requete SQL" );
+	            e.printStackTrace();
+	        }finally{
+		        getResultat().next();
+		        resultat = getResultat().getString(1);
+	        	getResultat().close();
+	        	getStatement().close();
+	        	getConnexion().close();
+	        }
+	        return resultat;
+	}
+
+}
