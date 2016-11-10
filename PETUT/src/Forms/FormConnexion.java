@@ -10,23 +10,23 @@ import SQL.*;
 
 public class FormConnexion {
 	
-	private static final String CHAMP_ID    = "connexionIdentifiant";
-    private static final String CHAMP_PASS   = "connexionMotdepasse";
+	private static final String CHAMP_ID    = "identifiant";
+    private static final String CHAMP_PASS   = "motdepasse";
     private Map<String, String> erreurs      = new HashMap<String, String>();
     
     public String connexionUtilisateur( HttpServletRequest request ) throws Exception {
         
-    	String motDePasse = getValeurChamp( request, CHAMP_PASS );
+    	String motdepasse = getValeurChamp( request, CHAMP_PASS );
         String identifiant = getValeurChamp( request, CHAMP_ID );
-        boolean valideId;
+        boolean valideIdentifiant;
         boolean valideMotdepasse;
         SQLConnexion sql = new SQLConnexion();
-        valideId = sql.validerId(identifiant);
-		if(!valideId){
+        valideIdentifiant = sql.validerIdentifiant(identifiant);
+		if(!valideIdentifiant){
 			this.setErreur(CHAMP_ID, "Identifiant invalide");
 			throw new Exception("Identifiant invalide");
 		}
-		valideMotdepasse = sql.validerMotPasse(identifiant, motDePasse);
+		valideMotdepasse = sql.validerMotPasse(identifiant, motdepasse);
 		if(!valideMotdepasse){
 			this.setErreur(CHAMP_PASS, "Mot de passe invalide");
 			throw new Exception("Mot de passe invalide");

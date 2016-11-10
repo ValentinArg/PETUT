@@ -3,73 +3,97 @@
 @CHARSET "UTF-8";
 /* Général ------------------------------------------------------------------------------------- */
 
-.coteneurGeneral{
-	
+body{
+	background-image : url(../images/fondconnexion.jpg);
 }
-p,legend, label, input {
-    font: normal 8pt verdana, helvetica, sans-serif;
+header{
+	background-color : grey;
+	text-align:center;
+}
+body,p,legend, label, input {
+    font: normal 8pt;
+    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+    
 }
 
-fieldset {
-    padding: 10px;
-    border: 1px black solid;
-    display:inline-block;
-    text-align:left;
-}
 
-legend {
-    font-weight: bold;
-    color: black;
-}
 
 /* Forms --------------------------------------------------------------------------------------- */
 
 form{
 	display:block;
 	vertical-align: top;
-	margin-top:5%;
+	margin-top:50px;
 	position:absolute;
-	margin-left:25%;
-	margin-right:25%;
-	width:50%;
-	
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
+}
+h2{
+	text-align: center;
+}
+legend {
+    font-weight: bold;
+    color: black;
+}
+
+fieldset {
+    padding-left: 200px;
+    padding-right : 200px;
+    padding-bottom: 35px;
+    border: 4px black outset;
+    box-shadow: 3px 3px 0px grey;
+    display:inline-block;
+    text-align:left;
+    background-color:white;
+    position:absolute center;
 }
 
 form label {
     float: left;
-    width: 200px;
-    margin: 3px 0px 0px 0px;
+    margin: 5px 0px 0px 0px;
+    min-width:50px;
 }
 
 form input {
-    margin: 3px 3px 0px 0px;
+    margin: 5px 3px 0px 0px;
     border: 1px #999 solid;
+    height:30px;
+    padding-left:10px;
+}
+
+.connexion .id{
+	background : url(../images/iconeid.png) no-repeat;
+	color : grey;
+	height:34px;
+}
+
+.connexion .pw{
+	background : url(../images/iconepw.png) no-repeat;
+	color : grey;
+	height:34px;
 }
 
 form input.sansLabel {
-    margin-left: 200px;
+	position:absolute;
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:15px;
+	background:url(../images/bouton-connexion.png) no-repeat;
+	width:112px;
+	height:34px;
+	cursor:pointer;
 }
 
-form .requis {
-    color: #c00;
-}
 
-form .succes {
-    color: #090;
-}
+form .erreur{
+	color:red;
+	position:absolute;
+	z-index:1;
 
-.boutonEleve{
-	width:100px;
-	height:60px;
-	margin-left:10px;
-			
-}
-
-.boutonEnseignant{
-	width:100px;
-	height:60px;
-	margin-right:10px;
-		
 }
 
 .connexion{

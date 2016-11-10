@@ -11,7 +11,7 @@ public class SQLConnexion extends SQL{
 		super();
 	}
 
-	public boolean validerId(String id_Utilisateur) throws SQLException {
+	public boolean validerIdentifiant(String id_Utilisateur) throws SQLException {
 		
 			int resultat=1;
 	        try {
@@ -23,20 +23,20 @@ public class SQLConnexion extends SQL{
 	        try {
 	            this.setResultat(this.getStatement().executeQuery( "SELECT COUNT(*) FROM Utilisateur WHERE id_Utilisateur = '" + id_Utilisateur + "';" ));
 	        } catch ( SQLException e ) {
-	            System.out.println( "Erreur dans l'execution de la requete SQL" );
+	            System.out.println( "Erreur dans l'exécution de la requete SQL" );
 	            e.printStackTrace();
 	        }
 	        try{
 	        	this.getResultat().next();
 	        	resultat = this.getResultat().getInt(1);
 	        } catch (SQLException e){
-	        	System.out.println( "erreur dans la recupération des données" );
+	        	System.out.println( "Erreur dans la récupération des données" );
 	            e.printStackTrace();
 	        }
 	        return resultat == 1;
 	}
 
-	public boolean validerMotPasse(String id_Utilisateur, String motDePasse) throws SQLException {
+	public boolean validerMotPasse(String id_Utilisateur, String motdepasse) throws SQLException {
 			String resultat="";
 			try {
 	            this.setStatement( this.getConnexion().createStatement() );
@@ -47,17 +47,17 @@ public class SQLConnexion extends SQL{
 	        try {
 	            this.setResultat(this.getStatement().executeQuery( "SELECT motdepasse FROM Utilisateur WHERE id_Utilisateur = '" + id_Utilisateur + "';" ));       
 	        } catch ( SQLException e ) {
-	            System.out.println( "Erreur dans l'execution de la requete SQL" );
+	            System.out.println( "Erreur dans l'exécution de la requete SQL" );
 	            e.printStackTrace();
 	        }
 	        try{
 	        	this.getResultat().next();
 	        	resultat = this.getResultat().getString("motDePasse");
 	        } catch (SQLException e){
-	        	System.out.println( "erreur dans la recupération des données" );
+	        	System.out.println( "Erreur dans la récupération des données" );
 	            e.printStackTrace();
 	        }
-	        return resultat.equals(motDePasse);
+	        return resultat.equals(motdepasse);
 
 	}
 

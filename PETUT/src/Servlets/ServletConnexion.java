@@ -16,27 +16,21 @@ public class ServletConnexion extends HttpServlet{
 	private String VUE = "/WEB-INF/jsp/connexion.jsp";
 	private String REDIRECT = "/PE2I/accueil";
 
-	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
 	}
-	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	
+	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
       
-    	
     	FormConnexion form = new FormConnexion();
-    	try {
-			String idEleve = form.connexionUtilisateur(request);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
+
         try {
-			String id = form.connexionUtilisateur(request);
+			String identifiant = form.connexionUtilisateur(request);
 			HttpSession session = request.getSession();
-			session.setAttribute("idUtilisateur", id );
-        	response.sendRedirect( REDIRECT);
+			session.setAttribute("identifiant", identifiant );
+        	response.sendRedirect(REDIRECT);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			request.setAttribute( "traitement", form );
