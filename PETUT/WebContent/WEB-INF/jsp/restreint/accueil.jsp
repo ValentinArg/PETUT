@@ -24,5 +24,6 @@
                 </c:forEach>
             </table>
 	</div>
+	<a href="/PE2I/deconnexion">Se deconnecter</a>
 </body>
 </html>

@@ -13,7 +13,7 @@ import SQL.SQLAccueil;
 
 public class ServletAccueil extends HttpServlet{
 	
-	private String VUE = "/WEB-INF/jsp/accueil.jsp";
+	private String VUE = "/WEB-INF/jsp/restreint/accueil.jsp";
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		

@@ -14,7 +14,7 @@ import SQL.SQLConnexion;
 public class ServletConnexion extends HttpServlet{
 
 	private String VUE = "/WEB-INF/jsp/connexion.jsp";
-	private String REDIRECT = "/PE2I/accueil";
+	private String REDIRECT = "/PE2I/restreint/accueil";
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
