@@ -66,7 +66,7 @@
 				idSemestre = this.getAttribute('id');
 				if(idSemestre != null){
 					$.ajax({
-						url : '/PE2I/eleves/forum',
+						url : '/PE2I/restreint/forum',
 						type : 'POST',
 						data : 'idSemestre=' + idSemestre,
 						success: function(valeur){
@@ -126,7 +126,7 @@
 					slideBarreModule();
 				if(idModuleClick != null){
 					$.ajax({
-						url : '/PE2I/eleves/forum',
+						url : '/PE2I/restreint/forum',
 						type : 'POST',
 						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
@@ -156,7 +156,7 @@
 							$('.champTableau').click(function(){
 								idSujet = ((this.id).replace('sujet',''));
 								$.ajax({
-									url : '/PE2I/eleves/forum',
+									url : '/PE2I/restreint/forum',
 									type : 'POST',
 									data : 'idSujet=' + idSujet,
 									success : function(valeur){
