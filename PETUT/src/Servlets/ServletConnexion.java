@@ -17,13 +17,11 @@ public class ServletConnexion extends HttpServlet{
 	private String VUE = "/WEB-INF/jsp/connexion.jsp";
 	private String REDIRECT = "/PE2I/restreint/accueil";
 	private String CHAMP_SOUVENIR = "souvenir";
-	private String COOKIE_SOUVENIR = "souvenir";
-	private int COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		String seSouvenir = (String) session.getAttribute("souvenir");
+		String seSouvenir = (String) session.getAttribute(CHAMP_SOUVENIR);
 		if(seSouvenir != null && seSouvenir.equals("oui")){
 			response.sendRedirect(REDIRECT);
 		}else{
@@ -42,7 +40,7 @@ public class ServletConnexion extends HttpServlet{
 			session.setAttribute("identifiant", identifiant );
 			if ( request.getParameter( CHAMP_SOUVENIR ) != null ) {
 				String seSouvenir="oui";
-				session.setAttribute("souvenir", seSouvenir);
+				session.setAttribute(CHAMP_SOUVENIR, seSouvenir);
 			} else {
 		        /* Demande de suppression du cookie du navigateur */
 		        session.removeAttribute("souvenir");

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 public class ServletDeconnexion extends HttpServlet {
 	   public static final String URL_REDIRECTION = "/PE2I/connexion";
-	   private static final String COOKIE_SOUVENIR = "souvenir";
 
 	   public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 	        /* Récupération et destruction de la session en cours */
