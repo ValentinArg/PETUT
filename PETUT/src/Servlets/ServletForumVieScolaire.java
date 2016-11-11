@@ -12,7 +12,7 @@ import SQL.SQLForumVieScolaire;
 
 public class ServletForumVieScolaire extends HttpServlet{
 
-	private String VUE = "/WEB-INF/jsp/eleve/forum.jsp";
+	private String VUE = "/WEB-INF/jsp/restreint/forum.jsp";
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
