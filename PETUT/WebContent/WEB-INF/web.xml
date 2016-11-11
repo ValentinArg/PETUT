@@ -37,14 +37,14 @@
     	<url-pattern>/restreint/forum</url-pattern>
   	</servlet-mapping>
   	
-  <!--<filter>
+  <filter>
    	<filter-name>RestrictionFilter</filter-name>
     <filter-class>Filters.RestrictionFilter</filter-class>
   </filter>
   <filter-mapping>
   	<filter-name>RestrictionFilter</filter-name>
     <url-pattern>/restreint/*</url-pattern>
-  </filter-mapping> -->
+  </filter-mapping>
   	
   
   	

@@ -22,8 +22,8 @@ public class ServletConnexion extends HttpServlet{
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
-		
-		String seSouvenir = getCookieValue( request, COOKIE_SOUVENIR );
+		HttpSession session = request.getSession();
+		String seSouvenir = (String) session.getAttribute("souvenir");
 		if(seSouvenir != null && seSouvenir.equals("oui")){
 			response.sendRedirect(REDIRECT);
 		}else{
@@ -42,10 +42,10 @@ public class ServletConnexion extends HttpServlet{
 			session.setAttribute("identifiant", identifiant );
 			if ( request.getParameter( CHAMP_SOUVENIR ) != null ) {
 				String seSouvenir="oui";
-				setCookie( response, COOKIE_SOUVENIR, seSouvenir, COOKIE_MAX_AGE );
+				session.setAttribute("souvenir", seSouvenir);
 			} else {
 		        /* Demande de suppression du cookie du navigateur */
-		        setCookie( response, COOKIE_SOUVENIR, "", 0 );
+		        session.removeAttribute("souvenir");
 		    }
         	response.sendRedirect(REDIRECT);
 		} catch (Exception e) {
@@ -53,33 +53,5 @@ public class ServletConnexion extends HttpServlet{
 			request.setAttribute( "traitement", form );
 			this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 		}
-	}
-	
-
-    /**
-     * Méthode utilitaire gérant la récupération de la valeur d'un cookie donné
-     * depuis la requête HTTP.
-     */
-    private static String getCookieValue( HttpServletRequest request, String nom ) {
-        Cookie[] cookies = request.getCookies();
-        if ( cookies != null ) {
-            for ( Cookie cookie : cookies ) {
-                if ( cookie != null && nom.equals( cookie.getName() ) ) {
-                    return cookie.getValue();
-                }
-            }
-        }
-        return null;
-    }
-    
-    /*
-     * Méthode utilitaire gérant la création d'un cookie et son ajout à la
-     * réponse HTTP.
-     */
-    private static void setCookie( HttpServletResponse response, String nom, String valeur, int maxAge ) {
-        Cookie cookie = new Cookie( nom, valeur );
-        cookie.setMaxAge( maxAge );
-        response.addCookie( cookie );
-    }
-	
+	}	
 }
