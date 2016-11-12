@@ -18,7 +18,7 @@ public class ServletConnexion extends HttpServlet{
 	private String REDIRECT = "/PE2I/restreint/accueil";
 	private String CHAMP_SOUVENIR = "souvenir";
 
-	//methode Get sur flo
+
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
