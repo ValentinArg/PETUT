@@ -1,8 +1,0 @@
-INDEX VERSION 1.3+D:\Valentin\Documents\PETUT\PETUT\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3429030078.index
-2999809466.index
-2632475045.index
-2646116056.index
-2305747654.index
-2653467771.index
-221046678.index
