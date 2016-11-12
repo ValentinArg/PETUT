@@ -1,0 +1,104 @@
+@CHARSET "ISO-8859-1";
+
+@CHARSET "UTF-8";
+/* Général ------------------------------------------------------------------------------------- */
+
+body{
+	background-image : url(../images/fondconnexion.jpg);
+}
+header{
+	background-color : grey;
+	text-align:center;
+	height:100px;
+	min-width:900px;
+	
+}
+body,p,legend, label, input {
+    font: normal 8pt;
+    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+    
+}
+
+.general{
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* Barre de menu ------------------------------------------------------------------------------- */
+
+.divmenu{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+	min-width:1000px;
+	margin-bottom:50px;
+}
+
+.nav 
+{
+	margin:auto;
+	min-width:900px;
+	background:#b2b580;
+	padding-left:0px;
+	height:39px;
+}
+
+.nav li 
+{
+   	display:inline;
+   	color:#000;
+   	background:#b2b580;
+  	padding:10px 30px 10px 30px;
+   	text-align:center;
+	position:relative;
+	top:9px;
+}
+
+
+.nav li:hover 
+{
+   color:#fff;
+   background:#727454;
+}
+            
+
+/* News ------------------------------------------------------------------------------- */
+
+.news{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	min-width:1000px;
+}
+
+.news table{
+    border-collapse: collapse;
+    border: 2px black solid;
+    min-width:450px;
+}
+
+.news table tr , th , td{
+	border: 2px black solid;
+	padding:5px;
+}
+
+.news table caption{
+	text-align:left;
+	padding:5px 0px 5px 10px;
+	background-color:grey;
+}
+
+.newsSujets{
+	display:inline-block;
+	vertical-align:top;
+	margin-right:20px;
+	
+}
+
+.newsModifs{
+	display:inline-block;
+	vertical-align:top;
+	margin:auto;
+	margin-left:20px;
+}
