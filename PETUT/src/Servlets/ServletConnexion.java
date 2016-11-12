@@ -17,7 +17,9 @@ public class ServletConnexion extends HttpServlet{
 	private String VUE = "/WEB-INF/jsp/connexion.jsp";
 	private String REDIRECT = "/PE2I/restreint/accueil";
 	private String CHAMP_SOUVENIR = "souvenir";
+
 	//methode Get sur pc
+
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
