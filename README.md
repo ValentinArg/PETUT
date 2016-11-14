@@ -39,3 +39,11 @@ Résolution non fast foward :
   
 ****************************************************************************************************************************************
 ****************************************************************************************************************************************
+
+En cas de conflit :
+  - git commit -m "message"
+  - git merge
+  - faire les modifications qui sont en conflit repéré par les chevrons
+  - git commit -a -m "message"
+  - git merge
+  - git push 
