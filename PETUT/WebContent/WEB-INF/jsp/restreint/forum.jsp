@@ -33,6 +33,16 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
+			
+			<div class="commentaire">
+				<div class="enTeteCommentaire">
+					<p class="nomAuteurCommenatire">Bremec Florian</p>
+					<p class="dateCommentaire"> 17 novembre 2016</p>
+				</div>
+				<div class="corpCommentaire">
+					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				</div>
+			</div>
 			<!-- <div class="documents">
 				<table>
 					
@@ -176,7 +186,7 @@
 										$(tr2).appendTo(tbody);
 										if(listeObjet[0].sujet != null){
 											var td1 = $("<td></td>");
-											var td2 = $("<td></td>");
+											var td2 = $("<td style='font-size:15px' sujet </td>");
 											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].sujet.nom+".jpg'/>");
 											$(td1).appendTo(tr1);
 											$(td2).appendTo(tr2);
@@ -184,7 +194,7 @@
 										}
 										if(listeObjet[0].correction != null){
 											var td1 = $("<td></td>");
-											var td2 = $("<td></td>");
+											var td2 = $("<td style='font-size:15px'> correction </td>");
 											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].correction.nom+".jpg'/>");
 											$(td1).appendTo(tr1);
 											$(td2).appendTo(tr2);
@@ -192,7 +202,7 @@
 										}
 										if(listeObjet[0].listeDocumentsAImporter[0] != null){
 											var td1 = $("<td></td>");
-											var td2 = $("<td></td>");
+											var td2 = $("<td style='font-size:15px'> document à importer </td>");
 											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].listeDocumentsAImporter[0].nom+".jpg'/>");
 											$(td1).appendTo(tr1);
 											$(td2).appendTo(tr2);
