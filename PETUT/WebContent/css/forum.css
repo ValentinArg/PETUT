@@ -20,9 +20,6 @@
 	text-align:left;
 }
 
-
-
-
 .partie {
 	
 
@@ -36,8 +33,6 @@
 	
 }
 
-
-
 .partie:hover{
 	
 	/*background: LightCoral;*/
@@ -45,7 +40,6 @@
 }
 
 .partie a{
-	
 	
 	color:white;
 	text-decoration:none;
@@ -69,8 +63,6 @@ body{
 	padding:0;
 	
 }
-
-
 
 .boutonHautBas{
 	position: absolute;
@@ -268,6 +260,8 @@ body{
 	width:70px;
 }
 
-
+.dateCommentaire{
+	font-size:10px;
+}
 
 
