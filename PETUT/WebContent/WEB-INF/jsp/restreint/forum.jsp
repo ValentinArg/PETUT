@@ -43,20 +43,7 @@
 					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
 				</div>
 			</div>
-			<!-- <div class="documents">
-				<table>
-					
-						<td><img src="/PE2I/images/eleves/forum/sujet.jpg"/></td>
-						<td><img src="/PE2I/images/eleves/forum/corriger.jpg"/></td>
-						<td><img src="/PE2I/images/eleves/forum/documentAImporter.jpg"/></td>
-					</tr>
-					<tr>
-						<td>sujet</td>
-						<td>corrigé</td>
-						<td>document à importer</td>
-					</tr>
-				</table>
-			</div>-->
+			
 			
 		</div>
 		<script type="text/javascript">
