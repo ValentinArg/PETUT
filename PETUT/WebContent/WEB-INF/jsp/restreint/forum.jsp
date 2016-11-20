@@ -96,7 +96,11 @@
 					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
 				</div>
 			</div>-->
-			
+			<div class="repondrePost">
+				<h1>Répondre</h1>
+				<textarea class ="editeur"  rows="10" style="width:99%;resize:none;"></textarea>
+				<button type="button">POSTER</button>
+			</div>
 		</div>
 		<div class="creerPost">
 			<p>Créer un post</p><p>Répondre à ce post</p>
