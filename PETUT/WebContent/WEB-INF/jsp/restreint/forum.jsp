@@ -33,7 +33,6 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			
 			<div class="commentaire">
 				<div class="enTeteCommentaire">
 					<p class="nomAuteurCommenatire">Bremec Florian</p>
@@ -43,8 +42,64 @@
 					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
 				</div>
 			</div>
+			<!-- <div class="commentaire">
+				<div class="enTeteCommentaire">
+					<p class="nomAuteurCommenatire">Bremec Florian</p>
+					<p class="dateCommentaire"> 17 novembre 2016</p>
+				</div>
+				<div class="corpCommentaire">
+					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				</div>
+			</div>
+			<div class="commentaire">
+				<div class="enTeteCommentaire">
+					<p class="nomAuteurCommenatire">Bremec Florian</p>
+					<p class="dateCommentaire"> 17 novembre 2016</p>
+				</div>
+				<div class="corpCommentaire">
+					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				</div>
+			</div>
+			<div class="commentaire">
+				<div class="enTeteCommentaire">
+					<p class="nomAuteurCommenatire">Bremec Florian</p>
+					<p class="dateCommentaire"> 17 novembre 2016</p>
+				</div>
+				<div class="corpCommentaire">
+					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				</div>
+			</div>
+			<div class="commentaire">
+				<div class="enTeteCommentaire">
+					<p class="nomAuteurCommenatire">Bremec Florian</p>
+					<p class="dateCommentaire"> 17 novembre 2016</p>
+				</div>
+				<div class="corpCommentaire">
+					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				</div>
+			</div>
+			<div class="commentaire">
+				<div class="enTeteCommentaire">
+					<p class="nomAuteurCommenatire">Bremec Florian</p>
+					<p class="dateCommentaire"> 17 novembre 2016</p>
+				</div>
+				<div class="corpCommentaire">
+					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				</div>
+			</div>
+			<div class="commentaire">
+				<div class="enTeteCommentaire">
+					<p class="nomAuteurCommenatire">Bremec Florian</p>
+					<p class="dateCommentaire"> 17 novembre 2016</p>
+				</div>
+				<div class="corpCommentaire">
+					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				</div>
+			</div>-->
 			
-			
+		</div>
+		<div class="creerPost">
+			<p>Créer un post</p><p>Répondre à ce post</p>
 		</div>
 		<script type="text/javascript">
 		

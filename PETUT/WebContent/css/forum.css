@@ -274,6 +274,7 @@ body{
 	width:80%;
 	margin-left:auto;
 	margin-right:auto;
+	margin-bottom:20px;
 }
 
 .enTeteCommentaire{
@@ -289,4 +290,33 @@ body{
 	padding-right:5px;
 }
 
+.creerPost{
+	width:15%;
+	margin-left:80%;
+	margin-right:5%;
+	top:50px;
+	position: fixed;
+	text-align:center;
+}
+.creerPost p{
+	border:solid 1px black;
+	cursor:pointer;
+	margin-top:0;
+	padding:5px;
+}
 
+.repondrePost{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	
+}
+
+.repondrePost h1{
+	font-size:20px;
+}
+
+.editeur{
+	margin-bottom:5px;
+}
