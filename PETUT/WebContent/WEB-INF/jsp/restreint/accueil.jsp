@@ -11,10 +11,9 @@
 <title>PE2I - Accueil</title>
 </head>
 
-<header>
-<h1>PE2I</h1>
-</header>
-
+	<div class="baniere">
+		<img  src="/PE2I/images/general/logo.png">
+	</div>
 <body>
 
 <div class="general">

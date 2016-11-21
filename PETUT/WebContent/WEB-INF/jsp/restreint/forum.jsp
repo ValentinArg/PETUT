@@ -240,6 +240,7 @@
 												type : 'POST',
 												data : 'idTopic=' + idTopic,
 												success : function(valeur){
+													$(".documents").remove();
 													var commentaire = JSON.parse(valeur);
 													alert(commentaire.reponses[0].id);
 												},
@@ -283,8 +284,9 @@
 	                }, 0 );
 	            }else{
 	            	if(haut){
-	            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
-	            		document.getElementById('conteneurGeneral').style.width="80%";
+	            		//document.getElementById('conteneurGeneral').style.marginLeft="0%";
+	            		//document.getElementById('conteneurGeneral').style.marginRight="0%";
+	            		//document.getElementById('conteneurGeneral').style.width="100%";
 	            	}	
 	            }
 	        }
