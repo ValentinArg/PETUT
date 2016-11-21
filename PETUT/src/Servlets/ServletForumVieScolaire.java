@@ -71,9 +71,17 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 response.setContentType("application/json");
 			 response.setCharacterEncoding("UTF-8");
 			 response.getWriter().write(string3);
-			 
-			
-			 
+		 }
+		 else if(request.getParameter("idTopic")!=null){
+			 int idTopic = Integer.parseInt(request.getParameter("idTopic"));
+			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
+			 Commentaire c = sql.getCommentairePrincipalByIdTopic(idTopic);
+			 sql.disconnect();
+			 ObjectMapper mapper2 = new ObjectMapper();
+			 String string4 = mapper2.writeValueAsString(c);
+			 response.setContentType("application/json");
+			 response.setCharacterEncoding("UTF-8");
+			 response.getWriter().write(string4);
 		 }
 	 }
 	 

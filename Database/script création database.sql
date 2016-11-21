@@ -184,8 +184,12 @@ where s.id_forum = fm.id_forum
 and fm.id_forum = f.id_forum
 and f.id_enseigne = 1;
 
+select * FROM REPONSE WHERE id_Commentaire = 1;
+
 select *
 from forum;
+
+alter table Sujet ADD datePubli date;
 
 update Sujet set datePubli = 12/10/2016
 where id_sujet = 1;

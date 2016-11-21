@@ -33,15 +33,6 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			<div class="commentaire">
-				<div class="enTeteCommentaire">
-					<p class="nomAuteurCommenatire">Bremec Florian</p>
-					<p class="dateCommentaire"> 17 novembre 2016</p>
-				</div>
-				<div class="corpCommentaire">
-					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-				</div>
-			</div>
 			<!-- <div class="commentaire">
 				<div class="enTeteCommentaire">
 					<p class="nomAuteurCommenatire">Bremec Florian</p>
@@ -51,62 +42,21 @@
 					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
 				</div>
 			</div>
-			<div class="commentaire">
-				<div class="enTeteCommentaire">
-					<p class="nomAuteurCommenatire">Bremec Florian</p>
-					<p class="dateCommentaire"> 17 novembre 2016</p>
-				</div>
-				<div class="corpCommentaire">
-					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-				</div>
-			</div>
-			<div class="commentaire">
-				<div class="enTeteCommentaire">
-					<p class="nomAuteurCommenatire">Bremec Florian</p>
-					<p class="dateCommentaire"> 17 novembre 2016</p>
-				</div>
-				<div class="corpCommentaire">
-					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-				</div>
-			</div>
-			<div class="commentaire">
-				<div class="enTeteCommentaire">
-					<p class="nomAuteurCommenatire">Bremec Florian</p>
-					<p class="dateCommentaire"> 17 novembre 2016</p>
-				</div>
-				<div class="corpCommentaire">
-					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-				</div>
-			</div>
-			<div class="commentaire">
-				<div class="enTeteCommentaire">
-					<p class="nomAuteurCommenatire">Bremec Florian</p>
-					<p class="dateCommentaire"> 17 novembre 2016</p>
-				</div>
-				<div class="corpCommentaire">
-					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-				</div>
-			</div>
-			<div class="commentaire">
-				<div class="enTeteCommentaire">
-					<p class="nomAuteurCommenatire">Bremec Florian</p>
-					<p class="dateCommentaire"> 17 novembre 2016</p>
-				</div>
-				<div class="corpCommentaire">
-					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-				</div>
-			</div>-->
 			<div class="repondrePost">
 				<h1>Répondre</h1>
-				<textarea class ="editeur"  rows="10" style="width:99%;resize:none;"></textarea>
-				<button type="button">POSTER</button>
+				<textarea class ="editeur" id="editeur" rows="10" style="width:99%;resize:none;"></textarea>
+				<button id="boutonPoster" type="button">POSTER</button>
 			</div>
 		</div>
 		<div class="creerPost">
 			<p>Créer un post</p><p>Répondre à ce post</p>
-		</div>
+		</div>-->
 		<script type="text/javascript">
 		
+			$('#boutonPoster').click(function(){
+				alert(document.getElementById("editeur").value);
+			});
+			
 			var idModuleClick;
 			$( '.semestre' ).click(function(){
 				$(".listeSujets").remove();
@@ -208,7 +158,7 @@
 								$(tdNumero).appendTo(tr);
 								$(tdNom).appendTo(tr);
 							}
-							
+							// récupère les topics en fonction d'un sujet donnée
 							$('.champTableau').click(function(){
 								idSujet = ((this.id).replace('sujet',''));
 								$.ajax({
@@ -265,7 +215,7 @@
 										$(tbody).appendTo(table);
 										$(entete).appendTo(tbody);
 										for(i = 0; i < listeObjet[1].length; i++){
-											var tr = $("<tr class='champTableau' id='sujet"+listeObjet[1][i].id+"'></tr>");
+											var tr = $("<tr class='champTableau' id='topic"+listeObjet[1][i].id+"'></tr>");
 											var tdStatut = $("<td></td>");
 											var tdQuestion = $('<td></td>');
 											var tdAuteur = $('<td></td>');
@@ -283,9 +233,20 @@
 											$(tdDate).appendTo(tr);
 											$(tdReponse).appendTo(tr);
 										}
-										
-											
-										
+										$('.champTableau').click(function(){
+											idTopic = ((this.id).replace('topic',''));
+											$.ajax({
+												url : '/PE2I/restreint/forum',
+												type : 'POST',
+												data : 'idTopic=' + idTopic,
+												success : function(valeur){
+													var commentaire = JSON.parse(valeur);
+													alert(commentaire.reponses[0].id);
+												},
+												dataType : 'text'
+											})
+										})
+									
 									},
 									dataType : 'text'
 								});
@@ -323,8 +284,7 @@
 	            }else{
 	            	if(haut){
 	            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
-	            		document.getElementById('conteneurGeneral').style.marginRight="0%";
-	            		document.getElementById('conteneurGeneral').style.width="100%";
+	            		document.getElementById('conteneurGeneral').style.width="80%";
 	            	}	
 	            }
 	        }
