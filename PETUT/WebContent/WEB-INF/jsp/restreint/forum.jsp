@@ -76,6 +76,9 @@
 						type : 'POST',
 						data : 'idSemestre=' + idSemestre,
 						success: function(valeur){
+							$(".listeSujets").remove();
+							$(".listeTopics").remove();
+							$(".documents").remove();
 							//listeSemestreCLick.addNumeroSemestre(idSemestre,valeur);
 							var listeUes = JSON.parse(valeur);
 							for(i = 0; i < listeUes.length; i++){
@@ -117,6 +120,7 @@
 							$(".module").click(function(){
 								$(".listeSujets").remove();
 								$(".listeTopics").remove();
+								$(".documents").remove();
 								$('.forum').show(200);
 								idModuleClick = (this.id).replace('module', '');
 								return false;
@@ -138,6 +142,7 @@
 						success : function(valeur){
 							$(".listeSujets").remove();
 							$(".listeTopics").remove();
+							$(".documents").remove();
 							var listeSujets = JSON.parse(valeur);
 							//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 							var div = $('<div class="listeSujets">');
@@ -168,6 +173,7 @@
 									success : function(valeur){
 										$(".listeSujets").remove();
 										$(".listeTopics").remove();
+										$(".documents").remove();
 										var listeObjet = JSON.parse(valeur);
 										
 										var div = $('<div class="documents">');
@@ -241,6 +247,7 @@
 												data : 'idTopic=' + idTopic,
 												success : function(valeur){
 													$(".documents").remove();
+													$(".listeTopics").remove();
 													var commentaire = JSON.parse(valeur);
 													alert(commentaire.reponses[0].id);
 												},

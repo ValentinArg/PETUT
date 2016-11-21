@@ -26,8 +26,8 @@
 
 	display: inline-block;
 	padding:6px;
-	font-size:15px;
-	height:15px;
+	font-size:20px;
+	height:20px;
 	vertical-align:top;
 	
 
@@ -68,8 +68,8 @@ body{
 .boutonHautBas{
 	position: absolute;
 	margin:0;
-	height:15px;
-	font-size:15px;
+	height:20px;
+	font-size:20px;
 	display:inline-block;
 	width:20%;
 	text-align:center;
@@ -89,7 +89,7 @@ body{
 .parent{
 	
 	list-style:none;
-	font-size:15px;
+	font-size:20px;
 	cursor:pointer;
 	width:100%;
 	display:inline-block;
@@ -110,7 +110,7 @@ ul{
 	display:block;
 	padding:10px;
 	text-align:center;
-	background-color:#E3001B;
+	background-color:#c62d00;
 	margin:0;
 }
 .ue:hover{
@@ -132,7 +132,8 @@ ul{
 	cursor:pointer;
 }
 .semestres{
-	background-color:#E3001B;
+	background-color:#c62d00;
+	font-size:20px;
 }
 a{
 	cursor:pointer;
@@ -183,7 +184,7 @@ body{
 .type {
 	display: inline-block;
 	padding:8px;
-	font-size:20px;
+	font-size:25px;
 	height:20px;
 	vertical-align:top;
 	width:20%;
@@ -203,7 +204,7 @@ body{
 	border-collapse: collapse;
 	margin-left: auto;
   	margin-right: auto;
-  	font-size:13px;
+  	font-size:17px;
   	
 }
 
@@ -237,7 +238,7 @@ body{
 	
 	margin:0;
 	display:inline-block;
-	font-size:10px;
+	font-size:15px;
 	padding-right:2px;
 	padding-left:2px;
 	text-decoration:underline;
@@ -254,7 +255,7 @@ body{
 	margin-right:auto;
 	width:300px;
 	text-align:center;
-	font-size:10px;
+	font-size:15px;
 	cursor:pointer;
 }
 .documents img{
@@ -262,7 +263,7 @@ body{
 }
 
 .dateCommentaire{
-	font-size:12px;
+	font-size:17px;
 }
 
 .enTeteCommentaire p{
@@ -314,7 +315,7 @@ body{
 }
 
 .repondrePost h1{
-	font-size:20px;
+	font-size:25px;
 }
 
 .editeur{
