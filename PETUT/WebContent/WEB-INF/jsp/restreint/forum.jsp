@@ -239,6 +239,7 @@
 											$(tdDate).appendTo(tr);
 											$(tdReponse).appendTo(tr);
 										}
+										//contruit le forum
 										$('.champTableau').click(function(){
 											idTopic = ((this.id).replace('topic',''));
 											$.ajax({
@@ -249,7 +250,41 @@
 													$(".documents").remove();
 													$(".listeTopics").remove();
 													var commentaire = JSON.parse(valeur);
-													alert(commentaire.reponses[0].id);
+													//alert(commentaire.reponses[0].id);
+													var divCommentaire = $('<div class="commentaire">');
+													var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
+													var divCorpCommentaire = $('<div class="corpCommentaire">');
+													var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.auteur+'</p>');
+													var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.date+'</p>');
+													var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.texte+'</p>');
+													//<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+													
+													$(divCommentaire).appendTo($('.conteneurGeneral'));
+													$(divEnteteCommentaire).appendTo(divCommentaire);
+													$(divCorpCommentaire).appendTo(divCommentaire);
+													$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
+													$(pDateCommentaire).appendTo(divEnteteCommentaire);
+													$(pTexteCommentaire).appendTo(divCorpCommentaire);
+													
+													for(i = 0; i < commentaire.reponses.length; i++){
+														
+														var divCommentaire = $('<div class="commentaire">');
+														var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
+														var divCorpCommentaire = $('<div class="corpCommentaire">');
+														var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.reponses[i].idUtilisateur+'</p>');
+														var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.reponses[i].date+'</p>');
+														var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.reponses[i].texte+'</p>');
+														
+														$(divCommentaire).appendTo($('.conteneurGeneral'));
+														$(divEnteteCommentaire).appendTo(divCommentaire);
+														$(divCorpCommentaire).appendTo(divCommentaire);
+														$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
+														$(pDateCommentaire).appendTo(divEnteteCommentaire);
+														$(pTexteCommentaire).appendTo(divCorpCommentaire);
+													}
+													
+													
+													
 												},
 												dataType : 'text'
 											})

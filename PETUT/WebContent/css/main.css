@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+.baniere img{
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.baniere{
+	/*width:100%;
+	background:grey;*/
+}
