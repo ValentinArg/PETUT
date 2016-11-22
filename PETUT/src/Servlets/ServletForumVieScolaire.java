@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.map.ObjectMapper;
 import Beans.*;
+import OutilsJava.GestionnaireDate;
 import SQL.SQLForumVieScolaire;
 
 public class ServletForumVieScolaire extends HttpServlet{
@@ -77,6 +78,9 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
 			 Commentaire c = sql.getCommentairePrincipalByIdTopic(idTopic);
 			 sql.disconnect();
+			 
+			 c.setDate(GestionnaireDate.convertDateToString(c.getDate()));
+			 
 			 ObjectMapper mapper2 = new ObjectMapper();
 			 String string4 = mapper2.writeValueAsString(c);
 			 response.setContentType("application/json");
