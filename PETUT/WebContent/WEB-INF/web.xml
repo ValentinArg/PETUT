@@ -37,6 +37,15 @@
     	<url-pattern>/restreint/forum</url-pattern>
   	</servlet-mapping>
   	
+  	<servlet>
+    	<servlet-name>ServletEspaceMembre</servlet-name>
+    	<servlet-class>Servlets.ServletEspaceMembre</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>ServletEspaceMembre</servlet-name>
+    	<url-pattern>/restreint/espaceMembre</url-pattern>
+  	</servlet-mapping>
+  	
  <!-- <filter>
    	<filter-name>RestrictionFilter</filter-name>
     <filter-class>Filters.RestrictionFilter</filter-class>
