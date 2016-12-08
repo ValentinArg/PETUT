@@ -10,7 +10,7 @@ public abstract class SQL {
 
     private static String       url         = "jdbc:mysql://localhost:3306/pe2idatabase";
     private static String       utilisateur = "root";
-    private static String       motDePasse  = "ChIpS31270";
+    private static String       motDePasse  = "admin";
     protected static Connection connexion;
     private static Statement    statement   = null;
     private static ResultSet    resultat;

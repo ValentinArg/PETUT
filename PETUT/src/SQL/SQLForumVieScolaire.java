@@ -211,7 +211,7 @@ public class SQLForumVieScolaire extends SQL {
         }
         try {
             this.setResultat( this.getStatement().executeQuery( "SELECT * FROM Forum WHERE id_Enseigne = " + idEnseigne
-                    + " AND type_forum='viescolaire' ORDER BY nom;" ) );
+                    + " AND typeF='viescolaire' ORDER BY nom;" ) );
         } catch ( SQLException e ) {
             System.out.println( "erreur dans l'execution de la requete SQL" );
             e.printStackTrace();
