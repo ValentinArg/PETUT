@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.map.ObjectMapper;
 import Beans.*;
+import OutilsJava.GestionnaireDate;
 import SQL.SQLForumVieScolaire;
 
 public class ServletForumVieScolaire extends HttpServlet{
@@ -71,9 +72,18 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 response.setContentType("application/json");
 			 response.setCharacterEncoding("UTF-8");
 			 response.getWriter().write(string3);
-			 
-			
-			 
+		 }
+		 else if(request.getParameter("idTopic")!=null){
+			 int idTopic = Integer.parseInt(request.getParameter("idTopic"));
+			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
+			 Commentaire c = sql.getCommentairePrincipalByIdTopic(idTopic);
+			 sql.disconnect();	
+			 c.setDate(GestionnaireDate.convertDateToString(c.getDate()));
+			 ObjectMapper mapper2 = new ObjectMapper();
+			 String string4 = mapper2.writeValueAsString(c);
+			 response.setContentType("application/json");
+			 response.setCharacterEncoding("UTF-8");
+			 response.getWriter().write(string4);
 		 }
 	 }
 	 

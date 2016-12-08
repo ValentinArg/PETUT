@@ -236,7 +236,7 @@ public class SQLForumVieScolaire extends SQL {
      * @return la liste des topics d'un sujet donné
      */
     public List<Topic> getTopicsByIdSujet( int idSujet ){
-    	List<Topic> listeCommentaire = new ArrayList<Topic>();
+    	List<Topic> listeTopics = new ArrayList<Topic>();
         try {
             this.setStatement( this.getConnexion().createStatement() );
         } catch ( SQLException e ) {
@@ -254,13 +254,66 @@ public class SQLForumVieScolaire extends SQL {
             while ( this.getResultat().next() ) {
             	Topic t = new Topic( this.getResultat().getInt( "id_Commentaire" ),this.getResultat().getString("id_Utilisateur"), this.getResultat().getString( "question" ),
                         this.getResultat().getString( "Date_Commentaire" ),this.getResultat().getInt("nbReponse"),this.getResultat().getString("statut") );
-                listeCommentaire.add( t );
+            	listeTopics.add( t );
             }
         } catch ( SQLException e ) {
             System.out.println( "erreur dans la recupération des données" );
             e.printStackTrace();
         }
-        return listeCommentaire;
+        return listeTopics;
+    }
+    
+    public Commentaire getCommentairePrincipalByIdTopic(int idTopic){
+    	Commentaire commentaire = null;
+        try {
+            this.setStatement( this.getConnexion().createStatement() );
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la création du statement" );
+            e.printStackTrace();
+        }
+        try {
+            this.setResultat(
+                    this.getStatement().executeQuery( "SELECT * FROM Commentaire WHERE id_Commentaire = " + idTopic + ";" ) );
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans l'execution de la requete SQL" );
+            e.printStackTrace();
+        }
+        try {
+            while ( this.getResultat().next() ) {
+            	commentaire = new Commentaire( this.getResultat().getInt( "id_Commentaire" ),this.getResultat().getString("id_Utilisateur"), this.getResultat().getString( "question" ),
+                        this.getResultat().getString( "Date_Commentaire" ),this.getResultat().getInt("nbReponse"),this.getResultat().getString("statut"),this.getResultat().getString("texte"));
+            }
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la recupération des données" );
+            e.printStackTrace();
+        }
+        return this.getReponsesByCommentairePrincipal(commentaire);
+    }
+    
+    public Commentaire getReponsesByCommentairePrincipal(Commentaire c){
+    	 try {
+             this.setStatement( this.getConnexion().createStatement() );
+         } catch ( SQLException e ) {
+             System.out.println( "erreur dans la création du statement" );
+             e.printStackTrace();
+         }
+         try {
+             this.setResultat(
+                     this.getStatement().executeQuery( "SELECT * FROM Reponse WHERE id_Commentaire = " + c.getId() + ";" ) );
+         } catch ( SQLException e ) {
+             System.out.println( "erreur dans l'execution de la requete SQL" );
+             e.printStackTrace();
+         }
+         try {
+        	 while ( this.getResultat().next() ) {
+        		 Reponse r = new Reponse(this.getResultat().getInt("id_Reponse"),this.getResultat().getString("id_Utilisateur"),this.getResultat().getString("texte"),this.getResultat().getString("Date_Reponse"));
+             	 c.addReponse(r);
+             }
+         } catch ( SQLException e ) {
+             System.out.println( "erreur dans la recupération des données" );
+             e.printStackTrace();
+         }
+         return c;
     }
 
 }

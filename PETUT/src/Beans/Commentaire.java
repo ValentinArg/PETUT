@@ -2,57 +2,31 @@ package Beans;
 
 import java.util.*;
 
-public class Commentaire {
+public class Commentaire extends Topic{
 	
-	private int id;
-	private String libelleTopic;
 	private String texte;
-	private String date;
-	private List<Commentaire> listeReponses;
+	private List<Reponse> reponses;
 	
-	public Commentaire(int id, String libelleTopic, String texte, String date, List<Commentaire> enfants) {
-		super();
-		this.id = id;
-		this.libelleTopic = libelleTopic;
+	public Commentaire(int id, String auteur,String question, String date, int nbReponse, String statut, String texte) {
+		super(id, auteur,question, date, nbReponse, statut);
 		this.texte = texte;
-		this.date = date;
-		this.listeReponses = enfants;
+		this.reponses = new ArrayList<Reponse>();
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getLibelle() {
-		return libelleTopic;
-	}
-	public void setLibelle(String libelleTopic) {
-		this.libelleTopic = libelleTopic;
-	}
+
 	public String getTexte() {
 		return texte;
 	}
 	public void setTexte(String texte) {
 		this.texte = texte;
 	}
-	public String getDate() {
-		return date;
+	public List<Reponse> getReponses() {
+		return reponses;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setReponses(List<Reponse> reponses) {
+		this.reponses = reponses;
 	}
-	public List<Commentaire> getEnfants() {
-		return listeReponses;
+	public void addReponse(Reponse r){
+		this.reponses.add(r);
 	}
-	public void setEnfants(List<Commentaire> enfants) {
-		this.listeReponses = enfants;
-	}
-
-	
-	
-	
-	
-
 }

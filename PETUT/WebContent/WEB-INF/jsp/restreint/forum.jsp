@@ -33,26 +33,15 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			<!-- <div class="documents">
-				<table>
-					
-						<td><img src="/PE2I/images/eleves/forum/sujet.jpg"/></td>
-						<td><img src="/PE2I/images/eleves/forum/corriger.jpg"/></td>
-						<td><img src="/PE2I/images/eleves/forum/documentAImporter.jpg"/></td>
-					</tr>
-					<tr>
-						<td>sujet</td>
-						<td>corrigé</td>
-						<td>document à importer</td>
-					</tr>
-				</table>
-			</div>-->
-			
-		</div>
 		<script type="text/javascript">
 		
+			$('#boutonPoster').click(function(){
+				alert(document.getElementById("editeur").value);
+			});
+			
 			var idModuleClick;
 			$( '.semestre' ).click(function(){
+				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
 				$('.forum').hide(200);
@@ -70,6 +59,10 @@
 						type : 'POST',
 						data : 'idSemestre=' + idSemestre,
 						success: function(valeur){
+							$(".commentaire").remove();
+							$(".listeSujets").remove();
+							$(".listeTopics").remove();
+							$(".documents").remove();
 							//listeSemestreCLick.addNumeroSemestre(idSemestre,valeur);
 							var listeUes = JSON.parse(valeur);
 							for(i = 0; i < listeUes.length; i++){
@@ -109,8 +102,10 @@
 								$("#"+id).slideUp();
 							}
 							$(".module").click(function(){
+								$(".commentaire").remove();
 								$(".listeSujets").remove();
 								$(".listeTopics").remove();
+								$(".documents").remove();
 								$('.forum').show(200);
 								idModuleClick = (this.id).replace('module', '');
 								return false;
@@ -130,8 +125,10 @@
 						type : 'POST',
 						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
+							$(".commentaire").remove();
 							$(".listeSujets").remove();
 							$(".listeTopics").remove();
+							$(".documents").remove();
 							var listeSujets = JSON.parse(valeur);
 							//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 							var div = $('<div class="listeSujets">');
@@ -152,7 +149,7 @@
 								$(tdNumero).appendTo(tr);
 								$(tdNom).appendTo(tr);
 							}
-							
+							// récupère les topics en fonction d'un sujet donnée
 							$('.champTableau').click(function(){
 								idSujet = ((this.id).replace('sujet',''));
 								$.ajax({
@@ -160,8 +157,10 @@
 									type : 'POST',
 									data : 'idSujet=' + idSujet,
 									success : function(valeur){
+										$(".commentaire").remove();
 										$(".listeSujets").remove();
 										$(".listeTopics").remove();
+										$(".documents").remove();
 										var listeObjet = JSON.parse(valeur);
 										
 										var div = $('<div class="documents">');
@@ -176,7 +175,7 @@
 										$(tr2).appendTo(tbody);
 										if(listeObjet[0].sujet != null){
 											var td1 = $("<td></td>");
-											var td2 = $("<td></td>");
+											var td2 = $("<td style='font-size:15px' sujet </td>");
 											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].sujet.nom+".jpg'/>");
 											$(td1).appendTo(tr1);
 											$(td2).appendTo(tr2);
@@ -184,7 +183,7 @@
 										}
 										if(listeObjet[0].correction != null){
 											var td1 = $("<td></td>");
-											var td2 = $("<td></td>");
+											var td2 = $("<td style='font-size:15px'> correction </td>");
 											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].correction.nom+".jpg'/>");
 											$(td1).appendTo(tr1);
 											$(td2).appendTo(tr2);
@@ -192,7 +191,7 @@
 										}
 										if(listeObjet[0].listeDocumentsAImporter[0] != null){
 											var td1 = $("<td></td>");
-											var td2 = $("<td></td>");
+											var td2 = $("<td style='font-size:15px'> document à importer </td>");
 											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].listeDocumentsAImporter[0].nom+".jpg'/>");
 											$(td1).appendTo(tr1);
 											$(td2).appendTo(tr2);
@@ -209,7 +208,7 @@
 										$(tbody).appendTo(table);
 										$(entete).appendTo(tbody);
 										for(i = 0; i < listeObjet[1].length; i++){
-											var tr = $("<tr class='champTableau' id='sujet"+listeObjet[1][i].id+"'></tr>");
+											var tr = $("<tr class='champTableau' id='topic"+listeObjet[1][i].id+"'></tr>");
 											var tdStatut = $("<td></td>");
 											var tdQuestion = $('<td></td>');
 											var tdAuteur = $('<td></td>');
@@ -227,9 +226,58 @@
 											$(tdDate).appendTo(tr);
 											$(tdReponse).appendTo(tr);
 										}
-										
-											
-										
+										//contruit le forum
+										$('.champTableau').click(function(){
+											idTopic = ((this.id).replace('topic',''));
+											$.ajax({
+												url : '/PE2I/restreint/forum',
+												type : 'POST',
+												data : 'idTopic=' + idTopic,
+												success : function(valeur){
+													$(".commentaire").remove();
+													$(".documents").remove();
+													$(".listeTopics").remove();
+													var commentaire = JSON.parse(valeur);
+													//alert(commentaire.reponses[0].id);
+													var divCommentaire = $('<div class="commentaire">');
+													var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
+													var divCorpCommentaire = $('<div class="corpCommentaire">');
+													var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.auteur+'</p>');
+													var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.date+'</p>');
+													var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.texte+'</p>');
+													//<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+													
+													$(divCommentaire).appendTo($('.conteneurGeneral'));
+													$(divEnteteCommentaire).appendTo(divCommentaire);
+													$(divCorpCommentaire).appendTo(divCommentaire);
+													$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
+													$(pDateCommentaire).appendTo(divEnteteCommentaire);
+													$(pTexteCommentaire).appendTo(divCorpCommentaire);
+													
+													for(i = 0; i < commentaire.reponses.length; i++){
+														
+														var divCommentaire = $('<div class="commentaire">');
+														var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
+														var divCorpCommentaire = $('<div class="corpCommentaire">');
+														var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.reponses[i].idUtilisateur+'</p>');
+														var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.reponses[i].date+'</p>');
+														var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.reponses[i].texte+'</p>');
+														
+														$(divCommentaire).appendTo($('.conteneurGeneral'));
+														$(divEnteteCommentaire).appendTo(divCommentaire);
+														$(divCorpCommentaire).appendTo(divCommentaire);
+														$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
+														$(pDateCommentaire).appendTo(divEnteteCommentaire);
+														$(pTexteCommentaire).appendTo(divCorpCommentaire);
+													}
+													
+													
+													
+												},
+												dataType : 'text'
+											})
+										})
+									
 									},
 									dataType : 'text'
 								});
@@ -266,9 +314,9 @@
 	                }, 0 );
 	            }else{
 	            	if(haut){
-	            		document.getElementById('conteneurGeneral').style.marginLeft="0%";
-	            		document.getElementById('conteneurGeneral').style.marginRight="0%";
-	            		document.getElementById('conteneurGeneral').style.width="100%";
+	            		//document.getElementById('conteneurGeneral').style.marginLeft="0%";
+	            		//document.getElementById('conteneurGeneral').style.marginRight="0%";
+	            		//document.getElementById('conteneurGeneral').style.width="100%";
 	            	}	
 	            }
 	        }
