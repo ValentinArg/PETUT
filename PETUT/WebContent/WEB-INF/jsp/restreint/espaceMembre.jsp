@@ -9,8 +9,7 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	ezyfgzefgzeygfzeug
-	<!-- <div style="position: fixed;width:100%;z-index:10;">
+	<div style="position: fixed;width:100%;z-index:10;">
 		<div class=enTete>
 			<p class="boutonHautBas" id="boutonHautBas">Groupe</p>
 			<ul class="nav" id="nav">
@@ -24,7 +23,7 @@
 				</li>
 			</ul>
 		</div>
-	</div>-->
+	</div>
 </body>
 </html>
 

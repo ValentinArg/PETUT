@@ -33,24 +33,6 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			<!-- <div class="commentaire">
-				<div class="enTeteCommentaire">
-					<p class="nomAuteurCommenatire">Bremec Florian</p>
-					<p class="dateCommentaire"> 17 novembre 2016</p>
-				</div>
-				<div class="corpCommentaire">
-					<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-				</div>
-			</div>
-			<div class="repondrePost">
-				<h1>Répondre</h1>
-				<textarea class ="editeur" id="editeur" rows="10" style="width:99%;resize:none;"></textarea>
-				<button id="boutonPoster" type="button">POSTER</button>
-			</div>
-		</div>
-		<div class="creerPost">
-			<p>Créer un post</p><p>Répondre à ce post</p>
-		</div>-->
 		<script type="text/javascript">
 		
 			$('#boutonPoster').click(function(){
@@ -59,6 +41,7 @@
 			
 			var idModuleClick;
 			$( '.semestre' ).click(function(){
+				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
 				$('.forum').hide(200);
@@ -76,6 +59,7 @@
 						type : 'POST',
 						data : 'idSemestre=' + idSemestre,
 						success: function(valeur){
+							$(".commentaire").remove();
 							$(".listeSujets").remove();
 							$(".listeTopics").remove();
 							$(".documents").remove();
@@ -118,6 +102,7 @@
 								$("#"+id).slideUp();
 							}
 							$(".module").click(function(){
+								$(".commentaire").remove();
 								$(".listeSujets").remove();
 								$(".listeTopics").remove();
 								$(".documents").remove();
@@ -140,6 +125,7 @@
 						type : 'POST',
 						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
 						success : function(valeur){
+							$(".commentaire").remove();
 							$(".listeSujets").remove();
 							$(".listeTopics").remove();
 							$(".documents").remove();
@@ -171,6 +157,7 @@
 									type : 'POST',
 									data : 'idSujet=' + idSujet,
 									success : function(valeur){
+										$(".commentaire").remove();
 										$(".listeSujets").remove();
 										$(".listeTopics").remove();
 										$(".documents").remove();
@@ -247,6 +234,7 @@
 												type : 'POST',
 												data : 'idTopic=' + idTopic,
 												success : function(valeur){
+													$(".commentaire").remove();
 													$(".documents").remove();
 													$(".listeTopics").remove();
 													var commentaire = JSON.parse(valeur);
