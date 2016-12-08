@@ -194,24 +194,6 @@ INSERT INTO Sujet VALUES (2,1,1,'Configuration de Linux',2, '2016-10-13');
 INSERT INTO Sujet VALUES (3,1,1,'Suppression de linux',3, '2016-10-14');
 INSERT INTO Sujet VALUES (4,1,2,'Suppression de linux 2',4, '2016-10-14');
 
-<<<<<<< HEAD
-/****** Commentaires *******/
-INSERT INTO Commentaire VALUES (1,'brf2125a',1,'Comment on installe Linux ?','Bonjour j\'ai un problème.','en cours','2016-12-09');
-
-/****** Réponses *******/
-INSERT INTO Reponse VALUES (1,1,'brf2125a','On fait comme ça.','2016-12-10');
-=======
-select * FROM REPONSE WHERE id_Commentaire = 1;
-
-select *
-from forum;
-
-alter table Sujet ADD datePubli date;
-
-update Sujet set datePubli = 12/10/2016
-where id_sujet = 1;
->>>>>>> 25092b7da95738ae503e0556194b6ae47b1a1217
-
 /****** Documents *******/
 INSERT INTO Document VALUES (1,1,1,'brf2125a','lien','2016-12-10','document installation linux');
 INSERT INTO Document(id_Sujet, id_Utilisateur, Lien, DateD, Nom) VALUES (1,'rgv2021a','lien','2016-11-11','correction');
