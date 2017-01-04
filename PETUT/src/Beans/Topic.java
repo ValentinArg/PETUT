@@ -11,13 +11,12 @@ public class Topic {
 	/*private String nom;
 	private String prenom;*/
 	
-	public Topic(int id, String auteur,String question, String date, int nbReponse, String statut) {
+	public Topic(int id, String auteur,String question, String date, String statut) {
 		super();
 		this.id = id;
 		this.auteur = auteur;
 		this.question = question;
 		this.date = date;
-		this.nbReponse = nbReponse;
 		this.statut = statut;
 	}
 	

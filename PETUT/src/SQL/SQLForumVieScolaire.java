@@ -182,7 +182,7 @@ public class SQLForumVieScolaire extends SQL {
         }
         try {
             while ( this.getResultat().next() ) {
-            	Document d = new Document(this.getResultat().getInt("id_Document"),this.getResultat().getString("nom"),this.getResultat().getString("lien"),this.getResultat().getString("date_Document"));
+            	Document d = new Document(this.getResultat().getInt("id_Document"),this.getResultat().getString("nom"),this.getResultat().getString("lien"),this.getResultat().getString("DateD"));
                 Outils.decouperListDocumentSujet(d, listeDocuments);
             }
         } catch ( SQLException e ) {
@@ -253,7 +253,7 @@ public class SQLForumVieScolaire extends SQL {
         try {
             while ( this.getResultat().next() ) {
             	Topic t = new Topic( this.getResultat().getInt( "id_Commentaire" ),this.getResultat().getString("id_Utilisateur"), this.getResultat().getString( "question" ),
-                        this.getResultat().getString( "Date_Commentaire" ),this.getResultat().getInt("nbReponse"),this.getResultat().getString("statut") );
+                        this.getResultat().getString( "DateC" ),this.getResultat().getString("statut") );
             	listeTopics.add( t );
             }
         } catch ( SQLException e ) {
@@ -281,7 +281,7 @@ public class SQLForumVieScolaire extends SQL {
         try {
             while ( this.getResultat().next() ) {
             	commentaire = new Commentaire( this.getResultat().getInt( "id_Commentaire" ),this.getResultat().getString("id_Utilisateur"), this.getResultat().getString( "question" ),
-                        this.getResultat().getString( "Date_Commentaire" ),this.getResultat().getInt("nbReponse"),this.getResultat().getString("statut"),this.getResultat().getString("texte"));
+                        this.getResultat().getString( "DateC" ),this.getResultat().getString("statut"),this.getResultat().getString("texte"));
             }
         } catch ( SQLException e ) {
             System.out.println( "erreur dans la recupération des données" );
