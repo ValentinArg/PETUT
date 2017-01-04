@@ -7,8 +7,8 @@ public class Commentaire extends Topic{
 	private String texte;
 	private List<Reponse> reponses;
 	
-	public Commentaire(int id, String auteur,String question, String date, int nbReponse, String statut, String texte) {
-		super(id, auteur,question, date, nbReponse, statut);
+	public Commentaire(int id, String auteur,String question, String date, String statut, String texte) {
+		super(id, auteur,question, date, statut);
 		this.texte = texte;
 		this.reponses = new ArrayList<Reponse>();
 	}
