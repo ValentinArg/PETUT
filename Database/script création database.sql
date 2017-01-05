@@ -1,20 +1,6 @@
 create database pe2idatabase;
 
 
-create table Utilisateur(
-	id_Utilisateur char(8) PRIMARY KEY,
-    Nom varchar(30) NOT NULL,
-    Prenom varchar(30) NOT NULL,
-	MotDePasse varchar(50) NOT NULL check(length(MotDePasse)>=5),
-    DateNaissance date,
-    Adresse varchar(100),
-    Code_Postal int,
-    Ville varchar(50),
-    Photo varchar(500),
-    Telephone int UNIQUE,
-    Adresse_Mail varchar(50) UNIQUE check(AdresseMail like "%@%"),
-    TypeU varchar(10) NOT NULL check(TypeU="enseignant" or TypeU="etudiant" or TypeU="bde")
-);
 create table Enseigne(
 	id_Enseigne int PRIMARY KEY auto_increment,
     Nom varchar(30) NOT NULL UNIQUE,
@@ -23,13 +9,6 @@ create table Enseigne(
     Ville varchar(50) NOT NULL
 );
 
-create table UtilisateurEnseigne(
-	id_Utilisateur char(8) NOT NULL,
-    id_Enseigne int NOT NULL,
-    FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur),
-    FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne),
-    PRIMARY KEY(id_Utilisateur,id_Enseigne)
-);
 
 create table Promotion(
 	id_Promotion int PRIMARY KEY auto_increment,
@@ -77,6 +56,32 @@ create table Groupe(
     id_Semestre int NOT NULL,
     Libelle varchar(10) NOT NULL,
     FOREIGN KEY(id_Semestre) REFERENCES Semestre(id_Semestre)
+);
+
+
+create table Utilisateur(
+	id_Utilisateur char(8) PRIMARY KEY,
+    Nom varchar(30) NOT NULL,
+    Prenom varchar(30) NOT NULL,
+	MotDePasse varchar(50) NOT NULL check(length(MotDePasse)>=5),
+    DateNaissance date,
+    Adresse varchar(100),
+    Code_Postal int,
+    Ville varchar(50),
+    Photo varchar(500),
+    Telephone int UNIQUE,
+    Adresse_Mail varchar(50) UNIQUE check(AdresseMail like "%@%"),
+    TypeU varchar(10) NOT NULL check(TypeU="enseignant" or TypeU="etudiant" or TypeU="bde"),
+    id_Groupe int,
+    FOREIGN KEY(id_Groupe) REFERENCES Groupe(Id_Groupe)
+);
+
+create table UtilisateurEnseigne(
+	id_Utilisateur char(8) NOT NULL,
+    id_Enseigne int NOT NULL,
+    FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur),
+    FOREIGN KEY(id_Enseigne) REFERENCES Enseigne(id_Enseigne),
+    PRIMARY KEY(id_Utilisateur,id_Enseigne)
 );
 
 create table ForumModule(
@@ -152,18 +157,9 @@ create table Evenement(
 /********************************************************************Jeu de données*******************************************************************************/
 /*****************************************************************************************************************************************************************/
 
-/****** Utilisateurs *******/
-INSERT INTO Utilisateur VALUES ('brf2125a','Bremec','Florian','mdpflo','1997-06-21','17C Avenu du Gers',31270,'Frouzins','',0781734740,'fbremec@gmail.com','etudiant');
-INSERT INTO Utilisateur VALUES ('rgv2021a','Argenty','Valentin','mdpval','1997-03-09','13 rue Jules Verne',31270,'Frouzins','',0666247082,'valentin.argenty@gmail.com','etudiant');
-INSERT INTO Utilisateur VALUES ('tes1234e','DeTest','Test','mdptest','0001-01-01','1 rue Test',12345,'Testville','',012346789,'test.test@test.com','etudiant'); 
 
 /****** Enseignes *******/
 INSERT INTO Enseigne VALUES (1,'IUT Informatique','128 Route de Rangueil',31100,'Toulouse');
-
-/****** Enseignes + Utilisateurs *******/
-INSERT INTO Utilisateurenseigne VALUES ('brf2125a',1);
-INSERT INTO Utilisateurenseigne VALUES ('rgv2021a',1);
-INSERT INTO Utilisateurenseigne VALUES ('tes1234e',1);
 
 /****** Promotions *******/
 INSERT INTO Promotion(id_Enseigne, Annee) VALUES (1,2017);
@@ -171,18 +167,28 @@ INSERT INTO Promotion(id_Enseigne, Annee) VALUES (1,2017);
 /****** Semestres *******/
 INSERT INTO Semestre VALUES (1,1,1,1),(2,1,1,2),(3,1,1,3),(4,1,1,4);
 
-/****** Groupes *******/
-INSERT INTO Groupe VALUES (1,1,'E');
-
 /****** Ues *******/
 INSERT INTO Ue VALUES (1,1,1,1,'Base de l\'informatique'),(2,1,1,2,'Gestion d\'un système');
+
+/****** Forums *******/
+INSERT INTO Forum VALUES (1,1,'Travaux Pratiques','viescolaire'),(2,1,'Cours','viescolaire'),(3,1,'Travaux Dirigés','viescolaire'),(4,1,'Partiels','viescolaire');
 
 /****** Modules *******/
 INSERT INTO Module VALUES (1,1,'M1101','Base de l\'architecture système'),(2,1,'M1102','Base d\'un système');
 INSERT INTO Module VALUES (3,2,'M1201','caca');
 
-/****** Forums *******/
-INSERT INTO Forum VALUES (1,1,'Travaux Pratiques','viescolaire'),(2,1,'Cours','viescolaire'),(3,1,'Travaux Dirigés','viescolaire'),(4,1,'Partiels','viescolaire');
+/****** Groupes *******/
+INSERT INTO Groupe VALUES (1,1,'E');
+
+/****** Utilisateurs *******/
+INSERT INTO Utilisateur VALUES ('brf2125a','Bremec','Florian','mdpflo','1997-06-21','17C Avenu du Gers',31270,'Frouzins','',0781734740,'fbremec@gmail.com','etudiant',1);
+INSERT INTO Utilisateur VALUES ('rgv2021a','Argenty','Valentin','mdpval','1997-03-09','13 rue Jules Verne',31270,'Frouzins','',0666247082,'valentin.argenty@gmail.com','etudiant',1);
+INSERT INTO Utilisateur VALUES ('tes1234e','DeTest','Test','mdptest','0001-01-01','1 rue Test',12345,'Testville','',012346789,'test.test@test.com','etudiant',1); 
+
+/****** Enseignes + Utilisateurs *******/
+INSERT INTO Utilisateurenseigne VALUES ('brf2125a',1);
+INSERT INTO Utilisateurenseigne VALUES ('rgv2021a',1);
+INSERT INTO Utilisateurenseigne VALUES ('tes1234e',1);
 
 /****** Modules + Forums *******/
 INSERT INTO ForumModule VALUES (1,1);
