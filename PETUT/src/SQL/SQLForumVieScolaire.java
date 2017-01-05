@@ -1,13 +1,16 @@
 package SQL;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import Beans.*;
+import OutilsJava.GestionnaireDate;
 
 
 public class SQLForumVieScolaire extends SQL {
+	
     /**
      * Créer une instance de la class SQLForumVieScolaire et la connecte à la
      * base de données
@@ -129,11 +132,8 @@ public class SQLForumVieScolaire extends SQL {
      * Récupère la liste des Sujets d'un module et d'un nom de forum donné,
      * nomForum E {Cours,Partiels,Travaux Pratique,Travaux Dirigé} pour
      * forum.type = vieScolaire
-     * 
-     * @param idModule
-     *            identifiant du module
-     * @param idForum
-     *            id du forum
+     * @param idModule identifiant du module
+     * @param idForum id du forum
      * @return la liste des Sujets d'un module et d'un nom de forum donné,
      *         nomForum E {Cours,Partiels,Travaux Pratique,Travaux Dirigé} pour
      *         forum.type = vieScolaire
@@ -165,6 +165,11 @@ public class SQLForumVieScolaire extends SQL {
         return listeSujet;
     }
     
+    /**
+     * Récupère les documents d'un sujet donnée (sujet,correction et element à importer)
+     * @param idSujet
+     * @return la liste des documents d'un sujet passé en paramètre
+     */
     public SujetDocument getSujetsDocumentByidSujet(int idSujet){
     	SujetDocument listeDocuments = new SujetDocument();
     	try {
@@ -280,8 +285,9 @@ public class SQLForumVieScolaire extends SQL {
         }
         try {
             while ( this.getResultat().next() ) {
+            	String newDate = new SimpleDateFormat("MM/dd/yyyy").format( this.getResultat().getDate( "DateC" ));
             	commentaire = new Commentaire( this.getResultat().getInt( "id_Commentaire" ),this.getResultat().getString("id_Utilisateur"), this.getResultat().getString( "question" ),
-                        this.getResultat().getString( "DateC" ),this.getResultat().getString("statut"),this.getResultat().getString("texte"));
+            			newDate,this.getResultat().getString("statut"),this.getResultat().getString("texte"));
             }
         } catch ( SQLException e ) {
             System.out.println( "erreur dans la recupération des données" );
@@ -306,7 +312,8 @@ public class SQLForumVieScolaire extends SQL {
          }
          try {
         	 while ( this.getResultat().next() ) {
-        		 Reponse r = new Reponse(this.getResultat().getInt("id_Reponse"),this.getResultat().getString("id_Utilisateur"),this.getResultat().getString("texte"),this.getResultat().getString("Date_Reponse"));
+        		 String newDate = new SimpleDateFormat("MM/dd/yyyy").format(this.getResultat().getDate("DateR"));
+        		 Reponse r = new Reponse(this.getResultat().getInt("id_Reponse"),this.getResultat().getString("id_Utilisateur"),this.getResultat().getString("texte"),newDate);
              	 c.addReponse(r);
              }
          } catch ( SQLException e ) {

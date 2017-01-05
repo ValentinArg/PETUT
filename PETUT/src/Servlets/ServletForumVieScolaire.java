@@ -77,8 +77,7 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 int idTopic = Integer.parseInt(request.getParameter("idTopic"));
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
 			 Commentaire c = sql.getCommentairePrincipalByIdTopic(idTopic);
-			 sql.disconnect();	
-			 c.setDate(GestionnaireDate.convertDateToString(c.getDate()));
+			 sql.disconnect();
 			 ObjectMapper mapper2 = new ObjectMapper();
 			 String string4 = mapper2.writeValueAsString(c);
 			 response.setContentType("application/json");

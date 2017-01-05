@@ -8,8 +8,7 @@ public class Topic {
 	private String date;
 	private int nbReponse;
 	private String statut;
-	/*private String nom;
-	private String prenom;*/
+
 	
 	public Topic(int id, String auteur,String question, String date, String statut) {
 		super();

@@ -40,6 +40,7 @@
 			});
 			
 			var idModuleClick;
+			//construction des Matières
 			$( '.semestre' ).click(function(){
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
@@ -115,7 +116,7 @@
 					})
 				}
 			});
-			//function ajax pour afficher les sujets d'une matière donnée et d'un forum donnée
+			//Construction des sujets 
 			$( '.forum' ).click(function(){
 				if(!haut)
 					slideBarreModule();
@@ -149,7 +150,7 @@
 								$(tdNumero).appendTo(tr);
 								$(tdNom).appendTo(tr);
 							}
-							// récupère les topics en fonction d'un sujet donnée
+							// construction des Topics
 							$('.champTableau').click(function(){
 								idSujet = ((this.id).replace('sujet',''));
 								$.ajax({
@@ -207,6 +208,9 @@
 										$(table).appendTo(div);
 										$(tbody).appendTo(table);
 										$(entete).appendTo(tbody);
+										
+										//boucle pour récupérer créer et afficher tout les sujets du matière donnée et d'un type d'enseignement (TD,TP,CM)
+										
 										for(i = 0; i < listeObjet[1].length; i++){
 											var tr = $("<tr class='champTableau' id='topic"+listeObjet[1][i].id+"'></tr>");
 											var tdStatut = $("<td></td>");
@@ -226,7 +230,8 @@
 											$(tdDate).appendTo(tr);
 											$(tdReponse).appendTo(tr);
 										}
-										//contruit le forum
+										
+										//contruit le forum (Commentaire et réponse)
 										$('.champTableau').click(function(){
 											idTopic = ((this.id).replace('topic',''));
 											$.ajax({
@@ -254,6 +259,7 @@
 													$(pDateCommentaire).appendTo(divEnteteCommentaire);
 													$(pTexteCommentaire).appendTo(divCorpCommentaire);
 													
+													// boucle sur la liste des réponse de la class BeanCommentaire afin d'afficher les réponses
 													for(i = 0; i < commentaire.reponses.length; i++){
 														
 														var divCommentaire = $('<div class="commentaire">');
@@ -270,15 +276,12 @@
 														$(pDateCommentaire).appendTo(divEnteteCommentaire);
 														$(pTexteCommentaire).appendTo(divCorpCommentaire);
 													}
-													
-													
-													
-												},
+												},//fin de la function success de la construction du forum
 												dataType : 'text'
-											})
-										})
+											})//fin de la fonction ajax qui construit le forum
+										})// fin de la fonction javascript qui construit le forum
 									
-									},
+									},//fin de la function success de création des Topics
 									dataType : 'text'
 								});
 							});
@@ -288,6 +291,7 @@
 				}
 			});
 			
+			//fonction d'animation de la bare des matières
 			var haut = false;
 			function slideBarreModule(){
 				if(!haut){
@@ -306,7 +310,8 @@
 					}
 					haut = false;
 				}
-			}	
+			}
+			//function de gestion du timer pour la bare des matière
 			function checkAnimate() {
 	            if( $( '#context' ).is( ':animated' )) {
 	                setTimeout(function() {
