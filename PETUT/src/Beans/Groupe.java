@@ -1,48 +1,41 @@
 package Beans;
-import java.util.*;
-
-import Beans.Eleve;
 
 public class Groupe {
 
-	private String id;
-	private String libelle;
-	private List<Eleve> compositionGroupe;
-	private int numeroSemestre;
+	private int idgroupe;
+	private int idsemestre;
+	private String Libelle;
 	
-	public Groupe(String id, String libelle, List<Eleve> compositionGroupe, int s) {
+	public Groupe(int idgroupe, int idsemestre, String libelle) {
 		super();
-		this.id = id;
-		this.libelle = libelle;
-		this.compositionGroupe = compositionGroupe;
-		this.numeroSemestre = s;
+		this.idgroupe = idgroupe;
+		this.idsemestre = idsemestre;
+		Libelle = libelle;
 	}
-	
-	public String getId() {
-		return id;
+
+	public int getIdgroupe() {
+		return idgroupe;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public void setIdgroupe(int idgroupe) {
+		this.idgroupe = idgroupe;
 	}
+
+	public int getIdsemestre() {
+		return idsemestre;
+	}
+
+	public void setIdsemestre(int idsemestre) {
+		this.idsemestre = idsemestre;
+	}
+
 	public String getLibelle() {
-		return libelle;
+		return Libelle;
 	}
+
 	public void setLibelle(String libelle) {
-		this.libelle = libelle;
+		Libelle = libelle;
 	}
-	public List<Eleve> getCompositionGroupe() {
-		return compositionGroupe;
-	}
-	public void setCompositionGroupe(List<Eleve> compositionGroupe) {
-		this.compositionGroupe = compositionGroupe;
-	}
-	public Integer getS() {
-		return numeroSemestre;
-	}
-	public void setNumeroSemestre(int s) {
-		this.numeroSemestre = s;
-	}
-	
 	
 	
 	

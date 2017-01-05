@@ -11,6 +11,15 @@
   	</servlet-mapping>
   	
   	<servlet>
+    	<servlet-name>ServletMoncompte</servlet-name>
+    	<servlet-class>Servlets.ServletMoncompte</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>ServletMoncompte</servlet-name>
+    	<url-pattern>/restreint/moncompte</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
     	<servlet-name>ServletConnexion</servlet-name>
     	<servlet-class>Servlets.ServletConnexion</servlet-class>
   	</servlet>

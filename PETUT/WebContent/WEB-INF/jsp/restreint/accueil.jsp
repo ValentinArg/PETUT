@@ -24,7 +24,7 @@
 			<li class="navforum"><a href="/PE2I/restreint/forum">Forum</a></li>
 			<li class="navspace">Espace etudiant/prof</li>
 			<li class="navsearch">Rechercher membre</li>
-			<li class="navcompte">Mon compte</li>
+			<li class="navcompte"><a href="/PE2I/restreint/moncompte">Mon compte</li>
 			<li class="navdeco"><a href="/PE2I/deconnexion">Se deconnecter</a></li>
 		</ul>
 	</div>
