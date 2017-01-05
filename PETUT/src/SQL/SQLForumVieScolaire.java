@@ -197,7 +197,6 @@ public class SQLForumVieScolaire extends SQL {
     	return listeDocuments;
     }
     
-    
 
     /**
      * Récupère la liste des forums de la vie scolaire des étudiants d'une
