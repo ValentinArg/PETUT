@@ -8,7 +8,7 @@ public class Utilisateur {
 	private String nom;
 	private String prenom;
 	private String mdp;
-	private Date datenaissance;
+	private String datenaissance;
 	private String adresse;
 	private int codepostal;
 	private String ville;
@@ -19,7 +19,7 @@ public class Utilisateur {
 	private int idgroupe;
 	
 	
-	public Utilisateur(String id_Utilisateur, String nom, String prenom, String mdp, Date datenaissance, String adresse,
+	public Utilisateur(String id_Utilisateur, String nom, String prenom, String mdp, String datenaissance, String adresse,
 			int codepostal, String ville, String photo, int telephone, String adressemail,String type, int idgroupe) {
 		super();
 		this.id_Utilisateur = id_Utilisateur;
@@ -78,12 +78,12 @@ public class Utilisateur {
 	}
 
 
-	public Date getDatenaissance() {
+	public String getDatenaissance() {
 		return datenaissance;
 	}
 
 
-	public void setDatenaissance(Date datenaissance) {
+	public void setDatenaissance(String datenaissance) {
 		this.datenaissance = datenaissance;
 	}
 

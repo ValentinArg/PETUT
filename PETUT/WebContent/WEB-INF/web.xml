@@ -20,6 +20,15 @@
   	</servlet-mapping>
   	
   	<servlet>
+    	<servlet-name>ServletModifiercompte</servlet-name>
+    	<servlet-class>Servlets.ServletModifiercompte</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>ServletModifiercompte</servlet-name>
+    	<url-pattern>/restreint/modifiercompte</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
     	<servlet-name>ServletConnexion</servlet-name>
     	<servlet-class>Servlets.ServletConnexion</servlet-class>
   	</servlet>

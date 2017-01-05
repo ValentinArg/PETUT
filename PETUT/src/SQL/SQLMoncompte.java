@@ -2,10 +2,15 @@ package SQL;
 
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import Beans.Groupe;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import Beans.Utilisateur;
 
 
@@ -33,13 +38,17 @@ public class SQLMoncompte extends SQL{
             System.out.println( "erreur dans l'execution de la requete SQL" );
             e.printStackTrace();
         }
+        
         try {
             while ( this.getResultat().next() ) {
+            	Date myDate = this.getResultat().getDate( 5 );
+            	String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
+         
                 Utilisateur u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
                         						 this.getResultat().getString( 2 ), //nom
                         						 this.getResultat().getString(3),   //prenom
                         						 this.getResultat().getString( 4 ), //mdp
-                        						 this.getResultat().getDate( 5 ), 	//datenaissance
+                        						 newDate, 	//datenaissance
                         						 this.getResultat().getString( 6 ),	//adresse
                         						 this.getResultat().getInt( 7 ), 	//codepostal
                         						 this.getResultat().getString( 8 ),	//ville

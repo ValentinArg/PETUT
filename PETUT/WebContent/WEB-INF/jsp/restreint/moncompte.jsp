@@ -22,14 +22,14 @@
 			<li><a href="/PE2I/restreint/forum">Forum</a></li>
 			<li>Espace etudiant/prof</li>
 			<li>Rechercher membre</li>
-			<li>Mon compte</li>
+			<li><a href="/PE2I/restreint/moncompte">Mon compte</li>
 			<li><a href="/PE2I/deconnexion">Se deconnecter</a></li>
 		</ul>
 	</div>
 	
 	</br>
 	
-	<div class="infoscompte">
+	<div class="divinfoscompte">
 		<ul class="infos">
 			<c:forEach items="${ listeUtilisateurs }" var="utilisateurs">
 			<li><c:out value="Identifiant : ${ utilisateurs.id_Utilisateur }"/></li>
@@ -43,7 +43,9 @@
 			<li><c:out value="Adresse mail : ${ utilisateurs.adressemail}"/></li>
 			</c:forEach>
 		</ul>
+		<a href="/PE2I/restreint/modifiercompte">Modifier les informations</a>
 	</div>
+	
 </div>
 
 

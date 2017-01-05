@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.jdbc.PreparedStatement;
+
 public abstract class SQL {
 
     private static String       url         = "jdbc:mysql://localhost:3306/pe2idatabase";
@@ -13,6 +15,7 @@ public abstract class SQL {
     private static String       motDePasse  = "admin";
     protected static Connection connexion;
     private static Statement    statement   = null;
+    private static PreparedStatement preparedStatement = null;
     private static ResultSet    resultat;
 
     public SQL() {
@@ -57,6 +60,14 @@ public abstract class SQL {
 
     public static void setStatement( Statement statement ) {
         SQL.statement = statement;
+    }
+    
+    public static PreparedStatement getPreparedStatement() {
+        return preparedStatement;
+    }
+
+    public static void setPreparedStatement( PreparedStatement preparedStatement ) {
+        SQL.preparedStatement = preparedStatement;
     }
 
     public static ResultSet getResultat() {
