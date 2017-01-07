@@ -168,7 +168,7 @@
 				// construction des Topics
 				$('.champTableau').click(function(){
 					idSujet = ((this.id).replace('sujet',''));
-					var fileArrianne = $('<p style="display:inline-block;cursor:pointer;" class="fileArrianne" id="'+idForum+'">/liste des sujets de cours</p>');
+					var fileArrianne = $('<p style="display:inline-block;cursor:pointer;width:160px;" class="fileArrianne" id="'+idForum+'">/liste des sujets de cours </p>');
 					$(fileArrianne).appendTo($('.conteneurGeneral'));
 					//action au clique sur le file d'arrianne pour le sujet
 					
@@ -191,7 +191,7 @@
 						//contruit le forum (Commentaire et réponse)
 						$('.champTableau').click(function(){
 							idTopic = ((this.id).replace('topic',''));
-							var fileArrianne2 = $('<p style="display:inline-block;cursor:pointer;" class="fileArrianne2" id="'+idSujet+'">/liste des questions</p>');
+							var fileArrianne2 = $('<p style="display:inline-block;cursor:pointer;width:160px;" class="fileArrianne2" id="'+idSujet+'"> / liste des questions</p>');
 							$(fileArrianne2).appendTo($('.conteneurGeneral'));
 							$('.fileArrianne2').click(function(){
 								$('.fileArrianne2').remove();
