@@ -29,8 +29,9 @@ public class ServletRechercheMembre extends HttpServlet{
 		Utilisateur utilisateur = sql.getUtilisateurByNom(nom);
 		if(utilisateur == null){
 			request.setAttribute("resultat", "Le membre "+nom+" n'existe pas");
+		}else{
+			request.setAttribute("utilisateur", utilisateur);
 		}
-		request.setAttribute("utilisateur", utilisateur);
 		sql.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
