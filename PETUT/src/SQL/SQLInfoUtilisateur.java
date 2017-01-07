@@ -22,96 +22,99 @@ public class SQLInfoUtilisateur extends SQL{
 	}
 	
 	public Utilisateur getUtilisateurByIdUtilisateur( String id_Utilisateur ) {
-		Utilisateur u = null;
+
+		Utilisateur utilisateur = null;
+
 		try {
             this.setStatement( this.getConnexion().createStatement() );
         } catch ( SQLException e ) {
-            System.out.println( "erreur dans la création du statement" );
+            System.out.println( "Erreur dans la création du statement getUtilisateurByIdUtilisateur()" );
             e.printStackTrace();
         }
         try {
             this.setResultat( this.getStatement()
                     .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero "
-                    		+ "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
-                    		+ "WHERE u.id_Groupe = g.id_Groupe "
-                    		+ "AND g.id_Semestre = s.id_Semestre "
-                    		+ "AND id_Utilisateur = '"+ id_Utilisateur +"';" ));
+                    			 + "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
+                    			 + "WHERE u.id_Groupe = g.id_Groupe "
+                    			 + "AND g.id_Semestre = s.id_Semestre "
+                    			 + "AND id_Utilisateur = '"+ id_Utilisateur +"';" ));
         } catch ( SQLException e ) {
-            System.out.println( "erreur dans l'execution de la requete SQL" );
+            System.out.println( "Erreur dans l'execution de la requete SQL getUtilisateurByIdUtilisateur()" );
             e.printStackTrace();
         }
         
         try {
+
             	Date myDate = this.getResultat().getDate( 4 );
             	String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
-         
-            	u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
-												 this.getResultat().getString( 2 ), //nom
-												 this.getResultat().getString(3),   //prenom
-												 "nonononnon",							    //mdp
-												 newDate, 							//datenaissance
-												 this.getResultat().getString( 5 ),	//adresse
-												 this.getResultat().getInt( 6 ), 	//codepostal
-												 this.getResultat().getString( 7 ),	//ville
-												 "n",	//photo
-												 this.getResultat().getInt( 8 ),	//telephone
-												 this.getResultat().getString( 9 ),//adressemail
-												 "etudiant",								//type
-												 this.getResultat().getString( 10 ),//groupe
-												 this.getResultat().getInt( 11 )); 	//semestre
-               
+
+            	utilisateur = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
+            							   this.getResultat().getString( 2 ), //nom
+            							   this.getResultat().getString(3),   //prenom
+            							   "12345",							//mdp
+            							   newDate, 							//datenaissance
+            							   this.getResultat().getString( 5 ),	//adresse
+            							   this.getResultat().getInt( 6 ), 	//codepostal
+            							   this.getResultat().getString( 7 ),	//ville
+            							   " ",								//photo
+            							   this.getResultat().getInt( 8 ),	//telephone
+            							   this.getResultat().getString( 9 ), //adressemail
+            							   " ",								//type
+            							   this.getResultat().getString( 10 ),//groupe
+            							   this.getResultat().getInt( 11 )); 	//semestre
+
         } catch ( SQLException e ) {
-            System.out.println( "erreur dans la recupération des données" );
+            System.out.println( "Erreur dans la recupération des données getUtilisateurByIdUtilisateur()" );
             e.printStackTrace();
-        }
-        return u;
+
+        }   
+        return utilisateur;
+
+        
 	}
 	
-	public List<Utilisateur> getUtilisateurByNom( String nom ) {
-		List<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
+	public Utilisateur getUtilisateurByNom( String nom ) {
+		Utilisateur utilisateur = null;
 		try {
             this.setStatement( this.getConnexion().createStatement() );
         } catch ( SQLException e ) {
-            System.out.println( "erreur dans la création du statement" );
+            System.out.println( "Erreur dans la création du statement getUtilisateurByNom()" );
             e.printStackTrace();
         }
         try {
         	this.setResultat( this.getStatement()
                     .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero "
-                    		+ "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
-                    		+ "WHERE u.id_Groupe = g.id_Groupe "
-                    		+ "AND g.id_Semestre = s.id_Semestre "
-                    		+ "AND Nom = '"+ nom +"';" ));
+                    			 + "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
+                    			 + "WHERE u.id_Groupe = g.id_Groupe "
+                    			 + "AND g.id_Semestre = s.id_Semestre "
+                    			 + "AND Nom = '"+ nom +"';" ));
         } catch ( SQLException e ) {
-            System.out.println( "erreur dans l'execution de la requete SQL" );
+            System.out.println( "Erreur dans l'execution de la requete SQL getUtilisateurByNom()" );
             e.printStackTrace();
         }
         
         try {
-            while ( this.getResultat().next() ) {
-            	Date myDate = this.getResultat().getDate( 4 );
-            	String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
+        	Date myDate = this.getResultat().getDate( 4 );
+            String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
          
-            	Utilisateur u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
-            									 this.getResultat().getString( 2 ), //nom
-												 this.getResultat().getString(3),   //prenom
-												 "nonononon",							    //mdp
-												 newDate, 							//datenaissance
-												 this.getResultat().getString( 5 ),	//adresse
-												 this.getResultat().getInt( 6 ), 	//codepostal
-												 this.getResultat().getString( 7 ),	//ville
-												 "n",	//photo
-												 this.getResultat().getInt( 8 ),	//telephone
-												 this.getResultat().getString( 9 ),//adressemail
-												 "etudiant",								//type
-												 this.getResultat().getString( 10 ),//groupe
-												 this.getResultat().getInt( 11 )); 	//semestre
-                listeUtilisateurs.add( u );
-            }
+            utilisateur = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
+			            				   this.getResultat().getString( 2 ), //nom
+										   this.getResultat().getString(3),   //prenom
+										   "nonononon",							    //mdp
+										   newDate, 							//datenaissance
+										   this.getResultat().getString( 5 ),	//adresse
+										   this.getResultat().getInt( 6 ), 	//codepostal
+										   this.getResultat().getString( 7 ),	//ville
+										   "n",	//photo
+										   this.getResultat().getInt( 8 ),	//telephone
+										   this.getResultat().getString( 9 ),//adressemail
+										   "etudiant",								//type
+										   this.getResultat().getString( 10 ),//groupe
+										   this.getResultat().getInt( 11 )); 	//semestre
         } catch ( SQLException e ) {
-            System.out.println( "erreur dans la recupération des données" );
+            System.out.println( "Erreur dans la recupération des données getUtilisateurByNom()" );
             e.printStackTrace();
         }
-        return listeUtilisateurs;
+        return utilisateur;
 	}
 }

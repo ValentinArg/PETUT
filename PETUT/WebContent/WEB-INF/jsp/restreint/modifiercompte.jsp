@@ -28,7 +28,7 @@
 		<form method="post" action="modifiercompte">
 		   	<fieldset> 
 		   		<h2>Modification des informations de compte</h2>  
-		   		<c:forEach items="${ listeUtilisateur }" var="utilisateur">   
+		   		<c:forEach items="${ utilisateur }" var="utilisateur">   
 		     	<label for="nom">Adresse :  </label>
 		           <input type="text" name="adresse" value="<c:out value="${ utilisateur.adresse }"/>"/>
 		        <br /> 

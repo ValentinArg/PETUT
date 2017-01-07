@@ -25,13 +25,12 @@ public class ServletRechercheMembre extends HttpServlet{
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 		
 		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
-		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
 		String nom = (String) request.getParameter("nom");
-		listeUtilisateur = sql.getUtilisateurByNom(nom);
-		if(listeUtilisateur.isEmpty()){
+		Utilisateur utilisateur = sql.getUtilisateurByNom(nom);
+		if(utilisateur == null){
 			request.setAttribute("resultat", "Le membre "+nom+" n'existe pas");
 		}
-		request.setAttribute("listeUtilisateur", listeUtilisateur);
+		request.setAttribute("utilisateur", utilisateur);
 		sql.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
