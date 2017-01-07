@@ -1,9 +1,6 @@
-
 package Servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +22,7 @@ public void doGet( HttpServletRequest request, HttpServletResponse response ) th
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
 		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
 		Utilisateur utilisateur = sql.getUtilisateurByIdUtilisateur(id_Utilisateur);
+		System.out.println(utilisateur.getId_Utilisateur());
 		request.setAttribute("utilisateur", utilisateur);
 		sql.disconnect();
 		

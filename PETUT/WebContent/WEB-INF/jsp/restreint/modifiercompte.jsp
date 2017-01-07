@@ -27,8 +27,7 @@
 	<div class="divinfoscompte">
 		<form method="post" action="modifiercompte">
 		   	<fieldset> 
-		   		<h2>Modification des informations de compte</h2>  
-		   		<c:forEach items="${ utilisateur }" var="utilisateur">   
+		   		<h2>Modification des informations de compte</h2>   
 		     	<label for="nom">Adresse :  </label>
 		           <input type="text" name="adresse" value="<c:out value="${ utilisateur.adresse }"/>"/>
 		        <br /> 
@@ -45,7 +44,6 @@
 		           <input type="email" name="adressemail" value="<c:out value="${ utilisateur.adressemail }"/>"/>
 		        <br />       
 		           <input type="submit" value="Confirmer" class="sansLabel"/>	                   
-		        </c:forEach>
 		     </fieldset>
 		</form>
 	</div>

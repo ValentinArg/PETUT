@@ -36,15 +36,12 @@ public class SQLInfoUtilisateur extends SQL{
         }
         
         try {
-
-            Date myDate = this.getResultat().getDate( 4 );
-            String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
-
+        	this.getResultat().next();
             utilisateur = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
             							   this.getResultat().getString( 2 ), //nom
             							   this.getResultat().getString(3),   //prenom
             							   "12345",							//mdp
-            							   newDate, 							//datenaissance
+            							   new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(4)), 							//datenaissance
             							   this.getResultat().getString( 5 ),	//adresse
             							   this.getResultat().getInt( 6 ), 	//codepostal
             							   this.getResultat().getString( 7 ),	//ville
@@ -82,14 +79,12 @@ public class SQLInfoUtilisateur extends SQL{
         }
         
         try {
-        	 Date myDate = this.getResultat().getDate( 4 );
-             String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
-
+        	 this.getResultat().next();
              utilisateur = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
              							   this.getResultat().getString( 2 ), //nom
              							   this.getResultat().getString(3),   //prenom
              							   "12345",							//mdp
-             							   newDate, 							//datenaissance
+             							   new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(4)), 							//datenaissance
              							   this.getResultat().getString( 5 ),	//adresse
              							   this.getResultat().getInt( 6 ), 	//codepostal
              							   this.getResultat().getString( 7 ),	//ville

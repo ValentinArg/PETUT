@@ -33,7 +33,6 @@
 	<c:out value="${resultat}"/>
 	<div class="infomembre">
 		<ul class="infos">
-			<c:forEach items="${ utilisateur }" var="utilisateur">
 			<li><c:out value="Identifiant : ${ utilisateur.id_Utilisateur }"/></li>
 			<li><c:out value="Nom : ${ utilisateur.nom }"/></li>
 			<li><c:out value="Prenom : ${ utilisateur.prenom }"/></li>
@@ -44,7 +43,6 @@
 			<li><c:out value="Ville : ${ utilisateur.ville }"/></li>
 			<li><c:out value="Telephone : 0${ utilisateur.telephone }"/></li>
 			<li><c:out value="Adresse mail : ${ utilisateur.adressemail}"/></li>
-			</c:forEach>
 		</ul>
 	</div>
 </div>
