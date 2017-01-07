@@ -32,9 +32,8 @@ public class ServletForumVieScolaire extends HttpServlet{
 		HttpSession session = request.getSession();
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
 		SQLInfoUtilisateur sql2 = new SQLInfoUtilisateur();
-
 		Utilisateur utilisateur = sql2.getUtilisateurByIdUtilisateur(id_Utilisateur);
-		request.setAttribute("Utilisateur", utilisateur);
+		request.setAttribute("utilisateur", utilisateur);
 
 		sql2.disconnect();
 		
