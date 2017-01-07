@@ -21,9 +21,11 @@ public void doGet( HttpServletRequest request, HttpServletResponse response ) th
 		HttpSession session = request.getSession();
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
 		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
+
 		Utilisateur utilisateur = sql.getUtilisateurByIdUtilisateur(id_Utilisateur);
 		System.out.println(utilisateur.getId_Utilisateur());
 		request.setAttribute("utilisateur", utilisateur);
+
 		sql.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url

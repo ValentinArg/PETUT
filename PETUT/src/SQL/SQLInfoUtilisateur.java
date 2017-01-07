@@ -15,8 +15,10 @@ public class SQLInfoUtilisateur extends SQL{
 		super();
 	}
 	
+
 	public Utilisateur getUtilisateurByIdUtilisateur( String id_Utilisateur ) {
 		Utilisateur utilisateur = null;
+		
 		try {
             this.setStatement( this.getConnexion().createStatement() );
         } catch ( SQLException e ) {
@@ -51,11 +53,15 @@ public class SQLInfoUtilisateur extends SQL{
             							   " ",								//type
             							   this.getResultat().getString( 10 ),//groupe
             							   this.getResultat().getInt( 11 )); 	//semestre
+
         } catch ( SQLException e ) {
             System.out.println( "Erreur dans la recupération des données getUtilisateurByIdUtilisateur()" );
             e.printStackTrace();
+
         }   
         return utilisateur;
+
+        
 	}
 	
 	public Utilisateur getUtilisateurByNom( String nom ) {

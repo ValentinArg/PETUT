@@ -25,6 +25,7 @@ public class ServletModifiercompte extends HttpServlet{
 		HttpSession session = request.getSession();
 		
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
+
 		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
 		Utilisateur utilisateur = sql.getUtilisateurByIdUtilisateur(id_Utilisateur);
 		request.setAttribute("utilisateur", utilisateur);

@@ -37,6 +37,10 @@ public class Utilisateur {
 		this.semestre = semestre;
 	}
 	
+	public Utilisateur(){
+		super();
+	}
+	
 	public String getId_Utilisateur() {
 		return id_Utilisateur;
 	}
