@@ -42,7 +42,7 @@
 		           <input type="text" name="ville" value="<c:out value="${ utilisateurs.ville }"/>"/>
 		        <br /> 
 		        <label for="nom">Téléphone : </label>
-		           <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" value="<c:out value="${ utilisateurs.telephone }"/>"/>
+		           <input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" name="telephone" value="<c:out value="0${ utilisateurs.telephone }"/>"/>
 		        <br />  
 		        <label for="nom">Adresse mail : </label>
 		           <input type="email" name="adressemail" value="<c:out value="${ utilisateurs.adressemail }"/>"/>

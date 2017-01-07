@@ -1,78 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-	
-	<servlet>
-    	<servlet-name>ServletAccueil</servlet-name>
-    	<servlet-class>Servlets.ServletAccueil</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-    	<servlet-name>ServletAccueil</servlet-name>
-    	<url-pattern>/restreint/accueil</url-pattern>
-  	</servlet-mapping>
-  	
-  	<servlet>
-    	<servlet-name>ServletMoncompte</servlet-name>
-    	<servlet-class>Servlets.ServletMoncompte</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-    	<servlet-name>ServletMoncompte</servlet-name>
-    	<url-pattern>/restreint/moncompte</url-pattern>
-  	</servlet-mapping>
-  	
-  	<servlet>
-    	<servlet-name>ServletModifiercompte</servlet-name>
-    	<servlet-class>Servlets.ServletModifiercompte</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-    	<servlet-name>ServletModifiercompte</servlet-name>
-    	<url-pattern>/restreint/modifiercompte</url-pattern>
-  	</servlet-mapping>
-  	
-  	<servlet>
-    	<servlet-name>ServletConnexion</servlet-name>
-    	<servlet-class>Servlets.ServletConnexion</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-    	<servlet-name>ServletConnexion</servlet-name>
-    	<url-pattern>/connexion</url-pattern>
-  	</servlet-mapping>
-  	
-  	<servlet>
-    	<servlet-name>ServletDeconnexion</servlet-name>
-    	<servlet-class>Servlets.ServletDeconnexion</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-    	<servlet-name>ServletDeconnexion</servlet-name>
-    	<url-pattern>/deconnexion</url-pattern>
-  	</servlet-mapping>
-  	
-  	<servlet>
-    	<servlet-name>ServletForumVieScolaire</servlet-name>
-    	<servlet-class>Servlets.ServletForumVieScolaire</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-    	<servlet-name>ServletForumVieScolaire</servlet-name>
-    	<url-pattern>/restreint/forum</url-pattern>
-  	</servlet-mapping>
-  	
-  	<servlet>
-    	<servlet-name>ServletEspaceMembre</servlet-name>
-    	<servlet-class>Servlets.ServletEspaceMembre</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-    	<servlet-name>ServletEspaceMembre</servlet-name>
-    	<url-pattern>/restreint/espaceMembre</url-pattern>
-  	</servlet-mapping>
-  	
- <!-- <filter>
-   	<filter-name>RestrictionFilter</filter-name>
-    <filter-class>Filters.RestrictionFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>RestrictionFilter</filter-name>
-    <url-pattern>/restreint/*</url-pattern>
-  </filter-mapping> -->
-  	
+ 
+  <servlet>
+    <servlet-name>ServletAccueil</servlet-name>
+    <servlet-class>Servlets.ServletAccueil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAccueil</servlet-name>
+    <url-pattern>/restreint/accueil</url-pattern>
+  </servlet-mapping>
   
-  	
+  <servlet>
+    <servlet-name>ServletMoncompte</servlet-name>
+    <servlet-class>Servlets.ServletMoncompte</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletMoncompte</servlet-name>
+    <url-pattern>/restreint/moncompte</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletModifiercompte</servlet-name>
+    <servlet-class>Servlets.ServletModifiercompte</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletModifiercompte</servlet-name>
+    <url-pattern>/restreint/modifiercompte</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletConnexion</servlet-name>
+    <servlet-class>Servlets.ServletConnexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletConnexion</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletDeconnexion</servlet-name>
+    <servlet-class>Servlets.ServletDeconnexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDeconnexion</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletForumVieScolaire</servlet-name>
+    <servlet-class>Servlets.ServletForumVieScolaire</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletForumVieScolaire</servlet-name>
+    <url-pattern>/restreint/forum</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletEspaceMembre</servlet-name>
+    <servlet-class>Servlets.ServletEspaceMembre</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletEspaceMembre</servlet-name>
+    <url-pattern>/restreint/espaceMembre</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletRechercheMembre</servlet-name>
+    <servlet-class>Servlets.ServletRechercheMembre</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletRechercheMembre</servlet-name>
+    <url-pattern>/restreint/rechercheMembre</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

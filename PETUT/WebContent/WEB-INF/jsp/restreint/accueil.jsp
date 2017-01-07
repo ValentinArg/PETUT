@@ -23,7 +23,7 @@
 		<ul class="nav">
 			<li><a href="/PE2I/restreint/forum">Forum</a></li>
 			<li>Espace etudiant/prof</li>
-			<li>Rechercher membre</li>
+			<li><a href="/PE2I/restreint/rechercheMembre">Rechercher membre</li>
 			<li><a href="/PE2I/restreint/moncompte">Mon compte</li>
 			<li><a href="/PE2I/deconnexion">Se deconnecter</a></li>
 		</ul>
