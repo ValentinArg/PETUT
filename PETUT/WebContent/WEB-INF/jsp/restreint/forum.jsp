@@ -33,6 +33,7 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
+			
 		<script type="text/javascript">
 		
 			$('#boutonPoster').click(function(){
@@ -116,180 +117,220 @@
 					})
 				}
 			});
-			//Construction des sujets 
+			//Construction des sujets de cours
 			$( '.forum' ).click(function(){
 				if(!haut)
 					slideBarreModule();
 				if(idModuleClick != null){
-					$.ajax({
-						url : '/PE2I/restreint/forum',
-						type : 'POST',
-						data : 'idModule=' + idModuleClick + '&idForum='+((this.id).replace('forum','')),
-						success : function(valeur){
-							$(".commentaire").remove();
-							$(".listeSujets").remove();
-							$(".listeTopics").remove();
-							$(".documents").remove();
-							var listeSujets = JSON.parse(valeur);
-							//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
-							var div = $('<div class="listeSujets">');
-							var table = $("<table id='tableauSujets' class='tableau'>");
-							var tbody = $('<tbody class="body">');
-							var entete = $('<tr class="enteteTableau"> <th>N°</th> <th>Nom</th></tr>');
-							$(div).appendTo($('.conteneurGeneral'));
-							$(table).appendTo(div);
-							$(tbody).appendTo(table);
-							$(entete).appendTo(tbody);
-							for(i = 0; i < listeSujets.length; i++){
-								var tr = $("<tr class='champTableau' id='sujet"+listeSujets[i].id+"'></tr>");
-								var tdNumero = $("<td></td>");
-								var tdNom = $('<td></td>');
-								tdNumero.text(listeSujets[i].numero);
-								tdNom.text(listeSujets[i].nom);
-								$(tr).appendTo(tbody);
-								$(tdNumero).appendTo(tr);
-								$(tdNom).appendTo(tr);
-							}
-							// construction des Topics
-							$('.champTableau').click(function(){
-								idSujet = ((this.id).replace('sujet',''));
-								$.ajax({
-									url : '/PE2I/restreint/forum',
-									type : 'POST',
-									data : 'idSujet=' + idSujet,
-									success : function(valeur){
-										$(".commentaire").remove();
-										$(".listeSujets").remove();
-										$(".listeTopics").remove();
-										$(".documents").remove();
-										var listeObjet = JSON.parse(valeur);
-										
-										var div = $('<div class="documents">');
-										var table = $("<table>");
-										var tbody = $('<tbody>');
-										var tr1 = $("<tr></tr>");
-										var tr2 = $("<tr></tr>");
-										$(div).appendTo($('.conteneurGeneral'));
-										$(table).appendTo(div);
-										$(tbody).appendTo(table);
-										$(tr1).appendTo(tbody);
-										$(tr2).appendTo(tbody);
-										if(listeObjet[0].sujet != null){
-											var td1 = $("<td></td>");
-											var td2 = $("<td style='font-size:15px' sujet </td>");
-											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].sujet.nom+".jpg'/>");
-											$(td1).appendTo(tr1);
-											$(td2).appendTo(tr2);
-											$(img).appendTo(td1);
-										}
-										if(listeObjet[0].correction != null){
-											var td1 = $("<td></td>");
-											var td2 = $("<td style='font-size:15px'> correction </td>");
-											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].correction.nom+".jpg'/>");
-											$(td1).appendTo(tr1);
-											$(td2).appendTo(tr2);
-											$(img).appendTo(td1);
-										}
-										if(listeObjet[0].listeDocumentsAImporter[0] != null){
-											var td1 = $("<td></td>");
-											var td2 = $("<td style='font-size:15px'> document à importer </td>");
-											var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].listeDocumentsAImporter[0].nom+".jpg'/>");
-											$(td1).appendTo(tr1);
-											$(td2).appendTo(tr2);
-											$(img).appendTo(td1);
-										}
-
-										//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
-										var div = $('<div class="listeTopics">');
-										var table = $("<table id='tableauTopic' class='tableau'>");
-										var tbody = $('<tbody class="body">');
-										var entete = $('<tr class="enteteTableau"> <th>statut</th> <th>question</th> <th>auteur</th> <th>date</th> <th>reponse</th> </tr>');
-										$(div).appendTo($('.conteneurGeneral'));
-										$(table).appendTo(div);
-										$(tbody).appendTo(table);
-										$(entete).appendTo(tbody);
-										
-										//boucle pour récupérer créer et afficher tout les sujets du matière donnée et d'un type d'enseignement (TD,TP,CM)
-										
-										for(i = 0; i < listeObjet[1].length; i++){
-											var tr = $("<tr class='champTableau' id='topic"+listeObjet[1][i].id+"'></tr>");
-											var tdStatut = $("<td></td>");
-											var tdQuestion = $('<td></td>');
-											var tdAuteur = $('<td></td>');
-											var tdDate = $('<td></td>');
-											var tdReponse = $('<td></td>');
-											tdStatut.text(listeObjet[1][i].statut);
-											tdQuestion.text(listeObjet[1][i].question);
-											tdAuteur.text(listeObjet[1][i].auteur);
-											tdDate.text(listeObjet[1][i].date);
-											tdReponse.text(listeObjet[1][i].nbReponse);
-											$(tr).appendTo(tbody);
-											$(tdStatut).appendTo(tr);
-											$(tdQuestion).appendTo(tr);
-											$(tdAuteur).appendTo(tr);
-											$(tdDate).appendTo(tr);
-											$(tdReponse).appendTo(tr);
-										}
-										
-										//contruit le forum (Commentaire et réponse)
-										$('.champTableau').click(function(){
-											idTopic = ((this.id).replace('topic',''));
-											$.ajax({
-												url : '/PE2I/restreint/forum',
-												type : 'POST',
-												data : 'idTopic=' + idTopic,
-												success : function(valeur){
-													$(".commentaire").remove();
-													$(".documents").remove();
-													$(".listeTopics").remove();
-													var commentaire = JSON.parse(valeur);
-													//alert(commentaire.reponses[0].id);
-													var divCommentaire = $('<div class="commentaire">');
-													var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
-													var divCorpCommentaire = $('<div class="corpCommentaire">');
-													var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.auteur+'</p>');
-													var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.date+'</p>');
-													var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.texte+'</p>');
-													//<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
-													
-													$(divCommentaire).appendTo($('.conteneurGeneral'));
-													$(divEnteteCommentaire).appendTo(divCommentaire);
-													$(divCorpCommentaire).appendTo(divCommentaire);
-													$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
-													$(pDateCommentaire).appendTo(divEnteteCommentaire);
-													$(pTexteCommentaire).appendTo(divCorpCommentaire);
-													
-													// boucle sur la liste des réponse de la class BeanCommentaire afin d'afficher les réponses
-													for(i = 0; i < commentaire.reponses.length; i++){
-														
-														var divCommentaire = $('<div class="commentaire">');
-														var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
-														var divCorpCommentaire = $('<div class="corpCommentaire">');
-														var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.reponses[i].idUtilisateur+'</p>');
-														var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.reponses[i].date+'</p>');
-														var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.reponses[i].texte+'</p>');
-														
-														$(divCommentaire).appendTo($('.conteneurGeneral'));
-														$(divEnteteCommentaire).appendTo(divCommentaire);
-														$(divCorpCommentaire).appendTo(divCommentaire);
-														$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
-														$(pDateCommentaire).appendTo(divEnteteCommentaire);
-														$(pTexteCommentaire).appendTo(divCorpCommentaire);
-													}
-												},//fin de la function success de la construction du forum
-												dataType : 'text'
-											})//fin de la fonction ajax qui construit le forum
-										})// fin de la fonction javascript qui construit le forum
-									
-									},//fin de la function success de création des Topics
-									dataType : 'text'
-								});
-							});
-					    },
-						dataType : 'text'
-					});
+					requetteCreaSujetCours(((this.id).replace('forum','')));
 				}
 			});
+			
+			function requetteCreaSujetCours(idForum){
+				$.ajax({
+					url : '/PE2I/restreint/forum',
+					type : 'POST',
+					data : 'idModule=' + idModuleClick + '&idForum='+idForum,
+					success : function(valeur){
+						constructionSujetCours(valeur,idForum);
+				    },
+					dataType : 'text'
+				});
+			}
+			
+			function constructionSujetCours(valeur,idForum){
+				$(".commentaire").remove();
+				$(".listeSujets").remove();
+				$(".listeTopics").remove();
+				$(".documents").remove();
+				var listeSujets = JSON.parse(valeur);
+				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
+				var div = $('<div class="listeSujets">');
+				var table = $("<table id='tableauSujets' class='tableau'>");
+				var tbody = $('<tbody class="body">');
+				var entete = $('<tr class="enteteTableau"> <th>N°</th> <th>Nom</th></tr>');
+				$(div).appendTo($('.conteneurGeneral'));
+				$(table).appendTo(div);
+				$(tbody).appendTo(table);
+				$(entete).appendTo(tbody);
+				for(i = 0; i < listeSujets.length; i++){
+					var tr = $("<tr class='champTableau' id='sujet"+listeSujets[i].id+"'></tr>");
+					var tdNumero = $("<td></td>");
+					var tdNom = $('<td></td>');
+					tdNumero.text(listeSujets[i].numero);
+					tdNom.text(listeSujets[i].nom);
+					$(tr).appendTo(tbody);
+					$(tdNumero).appendTo(tr);
+					$(tdNom).appendTo(tr);
+				}
+				// construction des Topics
+				$('.champTableau').click(function(){
+					idSujet = ((this.id).replace('sujet',''));
+					var fileArrianne = $('<p class="fileArrianne" id="'+idForum+'">/liste des sujets de cours</p>');
+					$(fileArrianne).appendTo($('.conteneurGeneral'));
+					//action au clique sur le file d'arrianne pour le sujet
+					
+					$('.fileArrianne').click(function(){
+						alert(this.id);
+						$('.fileArrianne').remove();
+						requetteCreaSujetCours(idForum);
+					});
+					requetteCreaSujet(idSujet);
+				});
+			}
+			
+			function requetteCreaSujet(idSujet){
+				$.ajax({
+					url : '/PE2I/restreint/forum',
+					type : 'POST',
+					data : 'idSujet=' + idSujet,
+					success : function(valeur){
+						
+						constructionSujet(valeur);
+						//contruit le forum (Commentaire et réponse)
+						$('.champTableau').click(function(){
+							idTopic = ((this.id).replace('topic',''));
+							var fileArrianne2 = $('<p class="fileArrianne2" id="'+idSujet+'">/liste des questions</p>');
+							$(fileArrianne2).appendTo($('.conteneurGeneral'));
+							$('.fileArrianne2').click(function(){
+								alert("topic"+this.id);
+								$('.fileArrianne2').remove();
+								requetteCreaSujet(this.id);
+							});
+							requetteCreaTopic(idTopic);
+						})// fin de la fonction javascript qui construit le forum
+						
+					},//fin de la function success de création des Topics
+					dataType : 'text'
+				});
+			}
+			
+			function requetteCreaTopic(idTopic){
+				$.ajax({
+					url : '/PE2I/restreint/forum',
+					type : 'POST',
+					data : 'idTopic=' + idTopic,
+					success : function(valeur){
+						constructionTopics(valeur);
+					},//fin de la function success de la construction du forum
+					dataType : 'text'
+				})//fin de la fonction ajax qui construit le forum
+			}
+			
+			function constructionSujet( valeur){
+				$(".commentaire").remove();
+				$(".listeSujets").remove();
+				$(".listeTopics").remove();
+				$(".documents").remove();
+				var listeObjet = JSON.parse(valeur);
+				
+				var div = $('<div class="documents">');
+				var table = $("<table>");
+				var tbody = $('<tbody>');
+				var tr1 = $("<tr></tr>");
+				var tr2 = $("<tr></tr>");
+				$(div).appendTo($('.conteneurGeneral'));
+				$(table).appendTo(div);
+				$(tbody).appendTo(table);
+				$(tr1).appendTo(tbody);
+				$(tr2).appendTo(tbody);
+				if(listeObjet[0].sujet != null){
+					var td1 = $("<td></td>");
+					var td2 = $("<td style='font-size:15px' sujet </td>");
+					var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].sujet.nom+".jpg'/>");
+					$(td1).appendTo(tr1);
+					$(td2).appendTo(tr2);
+					$(img).appendTo(td1);
+				}
+				if(listeObjet[0].correction != null){
+					var td1 = $("<td></td>");
+					var td2 = $("<td style='font-size:15px'> correction </td>");
+					var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].correction.nom+".jpg'/>");
+					$(td1).appendTo(tr1);
+					$(td2).appendTo(tr2);
+					$(img).appendTo(td1);
+				}
+				if(listeObjet[0].listeDocumentsAImporter[0] != null){
+					var td1 = $("<td></td>");
+					var td2 = $("<td style='font-size:15px'> document à importer </td>");
+					var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].listeDocumentsAImporter[0].nom+".jpg'/>");
+					$(td1).appendTo(tr1);
+					$(td2).appendTo(tr2);
+					$(img).appendTo(td1);
+				}
+
+				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
+				var div = $('<div class="listeTopics">');
+				var table = $("<table id='tableauTopic' class='tableau'>");
+				var tbody = $('<tbody class="body">');
+				var entete = $('<tr class="enteteTableau"> <th>statut</th> <th>question</th> <th>auteur</th> <th>date</th> <th>reponse</th> </tr>');
+				$(div).appendTo($('.conteneurGeneral'));
+				$(table).appendTo(div);
+				$(tbody).appendTo(table);
+				$(entete).appendTo(tbody);
+				
+				//boucle pour récupérer créer et afficher tout les sujets du matière donnée et d'un type d'enseignement (TD,TP,CM)
+				
+				for(i = 0; i < listeObjet[1].length; i++){
+					var tr = $("<tr class='champTableau' id='topic"+listeObjet[1][i].id+"'></tr>");
+					var tdStatut = $("<td></td>");
+					var tdQuestion = $('<td></td>');
+					var tdAuteur = $('<td></td>');
+					var tdDate = $('<td></td>');
+					var tdReponse = $('<td></td>');
+					tdStatut.text(listeObjet[1][i].statut);
+					tdQuestion.text(listeObjet[1][i].question);
+					tdAuteur.text(listeObjet[1][i].auteur);
+					tdDate.text(listeObjet[1][i].date);
+					tdReponse.text(listeObjet[1][i].nbReponse);
+					$(tr).appendTo(tbody);
+					$(tdStatut).appendTo(tr);
+					$(tdQuestion).appendTo(tr);
+					$(tdAuteur).appendTo(tr);
+					$(tdDate).appendTo(tr);
+					$(tdReponse).appendTo(tr);
+				}
+			}
+			
+			function constructionTopics( valeur){
+				$(".commentaire").remove();
+				$(".documents").remove();
+				$(".listeTopics").remove();
+				var commentaire = JSON.parse(valeur);
+				//alert(commentaire.reponses[0].id);
+				var divCommentaire = $('<div class="commentaire">');
+				var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
+				var divCorpCommentaire = $('<div class="corpCommentaire">');
+				var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.auteur+'</p>');
+				var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.date+'</p>');
+				var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.texte+'</p>');
+				//<p class="texteCommentaire">Bonjour j'aimerais savoir comment fait on pour créer une machine virtuel Linux sur un pc Windows ? Si quelqu'un aurait un tuto je suis preneur.</p>
+				
+				$(divCommentaire).appendTo($('.conteneurGeneral'));
+				$(divEnteteCommentaire).appendTo(divCommentaire);
+				$(divCorpCommentaire).appendTo(divCommentaire);
+				$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
+				$(pDateCommentaire).appendTo(divEnteteCommentaire);
+				$(pTexteCommentaire).appendTo(divCorpCommentaire);
+				
+				// boucle sur la liste des réponse de la class BeanCommentaire afin d'afficher les réponses
+				for(i = 0; i < commentaire.reponses.length; i++){
+					
+					var divCommentaire = $('<div class="commentaire">');
+					var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
+					var divCorpCommentaire = $('<div class="corpCommentaire">');
+					var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.reponses[i].idUtilisateur+'</p>');
+					var pDateCommentaire = $('<p class="dateCommentaire">'+commentaire.reponses[i].date+'</p>');
+					var pTexteCommentaire = $('<p class="texteCommentaire">'+commentaire.reponses[i].texte+'</p>');
+					
+					$(divCommentaire).appendTo($('.conteneurGeneral'));
+					$(divEnteteCommentaire).appendTo(divCommentaire);
+					$(divCorpCommentaire).appendTo(divCommentaire);
+					$(pNomAuteurCommentaire).appendTo(divEnteteCommentaire);
+					$(pDateCommentaire).appendTo(divEnteteCommentaire);
+					$(pTexteCommentaire).appendTo(divCorpCommentaire);
+				}
+			}
 			
 			//fonction d'animation de la bare des matières
 			var haut = false;
@@ -327,7 +368,9 @@
 	        }
 			$( '#boutonHautBas' ).click(function(){
 				slideBarreModule()});
-				
+			
+			
+			
 			$('.forum').hide();
 			//var longueurDivTableau = ($(".tableau").width()*100);
 			//var pourcentage = (longueurDivTableau/($(document).width()));
@@ -335,6 +378,8 @@
 			//alert(resultat);	
 			//var string = resultat+'%';
 			//document.getElementById('tableauSujets').style.marginLeft = string;
+			
+			
 		</script>
 	</body>
 </html>

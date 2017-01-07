@@ -84,6 +84,8 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 response.setCharacterEncoding("UTF-8");
 			 response.getWriter().write(string4);
 		 }
+		 
+		 
 	 }
 	 
 }
