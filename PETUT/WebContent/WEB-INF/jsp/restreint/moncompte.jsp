@@ -26,7 +26,7 @@
 	
 	<div class="divinfoscompte">
 		<ul class="infos">
-			<c:forEach items="${ listeUtilisateur }" var="utilisateur">
+			<c:forEach items="${ utilisateur }" var="utilisateur">
 			<li><c:out value="Identifiant : ${ utilisateur.id_Utilisateur }"/></li>
 			<li><c:out value="Nom : ${ utilisateur.nom }"/></li>
 			<li><c:out value="Prenom : ${ utilisateur.prenom }"/></li>

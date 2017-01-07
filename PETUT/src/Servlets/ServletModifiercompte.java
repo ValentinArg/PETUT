@@ -25,11 +25,10 @@ public class ServletModifiercompte extends HttpServlet{
 		HttpSession session = request.getSession();
 		
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
-		SQLInfoUtilisateur sql1 = new SQLInfoUtilisateur();
-		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
-		listeUtilisateur = sql1.getUtilisateurByIdUtilisateur(id_Utilisateur);
-		request.setAttribute("listeUtilisateur", listeUtilisateur);
-		sql1.disconnect();
+		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
+		Utilisateur utilisateur = sql.getUtilisateurByIdUtilisateur(id_Utilisateur);
+		request.setAttribute("utilisateur", utilisateur);
+		sql.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
@@ -39,9 +38,9 @@ public class ServletModifiercompte extends HttpServlet{
 	      
 		HttpSession session = request.getSession();
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
-		SQLModifiercompte sql2 = new SQLModifiercompte();
-		sql2.setModificationByIdUtilisateur(id_Utilisateur, request);
-		sql2.disconnect();
+		SQLModifiercompte sql = new SQLModifiercompte();
+		sql.setModificationByIdUtilisateur(id_Utilisateur, request);
+		sql.disconnect();
 		
 		response.sendRedirect(REDIRECT);
 }
