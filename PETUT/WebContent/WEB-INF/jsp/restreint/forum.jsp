@@ -12,9 +12,7 @@
 	<body>
 		<div style="position: fixed;width:100%;z-index:10;">
 			<div class=enTete>
-				<c:forEach items="${ listeUtilisateur }" var="utilisateur">
-						<a href="/PE2I/restreint/moncompte" class="monCompte" ><c:out value="${ utilisateur.prenom }"/> <c:out value="${ utilisateur.nom }"/></a>
-				</c:forEach>
+				<a href="/PE2I/restreint/moncompte" class="monCompte" ><c:out value="${ utilisateur.prenom }"/> <c:out value="${ utilisateur.nom }"/></a>
 				<a class="home" href="/PE2I/restreint/accueil"><img src="/PE2I/images/general/logo_reduit.png"/></a>
 				<p class="boutonHautBas" id="boutonHautBas">Modules</p>
 				<ul class="nav" id="nav">

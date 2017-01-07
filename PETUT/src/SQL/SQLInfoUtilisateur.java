@@ -21,8 +21,8 @@ public class SQLInfoUtilisateur extends SQL{
 		super();
 	}
 	
-	public List<Utilisateur> getUtilisateurByIdUtilisateur( String id_Utilisateur ) {
-		List<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
+	public Utilisateur getUtilisateurByIdUtilisateur( String id_Utilisateur ) {
+		Utilisateur u = null;
 		try {
             this.setStatement( this.getConnexion().createStatement() );
         } catch ( SQLException e ) {
@@ -42,11 +42,10 @@ public class SQLInfoUtilisateur extends SQL{
         }
         
         try {
-            while ( this.getResultat().next() ) {
             	Date myDate = this.getResultat().getDate( 4 );
             	String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
          
-            	Utilisateur u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
+            	u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
 												 this.getResultat().getString( 2 ), //nom
 												 this.getResultat().getString(3),   //prenom
 												 "nonononnon",							    //mdp
@@ -60,13 +59,12 @@ public class SQLInfoUtilisateur extends SQL{
 												 "etudiant",								//type
 												 this.getResultat().getString( 10 ),//groupe
 												 this.getResultat().getInt( 11 )); 	//semestre
-                listeUtilisateurs.add( u );
-            }
+               
         } catch ( SQLException e ) {
             System.out.println( "erreur dans la recupération des données" );
             e.printStackTrace();
         }
-        return listeUtilisateurs;
+        return u;
 	}
 	
 	public List<Utilisateur> getUtilisateurByNom( String nom ) {
