@@ -19,6 +19,7 @@ public class ServletRechercheMembre extends HttpServlet{
 	
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 	
+		request.setAttribute("resultat", "entree");
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 	
@@ -28,9 +29,12 @@ public class ServletRechercheMembre extends HttpServlet{
 		List<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
 		String nom = (String) request.getParameter("nom");
 		listeUtilisateurs = sql.getUtilisateurByNom(nom);
+		if(listeUtilisateurs.get(0)==null){
+			request.setAttribute("resultat", "vide");
+		}
 		request.setAttribute("listeUtilisateurs", listeUtilisateurs);
 		sql.disconnect();
 		
-		response.sendRedirect(REDIRECT);
+		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 }

@@ -78,7 +78,7 @@ public class SQLMoncompte extends SQL{
             this.setResultat( this.getStatement()
                     .executeQuery( "SELECT * "
                     		+ "FROM Utilisateur "
-                    		+ "WHERE id_Utilisateur = '"+ nom +"';" ));
+                    		+ "WHERE Nom = '"+ nom +"';" ));
         } catch ( SQLException e ) {
             System.out.println( "erreur dans l'execution de la requete SQL" );
             e.printStackTrace();

@@ -31,7 +31,9 @@
 			<input type="submit" value="Rechercher" class="sansLabel"/>	
 		</form>
 	</div>
-	
+
+	<c:if test="${param.resultat == 'entree'}"><c:out value="Entrez un nom"/></c:if>
+	<c:if test="${param.resultat == 'vide'}"><c:out value="Pas de membre"/></c:if>
 	<div class="infomembre">
 		<ul class="infos">
 			<c:forEach items="${ listeUtilisateurs }" var="utilisateurs">
