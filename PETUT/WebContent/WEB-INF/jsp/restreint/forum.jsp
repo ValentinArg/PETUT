@@ -174,6 +174,7 @@
 					
 					$('.fileArrianne').click(function(){
 						$('.fileArrianne').remove();
+						$('.fileArrianne2').remove();
 						requetteCreaSujetCours(idForum);
 					});
 					requetteCreaSujet(idSujet);
@@ -191,7 +192,7 @@
 						//contruit le forum (Commentaire et réponse)
 						$('.champTableau').click(function(){
 							idTopic = ((this.id).replace('topic',''));
-							var fileArrianne2 = $('<p style="display:inline-block;cursor:pointer;width:160px;" class="fileArrianne2" id="'+idSujet+'"> / liste des questions</p>');
+							var fileArrianne2 = $('<p style="display:inline-block;cursor:pointer;" class="fileArrianne2" id="'+idSujet+'"> / liste des questions</p>');
 							$(fileArrianne2).appendTo($('.conteneurGeneral'));
 							$('.fileArrianne2').click(function(){
 								$('.fileArrianne2').remove();
