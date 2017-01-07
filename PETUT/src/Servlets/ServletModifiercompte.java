@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import Beans.Utilisateur;
 import SQL.SQLModifiercompte;
-import SQL.SQLMoncompte;
+import SQL.SQLInfoUtilisateur;
 
 public class ServletModifiercompte extends HttpServlet{
 
@@ -25,10 +25,10 @@ public class ServletModifiercompte extends HttpServlet{
 		HttpSession session = request.getSession();
 		
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
-		SQLMoncompte sql1 = new SQLMoncompte();
-		List<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
-		listeUtilisateurs = sql1.getUtilisateurByIdUtilisateur(id_Utilisateur);
-		request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+		SQLInfoUtilisateur sql1 = new SQLInfoUtilisateur();
+		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
+		listeUtilisateur = sql1.getUtilisateurByIdUtilisateur(id_Utilisateur);
+		request.setAttribute("listeUtilisateur", listeUtilisateur);
 		sql1.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url

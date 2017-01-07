@@ -15,9 +15,9 @@ import Beans.Utilisateur;
 
 
 
-public class SQLMoncompte extends SQL{
+public class SQLInfoUtilisateur extends SQL{
 
-	public SQLMoncompte() {
+	public SQLInfoUtilisateur() {
 		super();
 	}
 	
@@ -31,9 +31,11 @@ public class SQLMoncompte extends SQL{
         }
         try {
             this.setResultat( this.getStatement()
-                    .executeQuery( "SELECT * "
-                    		+ "FROM Utilisateur "
-                    		+ "WHERE id_Utilisateur = '"+ id_Utilisateur +"';" ));
+                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero "
+                    		+ "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
+                    		+ "WHERE u.id_Groupe = g.id_Groupe "
+                    		+ "AND g.id_Semestre = s.id_Semestre "
+                    		+ "AND id_Utilisateur = '"+ id_Utilisateur +"';" ));
         } catch ( SQLException e ) {
             System.out.println( "erreur dans l'execution de la requete SQL" );
             e.printStackTrace();
@@ -41,22 +43,23 @@ public class SQLMoncompte extends SQL{
         
         try {
             while ( this.getResultat().next() ) {
-            	Date myDate = this.getResultat().getDate( 5 );
+            	Date myDate = this.getResultat().getDate( 4 );
             	String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
          
-                Utilisateur u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
-                        						 this.getResultat().getString( 2 ), //nom
-                        						 this.getResultat().getString(3),   //prenom
-                        						 this.getResultat().getString( 4 ), //mdp
-                        						 newDate, 	//datenaissance
-                        						 this.getResultat().getString( 6 ),	//adresse
-                        						 this.getResultat().getInt( 7 ), 	//codepostal
-                        						 this.getResultat().getString( 8 ),	//ville
-                        						 this.getResultat().getString( 9 ),	//photo
-                        						 this.getResultat().getInt( 10 ),	//telephone
-                        						 this.getResultat().getString( 11 ),//adressemail
-                        						 this.getResultat().getString( 12 ),//type
-                        						 this.getResultat().getInt( 13 )); 	//idgroupe
+            	Utilisateur u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
+												 this.getResultat().getString( 2 ), //nom
+												 this.getResultat().getString(3),   //prenom
+												 "nonononnon",							    //mdp
+												 newDate, 							//datenaissance
+												 this.getResultat().getString( 5 ),	//adresse
+												 this.getResultat().getInt( 6 ), 	//codepostal
+												 this.getResultat().getString( 7 ),	//ville
+												 "n",	//photo
+												 this.getResultat().getInt( 8 ),	//telephone
+												 this.getResultat().getString( 9 ),//adressemail
+												 "etudiant",								//type
+												 this.getResultat().getString( 10 ),//groupe
+												 this.getResultat().getInt( 11 )); 	//semestre
                 listeUtilisateurs.add( u );
             }
         } catch ( SQLException e ) {
@@ -75,10 +78,12 @@ public class SQLMoncompte extends SQL{
             e.printStackTrace();
         }
         try {
-            this.setResultat( this.getStatement()
-                    .executeQuery( "SELECT * "
-                    		+ "FROM Utilisateur "
-                    		+ "WHERE Nom = '"+ nom +"';" ));
+        	this.setResultat( this.getStatement()
+                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero "
+                    		+ "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
+                    		+ "WHERE u.id_Groupe = g.id_Groupe "
+                    		+ "AND g.id_Semestre = s.id_Semestre "
+                    		+ "AND Nom = '"+ nom +"';" ));
         } catch ( SQLException e ) {
             System.out.println( "erreur dans l'execution de la requete SQL" );
             e.printStackTrace();
@@ -86,22 +91,23 @@ public class SQLMoncompte extends SQL{
         
         try {
             while ( this.getResultat().next() ) {
-            	Date myDate = this.getResultat().getDate( 5 );
+            	Date myDate = this.getResultat().getDate( 4 );
             	String newDate = new SimpleDateFormat("dd/MM/yyyy").format(myDate); //formattage de la date
          
-                Utilisateur u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
-                        						 this.getResultat().getString( 2 ), //nom
-                        						 this.getResultat().getString(3),   //prenom
-                        						 this.getResultat().getString( 4 ), //mdp
-                        						 newDate, 	//datenaissance
-                        						 this.getResultat().getString( 6 ),	//adresse
-                        						 this.getResultat().getInt( 7 ), 	//codepostal
-                        						 this.getResultat().getString( 8 ),	//ville
-                        						 this.getResultat().getString( 9 ),	//photo
-                        						 this.getResultat().getInt( 10 ),	//telephone
-                        						 this.getResultat().getString( 11 ),//adressemail
-                        						 this.getResultat().getString( 12 ),//type
-                        						 this.getResultat().getInt( 13 )); 	//idgroupe
+            	Utilisateur u = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
+            									 this.getResultat().getString( 2 ), //nom
+												 this.getResultat().getString(3),   //prenom
+												 "nonononon",							    //mdp
+												 newDate, 							//datenaissance
+												 this.getResultat().getString( 5 ),	//adresse
+												 this.getResultat().getInt( 6 ), 	//codepostal
+												 this.getResultat().getString( 7 ),	//ville
+												 "n",	//photo
+												 this.getResultat().getInt( 8 ),	//telephone
+												 this.getResultat().getString( 9 ),//adressemail
+												 "etudiant",								//type
+												 this.getResultat().getString( 10 ),//groupe
+												 this.getResultat().getInt( 11 )); 	//semestre
                 listeUtilisateurs.add( u );
             }
         } catch ( SQLException e ) {

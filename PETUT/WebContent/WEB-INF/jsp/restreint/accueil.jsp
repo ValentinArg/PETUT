@@ -5,29 +5,24 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel ="stylesheet" href = "/PE2I/css/main.css"/>
-<link rel ="stylesheet" href = "/PE2I/css/accueil.css"/>	
-<title>PE2I - Accueil</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel ="stylesheet" href = "/PE2I/css/main.css"/>
+	<link rel ="stylesheet" href = "/PE2I/css/accueil.css"/>	
+	<title>PE2I - Accueil</title>
 </head>
 
-	<div class="baniere">
-		<img  src="/PE2I/images/general/logo.png">
-	</div>
+
 <body>
 
-<div class="general">
+<header>
+	<img src="/PE2I/images/general/logo.png" alt="banniere" class="banniere">
+</header>
 
-	<div class="divmenu">
-	
-		<ul class="nav">
-			<li><a href="/PE2I/restreint/forum">Forum</a></li>
-			<li>Espace etudiant/prof</li>
-			<li><a href="/PE2I/restreint/rechercheMembre">Rechercher membre</li>
-			<li><a href="/PE2I/restreint/moncompte">Mon compte</li>
-			<li><a href="/PE2I/deconnexion">Se deconnecter</a></li>
-		</ul>
-	</div>
+<nav>
+	<c:import url="/WEB-INF/jsp/restreint/menu.jsp" />
+</nav>
+
+<div class="general">
 
 	<div class="news">
 		<div class="newsSujets">
@@ -67,9 +62,8 @@
 	         </table>
 	    </div>
 	</div>
-
+	
 </div>
 	
 </body>
-
 </html>

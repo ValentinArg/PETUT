@@ -1,11 +1,35 @@
 @CHARSET "ISO-8859-1";
-.baniere img{
+
+@CHARSET "UTF-8";
+/* Général ------------------------------------------------------------------------------------- */
+
+body {
+	background-image : url(../images/fond.jpg);
+}
+
+body,p,legend, label, input {
+    font: normal 8pt;
+    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+}
+
+header img {
 	width:50%;
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
 }
-.baniere{
-	/*width:100%;
-	background:grey;*/
+
+nav {
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+	min-width:1000px;
+	margin-bottom:50px;
+}
+
+.general{
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
 }
