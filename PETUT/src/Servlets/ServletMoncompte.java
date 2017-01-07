@@ -22,7 +22,6 @@ public class ServletMoncompte extends HttpServlet{
 public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 	
 		HttpSession session = request.getSession();
-		
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
 		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
 		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
