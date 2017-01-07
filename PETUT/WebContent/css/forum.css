@@ -321,3 +321,21 @@ body{
 .editeur{
 	margin-bottom:5px;
 }
+
+.monCompte{
+	position :absolute; 
+	margin:0; 
+	right:80px;
+	font-size:20px;
+	padding-top:4px;
+	padding-bottom:8px;
+	color:white;
+}
+
+.home img{
+	width:50px;
+	position :absolute; 
+	margin:0; 
+	right:20px;
+	color:white;
+}

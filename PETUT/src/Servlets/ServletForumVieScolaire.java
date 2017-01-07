@@ -6,10 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.codehaus.jackson.map.ObjectMapper;
 import Beans.*;
 import OutilsJava.GestionnaireDate;
 import SQL.SQLForumVieScolaire;
+import SQL.SQLInfoUtilisateur;
 
 public class ServletForumVieScolaire extends HttpServlet{
 
@@ -25,6 +28,15 @@ public class ServletForumVieScolaire extends HttpServlet{
 		request.setAttribute("listeForum", listeForum);
 		request.setAttribute("listeSemestre", listeSemestre);
 		sql.disconnect();
+		
+		HttpSession session = request.getSession();
+		String id_Utilisateur = (String) session.getAttribute("identifiant");
+		SQLInfoUtilisateur sql2 = new SQLInfoUtilisateur();
+		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
+		listeUtilisateur = sql2.getUtilisateurByIdUtilisateur(id_Utilisateur);
+		request.setAttribute("listeUtilisateur", listeUtilisateur);
+		sql2.disconnect();
+		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		
 	}
