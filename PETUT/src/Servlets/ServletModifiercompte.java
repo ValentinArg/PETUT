@@ -26,9 +26,9 @@ public class ServletModifiercompte extends HttpServlet{
 		
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
 		SQLInfoUtilisateur sql1 = new SQLInfoUtilisateur();
-		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
-		listeUtilisateur = sql1.getUtilisateurByIdUtilisateur(id_Utilisateur);
-		request.setAttribute("listeUtilisateur", listeUtilisateur);
+		Utilisateur u = new Utilisateur();
+		u = sql1.getUtilisateurByIdUtilisateur(id_Utilisateur);
+		request.setAttribute("listeUtilisateur", u);
 		sql1.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url

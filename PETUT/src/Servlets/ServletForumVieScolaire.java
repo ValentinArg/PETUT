@@ -32,9 +32,9 @@ public class ServletForumVieScolaire extends HttpServlet{
 		HttpSession session = request.getSession();
 		String id_Utilisateur = (String) session.getAttribute("identifiant");
 		SQLInfoUtilisateur sql2 = new SQLInfoUtilisateur();
-		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
-		listeUtilisateur = sql2.getUtilisateurByIdUtilisateur(id_Utilisateur);
-		request.setAttribute("listeUtilisateur", listeUtilisateur);
+		Utilisateur u;
+		u = sql2.getUtilisateurByIdUtilisateur(id_Utilisateur);
+		request.setAttribute("utilisateur", u);
 		sql2.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
