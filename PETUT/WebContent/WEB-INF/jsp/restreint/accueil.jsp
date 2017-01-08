@@ -37,7 +37,7 @@
 	                    	<c:when test="${ sujets.type == 'Travaux Dirigés'}"><c:out value="TD"/></c:when>
 	                    </c:choose>
 	                    </td>
-	                    <td><c:out value="N°${ sujets.numero } : ${ sujets.nom }"/></td>
+	                    <td><c:out value="${ sujets.module } : ${sujets.numero}) ${ sujets.nom }"/></td>
 	                    <td><c:out value="Le ${ sujets.date }"/></td>
 	                </tr>
 	                </c:forEach>
@@ -46,18 +46,29 @@
 	    <div class="newsModifs">
 			 <table class="tabNewsModifs">
 					<caption>Dernières modifications du site</caption>
+					 <c:forEach items="${ listeModifications }" var="modifs">
 	                <tr>
 	                    <td>
-	                    
+	                    <c:choose>
+	                    	<c:when test="${ modifs.type == 'nouveaute'}"><c:out value="NEW"/></c:when>
+	                    	<c:when test="${ modifs.type == 'maintenance'}"><c:out value="REPARE"/></c:when>
+	                    </c:choose>
 	                    </td>
-	                    <td></td>
-	                    <td>Date</td>
+	                    <td><c:out value="${modifs.libelle }"/></td>
+	                    <td><c:out value="Le ${ modifs.date }"/></td>
 	                </tr>
+	                </c:forEach>
 	         </table>
 	    </div>
 	</div>
 	
+	<footer>
+	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
+</footer>	
+	
 </div>
+	
+
 	
 </body>
 </html>

@@ -39,14 +39,18 @@
 			<li><c:out value="Prenom : ${ utilisateur.prenom }"/></li>
 			<li><c:out value="Groupe ${ utilisateur.groupe } Semestre ${ utilisateur.semestre } "/></li>
 			<li><c:out value="Date de naissance : ${ utilisateur.datenaissance }"/></li>
-			<li><c:out value="Adresse : ${ utilisateur.adresse }"/></li>
-			<li><c:out value="Code postal : ${ utilisateur.codepostal }"/></li>
 			<li><c:out value="Ville : ${ utilisateur.ville }"/></li>
 			<li><c:out value="Telephone : 0${ utilisateur.telephone }"/></li>
 			<li><c:out value="Adresse mail : ${ utilisateur.adressemail}"/></li>
 		</ul>
 	</div></c:if>
+	
+	
+<footer>
+	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
+</footer>
 </div>
+
 
 </body>
 </html>

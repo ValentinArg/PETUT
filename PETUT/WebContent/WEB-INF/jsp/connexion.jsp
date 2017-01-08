@@ -5,15 +5,18 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel ="stylesheet" href = "/PE2I/css/main.css"/>
 <link rel ="stylesheet" href = "/PE2I/css/connexion.css"/>	
 <title>PE2I - Connexion</title>
 </head>
 
-<header>
-<h1>PE2I - Connexion</h1>
-</header>
 
 <body>
+
+<header>
+	<img src="/PE2I/images/general/logo.png" alt="banniere" class="banniere">
+</header>
+
 	<div class="connexion">
 		<form method="post" action="connexion">
 		   	<fieldset> 
@@ -34,5 +37,9 @@
 		</form>
 	</div>
 	
+<footer>
+	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
+</footer>
+
 </body>
 </html>

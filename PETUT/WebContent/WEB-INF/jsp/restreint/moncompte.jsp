@@ -39,7 +39,9 @@
 		</ul>
 		<a href="/PE2I/restreint/modifiercompte">Modifier les informations</a>
 	</div>
-	
+	<footer>
+	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
+</footer>
 </div>
 
 

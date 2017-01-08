@@ -48,8 +48,11 @@
 		</form>
 	</div>
 	
+	
+	<footer>
+	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
+</footer>
 </div>
-
 
 </body>
 </html>
