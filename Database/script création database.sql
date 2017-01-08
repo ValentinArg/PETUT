@@ -152,6 +152,13 @@ create table Evenement(
 	FOREIGN KEY(id_Utilisateur) REFERENCES Utilisateur(id_Utilisateur)
 );
 
+create table Modification(
+	id_Modification int PRIMARY KEY auto_increment,
+    Libelle varchar(100) not null,
+    Auteur varchar(50),
+    TypeM varchar(50) not null check(TypeM="nouveaute" || TypeM="maintenance"),
+    DateM date not null);
+
 
 /*****************************************************************************************************************************************************************/
 /********************************************************************Jeu de données*******************************************************************************/
@@ -209,3 +216,8 @@ INSERT INTO Reponse VALUES (1,1,'brf2125a','On fait comme ça.','2016-12-10');
 /****** Documents *******/
 INSERT INTO Document VALUES (1,1,1,'brf2125a','lien','2016-12-10','document installation linux');
 INSERT INTO Document(id_Sujet, id_Utilisateur, Lien, DateD, Nom) VALUES (1,'rgv2021a','lien','2016-11-11','correction');
+
+/****** Modifications *******/
+INSERT INTO Modification Values (1,'Ajout des news de modification','ValentinArg','nouveaute','2017-01-08');
+INSERT INTO Modification VALUES (2,'Amélioration du rendu des pages','ValentinArg','maintenance','2017-01-10');
+
