@@ -1,10 +1,10 @@
 package SQL;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import Beans.Semestre;
 import Beans.Sujet;
 
 
@@ -21,28 +21,35 @@ public class SQLAccueil extends SQL{
 		 try {
 	            this.setStatement( this.getConnexion().createStatement() );
 	        } catch ( SQLException e ) {
-	            System.out.println( "erreur dans la création du statement" );
+	            System.out.println( "Erreur dans la création du statement getSujetsByIdEnseigne()" );
 	            e.printStackTrace();
 	        }
 	        try {
 	            this.setResultat( this.getStatement()
-	                    .executeQuery( "SELECT f.nom, s.numero, s.nom "
-	                    		+ "FROM SUJET AS S, FORUMMODULE AS FM, FORUM AS F "
+	                    .executeQuery( "SELECT s.id_Sujet, m.numero, s.nom, s.numero,s.dates, f.nom "
+	                    		+ "FROM SUJET AS s, FORUMMODULE AS fm, FORUM AS f, Module AS m "
 	                    		+ "WHERE S.ID_FORUM = FM.ID_FORUM "
+	                    		+ "AND s.id_Module = m.id_Module "
 	                    		+ "AND FM.ID_FORUM = F.ID_FORUM "
-	                    		+ "AND F.ID_ENSEIGNE = " + idEnseigne + ";" ) );
+	                    		+ "AND F.ID_ENSEIGNE = " + idEnseigne + " "
+	                    		+ "ORDER BY s.DateS "
+	                    		+ "LIMIT 10;" ) );
 	        } catch ( SQLException e ) {
-	            System.out.println( "erreur dans l'execution de la requete SQL" );
+	            System.out.println( "Erreur dans l'exécution de la requete SQL getSujetsByIdEnseigne()" );
 	            e.printStackTrace();
 	        }
 	        try {
 	            while ( this.getResultat().next() ) {
-	                Sujet s = new Sujet( this.getResultat().getString( 1 ),
-	                        this.getResultat().getInt( 2 ), this.getResultat().getString( 3 ));
+	                Sujet s = new Sujet( this.getResultat().getInt( 1 ),
+	                        			 this.getResultat().getString( 2 ), 
+	                        			 this.getResultat().getString( 3 ),
+	                        			 this.getResultat().getInt(4),
+	                        			 new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(5)),
+	                        			 this.getResultat().getString( 6 ));
 	                listeSujets.add( s );
 	            }
 	        } catch ( SQLException e ) {
-	            System.out.println( "erreur dans la recupération des données" );
+	            System.out.println( "Erreur dans la recupération des données getSujetsByIdEnseigne()" );
 	            e.printStackTrace();
 	        }
 	        return listeSujets;

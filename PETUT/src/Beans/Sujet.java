@@ -1,36 +1,36 @@
 package Beans;
 
-import java.util.*;
-
-import org.codehaus.jackson.annotate.JsonManagedReference;
 
 public class Sujet{
 
 	private int id;
-	private String forum;
+	private String module;
 	private String nom;
 	private int numero;
-	private List<Commentaire> listeCommentaire;
+	private String date;
+	private String type; //CM, TD, TP...
 	
-	public Sujet(int id, String nom, int numero) {
+
+	public Sujet(int id, String module, String nom, int numero, String date, String type) {
 		super();
-		this.listeCommentaire = new ArrayList<Commentaire>();
 		this.id = id;
+		this.module = module;
 		this.nom = nom;
 		this.numero = numero;
-	}
-	public Sujet(String forum, int numero, String nom) {
-		super();
-		this.listeCommentaire = new ArrayList<Commentaire>();
-		this.forum = forum;
-		this.nom = nom;
-		this.numero = numero;
+		this.date = date;
+		this.type = type;
 	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getModule() {
+		return module;
+	}
+	public void setModule(String module) {
+		this.module = module;
 	}
 	public String getNom() {
 		return nom;
@@ -44,21 +44,17 @@ public class Sujet{
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public List<Commentaire> getListeCommentaire() {
-		return listeCommentaire;
+	public String getDate() {
+		return date;
 	}
-	public void setListeCommentaire(List<Commentaire> listeCommentaire) {
-		this.listeCommentaire = listeCommentaire;
+	public void setDate(String date) {
+		this.date = date;
 	}
-	public String getForum() {
-		return forum;
+	public String getType() {
+		return type;
 	}
-	public void setForum(String forum) {
-		this.forum = forum;
+	public void setType(String type) {
+		this.type = type;
 	}
 	
-	
-	
-	
-
 }

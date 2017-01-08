@@ -32,13 +32,13 @@
 	                <tr>
 	                    <td>
 	                    <c:choose>
-	                    	<c:when test="${ sujets.forum == 'Travaux Pratiques'}"><c:out value="TP"/></c:when>
-	                    	<c:when test="${ sujets.forum == 'Cours'}"><c:out value="CM"/></c:when>
-	                    	<c:when test="${ sujets.forum == 'Travaux Dirigés'}"><c:out value="TD"/></c:when>
+	                    	<c:when test="${ sujets.type == 'Travaux Pratiques'}"><c:out value="TP"/></c:when>
+	                    	<c:when test="${ sujets.type == 'Cours'}"><c:out value="CM"/></c:when>
+	                    	<c:when test="${ sujets.type == 'Travaux Dirigés'}"><c:out value="TD"/></c:when>
 	                    </c:choose>
 	                    </td>
 	                    <td><c:out value="N°${ sujets.numero } : ${ sujets.nom }"/></td>
-	                    <td>Date</td>
+	                    <td><c:out value="Le ${ sujets.date }"/></td>
 	                </tr>
 	                </c:forEach>
 	         </table>
@@ -46,19 +46,13 @@
 	    <div class="newsModifs">
 			 <table class="tabNewsModifs">
 					<caption>Dernières modifications du site</caption>
-	                <c:forEach items="${ listeSujets }" var="sujets">
 	                <tr>
 	                    <td>
-	                    <c:choose>
-	                    	<c:when test="${ sujets.forum == 'Travaux Pratiques'}"><c:out value="TP"/></c:when>
-	                    	<c:when test="${ sujets.forum == 'Cours'}"><c:out value="CM"/></c:when>
-	                    	<c:when test="${ sujets.forum == 'Travaux Dirigés'}"><c:out value="TD"/></c:when>
-	                    </c:choose>
+	                    
 	                    </td>
-	                    <td><c:out value="N°${ sujets.numero } : ${ sujets.nom }"/></td>
+	                    <td></td>
 	                    <td>Date</td>
 	                </tr>
-	                </c:forEach>
 	         </table>
 	    </div>
 	</div>
