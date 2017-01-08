@@ -9,18 +9,28 @@ body {
 
 body,p,legend, label, input {
     font: normal 8pt;
-    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+    font-family:  Georgia, serif;
 }
 
 header img {
-	width:350px;
+	width:470px;
+	display:inline;
+}
+header .logoiut{
+	height:135px;
+	width:215px;
+}
+header{
+	width:78%;
+	height:135px;
 	margin-left:auto;
 	margin-right:auto;
-	display:block;
+	background-image : url(../images/fondbanniere.jpg);
+	margin-top:-9px;
+	min-width:1000px;
 }
-
 nav {
-	width:85%;
+	width:78%;
 	margin-left:auto;
 	margin-right:auto;
 	text-align:left;
@@ -29,7 +39,7 @@ nav {
 }
 
 footer {
-	width:85%;
+	width:78%;
 	margin-left:auto;
 	margin-right:auto;
 	min-width:1000px;
@@ -39,7 +49,7 @@ footer {
 
 
 .general{
-	width:85%;
+	width:78%;
 	margin-left:auto;
 	margin-right:auto;
 }

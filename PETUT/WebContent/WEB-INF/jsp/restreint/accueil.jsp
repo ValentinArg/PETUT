@@ -16,6 +16,7 @@
 
 <header>
 	<img src="/PE2I/images/general/logo.png" alt="banniere" class="banniere">
+	<img style="float:right" src="/PE2I/images/general/logoiut.jpg" alt="logoiut" class="logoiut">
 </header>
 
 <nav>
