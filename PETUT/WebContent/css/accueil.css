@@ -17,6 +17,10 @@
     min-width:450px;
 }
 
+table img{
+	width:50px;
+}
+
 .news table tr , th , td{
 	border: 2px black solid;
 	padding:5px;
@@ -25,7 +29,7 @@
 .news table caption{
 	text-align:left;
 	padding:5px 0px 5px 10px;
-	background-color:grey;
+	background-color: rgb(158,37,0)
 }
 
 .newsSujets{

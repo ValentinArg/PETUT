@@ -23,7 +23,7 @@
 	<c:import url="/WEB-INF/jsp/restreint/menu.jsp" />
 </nav>
 
-<div class="general">
+<section class="general">
 
 	<div class="news">
 		<div class="newsSujets">
@@ -33,9 +33,9 @@
 	                <tr>
 	                    <td>
 	                    <c:choose>
-	                    	<c:when test="${ sujets.type == 'Travaux Pratiques'}"><c:out value="TP"/></c:when>
-	                    	<c:when test="${ sujets.type == 'Cours'}"><c:out value="CM"/></c:when>
-	                    	<c:when test="${ sujets.type == 'Travaux Dirigés'}"><c:out value="TD"/></c:when>
+	                    	<c:when test="${ sujets.type == 'Travaux Pratiques'}"><img src="/PE2I/images/iconetp.png" alt="iconetp" title="Travaux Pratiques"/></c:when>
+	                    	<c:when test="${ sujets.type == 'Cours'}"><img src="/PE2I/images/iconecm.jpg" alt="iconecm"  title="Cours Magistraux"/></c:when>
+	                    	<c:when test="${ sujets.type == 'Travaux Dirigés'}"><img src="/PE2I/images/iconetd.png" alt="iconetd"  title="Travaux Dirigés"/></c:when>
 	                    </c:choose>
 	                    </td>
 	                    <td><c:out value="${ sujets.module } : ${sujets.numero}) ${ sujets.nom }"/></td>
@@ -62,14 +62,11 @@
 	         </table>
 	    </div>
 	</div>
-	
-	<footer>
+</section>
+
+<footer>
 	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
 </footer>	
-	
-</div>
-	
-
-	
+		
 </body>
 </html>
