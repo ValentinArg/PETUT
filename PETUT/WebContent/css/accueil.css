@@ -13,35 +13,61 @@
 
 .news table{
     border-collapse: collapse;
-    border: 2px black solid;
-    min-width:450px;
+    border: 1px black solid;
+    width:600px;
 }
 
 table img{
-	width:50px;
+	width:60px;
+	height:45px;
 }
 
 .news table tr , th , td{
-	border: 2px black solid;
+	border: 1px black solid;
 	padding:5px;
+}
+
+tr{
+	height:47px;
+}
+.pair{
+	background-color:#f2f2f2;
+}
+
+.impair{
+	background-color:#dcdcdc;
+}
+
+.icone{
+	padding:0px;
+	width:61px;
+}
+
+.iconenews{
+	float:left;
+	width:35px;
+	height:35px;
+	margin-left:5px;
+	margin-right:15px;
 }
 
 .news table caption{
 	text-align:left;
 	padding:5px 0px 5px 10px;
-	background-color: rgb(158,37,0)
+	background-color: rgb(158,37,0);
+	color:white;
+	font-size:110%;
+	line-height:35px;
 }
 
 .newsSujets{
 	display:inline-block;
 	vertical-align:top;
-	margin-right:20px;
-	
+	margin-bottom:20px;
 }
 
 .newsModifs{
 	display:inline-block;
 	vertical-align:top;
 	margin:auto;
-	margin-left:20px;
 }

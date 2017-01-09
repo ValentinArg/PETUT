@@ -147,15 +147,25 @@ public class SQLForumVieScolaire extends SQL {
             e.printStackTrace();
         }
         try {
-            this.setResultat( this.getStatement().executeQuery( "SELECT * FROM Sujet WHERE id_Module = " + idModule
-                    + " AND id_Forum = "+idForum+" ORDER BY Numero;" ) );
+            this.setResultat( this.getStatement().executeQuery( "SELECT s.id_Sujet, m.numero, s.nom, s.numero, s.dates, f.nom "
+													    		+ "FROM SUJET AS s, FORUMMODULE AS fm, FORUM AS f, Module AS m "
+													    		+ "WHERE s.ID_FORUM = fm.ID_FORUM "
+													    		+ "AND s.id_Module = m.id_Module "
+													    		+ "AND fm.ID_FORUM = f.ID_FORUM "
+													    		+ "AND fm.id_Module = " + idModule + " "
+													    		+ "AND fm.id_Forum = " + idForum +" ;" ));
         } catch ( SQLException e ) {
             System.out.println( "erreur dans l'execution de la requete SQL" );
             e.printStackTrace();
         }
         try {
             while ( this.getResultat().next() ) {
-                Sujet s = new Sujet( this.getResultat().getInt( "id_Sujet" ), this.getResultat().getString( "nom" ),this.getResultat().getInt("Numero") );
+            	  Sujet s = new Sujet( this.getResultat().getInt( 1 ),
+             			 this.getResultat().getString( 2 ), 
+             			 this.getResultat().getString( 3 ),
+             			 this.getResultat().getInt(4),
+             			 new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(5)),
+             			 this.getResultat().getString( 6 ));
                 listeSujet.add( s );
             }
         } catch ( SQLException e ) {

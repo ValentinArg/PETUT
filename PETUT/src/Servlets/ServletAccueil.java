@@ -9,7 +9,9 @@ import javax.servlet.http.*;
 
 import Beans.Modification;
 import Beans.Sujet;
+import Beans.Utilisateur;
 import SQL.SQLAccueil;
+import SQL.SQLInfoUtilisateur;
 
 
 public class ServletAccueil extends HttpServlet{
@@ -28,7 +30,14 @@ public class ServletAccueil extends HttpServlet{
 		listeModifications = sql.getModifications();
 		request.setAttribute("listeModifications", listeModifications);
 		
+		HttpSession session = request.getSession();
+		String id_Utilisateur = (String) session.getAttribute("identifiant");
+		SQLInfoUtilisateur sql2 = new SQLInfoUtilisateur();
+		Utilisateur utilisateur = sql2.getUtilisateurByIdUtilisateur(id_Utilisateur);
+		request.setAttribute("utilisateur", utilisateur);
+		
 		sql.disconnect();
+		sql2.disconnect();
 		
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );//envoie la requete et la reponse au JSP specifier en url
 		

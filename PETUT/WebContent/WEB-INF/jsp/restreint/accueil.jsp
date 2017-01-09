@@ -25,13 +25,17 @@
 
 <section class="general">
 
+	<div class="accueil">
+		<p>Bienvenue <b><c:out value="${utilisateur.prenom} ${utilisateur.nom }"/></b> ! Vous êtes sur le site PE2I: Plateforme d'Echange Intra IUT</p>
+	</div>
+	
 	<div class="news">
 		<div class="newsSujets">
 			 <table class="tabNewsSujets">
-			 		<caption>Derniers sujets ouverts</caption>
-	                <c:forEach items="${ listeSujets }" var="sujets">
-	                <tr>
-	                    <td>
+			 		<caption><img src="/PE2I/images/iconenews.png" alt="iconenews" class="iconenews">Derniers sujets ouverts</caption>
+	                <c:forEach items="${ listeSujets }" var="sujets" varStatus="boucle">
+	                <tr class="${boucle.index % 2 == 0 ? 'pair' : 'impair'}">
+	                    <td class="icone">
 	                    <c:choose>
 	                    	<c:when test="${ sujets.type == 'Travaux Pratiques'}"><img src="/PE2I/images/iconetp.png" alt="iconetp" title="Travaux Pratiques"/></c:when>
 	                    	<c:when test="${ sujets.type == 'Cours'}"><img src="/PE2I/images/iconecm.jpg" alt="iconecm"  title="Cours Magistraux"/></c:when>
@@ -46,10 +50,10 @@
 	    </div>
 	    <div class="newsModifs">
 			 <table class="tabNewsModifs">
-					<caption>Dernières modifications du site</caption>
-					 <c:forEach items="${ listeModifications }" var="modifs">
-	                <tr>
-	                    <td>
+					<caption><img src="/PE2I/images/inconemaint.png" alt="iconemaint" class="iconenews">Dernières modifications du site</caption>
+					 <c:forEach items="${ listeModifications }" var="modifs" varStatus="boucle">
+	                <tr class="${boucle.index % 2 == 0 ? 'pair' : 'impair'}">
+	                    <td class="icone">
 	                    <c:choose>
 	                    	<c:when test="${ modifs.type == 'nouveaute'}"><c:out value="NEW"/></c:when>
 	                    	<c:when test="${ modifs.type == 'maintenance'}"><c:out value="REPARE"/></c:when>
