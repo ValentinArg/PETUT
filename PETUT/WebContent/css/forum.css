@@ -110,7 +110,7 @@ ul{
 	display:block;
 	padding:10px;
 	text-align:center;
-	background-color:#c62d00;
+	background-color:rgb(158,37,0);
 	margin:0;
 }
 .ue:hover{
@@ -132,13 +132,14 @@ ul{
 	cursor:pointer;
 }
 .semestres{
-	background-color:#c62d00;
+	background-color:rgb(158,37,0);
 	font-size:20px;
 }
 a{
 	cursor:pointer;
 }
-body{
+body {
+	background-image : url(../images/fond.jpg);
 	margin:0;
 	padding:0;	
 }
@@ -271,6 +272,11 @@ body{
 	padding:0;
 }
 
+.nomAuteurCommenatire{
+	
+	font-size:15px;
+}
+
 .commentaire{
 	width:80%;
 	margin-left:auto;
@@ -282,6 +288,8 @@ body{
 	padding:5px;
 	border:solid 1px black;
 	border-bottom:none;
+	background:rgb(158,37,0);
+	color:white;
 }
 
 .corpCommentaire{
@@ -340,8 +348,11 @@ body{
 	color:white;
 }
 
-.fileArrianne{
+.fileArrianne {
 	margin-left:10%;
 	color:#444;
-	
+}
+
+.fileArrianne2{
+	color:#444;
 }

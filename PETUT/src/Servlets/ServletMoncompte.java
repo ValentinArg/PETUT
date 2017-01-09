@@ -23,7 +23,6 @@ public void doGet( HttpServletRequest request, HttpServletResponse response ) th
 		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
 
 		Utilisateur utilisateur = sql.getUtilisateurByIdUtilisateur(id_Utilisateur);
-		System.out.println(utilisateur.getId_Utilisateur());
 		request.setAttribute("utilisateur", utilisateur);
 
 		sql.disconnect();
