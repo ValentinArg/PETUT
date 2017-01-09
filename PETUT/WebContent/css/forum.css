@@ -16,7 +16,7 @@
 	list-style : none;
 	margin:0;
 	padding-left:20%;
-	background: Grey;
+	background: #444;
 	border-bottom:solid 1px white;
 	text-align:left;
 }
@@ -124,7 +124,7 @@ ul{
 	display: block;
 	padding:10px;
 	text-align:center;
-	background-color:grey;
+	background-color:#444;
 	margin:0;
 }
 .module p:hover{
@@ -174,7 +174,7 @@ body{
 	vertical-align:top;
 	list-style : none;
 	margin:0;
-	background: Grey;
+	background: #444;
 	z-index:5;
 	height:4.7%;
 	border-bottom:solid 1px white;
@@ -225,7 +225,7 @@ body{
 }
 
 .champTableau:hover{
-	background-color:grey;
+	background-color:#444;
 	cursor:pointer;
 	color:white;
 }
@@ -338,4 +338,10 @@ body{
 	margin:0; 
 	right:20px;
 	color:white;
+}
+
+.fileArrianne{
+	margin-left:10%;
+	color:#444;
+	
 }
