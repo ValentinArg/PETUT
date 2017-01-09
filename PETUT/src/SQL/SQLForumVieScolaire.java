@@ -331,5 +331,22 @@ public class SQLForumVieScolaire extends SQL {
          }
          return c;
     }
+    
+    public void ajouterReponse(int idCommentaire, String reponse){
+    	
+    	 try {
+             this.setStatement( this.getConnexion().createStatement() );
+         } catch ( SQLException e ) {
+             System.out.println( "erreur dans la création du statement" );
+             e.printStackTrace();
+         }    	
+    	
+    	try {
+			int statut =  this.getStatement().executeUpdate( "INSERT INTO Utilisateur (email, mot_de_passe, nom, date_inscription) VALUES ('jmarc@mail.fr', MD5('lavieestbelle78'), 'jean-marc', NOW());" );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 
 }

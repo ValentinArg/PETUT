@@ -49,6 +49,7 @@
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
+				$(".formReponse").remove();
 				$('.forum').hide(200);
 				$("#navigation").find('li').each(
 					function(){
@@ -145,6 +146,7 @@
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
+				$(".formReponse").remove();
 				$(".documents").remove();
 				var listeSujets = JSON.parse(valeur);
 				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
@@ -224,6 +226,7 @@
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
 				$(".documents").remove();
+				$(".formReponse").remove();
 				var listeObjet = JSON.parse(valeur);
 				
 				var div = $('<div class="documents">');
@@ -298,9 +301,10 @@
 				$(".commentaire").remove();
 				$(".documents").remove();
 				$(".listeTopics").remove();
+				$(".formReponse").remove();
 				var commentaire = JSON.parse(valeur);
 				//alert(commentaire.reponses[0].id);
-				var divCommentaire = $('<div class="commentaire">');
+				var divCommentaire = $('<div id='+commentaire.id+' class="commentaire">');
 				var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
 				var divCorpCommentaire = $('<div class="corpCommentaire">');
 				var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.auteur+'</p>');
@@ -332,7 +336,8 @@
 					$(pDateCommentaire).appendTo(divEnteteCommentaire);
 					$(pTexteCommentaire).appendTo(divCorpCommentaire);
 				}
-				formReponse();
+				
+				formReponse(commentaire.id);
 			}
 			
 			//fonction d'animation de la bare des matières
@@ -376,12 +381,29 @@
 			
 			$('.forum').hide();
 			
-			function formReponse(){
-				var test = ('<form  method="post" action=""><textarea class="textAreaReponse"></textarea><input class="boutonRepondre" type="submit" value="Répondre"/></form>');
+			var idCommentaire = null;
+			//creation du text area pour la reponse a un commentaire
+			function formReponse(idCommentaire){
+				var test = ('<textarea name="reponse" id="textAreaReponse" class="textAreaReponse"></textarea><input class="boutonRepondre" type="submit" name="boutonRepondre" value="Répondre"/>');
 				$(test).appendTo($('.conteneurGeneral'));
+				idCommentaire = idCommentaire;
+				$( '.boutonRepondre' ).click(function(){
+					envoiReponse(idCommentaire)});
 			}
  
 			
+			function envoiReponse(idCommentaire){
+				reponse = document.getElementById("textAreaReponse").value;
+				$.ajax({
+					url : '/PE2I/restreint/forum',
+					type : 'POST',
+					data : 'idCommentaire=' + idCommentaire + '&reponse='+reponse,
+					success : function(valeur){
+						//document.getElementById("textAreaReponse").value="";
+				    },
+					dataType : 'text'
+				});
+			}
 		</script>
 		
 	</body>
