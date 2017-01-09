@@ -368,11 +368,20 @@ body {
 	color:rgb(158,37,0);
 }
 
-.reponse{
+.textAreaReponse{
 	width: 80%;
 	height:100px;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 20px;
     resize: none;
+}
+.boutonRepondre{
+	float:right;
+	margin-right: 9%;
+	width: 100px;
+	height:30px;
+	background:rgb(158,37,0);
+	color:white;
+	border:none; 
 }

@@ -332,6 +332,7 @@
 					$(pDateCommentaire).appendTo(divEnteteCommentaire);
 					$(pTexteCommentaire).appendTo(divCorpCommentaire);
 				}
+				formReponse();
 			}
 			
 			//fonction d'animation de la bare des matières
@@ -376,15 +377,12 @@
 			$('.forum').hide();
 			
 			function formReponse(){
-				
+				var test = ('<form  method="post" action=""><textarea class="textAreaReponse"></textarea><input class="boutonRepondre" type="submit" value="Répondre"/></form>');
+				$(test).appendTo($('.conteneurGeneral'));
 			}
  
 			
 		</script>
 		
-		<form  method="post" action="">
-            <textarea class="reponse"></textarea>
-            <input type="submit"></input>
-        </form>
 	</body>
 </html>
