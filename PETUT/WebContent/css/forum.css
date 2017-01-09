@@ -208,7 +208,10 @@ body {
   	font-size:17px;
   	
 }
-
+.enteteTableau{
+	background-color: rgb(158,37,0);
+	color:white;
+}
 .enteteTableau th{
 	border:solid 1px black;
 	text-align: center;
@@ -355,4 +358,21 @@ body {
 
 .fileArrianne2{
 	color:#444;
+}
+
+.fileArrianne:hover {
+	color:rgb(158,37,0);
+}
+
+.fileArrianne2:hover{
+	color:rgb(158,37,0);
+}
+
+.reponse{
+	width: 80%;
+	height:100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    resize: none;
 }

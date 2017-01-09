@@ -7,6 +7,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel ="stylesheet" href = "/PE2I/css/forum.css"/>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="/WEB-INF/javascript/jquery-3.1.1.min.js"></script>
 		<title>PE2I</title>
 	</head>
 	<body>
@@ -373,14 +374,17 @@
 			
 			
 			$('.forum').hide();
-			//var longueurDivTableau = ($(".tableau").width()*100);
-			//var pourcentage = (longueurDivTableau/($(document).width()));
-			//var resultat = ((100-pourcentage)/2)-20;
-			//alert(resultat);	
-			//var string = resultat+'%';
-			//document.getElementById('tableauSujets').style.marginLeft = string;
 			
+			function formReponse(){
+				
+			}
+ 
 			
 		</script>
+		
+		<form  method="post" action="">
+            <textarea class="reponse"></textarea>
+            <input type="submit"></input>
+        </form>
 	</body>
 </html>
