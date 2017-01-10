@@ -186,7 +186,7 @@
 				if(type=="enseignant"){
 					//code pour ajouter le formulaire d'une question
 					//var test = ('<div class="ajoutSujet"><p class="nom"> Nom : <input id="nom"></input></p><p class="numero"> Numero : <input type ="number"id="numero"> </input></p><input class="boutonSujet" type="submit" name="boutonSujet" value="ajouter"/></div>');
-					var test = $('<div class="ajoutSujet"><div class="test"><div class="nom" ><p style="text-align:left;width:70px;display:inline-block">nom : </p><input id="nom"></input></div><div class="numero" ><p style="text-align:left;width:70px;display:inline-block">numero : </p><input type ="number"id="numero"> </input></div><div><input class="boutonSujet" type="submit" name="boutonSujet" value="ajouter un sujet"/></div></div>');
+					var test = $('<div class="ajoutSujet"><div class="test"><h1 class="titreSujet">Ajouter sujet</h1> <div class="nom" ><p style="text-align:left;width:70px;display:inline-block">nom : </p><input id="nom"></input></div><div class="numero" ><p style="text-align:left;width:70px;display:inline-block">numero : </p><input type ="number"id="numero"> </input></div><div><input class="boutonSujet" type="submit" name="boutonSujet" value="ajouter un sujet"/></div></div>');
 					$(test).appendTo($('body'));
 					$(".boutonSujet").click(function(){
 						nom = document.getElementById("nom").value;
