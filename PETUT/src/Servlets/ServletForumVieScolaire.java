@@ -96,6 +96,16 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 response.setCharacterEncoding("UTF-8");
 			 response.getWriter().write(string4);
 		 }
+		 else if(request.getParameter("idCommentaire")!=null){
+			 String reponse = request.getParameter("reponse");
+			 int idCommentaire = Integer.parseInt(request.getParameter("idCommentaire"));
+			 HttpSession session = request.getSession();
+			 String id_Utilisateur = (String) session.getAttribute("identifiant");
+			 System.out.println("id :"+idCommentaire+" reponse : "+reponse+ " id user : "+id_Utilisateur);
+			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
+			 sql.ajouterReponse(idCommentaire,reponse,id_Utilisateur);
+			 sql.disconnect();
+		 }
 		 
 		 
 	 }

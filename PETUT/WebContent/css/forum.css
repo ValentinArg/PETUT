@@ -16,7 +16,7 @@
 	list-style : none;
 	margin:0;
 	padding-left:20%;
-	background: Grey;
+	background: #444;
 	border-bottom:solid 1px white;
 	text-align:left;
 }
@@ -110,7 +110,7 @@ ul{
 	display:block;
 	padding:10px;
 	text-align:center;
-	background-color:#c62d00;
+	background-color:rgb(158,37,0);
 	margin:0;
 }
 .ue:hover{
@@ -124,7 +124,7 @@ ul{
 	display: block;
 	padding:10px;
 	text-align:center;
-	background-color:grey;
+	background-color:#444;
 	margin:0;
 }
 .module p:hover{
@@ -132,13 +132,14 @@ ul{
 	cursor:pointer;
 }
 .semestres{
-	background-color:#c62d00;
+	background-color:rgb(158,37,0);
 	font-size:20px;
 }
 a{
 	cursor:pointer;
 }
-body{
+body {
+	background-image : url(../images/fond.jpg);
 	margin:0;
 	padding:0;	
 }
@@ -174,7 +175,7 @@ body{
 	vertical-align:top;
 	list-style : none;
 	margin:0;
-	background: Grey;
+	background: #444;
 	z-index:5;
 	height:4.7%;
 	border-bottom:solid 1px white;
@@ -207,7 +208,10 @@ body{
   	font-size:17px;
   	
 }
-
+.enteteTableau{
+	background-color: rgb(158,37,0);
+	color:white;
+}
 .enteteTableau th{
 	border:solid 1px black;
 	text-align: center;
@@ -225,7 +229,7 @@ body{
 }
 
 .champTableau:hover{
-	background-color:grey;
+	background-color:#444;
 	cursor:pointer;
 	color:white;
 }
@@ -271,6 +275,11 @@ body{
 	padding:0;
 }
 
+.nomAuteurCommenatire{
+	
+	font-size:15px;
+}
+
 .commentaire{
 	width:80%;
 	margin-left:auto;
@@ -282,6 +291,8 @@ body{
 	padding:5px;
 	border:solid 1px black;
 	border-bottom:none;
+	background:rgb(158,37,0);
+	color:white;
 }
 
 .corpCommentaire{
@@ -338,4 +349,39 @@ body{
 	margin:0; 
 	right:20px;
 	color:white;
+}
+
+.fileArrianne {
+	margin-left:10%;
+	color:#444;
+}
+
+.fileArrianne2{
+	color:#444;
+}
+
+.fileArrianne:hover {
+	color:rgb(158,37,0);
+}
+
+.fileArrianne2:hover{
+	color:rgb(158,37,0);
+}
+
+.textAreaReponse{
+	width: 80%;
+	height:100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    resize: none;
+}
+.boutonRepondre{
+	float:right;
+	margin-right: 9%;
+	width: 100px;
+	height:30px;
+	background:rgb(158,37,0);
+	color:white;
+	border:none; 
 }

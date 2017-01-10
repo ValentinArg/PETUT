@@ -7,6 +7,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel ="stylesheet" href = "/PE2I/css/forum.css"/>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="/WEB-INF/javascript/jquery-3.1.1.min.js"></script>
 		<title>PE2I</title>
 	</head>
 	<body>
@@ -48,6 +49,7 @@
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
+				$(".formReponse").remove();
 				$('.forum').hide(200);
 				$("#navigation").find('li').each(
 					function(){
@@ -144,6 +146,7 @@
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
+				$(".formReponse").remove();
 				$(".documents").remove();
 				var listeSujets = JSON.parse(valeur);
 				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
@@ -212,7 +215,7 @@
 					type : 'POST',
 					data : 'idTopic=' + idTopic,
 					success : function(valeur){
-						constructionTopics(valeur);
+						constructionTopics(valeur,idTopic);
 					},//fin de la function success de la construction du forum
 					dataType : 'text'
 				})//fin de la fonction ajax qui construit le forum
@@ -223,6 +226,7 @@
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
 				$(".documents").remove();
+				$(".formReponse").remove();
 				var listeObjet = JSON.parse(valeur);
 				
 				var div = $('<div class="documents">');
@@ -293,13 +297,14 @@
 				}
 			}
 			
-			function constructionTopics( valeur){
+			function constructionTopics( valeur,idTopic){
 				$(".commentaire").remove();
 				$(".documents").remove();
 				$(".listeTopics").remove();
+				$(".formReponse").remove();
 				var commentaire = JSON.parse(valeur);
 				//alert(commentaire.reponses[0].id);
-				var divCommentaire = $('<div class="commentaire">');
+				var divCommentaire = $('<div id='+commentaire.id+' class="commentaire">');
 				var divEnteteCommentaire = $('<div class="enTeteCommentaire">');
 				var divCorpCommentaire = $('<div class="corpCommentaire">');
 				var pNomAuteurCommentaire = $('<p class="nomAuteurCommenatire">'+commentaire.auteur+'</p>');
@@ -331,6 +336,8 @@
 					$(pDateCommentaire).appendTo(divEnteteCommentaire);
 					$(pTexteCommentaire).appendTo(divCorpCommentaire);
 				}
+				
+				formReponse(commentaire.id,idTopic);
 			}
 			
 			//fonction d'animation de la bare des matières
@@ -373,14 +380,34 @@
 			
 			
 			$('.forum').hide();
-			//var longueurDivTableau = ($(".tableau").width()*100);
-			//var pourcentage = (longueurDivTableau/($(document).width()));
-			//var resultat = ((100-pourcentage)/2)-20;
-			//alert(resultat);	
-			//var string = resultat+'%';
-			//document.getElementById('tableauSujets').style.marginLeft = string;
 			
+			var idCommentaire = null;
+			//creation du text area pour la reponse a un commentaire
+			function formReponse(idCommentaire,idTopic){
+				var test = ('<textarea name="reponse" id="textAreaReponse" class="textAreaReponse"></textarea><input class="boutonRepondre" type="submit" name="boutonRepondre" value="Répondre"/>');
+				$(test).appendTo($('.conteneurGeneral'));
+				idCommentaire = idCommentaire;
+				$( '.boutonRepondre' ).click(function(){
+					envoiReponse(idCommentaire,idTopic)});
+			}
+ 
 			
+			function envoiReponse(idCommentaire,idTopic){
+				reponse = document.getElementById("textAreaReponse").value;
+				$.ajax({
+					url : '/PE2I/restreint/forum',
+					type : 'POST',
+					data : 'idCommentaire=' + idCommentaire + '&reponse='+reponse,
+					success : function(){
+						$(".commentaire").remove();
+						$(".textAreaReponse").remove();
+						$(".boutonRepondre").remove();
+						requetteCreaTopic(idTopic);
+				    },
+					dataType : 'text'
+				});
+			}
 		</script>
+		
 	</body>
 </html>

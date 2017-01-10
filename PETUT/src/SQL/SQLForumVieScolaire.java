@@ -331,5 +331,22 @@ public class SQLForumVieScolaire extends SQL {
          }
          return c;
     }
+    
+    public void ajouterReponse(int idCommentaire, String reponse,String idUtilisateur){
+    	
+    	 try {
+             this.setStatement( this.getConnexion().createStatement() );
+         } catch ( SQLException e ) {
+             System.out.println( "erreur dans la création du statement" );
+             e.printStackTrace();
+         }    	
+    	
+    	try {
+			int statut =  this.getStatement().executeUpdate( "INSERT INTO Reponse (id_Commentaire, id_Utilisateur, Texte, DateR) VALUES ("+idCommentaire+",'"+idUtilisateur+"','"+reponse+"', NOW());" );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 
 }
