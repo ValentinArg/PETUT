@@ -37,7 +37,7 @@
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
 		
-		<script type="text/javascript">
+			<script type="text/javascript">
 		
 			
 			
@@ -54,6 +54,7 @@
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
 				$(".formReponse").remove();
+				$(".ajoutSujet").remove();
 				$('.forum').hide(200);
 				$("#navigation").find('li').each(
 					function(){
@@ -73,6 +74,7 @@
 							$(".listeSujets").remove();
 							$(".listeTopics").remove();
 							$(".documents").remove();
+							$(".ajoutSujet").remove();
 							//listeSemestreCLick.addNumeroSemestre(idSemestre,valeur);
 							var listeUes = JSON.parse(valeur);
 							for(i = 0; i < listeUes.length; i++){
@@ -116,6 +118,7 @@
 								$(".listeSujets").remove();
 								$(".listeTopics").remove();
 								$(".documents").remove();
+								$(".ajoutSujet").remove();
 								$('.forum').show(200);
 								idModuleClick = (this.id).replace('module', '');
 								return false;
@@ -152,6 +155,11 @@
 				$(".listeTopics").remove();
 				$(".formReponse").remove();
 				$(".documents").remove();
+				$(".ajoutSujet").remove();
+				$('.fileArrianne').remove();
+				$('.fileArrianne2').remove();
+				$(".textAreaReponse").remove();
+				$(".boutonRepondre	").remove();
 				var listeSujets = JSON.parse(valeur);
 				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 				var div = $('<div class="listeSujets">');
@@ -177,10 +185,33 @@
 				var  type = "${type}";
 				if(type=="enseignant"){
 					//code pour ajouter le formulaire d'une question
+					//var test = ('<div class="ajoutSujet"><p class="nom"> Nom : <input id="nom"></input></p><p class="numero"> Numero : <input type ="number"id="numero"> </input></p><input class="boutonSujet" type="submit" name="boutonSujet" value="ajouter"/></div>');
+					var test = $('<div class="ajoutSujet"><div class="nom" ><p style="display:inline-block">nom : </p><input id="nom"></input></div><div class="numero" ><p style="display:inline-block">numero : </p><input type ="number"id="numero"> </input></div><div><input class="boutonSujet" type="submit" name="boutonSujet" value="ajouter"/></div></div>');
+					$(test).appendTo($('.conteneurGeneral'));
+					$(".boutonSujet").click(function(){
+						nom = document.getElementById("nom").value;
+						numero = document.getElementById("numero").value;
+						ajoutSujetCour(idForum,idModuleClick,nom,numero)
+						
+					});
+					
+					function ajoutSujetCour(idForum,idModule,nom,numero){
+					
+						$.ajax({
+							url : '/PE2I/restreint/forum',
+							type : 'POST',
+							data : 'idForum=' + idForum + '&idModule='+idModule+ '&nom='+nom+ '&numero='+numero,
+							success : function(){
+								requetteCreaSujetCours(idForum);
+						    },
+							dataType : 'text'
+						});
+					}
 				}
 				
 				// construction des Topics
 				$('.champTableau').click(function(){
+					$(".ajoutSujet").remove();
 					idSujet = ((this.id).replace('sujet',''));
 					var fileArrianne = $('<p style="display:inline-block;cursor:pointer;width:160px;" class="fileArrianne" id="'+idForum+'">/liste des sujets de cours </p>');
 					$(fileArrianne).appendTo($('.conteneurGeneral'));
@@ -191,6 +222,7 @@
 						$('.fileArrianne2').remove();
 						requetteCreaSujetCours(idForum);
 					});
+					
 					requetteCreaSujet(idSujet);
 				});
 			}
@@ -233,6 +265,8 @@
 			}
 			
 			function constructionSujet( valeur){
+				$(".textAreaReponse").remove();
+				$(".boutonRepondre	").remove();
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
@@ -418,7 +452,10 @@
 					dataType : 'text'
 				});
 			}
+			
+			
 		</script>
+		
 		
 	</body>
 </html>
