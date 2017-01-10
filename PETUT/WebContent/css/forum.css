@@ -387,6 +387,27 @@ body {
 }
 
 .ajoutSujet{
+	position : absolute;
+	text-align: left;
+	left:2px;
+	width:20%;
+}
+
+.nom{
+	margin-left:10%;
+	width:90%;
+}
+.numero{
+	margin-left:10%;
+	width:90%;
+}
+.boutonSujet{
 	
+	margin-left:10%;
+	width:75%;
+	height:30px;
+	background:rgb(158,37,0);
+	color:white;
+	border:none; 
 }
 
