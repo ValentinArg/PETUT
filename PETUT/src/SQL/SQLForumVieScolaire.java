@@ -332,7 +332,7 @@ public class SQLForumVieScolaire extends SQL {
          return c;
     }
     
-    public void ajouterReponse(int idCommentaire, String reponse){
+    public void ajouterReponse(int idCommentaire, String reponse,String idUtilisateur){
     	
     	 try {
              this.setStatement( this.getConnexion().createStatement() );
@@ -342,7 +342,7 @@ public class SQLForumVieScolaire extends SQL {
          }    	
     	
     	try {
-			int statut =  this.getStatement().executeUpdate( "INSERT INTO Utilisateur (email, mot_de_passe, nom, date_inscription) VALUES ('jmarc@mail.fr', MD5('lavieestbelle78'), 'jean-marc', NOW());" );
+			int statut =  this.getStatement().executeUpdate( "INSERT INTO Reponse (id_Commentaire, id_Utilisateur, Texte, DateR) VALUES ("+idCommentaire+",'"+idUtilisateur+"','"+reponse+"', NOW());" );
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

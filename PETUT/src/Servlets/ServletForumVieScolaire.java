@@ -99,9 +99,11 @@ public class ServletForumVieScolaire extends HttpServlet{
 		 else if(request.getParameter("idCommentaire")!=null){
 			 String reponse = request.getParameter("reponse");
 			 int idCommentaire = Integer.parseInt(request.getParameter("idCommentaire"));
-			 System.out.println("id :"+idCommentaire+" reponse : "+reponse);
+			 HttpSession session = request.getSession();
+			 String id_Utilisateur = (String) session.getAttribute("identifiant");
+			 System.out.println("id :"+idCommentaire+" reponse : "+reponse+ " id user : "+id_Utilisateur);
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
-			 sql.ajouterReponse(idCommentaire,reponse);
+			 sql.ajouterReponse(idCommentaire,reponse,id_Utilisateur);
 			 sql.disconnect();
 		 }
 		 

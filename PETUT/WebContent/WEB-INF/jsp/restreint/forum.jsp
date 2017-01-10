@@ -215,7 +215,7 @@
 					type : 'POST',
 					data : 'idTopic=' + idTopic,
 					success : function(valeur){
-						constructionTopics(valeur);
+						constructionTopics(valeur,idTopic);
 					},//fin de la function success de la construction du forum
 					dataType : 'text'
 				})//fin de la fonction ajax qui construit le forum
@@ -297,7 +297,7 @@
 				}
 			}
 			
-			function constructionTopics( valeur){
+			function constructionTopics( valeur,idTopic){
 				$(".commentaire").remove();
 				$(".documents").remove();
 				$(".listeTopics").remove();
@@ -337,7 +337,7 @@
 					$(pTexteCommentaire).appendTo(divCorpCommentaire);
 				}
 				
-				formReponse(commentaire.id);
+				formReponse(commentaire.id,idTopic);
 			}
 			
 			//fonction d'animation de la bare des matières
@@ -383,23 +383,26 @@
 			
 			var idCommentaire = null;
 			//creation du text area pour la reponse a un commentaire
-			function formReponse(idCommentaire){
+			function formReponse(idCommentaire,idTopic){
 				var test = ('<textarea name="reponse" id="textAreaReponse" class="textAreaReponse"></textarea><input class="boutonRepondre" type="submit" name="boutonRepondre" value="Répondre"/>');
 				$(test).appendTo($('.conteneurGeneral'));
 				idCommentaire = idCommentaire;
 				$( '.boutonRepondre' ).click(function(){
-					envoiReponse(idCommentaire)});
+					envoiReponse(idCommentaire,idTopic)});
 			}
  
 			
-			function envoiReponse(idCommentaire){
+			function envoiReponse(idCommentaire,idTopic){
 				reponse = document.getElementById("textAreaReponse").value;
 				$.ajax({
 					url : '/PE2I/restreint/forum',
 					type : 'POST',
 					data : 'idCommentaire=' + idCommentaire + '&reponse='+reponse,
-					success : function(valeur){
-						//document.getElementById("textAreaReponse").value="";
+					success : function(){
+						$(".commentaire").remove();
+						$(".textAreaReponse").remove();
+						$(".boutonRepondre").remove();
+						requetteCreaTopic(idTopic);
 				    },
 					dataType : 'text'
 				});
