@@ -153,7 +153,8 @@ public class SQLForumVieScolaire extends SQL {
 													    		+ "AND s.id_Module = m.id_Module "
 													    		+ "AND fm.ID_FORUM = f.ID_FORUM "
 													    		+ "AND fm.id_Module = " + idModule + " "
-													    		+ "AND fm.id_Forum = " + idForum +" ;" ));
+													    		+ "AND fm.id_Forum = " + idForum +" "
+													    	    + "ORDER BY s.numero;" ));
         } catch ( SQLException e ) {
             System.out.println( "erreur dans l'execution de la requete SQL" );
             e.printStackTrace();
@@ -343,6 +344,22 @@ public class SQLForumVieScolaire extends SQL {
     	
     	try {
 			int statut =  this.getStatement().executeUpdate( "INSERT INTO Reponse (id_Commentaire, id_Utilisateur, Texte, DateR) VALUES ("+idCommentaire+",'"+idUtilisateur+"','"+reponse+"', NOW());" );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public void ajouterSujetCour(int idModule,int idForum, String nom, int numero){
+    	try {
+            this.setStatement( this.getConnexion().createStatement() );
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la création du statement" );
+            e.printStackTrace();
+        }    	
+   	
+   	try {
+			int statut =  this.getStatement().executeUpdate( "INSERT INTO Sujet (id_Module, id_Forum,Nom,Numero,DateS) VALUES ("+idModule+","+idForum+",'"+nom+"',"+numero+", NOW());" );
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
