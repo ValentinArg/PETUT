@@ -27,24 +27,28 @@
 	
 	<div class="divinfoscompte">
 		<ul class="infos">
-			<li><c:out value="Identifiant : ${ utilisateur.id_Utilisateur }"/></li>
-			<li><c:out value="Nom : ${ utilisateur.nom }"/></li>
-			<li><c:out value="Prenom : ${ utilisateur.prenom }"/></li>
-			<li><c:out value="Groupe ${ utilisateur.groupe} Semestre ${ utilisateur.semestre}"/></li>
-			<li><c:out value="Date de naissance : ${ utilisateur.datenaissance }"/></li>
-			<li><c:out value="Adresse : ${ utilisateur.adresse }"/></li>
-			<li><c:out value="Code postal : ${ utilisateur.codepostal }"/></li>
-			<li><c:out value="Ville : ${ utilisateur.ville }"/></li>
-			<li><c:out value="Telephone : 0${ utilisateur.telephone }"/></li>
-			<li><c:out value="Adresse mail : ${ utilisateur.adressemail}"/></li>
+			<li>Identifiant... <b><c:out value="${ utilisateur.id_Utilisateur }"/></b></li>
+			<li>Nom... <b><c:out value="${ utilisateur.nom }"/></b></li>
+			<li>Prénom... <b><c:out value="${ utilisateur.prenom }"/></b></li>
+			<li>Groupe... <b><c:out value="${ utilisateur.groupe}"/></b>  &nbsp Semestre... <b><c:out value="${ utilisateur.semestre}"/></b></li>
+			<li>Date de naissance... <b><c:out value=" ${ utilisateur.datenaissance }"/></b></li>
+			<li>Adresse... <b><c:out value="${ utilisateur.adresse }"/></b></li>
+			<li>Code Postal... <b><c:out value="${ utilisateur.codepostal }"/></b></li>
+			<li>Ville... <b><c:out value=" ${ utilisateur.ville }"/></b></li>
+			<li>Téléphone... <b><c:out value="0${ utilisateur.telephone }"/></b></li>
+			<li>Adresse mail... <b><c:out value="${ utilisateur.adressemail}"/></b></li>
 		</ul>
-		<a href="/PE2I/restreint/modifiercompte">Modifier les informations</a>
+		<form method="get" action="/PE2I/restreint/modifiercompte">
+   			<button class="button" style="vertical-align:middle">Modifier les informations</button>
+		</form>
+		
+		
 	</div>
-	<footer>
+	
+</div>
+<footer>
 	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
 </footer>
-</div>
-
 
 </body>
 </html>

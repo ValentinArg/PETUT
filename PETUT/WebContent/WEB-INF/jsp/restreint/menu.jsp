@@ -1,4 +1,5 @@
-<link rel ="stylesheet" href = "/PE2I/css/menu.css"/>
+<link rel ="stylesheet" href = "/PE2I
+/css/menu.css"/>
 
 <div class="divmenu">
 	<ul class="nav">
