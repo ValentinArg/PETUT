@@ -26,23 +26,23 @@
 	
 	<div class="searchform">
 		<form method="post" action="rechercheMembre">
-			<label>Nom : </label><input type="text" name="nom" required/>
-			<input type="submit" value="Rechercher" class="sansLabel"/>	
+			<label><c:out value="${resultat}"/>  &nbsp</label><input type="text" name="nom" required/>
+			<input type="submit" value="Rechercher" class="button"/>	
 		</form>
 	</div>
 
-	<c:out value="${resultat}"/>
+	
 	<c:if test="${utilisateur != null }">
 	<div class="infomembre">
 		<ul class="infos">
-			<li><c:out value="Identifiant : ${ utilisateur.id_Utilisateur }"/></li>
-			<li><c:out value="Nom : ${ utilisateur.nom }"/></li>
-			<li><c:out value="Prenom : ${ utilisateur.prenom }"/></li>
-			<li><c:out value="Groupe ${ utilisateur.groupe } Semestre ${ utilisateur.semestre } "/></li>
-			<li><c:out value="Date de naissance : ${ utilisateur.datenaissance }"/></li>
-			<li><c:out value="Ville : ${ utilisateur.ville }"/></li>
-			<li><c:out value="Telephone : 0${ utilisateur.telephone }"/></li>
-			<li><c:out value="Adresse mail : ${ utilisateur.adressemail}"/></li>
+			<li>Identifiant... <b><c:out value="${ utilisateur.id_Utilisateur }"/></b></li>
+			<li>Nom... <b><c:out value="${ utilisateur.nom }"/></b></li>
+			<li>Prénom... <b><c:out value="${ utilisateur.prenom }"/></b></li>
+			<li>Groupe... <b><c:out value="${ utilisateur.groupe}"/></b>  &nbsp Semestre... <b><c:out value="${ utilisateur.semestre}"/></b></li>
+			<li>Date de naissance... <b><c:out value=" ${ utilisateur.datenaissance }"/></b></li>
+			<li>Ville... <b><c:out value=" ${ utilisateur.ville }"/></b></li>
+			<li>Téléphone... <b><c:out value="0${ utilisateur.telephone }"/></b></li>
+			<li>Adresse mail... <b><c:out value="${ utilisateur.adressemail}"/></b></li>
 		</ul>
 	</div></c:if>
 	
