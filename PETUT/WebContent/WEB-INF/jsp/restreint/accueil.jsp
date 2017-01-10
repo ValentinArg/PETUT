@@ -23,10 +23,10 @@
 	<c:import url="/WEB-INF/jsp/restreint/menu.jsp" />
 </nav>
 
-<section class="general">
+<div class="general">
 
 	<div class="accueil">
-		<p>Bienvenue <b><c:out value="${utilisateur.prenom} ${utilisateur.nom }"/></b> ! Vous êtes sur le site PE2I: Plateforme d'Echange Intra IUT</p>
+		<p><b>Bienvenue <i><c:out value="${utilisateur.prenom} ${utilisateur.nom } "/></i>!</b></br> Vous êtes sur le site PE2I: Plateforme d'Echange Intra IUT.</p>
 	</div>
 	
 	<div class="news">
@@ -55,8 +55,8 @@
 	                <tr class="${boucle.index % 2 == 0 ? 'pair' : 'impair'}">
 	                    <td class="icone">
 	                    <c:choose>
-	                    	<c:when test="${ modifs.type == 'nouveaute'}"><c:out value="NEW"/></c:when>
-	                    	<c:when test="${ modifs.type == 'maintenance'}"><c:out value="REPARE"/></c:when>
+	                    	<c:when test="${ modifs.type == 'nouveaute'}"><img src="/PE2I/images/nouveau.jpg" alt="nouveau" title="Nouveauté"/></c:when>
+	                    	<c:when test="${ modifs.type == 'maintenance'}"><img src="/PE2I/images/repare.png" alt="repare" title="Correction"/></c:when>
 	                    </c:choose>
 	                    </td>
 	                    <td><c:out value="${modifs.libelle }"/></td>
@@ -66,7 +66,7 @@
 	         </table>
 	    </div>
 	</div>
-</section>
+</div>
 
 <footer>
 	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />

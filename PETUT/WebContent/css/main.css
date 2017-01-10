@@ -3,12 +3,23 @@
 @CHARSET "UTF-8";
 /* Général ------------------------------------------------------------------------------------- */
 
-html{
-	height:100%;
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
 	background-image : url(../images/fond.jpg);
-	height:65%;
+	position: relative;
+ 	margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
 
 body,p,legend, label, input {
@@ -30,7 +41,6 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 	background-image : url(../images/fondbanniere.jpg);
-	margin-top:-9px;
 	min-width:1000px;
 }
 nav {
@@ -40,12 +50,27 @@ nav {
 	text-align:left;
 	min-width:1000px;
 }
-section{
+.general{
 	width:78%;
 	margin-left:auto;
 	margin-right:auto;
 	background-image:url(../images/fondgeneral.jpg);
-	padding-top:50px;
+	padding-top:40px;
 	min-width:1000px;
-	height:100%;
+	min-height:70.5vh;
+	margin-bottom:-24px;
+}
+footer {
+	width:78%;
+	margin-left:auto;
+	margin-right:auto;
+	min-width:1000px;
+	font-size:80%;
+	position: absolute;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	padding: 1rem;
+  	margin-top:0;
+	background-image:url(../images/fondgeneral.jpg);
 }
