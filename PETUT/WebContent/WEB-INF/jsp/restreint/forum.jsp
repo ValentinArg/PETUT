@@ -50,6 +50,8 @@
 			$( '.semestre' ).click(function(){
 				$('.fileArrianne').remove();
 				$('.fileArrianne2').remove();
+				$(".textAreaReponse").remove();
+				$(".boutonRepondre	").remove();
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
@@ -75,6 +77,10 @@
 							$(".listeTopics").remove();
 							$(".documents").remove();
 							$(".ajoutSujet").remove();
+							$('.fileArrianne').remove();
+							$('.fileArrianne2').remove();
+							$(".textAreaReponse").remove();
+							$(".boutonRepondre	").remove();
 							//listeSemestreCLick.addNumeroSemestre(idSemestre,valeur);
 							var listeUes = JSON.parse(valeur);
 							for(i = 0; i < listeUes.length; i++){
@@ -114,6 +120,10 @@
 								$("#"+id).slideUp();
 							}
 							$(".module").click(function(){
+								$('.fileArrianne').remove();
+								$('.fileArrianne2').remove();
+								$(".textAreaReponse").remove();
+								$(".boutonRepondre	").remove();	
 								$(".commentaire").remove();
 								$(".listeSujets").remove();
 								$(".listeTopics").remove();
@@ -239,8 +249,10 @@
 						$('.champTableau').click(function(){
 							idTopic = ((this.id).replace('topic',''));
 							var fileArrianne2 = $('<p style="display:inline-block;cursor:pointer;" class="fileArrianne2" id="'+idSujet+'"> / liste des questions</p>');
+							$('.fileArrianne').css('margin-Left', '10%');
 							$(fileArrianne2).appendTo($('.conteneurGeneral'));
 							$('.fileArrianne2').click(function(){
+								$('.fileArrianne').css('margin-Left', '20%');
 								$('.fileArrianne2').remove();
 								requetteCreaSujet(this.id);
 							});
