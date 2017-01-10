@@ -36,9 +36,11 @@
 		</form>
 		</div>
 		<div class="conteneurGeneral" id="conteneurGeneral">
-			
+		
 		<script type="text/javascript">
 		
+			
+			
 			$('#boutonPoster').click(function(){
 				alert(document.getElementById("editeur").value);
 			});
@@ -46,6 +48,8 @@
 			var idModuleClick;
 			//construction des Matières
 			$( '.semestre' ).click(function(){
+				$('.fileArrianne').remove();
+				$('.fileArrianne2').remove();
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
@@ -168,6 +172,13 @@
 					$(tdNumero).appendTo(tr);
 					$(tdNom).appendTo(tr);
 				}
+				//si l'utilisateur est un enseignant = possible ajouter un sujet 
+				
+				var  type = "${type}";
+				if(type=="enseignant"){
+					//code pour ajouter le formulaire d'une question
+				}
+				
 				// construction des Topics
 				$('.champTableau').click(function(){
 					idSujet = ((this.id).replace('sujet',''));
@@ -401,7 +412,7 @@
 					success : function(){
 						$(".commentaire").remove();
 						$(".textAreaReponse").remove();
-						$(".boutonRepondre").remove();
+						$(".boutonRepondre	").remove();
 						requetteCreaTopic(idTopic);
 				    },
 					dataType : 'text'

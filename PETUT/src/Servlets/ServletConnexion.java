@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Beans.Utilisateur;
 import Forms.FormConnexion;
 import SQL.SQLConnexion;
+import SQL.SQLInfoUtilisateur;
 
 public class ServletConnexion extends HttpServlet{
 
@@ -40,6 +42,13 @@ public class ServletConnexion extends HttpServlet{
 			String identifiant = form.connexionUtilisateur(request);
 			HttpSession session = request.getSession();
 			session.setAttribute("identifiant", identifiant );
+			//ajout du type de l'utilisateur dans la session
+			SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
+			Utilisateur u = new Utilisateur();
+			u = sql.getUtilisateurByIdUtilisateur(identifiant);
+			session.setAttribute("type", u.getType());
+			System.out.println(u.getType());
+			
 			if ( request.getParameter( CHAMP_SOUVENIR ) != null ) {
 				String seSouvenir="oui";
 				session.setAttribute(CHAMP_SOUVENIR, seSouvenir);

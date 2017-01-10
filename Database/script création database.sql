@@ -191,6 +191,8 @@ INSERT INTO Groupe VALUES (1,1,'E');
 INSERT INTO Utilisateur VALUES ('brf2125a','Bremec','Florian','mdpflo','1997-06-21','17C Avenu du Gers',31270,'Frouzins','',0781734740,'fbremec@gmail.com','etudiant',1);
 INSERT INTO Utilisateur VALUES ('rgv2021a','Argenty','Valentin','mdpval','1997-03-09','13 rue Jules Verne',31270,'Frouzins','',0666247082,'valentin.argenty@gmail.com','etudiant',1);
 INSERT INTO Utilisateur VALUES ('tes1234e','DeTest','Test','mdptest','0001-01-01','1 rue Test',12345,'Testville','',012346789,'test.test@test.com','etudiant',1); 
+INSERT INTO Utilisateur VALUES ('tes1235e','DeTest','Test','mdptest','0001-01-01','1 rue Test',12345,'Testville','',0624587948,'test.test@test.com','enseignant',1); 
+
 
 /****** Enseignes + Utilisateurs *******/
 INSERT INTO Utilisateurenseigne VALUES ('brf2125a',1);

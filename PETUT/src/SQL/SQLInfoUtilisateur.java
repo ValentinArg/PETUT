@@ -27,7 +27,7 @@ public class SQLInfoUtilisateur extends SQL{
         }
         try {
             this.setResultat( this.getStatement()
-                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero "
+                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero, u.TypeU "
                     			 + "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
                     			 + "WHERE u.id_Groupe = g.id_Groupe "
                     			 + "AND g.id_Semestre = s.id_Semestre "
@@ -50,7 +50,7 @@ public class SQLInfoUtilisateur extends SQL{
             							   " ",								//photo
             							   this.getResultat().getInt( 8 ),	//telephone
             							   this.getResultat().getString( 9 ), //adressemail
-            							   " ",								//type
+            							   this.getResultat().getString(12),//type
             							   this.getResultat().getString( 10 ),//groupe
             							   this.getResultat().getInt( 11 )); 	//semestre
 
