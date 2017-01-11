@@ -1,3 +1,4 @@
+
 create database pe2idatabase;
 
 
@@ -174,6 +175,7 @@ INSERT INTO Promotion(id_Enseigne, Annee) VALUES (1,2017);
 /****** Semestres *******/
 INSERT INTO Semestre VALUES (1,1,1,1),(2,1,1,2),(3,1,1,3),(4,1,1,4);
 
+
 /****** Ues *******/
 INSERT INTO Ue VALUES (1,1,1,1,'Base de l\'informatique'),(2,1,1,2,'Gestion d\'un système');
 
@@ -186,12 +188,20 @@ INSERT INTO Module VALUES (3,2,'M1201','caca');
 
 /****** Groupes *******/
 INSERT INTO Groupe VALUES (1,1,'E');
+INSERT INTO Groupe VALUES (2,1,'enseignant');
+
 
 /****** Utilisateurs *******/
 INSERT INTO Utilisateur VALUES ('brf2125a','Bremec','Florian','mdpflo','1997-06-21','17C Avenu du Gers',31270,'Frouzins','',0781734740,'fbremec@gmail.com','etudiant',1);
 INSERT INTO Utilisateur VALUES ('rgv2021a','Argenty','Valentin','mdpval','1997-03-09','13 rue Jules Verne',31270,'Frouzins','',0666247082,'valentin.argenty@gmail.com','etudiant',1);
 INSERT INTO Utilisateur VALUES ('tes1234e','DeTest','Test','mdptest','0001-01-01','1 rue Test',12345,'Testville','',012346789,'test.test@test.com','etudiant',1); 
-INSERT INTO Utilisateur VALUES ('tes1235e','DeTest','Test','mdptest','0001-01-01','1 rue Test',12345,'Testville','',0624587948,'test.test@test.com','enseignant',1); 
+INSERT INTO Utilisateur VALUES ('map2056a','Magnaud','Patrick','mdppatrick','1987-05-12','12rue des alouettes',31270,'Toulouse','',0561909652,'magnaud.patrick@gmail.com','ensignant',2); 
+INSERT INTO Utilisateur VALUES ('mit3467a','Millan','Thierry','mdpmillan','1985-10-24','25 rue des bretzel',31270,'Toulouse','',0561909623,'millan.thierry@gmail.com','ensignant',2); 
+INSERT INTO Utilisateur VALUES ('sed','Senouci','Dinard','mdpdinard','1978-02-13','54 bis rue des maths',31270,'Toulouse','',0561907862,'senouci.dinard@gmail.com','ensignant',2); 
+INSERT INTO Utilisateur VALUES ('vif2674a','Viallet','Fabienne','mdpviallet','1965-05-12','10 avenue CDG',31270,'Toulouse','',0561913591,'viallet.fabienne@gmail.com','ensignant',2); 
+INSERT INTO Utilisateur VALUES ('fej2610a','Ferenback','Jérome','mdpferenback','1978-01-18','15 rue python',31270,'Toulouse','',0561901352,'ferenback.jerome@gmail.com','ensignant',2); 
+INSERT INTO Utilisateur VALUES ('mao0125a','Marquie','Olivier','mdpmarquie','1971-06-10','19 rue danemark',31270,'Toulouse','',0561901283,'marquie.olivier@gmail.com','ensignant',2); 
+
 
 
 /****** Enseignes + Utilisateurs *******/
@@ -208,9 +218,23 @@ INSERT INTO Sujet VALUES (1,1,1,'Installation d\'une machine virtuelle Linux',1,
 INSERT INTO Sujet VALUES (2,1,1,'Configuration de Linux',2, '2016-10-13');
 INSERT INTO Sujet VALUES (3,1,1,'Suppression de linux',3, '2016-10-14');
 INSERT INTO Sujet VALUES (4,1,2,'Suppression de linux 2',4, '2016-10-14');
+INSERT INTO Sujet VALUES (5,1,1,'Valider votre adresse mail',5, '2016-10-11');
+INSERT INTO Sujet VALUES (6,1,1,'Activer session CRDOC',6, '2016-11-02');
+INSERT INTO Sujet VALUES (7,1,1,'Initiation Ada',7, '2016-11-04');
+INSERT INTO Sujet VALUES (8,1,1,'Initiation algorithme',8, '2016-11-07');
+INSERT INTO Sujet VALUES (9,1,1,'Création site html',9, '2016-11-11');
+INSERT INTO Sujet VALUES (10,1,1,'Création MOF',10, '2016-11-13');
+INSERT INTO Sujet VALUES (11,1,1,'Utilisation de linux',11, '2016-11-15');
+INSERT INTO Sujet VALUES (12,1,1,'Instalation Package Linux',12, '2016-11-18');
+INSERT INTO Sujet VALUES (13,1,1,'Création MOT',13, '2016-11-20');
+INSERT INTO Sujet VALUES (14,1,1,'Zorglub Eclipse',14, '2016-12-02');
+INSERT INTO Sujet VALUES (15,1,3,'Les champs',15, '2016-12-10');
+INSERT INTO Sujet VALUES (16,1,4,'Partiel Ada Carré',16, '2016-12-10');
 
 /****** Commentaires *******/
 INSERT INTO Commentaire VALUES (1,'brf2125a',1,'Comment on installe Linux ?','Bonjour j\'ai un problème.','en cours','2016-12-09');
+INSERT INTO Commentaire VALUES (2,'rgv2021a',7,'Comment créer une boucle ','Bonjour j\'ai un problème, je n\'arrive pas à mettre en place la boucle pour lE TP','en cours','2016-11-10');
+
 
 /****** Réponses *******/
 INSERT INTO Reponse VALUES (1,1,'brf2125a','On fait comme ça.','2016-12-10');
@@ -222,4 +246,3 @@ INSERT INTO Document(id_Sujet, id_Utilisateur, Lien, DateD, Nom) VALUES (1,'rgv2
 /****** Modifications *******/
 INSERT INTO Modification Values (1,'Ajout des news de modification','ValentinArg','nouveaute','2017-01-08');
 INSERT INTO Modification VALUES (2,'Amélioration du rendu des pages','ValentinArg','maintenance','2017-01-10');
-
