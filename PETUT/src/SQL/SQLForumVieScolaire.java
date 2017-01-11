@@ -365,7 +365,7 @@ public class SQLForumVieScolaire extends SQL {
          return c;
     }
     
-    public void ajouterReponse(int idCommentaire, String reponse,String idUtilisateur){
+public void ajouterReponse(int idCommentaire, String reponse,String idUtilisateur){
     	
     	try {
             this.setPreparedStatement( (PreparedStatement) this.getConnexion().prepareStatement("INSERT INTO Reponse (id_Commentaire, id_Utilisateur, Texte, DateR) VALUES (?,?,?,NOW());"));
