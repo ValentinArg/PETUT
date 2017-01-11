@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.PreparedStatement;
+
 import Beans.Modification;
 import Beans.Sujet;
 
@@ -20,26 +22,26 @@ public class SQLAccueil extends SQL{
 	public List<Sujet> getSujetsByIdEnseigne( int idEnseigne ) {
 		 List<Sujet> listeSujets = new ArrayList<Sujet>();
 		 try {
-	            this.setStatement( this.getConnexion().createStatement() );
+			 	this.setPreparedStatement( (PreparedStatement) this.getConnexion().prepareStatement( "SELECT s.id_Sujet, m.numero, s.nom, s.numero, s.dates, f.nom "
+																			                		+ "FROM SUJET AS s, FORUMMODULE AS fm, FORUM AS f, Module AS m "
+																			                		+ "WHERE s.ID_FORUM = fm.ID_FORUM "
+																			                		+ "AND s.id_Module = m.id_Module "
+																			                		+ "AND fm.ID_FORUM = f.ID_FORUM "
+																			                		+ "AND f.ID_ENSEIGNE = ? "
+																			                		+ "ORDER BY s.DateS DESC "
+																			                		+ "LIMIT 10;" ) );
 	        } catch ( SQLException e ) {
 	            System.out.println( "Erreur dans la création du statement getSujetsByIdEnseigne()" );
 	            e.printStackTrace();
 	        }
 	        try {
-	            this.setResultat( this.getStatement()
-	                    .executeQuery( "SELECT s.id_Sujet, m.numero, s.nom, s.numero, s.dates, f.nom "
-	                    		+ "FROM SUJET AS s, FORUMMODULE AS fm, FORUM AS f, Module AS m "
-	                    		+ "WHERE s.ID_FORUM = fm.ID_FORUM "
-	                    		+ "AND s.id_Module = m.id_Module "
-	                    		+ "AND fm.ID_FORUM = f.ID_FORUM "
-	                    		+ "AND f.ID_ENSEIGNE = " + idEnseigne + " "
-	                    		+ "ORDER BY s.DateS DESC "
-	                    		+ "LIMIT 10;" ) );
+	        	this.getPreparedStatement().setInt(1,idEnseigne);
 	        } catch ( SQLException e ) {
 	            System.out.println( "Erreur dans l'exécution de la requete SQL getSujetsByIdEnseigne()" );
 	            e.printStackTrace();
 	        }
 	        try {
+	        	this.setResultat(this.getPreparedStatement().executeQuery());
 	            while ( this.getResultat().next() ) {
 	                Sujet s = new Sujet( this.getResultat().getInt( 1 ),
 	                        			 this.getResultat().getString( 2 ), 
