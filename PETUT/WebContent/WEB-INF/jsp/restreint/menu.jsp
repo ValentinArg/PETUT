@@ -7,7 +7,7 @@
 		<li><a href="/PE2I/restreint/forum">Forum</a></li>
 		<li><a href="/PE2I/restreint/rechercheMembre">Recherche</a></li>
 		<li><a href="/PE2I/restreint/moncompte">Mon compte</a></li>
-		<li><a href="PE2I/restreint/apropos">A propos</a>
+		<li><a href="/PE2I/restreint/apropos">A propos</a>
 		<li style="float:right"><a href="/PE2I/deconnexion">Déconnexion</a></li>
 	</ul>
 </div>

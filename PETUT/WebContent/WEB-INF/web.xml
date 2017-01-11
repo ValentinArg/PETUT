@@ -11,6 +11,15 @@
   </servlet-mapping>
   
   <servlet>
+    <servlet-name>ServletApropos</servlet-name>
+    <servlet-class>Servlets.ServletApropos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletApropos</servlet-name>
+    <url-pattern>/restreint/apropos</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>ServletMoncompte</servlet-name>
     <servlet-class>Servlets.ServletMoncompte</servlet-class>
   </servlet>
