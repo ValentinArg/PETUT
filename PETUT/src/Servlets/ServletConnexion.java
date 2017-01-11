@@ -47,7 +47,6 @@ public class ServletConnexion extends HttpServlet{
 			Utilisateur u = new Utilisateur();
 			u = sql.getUtilisateurByIdUtilisateur(identifiant);
 			session.setAttribute("type", u.getType());
-			System.out.println(u.getType());
 			
 			if ( request.getParameter( CHAMP_SOUVENIR ) != null ) {
 				String seSouvenir="oui";

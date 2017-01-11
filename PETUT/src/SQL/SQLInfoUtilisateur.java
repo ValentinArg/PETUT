@@ -74,7 +74,7 @@ public class SQLInfoUtilisateur extends SQL{
         }
         try {
         	this.setResultat( this.getStatement()
-                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero "
+                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom,u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero,u.MotDePasse  "
                     			 + "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
                     			 + "WHERE u.id_Groupe = g.id_Groupe "
                     			 + "AND g.id_Semestre = s.id_Semestre "
@@ -89,7 +89,7 @@ public class SQLInfoUtilisateur extends SQL{
              utilisateur = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
              							   this.getResultat().getString( 2 ), //nom
              							   this.getResultat().getString(3),   //prenom
-             							   "12345",							//mdp
+             							   this.getResultat().getString( 12 ),							//mdp
              							   new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(4)), 							//datenaissance
              							   this.getResultat().getString( 5 ),	//adresse
              							   this.getResultat().getInt( 6 ), 	//codepostal
@@ -100,6 +100,7 @@ public class SQLInfoUtilisateur extends SQL{
              							   " ",								//type
              							   this.getResultat().getString( 10 ),//groupe
              							   this.getResultat().getInt( 11 )); 	//semestre
+            
         } catch ( SQLException e ) {
             System.out.println( "Erreur dans la recupération des données getUtilisateurByNom()" );
             e.printStackTrace();
