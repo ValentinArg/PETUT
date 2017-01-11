@@ -41,7 +41,7 @@
 			
 			
 			$('#boutonPoster').click(function(){
-				alert(document.getElementById("editeur").value);
+				
 			});
 			
 			var idModuleClick;
@@ -50,7 +50,7 @@
 				$('.fileArrianne').remove();
 				$('.fileArrianne2').remove();
 				$(".textAreaReponse").remove();
-				$(".boutonRepondre	").remove();
+				$("#boutonRepondre	").remove();
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
@@ -71,6 +71,7 @@
 						type : 'POST',
 						data : 'idSemestre=' + idSemestre,
 						success: function(valeur){
+							$('.poserUneQuestion').remove();
 							$(".commentaire").remove();
 							$(".listeSujets").remove();
 							$(".listeTopics").remove();
@@ -79,7 +80,7 @@
 							$('.fileArrianne').remove();
 							$('.fileArrianne2').remove();
 							$(".textAreaReponse").remove();
-							$(".boutonRepondre	").remove();
+							$("#boutonRepondre	").remove();
 							//listeSemestreCLick.addNumeroSemestre(idSemestre,valeur);
 							var listeUes = JSON.parse(valeur);
 							for(i = 0; i < listeUes.length; i++){
@@ -119,10 +120,11 @@
 								$("#"+id).slideUp();
 							}
 							$(".module").click(function(){
+								$('.poserUneQuestion').remove();
 								$('.fileArrianne').remove();
 								$('.fileArrianne2').remove();
 								$(".textAreaReponse").remove();
-								$(".boutonRepondre	").remove();	
+								$("#boutonRepondre	").remove();	
 								$(".commentaire").remove();
 								$(".listeSujets").remove();
 								$(".listeTopics").remove();
@@ -159,6 +161,7 @@
 			}
 			
 			function constructionSujetCours(valeur,idForum){
+				$('.poserUneQuestion').remove();
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
@@ -168,7 +171,7 @@
 				$('.fileArrianne').remove();
 				$('.fileArrianne2').remove();
 				$(".textAreaReponse").remove();
-				$(".boutonRepondre	").remove();
+				$("#boutonRepondre	").remove();
 				var listeSujets = JSON.parse(valeur);
 				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 				var div = $('<div class="listeSujets">');
@@ -232,33 +235,25 @@
 						requetteCreaSujetCours(idForum);
 					});
 					requetteCreaSujet(idSujet);
-					/*var poserUneQuestion = $('<div class="poserUneQuestion"><textarea name="question" id="textAreaQuestion" class="textAreaQuestion"></textarea><textarea name="texteQuestion" id="textAreaTexteQuestion" class="textAreaTexteQuestion"></textarea><input class="boutonQuestion" type="submit" name="boutonQuestion" value="Poser la question"/></div>')
-					$(poserUneQuestion).appendTo($('.conteneurGeneral'));
 					
-					$('.boutonQuestion').click(function(){
-						question = document.getElementById("textAreaQuestion").value;
-						texte = document.getElementById("textAreaTexteQuestion").value;
-						ajouterQuestion(idSujet,question,texte);
-					});*/
 					
 				});
 			}
 			
 			
-			/*function ajouterQuestion(idSujet,question,texte){
+			function ajouterQuestion(idSujet,question,texte){
 				$.ajax({
 					url : '/PE2I/restreint/forum',
 					type : 'POST',
 					data : 'idSujet=' + idSujet + '&question='+question+ '&texte='+texte,
 					success : function(valeur){
-						alert();
 						$('.poserUneQuestion').remove();
-						
+						requetteCreaSujet(idSujet);
 					},
 					dataType : 'text'
 				});
 				
-			}*/
+			}
 			
 			function requetteCreaSujet(idSujet){
 				$.ajax({
@@ -267,9 +262,29 @@
 					data : 'idSujet=' + idSujet,
 					success : function(valeur){
 						
+						var poserUneQuestion = $('<div class="poserUneQuestion"><textarea name="question" id="textAreaQuestion" class="textAreaQuestion"></textarea><textarea name="texteQuestion" id="textAreaTexteQuestion" class="textAreaTexteQuestion"></textarea><button id="boutonQuestion" class="button" type="submit" name="boutonQuestion" ><span>Poser la question</span></button></div>')
+						$(poserUneQuestion).appendTo($('.conteneurGeneral'));
+						
+						document.getElementById('textAreaQuestion').value = "Question :";
+						document.getElementById('textAreaTexteQuestion').value = "Texte :";
+						
+						$('.textAreaQuestion').click(function(){
+							document.getElementById('textAreaQuestion').value = "";
+						})
+						$('.textAreaTexteQuestion').click(function(){
+							document.getElementById('textAreaTexteQuestion').value = "";
+						})
+						
+						$('#boutonQuestion').click(function(){
+							question = document.getElementById("textAreaQuestion").value;
+							texte = document.getElementById("textAreaTexteQuestion").value;
+							ajouterQuestion(idSujet,question,texte);
+						});
+						
 						constructionSujet(valeur);
 						//contruit le forum (Commentaire et réponse)
 						$('.champTableau').click(function(){
+														
 							idTopic = ((this.id).replace('topic',''));
 							var fileArrianne2 = $('<p style="display:inline-block;cursor:pointer;" class="fileArrianne2" id="'+idSujet+'"> / liste des questions</p>');
 							$('.fileArrianne').css('margin-Left', '10%');
@@ -301,7 +316,7 @@
 			
 			function constructionSujet( valeur){
 				$(".textAreaReponse").remove();
-				$(".boutonRepondre	").remove();
+				$("#boutonRepondre	").remove();
 				$(".commentaire").remove();
 				$(".listeSujets").remove();
 				$(".listeTopics").remove();
@@ -319,7 +334,7 @@
 				$(tbody).appendTo(table);
 				$(tr1).appendTo(tbody);
 				$(tr2).appendTo(tbody);
-				/*if(listeObjet[0].sujet != null){
+				if(listeObjet[0].sujet != null){
 					var td1 = $("<td></td>");
 					var td2 = $("<td style='font-size:15px' sujet </td>");
 					var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].sujet.nom+".jpg'/>");
@@ -342,7 +357,7 @@
 					$(td1).appendTo(tr1);
 					$(td2).appendTo(tr2);
 					$(img).appendTo(td1);
-				}*/
+				}
 
 				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 				var div = $('<div class="listeTopics">');
@@ -355,7 +370,7 @@
 				$(entete).appendTo(tbody);
 				
 				//boucle pour récupérer créer et afficher tout les sujets du matière donnée et d'un type d'enseignement (TD,TP,CM)
-				alert(listeObjet[0].length);
+				
 				for(i = 0; i < listeObjet[1].length; i++){
 					var tr = $("<tr class='champTableau' id='topic"+listeObjet[1][i].id+"'></tr>");
 					var tdStatut = $("<td></td>");
@@ -378,6 +393,7 @@
 			}
 			
 			function constructionTopics( valeur,idTopic){
+				$('.poserUneQuestion').remove();
 				$(".commentaire").remove();
 				$(".documents").remove();
 				$(".listeTopics").remove();
@@ -464,10 +480,10 @@
 			var idCommentaire = null;
 			//creation du text area pour la reponse a un commentaire
 			function formReponse(idCommentaire,idTopic){
-				var test = ('<textarea name="reponse" id="textAreaReponse" class="textAreaReponse"></textarea><input class="boutonRepondre" type="submit" name="boutonRepondre" value="Répondre"/>');
+				var test = ('<textarea name="reponse" id="textAreaReponse" class="textAreaReponse"></textarea><button id="boutonRepondre" class="button" type="submit" name="boutonRepondre"><span>Répondre</span></button>');
 				$(test).appendTo($('.conteneurGeneral'));
 				idCommentaire = idCommentaire;
-				$( '.boutonRepondre' ).click(function(){
+				$( '#boutonRepondre' ).click(function(){
 					envoiReponse(idCommentaire,idTopic)});
 			}
  
@@ -481,7 +497,7 @@
 					success : function(){
 						$(".commentaire").remove();
 						$(".textAreaReponse").remove();
-						$(".boutonRepondre	").remove();
+						$("#boutonRepondre	").remove();
 						requetteCreaTopic(idTopic);
 				    },
 					dataType : 'text'

@@ -376,7 +376,39 @@ body {
     margin-bottom: 20px;
     resize: none;
 }
-.boutonRepondre{
+
+.textAreaQuestion{
+	resize:none;
+	margin-left:20%;
+	margin-right:20%;
+	width:60%;
+	height:15px;
+}
+.textAreaTexteQuestion{
+	resize:none;
+	margin-left:20%;
+	margin-right:20%;
+	width:60%;
+	height:45px;
+}
+
+#boutonQuestion{
+	
+	float:right;
+	margin-right: 20%;
+	width: 150px;
+	height:30px;
+	background:rgb(158,37,0);
+	color:white;
+	border:none; 
+}
+
+.poserUneQuestion{
+	position:relative;
+	width:100%;
+}
+
+#boutonRepondre{
 	float:right;
 	margin-right: 9%;
 	width: 100px;
@@ -420,5 +452,44 @@ body {
 	padding:0;	
 	margin-left:16%;
 	
+}
+
+.button {
+  
+  background-color: rgb(158,37,0);;
+  border: none;
+  text-align: center;
+  width: 170px;
+  cursor: pointer;
+  color: #FFFFFF;
+  margin-top:10px;
+ }
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover{
+	background-color: rgb(158,37,0);
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
