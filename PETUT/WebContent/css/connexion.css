@@ -36,14 +36,18 @@ form input {
 	width:80%;
 	margin-right:auto;
 	margin-left:auto;
+	position:relative;
 }
 
 
 form .erreur{
 	color:red;
 	position:absolute;
+	right:150px;
+	top:9px;
+	font-size:80%;
 	z-index:1;
-
+	margin-right:-100px;
 }
 
 .button {

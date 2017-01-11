@@ -1,5 +1,52 @@
 @CHARSET "ISO-8859-1";
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+	background-image : url(../images/fond.jpg);
+	position: relative;
+ 	margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+body,p,legend, label, input {
+    font: normal 8pt;
+    font-family:  Georgia, serif;
+}
+
+header img {
+	width:470px;
+	display:inline;
+}
+header .logoiut{
+	height:135px;
+	width:215px;
+}
+header{
+	
+	height:135px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image : url(../images/fondbanniere.jpg);
+	min-width:880px;
+}
+nav {
+	min-width:880px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+
+}
 
 .enTete{
 	position:relative;
