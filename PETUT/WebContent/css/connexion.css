@@ -1,49 +1,19 @@
 @CHARSET "ISO-8859-1";
 
 @CHARSET "UTF-8";
-/* Général ------------------------------------------------------------------------------------- */
-
-body{
-	background-image : url(../images/fond.jpg);
-}
-header{
-	text-align:center;
-	height:50px;
-}
-body,p,legend, label, input {
-    font: normal 8pt;
-    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
-    
-}
 
 
-
-/* Forms --------------------------------------------------------------------------------------- */
 
 form{
 	display:block;
 	vertical-align: top;
-	margin-top:50px;
-	position:absolute;
-	left:0;
-	right:0;
+
 	margin-left:auto;
 	margin-right:auto;
 }
+
 h2{
 	text-align: center;
-}
-
-fieldset {
-    padding-left: 200px;
-    padding-right : 200px;
-    padding-bottom: 35px;
-    border: 4px black outset;
-    box-shadow: 3px 3px 0px grey;
-    display:inline-block;
-    text-align:left;
-    background-color:white;
-    position:absolute center;
 }
 
 form label {
@@ -58,19 +28,9 @@ form input {
     height:31px;
     padding-left:10px;
 }
-
-.connexion .id{
-	background : url(../images/iconeid.png) no-repeat;
-	color : grey;
-	height:34px;
+.inputspan {
+	height:100px;
 }
-
-.connexion .pw{
-	background : url(../images/iconepw.png) no-repeat;
-	color : grey;
-	height:34px;
-}
-
 form input.sansLabel {
 	position:absolute;
 	left:0;
@@ -92,8 +52,31 @@ form .erreur{
 
 }
 
-.connexion{
+.button {
+  display: block;
+  border-radius: 4px;
+   background-image: url(../images/bouton-connexion.png);
+ font-size:100%;
+  border: none;
+  text-align: center;
+  padding: 10px;
+  margin:auto;
+  width: 150px;
+  cursor: pointer;
+  color: #FFFFFF;
+  margin-top:10px;
+ }
+
+.divconnexion{
 	text-align:center;
-	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	padding-left: 50px;
+    padding-right : 50px;
+    border: 4px black outset;
+    box-shadow: 3px 3px 0px grey;
+    width:61.5%;
+    background-color:white;
+    padding-bottom:10px;
 }
 

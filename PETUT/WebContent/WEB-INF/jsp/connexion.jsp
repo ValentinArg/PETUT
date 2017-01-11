@@ -15,30 +15,31 @@
 
 <header>
 	<img src="/PE2I/images/general/logo.png" alt="banniere" class="banniere">
+	<img style="float:right" src="/PE2I/images/general/logoiut.jpg" alt="logoiut" class="logoiut">
 </header>
-
-	<div class="connexion">
+<div class="general">
+	<div class="divconnexion">
 		<form method="post" action="connexion">
-		   	<fieldset> 
 		   		<h2>Connexion</h2>               
-				<label for="identifiant" class="id"></label>
-		           <input type="text" name="identifiant" size="30" maxlength="60" placeholder="Identifiant ..."/>
+				<span class="inputspan"><img src="/PE2I/images/iconeid.png" alt="iconeid"/>
+		           <input type="text" name="identifiant" size="30" maxlength="60" placeholder="Identifiant ..."/></span>
 		           <span class="erreur">${traitement.erreurs['identifiant']}</span>
 		        <br />            
-		        <label for="motdepasse" class="pw"></label>
-		           <input type="password" name="motdepasse" value="" size="30" maxlength="20" placeholder="Mot de passe ..."/>
+		        <span class="inputspan">
+		           <input type="password" name="motdepasse" value="" size="30" maxlength="20" placeholder="Mot de passe ..."/></span>
 		           <span class="erreur">${traitement.erreurs['motdepasse']}</span>
 		        <br />    
 		        <input type="checkbox" id="souvenir" name="souvenir" class="check">Se souvenir de moi</br>
 		                
-		           <input type="submit" value="" class="sansLabel"/>
+		           <input type="submit" value="" class="button"/>
 		        <br />		                
-		     </fieldset>
 		</form>
+	</div>
 	</div>
 	
 <footer>
-	<c:import url="/WEB-INF/jsp/restreint/footer.jsp" />
+	<div class="divfooter">
+	<p style="text-align:center">Plateforme d'Echange Intra IUT réalisée par Florian B, Valentin A, Paul-Emmanuel B et Marc-Antoine G. IUT Informatique Paul-Sabatier 2016/2017.</p>
 </footer>
 
 </body>
