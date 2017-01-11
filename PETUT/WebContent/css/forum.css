@@ -202,10 +202,12 @@ body {
 	
 }
 .tableau{
+	width:60%;
 	border-collapse: collapse;
 	margin-left: auto;
   	margin-right: auto;
   	font-size:17px;
+  	
   	
 }
 .enteteTableau{
@@ -255,8 +257,8 @@ body {
 }
 
 .documents table{
-	margin-left:auto;
-	margin-right:auto;
+	margin-left: 20%;
+    text-align: left;
 	width:300px;
 	text-align:center;
 	font-size:15px;
@@ -406,6 +408,7 @@ body {
 .poserUneQuestion{
 	position:relative;
 	width:100%;
+	margin-bottom:5%;
 }
 
 #boutonRepondre{
@@ -435,7 +438,7 @@ body {
 	margin-left:16%;
 	width:68%;
 }
-.boutonSujet{
+#boutonSujet{
 	
 	width:100%;
 	height:30px;

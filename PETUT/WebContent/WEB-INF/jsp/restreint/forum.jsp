@@ -198,12 +198,13 @@
 				if(type=="enseignant"){
 					//code pour ajouter le formulaire d'une question
 					//var test = ('<div class="ajoutSujet"><p class="nom"> Nom : <input id="nom"></input></p><p class="numero"> Numero : <input type ="number"id="numero"> </input></p><input class="boutonSujet" type="submit" name="boutonSujet" value="ajouter"/></div>');
-					var test = $('<div class="ajoutSujet"><div class="test"><h1 class="titreSujet">Ajouter sujet</h1> <div class="nom" ><p style="text-align:left;width:70px;display:inline-block">nom : </p><input id="nom"></input></div><div class="numero" ><p style="text-align:left;width:70px;display:inline-block">numero : </p><input type ="number"id="numero"> </input></div><div><input class="boutonSujet" type="submit" name="boutonSujet" value="ajouter un sujet"/></div></div>');
+					var test = $('<div class="ajoutSujet"><div class="test"><div class="nom" ><p style="text-align:left;width:70px;display:inline-block">nom : </p><input id="nom"></input></div><div class="numero" ><p style="text-align:left;width:70px;display:inline-block">numero : </p><input value="numero du sujet" type ="number"id="numero"> </input></div><div><button id="boutonSujet" class="button" type="submit" name="boutonSujet"><span>Ajouter un sujet</span></button></div></div>');
 					$(test).appendTo($('body'));
-					$(".boutonSujet").click(function(){
+					$("#boutonSujet").click(function(){
 						nom = document.getElementById("nom").value;
 						numero = document.getElementById("numero").value;
-						ajoutSujetCour(idForum,idModuleClick,nom,numero)
+						if(nom !="" && numero !="")
+							ajoutSujetCour(idForum,idModuleClick,nom,numero);
 						
 					});
 					
@@ -271,14 +272,22 @@
 						$('.textAreaQuestion').click(function(){
 							document.getElementById('textAreaQuestion').value = "";
 						})
+						$('.textAreaQuestion').mouseout(function(){
+							if(document.getElementById('textAreaQuestion').value == "")
+								document.getElementById('textAreaQuestion').value = "Question :";
+						})
 						$('.textAreaTexteQuestion').click(function(){
 							document.getElementById('textAreaTexteQuestion').value = "";
 						})
-						
+						$('.textAreaTexteQuestion').mouseout(function(){
+							if(document.getElementById('textAreaTexteQuestion').value == "")
+								document.getElementById('textAreaTexteQuestion').value = "Texte :";
+						})
 						$('#boutonQuestion').click(function(){
 							question = document.getElementById("textAreaQuestion").value;
 							texte = document.getElementById("textAreaTexteQuestion").value;
-							ajouterQuestion(idSujet,question,texte);
+							if(document.getElementById('textAreaTexteQuestion').value != "Texte :" && document.getElementById('textAreaQuestion').value != "Question :")
+								ajouterQuestion(idSujet,question,texte);
 						});
 						
 						constructionSujet(valeur);
@@ -325,7 +334,7 @@
 				var listeObjet = JSON.parse(valeur);
 				
 				var div = $('<div class="documents">');
-				var table = $("<table>");
+				var table = $("<table style='text-align:left;'>");
 				var tbody = $('<tbody>');
 				var tr1 = $("<tr></tr>");
 				var tr2 = $("<tr></tr>");
@@ -484,7 +493,19 @@
 				$(test).appendTo($('.conteneurGeneral'));
 				idCommentaire = idCommentaire;
 				$( '#boutonRepondre' ).click(function(){
-					envoiReponse(idCommentaire,idTopic)});
+					if(document.getElementById('textAreaReponse').value != "Réponse :")
+						envoiReponse(idCommentaire,idTopic)
+				});
+				
+				document.getElementById('textAreaReponse').value = "Réponse :";
+			
+				$('.textAreaReponse').click(function(){
+					document.getElementById('textAreaReponse').value = "";
+				})
+				$('.textAreaReponse').mouseout(function(){
+					if(document.getElementById('textAreaReponse').value == "")
+						document.getElementById('textAreaReponse').value = "Réponse :";
+				})
 			}
  
 			

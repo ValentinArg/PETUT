@@ -62,7 +62,7 @@ public class ServletForumVieScolaire extends HttpServlet{
 				 int idForum = Integer.parseInt(request.getParameter("idForum"));
 				 int numero = Integer.parseInt(request.getParameter("numero"));
 				 System.out.println("num = "+numero+" forum = "+idForum+" Module = "+idModule);
-				 String nom = request.getParameter("nom");
+				 String nom = new String(request.getParameter("nom").getBytes("ISO-8859-1"),"UTF-8");
 				 sql.ajouterSujetCour(idForum, idForum, nom, numero);
 			 }
 			 HttpSession session = request.getSession();
@@ -86,7 +86,8 @@ public class ServletForumVieScolaire extends HttpServlet{
 				 SQLForumVieScolaire sql = new SQLForumVieScolaire();
 				 int idSujet = Integer.parseInt(request.getParameter("idSujet"));
 				 String identifiant = (String)(session.getAttribute("identifiant"));
-				 sql.ajouterQuestion(identifiant, idSujet, request.getParameter("question"), request.getParameter("texte"));
+				 String question = new String(request.getParameter("question").getBytes("ISO-8859-1"),"UTF-8");
+				 sql.ajouterQuestion(identifiant, idSujet, question, request.getParameter("texte"));
 			 }
 			 int idSujet = Integer.parseInt(request.getParameter("idSujet"));
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
@@ -120,7 +121,7 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 response.getWriter().write(string4);
 		 }
 		 else if(request.getParameter("idCommentaire")!=null){
-			 String reponse = request.getParameter("reponse");
+			 String reponse = new String(request.getParameter("reponse").getBytes("ISO-8859-1"),"UTF-8");
 			 int idCommentaire = Integer.parseInt(request.getParameter("idCommentaire"));
 			 HttpSession session = request.getSession();
 			 String id_Utilisateur = (String) session.getAttribute("identifiant");
