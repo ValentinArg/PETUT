@@ -27,7 +27,7 @@
 	<div class="searchform">
 		<form method="post" action="rechercheMembre">
 			<label><c:out value="${resultat}"/>  &nbsp</label><input type="text" name="nom" required/>
-			<input type="submit" value="Rechercher" class="button"/>	
+			<button type="submit" class="button"><span>Rechercher</span></button>
 		</form>
 	</div>
 

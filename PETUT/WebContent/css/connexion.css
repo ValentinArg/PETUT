@@ -5,9 +5,6 @@
 
 
 form{
-	display:block;
-	vertical-align: top;
-
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -21,27 +18,24 @@ form label {
     margin: 5px 0px 0px 0px;
     min-width:50px;
 }
+input:focus{
+	box-shadow: 0 0 5px rgba(68, 68, 68, 1);
+}
 
 form input {
-    margin: 5px 3px 0px 0px;
-    border: 1px #999 solid;
-    height:31px;
+	border: none;
+   border-bottom: 2px solid rgb(158,37,0);
+    height:34px;
     padding-left:10px;
+    vertical-align:top;
+    width:80%;
+       background-color:rgb(250,250,250);
 }
-.inputspan {
-	height:100px;
-}
-form input.sansLabel {
-	position:absolute;
-	left:0;
-	right:0;
-	margin-left:auto;
+.inputspan{
+	margin-bottom:5px;
+	width:80%;
 	margin-right:auto;
-	margin-top:15px;
-	background:url(../images/bouton-connexion.png) no-repeat;
-	width:112px;
-	height:34px;
-	cursor:pointer;
+	margin-left:auto;
 }
 
 
@@ -55,18 +49,45 @@ form .erreur{
 .button {
   display: block;
   border-radius: 4px;
-   background-image: url(../images/bouton-connexion.png);
+   background-color: rgb(200,37,0);
  font-size:100%;
   border: none;
   text-align: center;
   padding: 10px;
   margin:auto;
-  width: 150px;
+  width: 170px;
   cursor: pointer;
   color: #FFFFFF;
   margin-top:10px;
  }
 
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover{
+	background-color: rgb(158,37,0);
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 .divconnexion{
 	text-align:center;
 	margin-left:auto;
@@ -74,9 +95,25 @@ form .erreur{
 	padding-left: 50px;
     padding-right : 50px;
     border: 4px black outset;
-    box-shadow: 3px 3px 0px grey;
-    width:61.5%;
-    background-color:white;
+    width:70%;
+ background-color:white;
     padding-bottom:10px;
 }
 
+.check{
+	width:15px;
+	height:15px;
+}
+.check span{
+	vertical-align:middle;
+	line-height:35px;
+	padding-top:20px;
+}
+.spancheck{
+	text-align:left;
+	margin-bottom:20px;
+	width:80%;
+	margin-right:auto;
+	margin-left:auto;
+	padding-left:75px;
+}

@@ -17,22 +17,22 @@
 	<img src="/PE2I/images/general/logo.png" alt="banniere" class="banniere">
 	<img style="float:right" src="/PE2I/images/general/logoiut.jpg" alt="logoiut" class="logoiut">
 </header>
+
 <div class="general">
 	<div class="divconnexion">
 		<form method="post" action="connexion">
 		   		<h2>Connexion</h2>               
-				<span class="inputspan"><img src="/PE2I/images/iconeid.png" alt="iconeid"/>
-		           <input type="text" name="identifiant" size="30" maxlength="60" placeholder="Identifiant ..."/></span>
-		           <span class="erreur">${traitement.erreurs['identifiant']}</span>
-		        <br />            
-		        <span class="inputspan">
-		           <input type="password" name="motdepasse" value="" size="30" maxlength="20" placeholder="Mot de passe ..."/></span>
-		           <span class="erreur">${traitement.erreurs['motdepasse']}</span>
-		        <br />    
-		        <input type="checkbox" id="souvenir" name="souvenir" class="check">Se souvenir de moi</br>
+				<div class="inputspan"><img src="/PE2I/images/iconeid.png" alt="iconeid"/>
+		           <input type="text" name="identifiant" size="30" maxlength="60" placeholder="Identifiant ..."/></div>
+		           <span class="erreur">${traitement.erreurs['identifiant']}</span>           
+		        <div class="inputspan"><img src="/PE2I/images/iconepw.png" alt="iconepw"/>
+		           <input type="password" name="motdepasse" value="" size="30" maxlength="20" placeholder="Mot de passe ..."/></div>
+		           <span class="erreur">${traitement.erreurs['motdepasse']}</span>   
+		           <div class="spancheck">
+		        <input type="checkbox" id="souvenir" name="souvenir" class="check"><span>Se souvenir de moi</span></div>
 		                
-		           <input type="submit" value="" class="button"/>
-		        <br />		                
+		          <button type="submit" class="button"><span>Connexion</span></button>
+	           
 		</form>
 	</div>
 	</div>

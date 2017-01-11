@@ -44,7 +44,7 @@
 		        <label for="nom">Adresse mail : </label>
 		           <input type="email" name="adressemail" value="<c:out value="${ utilisateur.adressemail }"/>"/>
 		        <br />       
-		           <input type="submit" value="Confirmer" class="button"/>	                   
+		           <button type="submit" class="button"><span>Confirmer</span></button>                   
 		     </fieldset>
 		</form>
 	</div>
