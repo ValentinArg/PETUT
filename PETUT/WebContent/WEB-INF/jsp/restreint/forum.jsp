@@ -9,7 +9,6 @@
 		<link rel ="stylesheet" href = "/PE2I/css/forum.css"/>
 		<link rel ="stylesheet" href = "/PE2I/css/menu.css"/>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
-		<script type="text/javascript" src="/WEB-INF/javascript/jquery-3.1.1.min.js"></script>
 		<title>PE2I</title>
 	</head>
 	
@@ -242,10 +241,34 @@
 						$('.fileArrianne2').remove();
 						requetteCreaSujetCours(idForum);
 					});
-					
 					requetteCreaSujet(idSujet);
+					/*var poserUneQuestion = $('<div class="poserUneQuestion"><textarea name="question" id="textAreaQuestion" class="textAreaQuestion"></textarea><textarea name="texteQuestion" id="textAreaTexteQuestion" class="textAreaTexteQuestion"></textarea><input class="boutonQuestion" type="submit" name="boutonQuestion" value="Poser la question"/></div>')
+					$(poserUneQuestion).appendTo($('.conteneurGeneral'));
+					
+					$('.boutonQuestion').click(function(){
+						question = document.getElementById("textAreaQuestion").value;
+						texte = document.getElementById("textAreaTexteQuestion").value;
+						ajouterQuestion(idSujet,question,texte);
+					});*/
+					
 				});
 			}
+			
+			
+			/*function ajouterQuestion(idSujet,question,texte){
+				$.ajax({
+					url : '/PE2I/restreint/forum',
+					type : 'POST',
+					data : 'idSujet=' + idSujet + '&question='+question+ '&texte='+texte,
+					success : function(valeur){
+						alert();
+						$('.poserUneQuestion').remove();
+						
+					},
+					dataType : 'text'
+				});
+				
+			}*/
 			
 			function requetteCreaSujet(idSujet){
 				$.ajax({
@@ -306,7 +329,7 @@
 				$(tbody).appendTo(table);
 				$(tr1).appendTo(tbody);
 				$(tr2).appendTo(tbody);
-				if(listeObjet[0].sujet != null){
+				/*if(listeObjet[0].sujet != null){
 					var td1 = $("<td></td>");
 					var td2 = $("<td style='font-size:15px' sujet </td>");
 					var img = $("<img src='/PE2I/images/eleves/forum/"+listeObjet[0].sujet.nom+".jpg'/>");
@@ -329,7 +352,7 @@
 					$(td1).appendTo(tr1);
 					$(td2).appendTo(tr2);
 					$(img).appendTo(td1);
-				}
+				}*/
 
 				//identifiant = identifiant du sujet se trouvant dans la listeSujets.id
 				var div = $('<div class="listeTopics">');
@@ -342,7 +365,7 @@
 				$(entete).appendTo(tbody);
 				
 				//boucle pour récupérer créer et afficher tout les sujets du matière donnée et d'un type d'enseignement (TD,TP,CM)
-				
+				alert(listeObjet[0].length);
 				for(i = 0; i < listeObjet[1].length; i++){
 					var tr = $("<tr class='champTableau' id='topic"+listeObjet[1][i].id+"'></tr>");
 					var tdStatut = $("<td></td>");
