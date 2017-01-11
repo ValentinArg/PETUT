@@ -2,6 +2,8 @@ package SQL;
 
 import java.sql.SQLException;
 
+import com.mysql.jdbc.PreparedStatement;
+
 
 public class SQLConnexion extends SQL{
 	
@@ -15,18 +17,19 @@ public class SQLConnexion extends SQL{
 		
 			int resultat=1;
 	        try {
-	            this.setStatement( this.getConnexion().createStatement() );
+	            this.setPreparedStatement( (PreparedStatement) this.getConnexion().prepareStatement("SELECT COUNT(*) FROM Utilisateur WHERE id_Utilisateur = ?;" ));
 	        } catch ( SQLException e ) {
 	            System.out.println( "Erreur dans la création du statement" );
 	            e.printStackTrace();
 	        }
 	        try {
-	            this.setResultat(this.getStatement().executeQuery( "SELECT COUNT(*) FROM Utilisateur WHERE id_Utilisateur = '" + id_Utilisateur + "';" ));
+	        	this.getPreparedStatement().setString(1,id_Utilisateur);
 	        } catch ( SQLException e ) {
 	            System.out.println( "Erreur dans l'exécution de la requete SQL" );
 	            e.printStackTrace();
 	        }
 	        try{
+	        	this.setResultat(this.getPreparedStatement().executeQuery());
 	        	this.getResultat().next();
 	        	resultat = this.getResultat().getInt(1);
 	        } catch (SQLException e){
@@ -39,18 +42,19 @@ public class SQLConnexion extends SQL{
 	public boolean validerMotPasse(String id_Utilisateur, String motdepasse) throws SQLException {
 			String resultat="";
 			try {
-	            this.setStatement( this.getConnexion().createStatement() );
+				this.setPreparedStatement( (PreparedStatement) this.getConnexion().prepareStatement("SELECT motdepasse FROM Utilisateur WHERE id_Utilisateur = ?;" ));
 	        } catch ( SQLException e ) {
 	            System.out.println( "Erreur dans la création du statement" );
 	            e.printStackTrace();
 	        }
 	        try {
-	            this.setResultat(this.getStatement().executeQuery( "SELECT motdepasse FROM Utilisateur WHERE id_Utilisateur = '" + id_Utilisateur + "';" ));       
+	        	this.getPreparedStatement().setString(1,id_Utilisateur);  
 	        } catch ( SQLException e ) {
 	            System.out.println( "Erreur dans l'exécution de la requete SQL" );
 	            e.printStackTrace();
 	        }
 	        try{
+	        	this.setResultat(this.getPreparedStatement().executeQuery());
 	        	this.getResultat().next();
 	        	resultat = this.getResultat().getString("motDePasse");
 	        } catch (SQLException e){

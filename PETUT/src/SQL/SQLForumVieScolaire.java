@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.PreparedStatement;
+
 import Beans.*;
 import OutilsJava.GestionnaireDate;
 
@@ -363,17 +365,27 @@ public class SQLForumVieScolaire extends SQL {
          return c;
     }
     
-    public void ajouterReponse(int idCommentaire, String reponse,String idUtilisateur){
-    	
-    	 try {
-             this.setStatement( this.getConnexion().createStatement() );
-         } catch ( SQLException e ) {
-             System.out.println( "erreur dans la création du statement" );
-             e.printStackTrace();
-         }    	
+public void ajouterReponse(int idCommentaire, String reponse,String idUtilisateur){
     	
     	try {
-			int statut =  this.getStatement().executeUpdate( "INSERT INTO Reponse (id_Commentaire, id_Utilisateur, Texte, DateR) VALUES ("+idCommentaire+",'"+idUtilisateur+"','"+reponse+"', NOW());" );
+            this.setPreparedStatement( (PreparedStatement) this.getConnexion().prepareStatement("INSERT INTO Reponse (id_Commentaire, id_Utilisateur, Texte, DateR) VALUES (?,?,?,NOW());"));
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la création du preparedstatement" );
+            e.printStackTrace();
+        }
+    	
+    	try {
+            this.getPreparedStatement().setInt(1, idCommentaire);
+            this.getPreparedStatement().setString(2, idUtilisateur);
+            this.getPreparedStatement().setString(3, reponse);
+
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans affectation du preparedstatement" );
+            e.printStackTrace();
+        }
+    	
+    	try {
+			int statut =  this.getPreparedStatement().executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
