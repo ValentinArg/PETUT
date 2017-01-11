@@ -43,7 +43,7 @@ public class SQLInfoUtilisateur extends SQL{
             							   this.getResultat().getString( 2 ), //nom
             							   this.getResultat().getString(3),   //prenom
             							   "12345",							//mdp
-            							   new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(4)), 							//datenaissance
+            							   new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(4)), //datenaissance
             							   this.getResultat().getString( 5 ),	//adresse
             							   this.getResultat().getInt( 6 ), 	//codepostal
             							   this.getResultat().getString( 7 ),	//ville
