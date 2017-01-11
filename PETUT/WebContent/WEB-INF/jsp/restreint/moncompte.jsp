@@ -39,7 +39,7 @@
 			<li>Adresse mail... <b><c:out value="${ utilisateur.adressemail}"/></b></li>
 		</ul>
 		<form method="get" action="/PE2I/restreint/modifiercompte">
-   			<button class="button" style="vertical-align:middle">Modifier les informations</button>
+   			<button class="button"><span>Modifier les informations</span></button>
 		</form>
 		
 		

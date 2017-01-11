@@ -36,35 +36,38 @@ header .logoiut{
 	width:215px;
 }
 header{
-	width:78%;
+	
 	height:135px;
 	margin-left:auto;
 	margin-right:auto;
 	background-image : url(../images/fondbanniere.jpg);
-	min-width:1000px;
+	width:85%;
+	min-width:880px;
 }
 nav {
-	width:78%;
+	width:85%;
+	min-width:880px;
 	margin-left:auto;
 	margin-right:auto;
 	text-align:left;
-	min-width:1000px;
+
 }
 .general{
-	width:78%;
+	width:85%;
+	min-width:880px;
 	margin-left:auto;
 	margin-right:auto;
 	background-image:url(../images/fondgeneral.jpg);
-	padding-top:40px;
-	min-width:1000px;
-	min-height:70.5vh;
+	padding-top:30px;
+	padding-bottom:10px;
+	min-height:67.5vh;
 	margin-bottom:-24px;
 }
 footer {
-	width:78%;
+	width:85%;
+	min-width:880px;
 	margin-left:auto;
 	margin-right:auto;
-	min-width:1000px;
 	font-size:80%;
 	position: absolute;
   	right: 0;
