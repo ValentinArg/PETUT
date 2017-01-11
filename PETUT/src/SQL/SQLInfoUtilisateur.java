@@ -18,7 +18,7 @@ public class SQLInfoUtilisateur extends SQL{
 
 	public Utilisateur getUtilisateurByIdUtilisateur( String id_Utilisateur ) {
 		Utilisateur utilisateur = null;
-		
+		System.out.println(id_Utilisateur);
 		try {
             this.setStatement( this.getConnexion().createStatement() );
         } catch ( SQLException e ) {
@@ -27,7 +27,7 @@ public class SQLInfoUtilisateur extends SQL{
         }
         try {
             this.setResultat( this.getStatement()
-                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero, u.TypeU "
+                    .executeQuery( "SELECT u.id_Utilisateur, u.Nom, u.Prenom, u.DateNaissance, u.Adresse, u.Code_Postal, u.Ville, u.Telephone, u.Adresse_Mail, g.Libelle, s.Numero, u.TypeU,u.MotDepasse "
                     			 + "FROM Utilisateur AS u, Groupe AS g, Semestre AS s "
                     			 + "WHERE u.id_Groupe = g.id_Groupe "
                     			 + "AND g.id_Semestre = s.id_Semestre "
@@ -42,7 +42,7 @@ public class SQLInfoUtilisateur extends SQL{
             utilisateur = new Utilisateur( this.getResultat().getString( 1 ), //identifiant
             							   this.getResultat().getString( 2 ), //nom
             							   this.getResultat().getString(3),   //prenom
-            							   "12345",							//mdp
+            							   this.getResultat().getString(13),							//mdp
             							   new SimpleDateFormat("dd/MM/yyyy").format(this.getResultat().getDate(4)), //datenaissance
             							   this.getResultat().getString( 5 ),	//adresse
             							   this.getResultat().getInt( 6 ), 	//codepostal

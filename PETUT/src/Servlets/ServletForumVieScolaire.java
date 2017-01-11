@@ -81,10 +81,21 @@ public class ServletForumVieScolaire extends HttpServlet{
 			 response.getWriter().write(string2);
 		 }
 		 else if(request.getParameter("idSujet")!=null){
+			 if(request.getParameter("question")!=null && request.getParameter("texte")!=null){
+				 HttpSession session = request.getSession();
+				 SQLForumVieScolaire sql = new SQLForumVieScolaire();
+				 int idSujet = Integer.parseInt(request.getParameter("idSujet"));
+				 String identifiant = (String)(session.getAttribute("identifiant"));
+				 sql.ajouterQuestion(identifiant, idSujet, request.getParameter("question"), request.getParameter("texte"));
+			 }
 			 int idSujet = Integer.parseInt(request.getParameter("idSujet"));
 			 SQLForumVieScolaire sql = new SQLForumVieScolaire();
+			 
 			 List<Topic> listeTopics = new ArrayList<Topic>();
 			 listeTopics = sql.getTopicsByIdSujet(idSujet);
+			 
+			 sql.getNbReponseTopicsBylisteTopic(listeTopics);
+			 
 			 SujetDocument sd = new SujetDocument();
 			 sd = sql.getSujetsDocumentByidSujet(idSujet);
 			 sql.disconnect();

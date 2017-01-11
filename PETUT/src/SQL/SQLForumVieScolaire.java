@@ -278,6 +278,36 @@ public class SQLForumVieScolaire extends SQL {
         return listeTopics;
     }
     
+    public void getNbReponseTopicsBylisteTopic(List<Topic> listeTopic){
+    	for(Topic t : listeTopic){
+    		
+    		int nbReponse = 0;
+	    	try {
+	            this.setStatement( this.getConnexion().createStatement() );
+	        } catch ( SQLException e ) {
+	            System.out.println( "erreur dans la création du statement" );
+	            e.printStackTrace();
+	        }
+	        try {
+	            this.setResultat(
+	                    this.getStatement().executeQuery( "SELECT COUNT(*) FROM Reponse WHERE id_Commentaire = " + t.getId() + ";" ) );
+	        } catch ( SQLException e ) {
+	            System.out.println( "erreur dans l'execution de la requete SQL" );
+	            e.printStackTrace();
+	        }
+	        try {
+	        	this.getResultat().next();
+	            t.setNbReponse(this.getResultat().getInt(1));
+	            
+	        } catch ( SQLException e ) {
+	            System.out.println( "erreur dans la recupération des données" );
+	            e.printStackTrace();
+	        }
+    	}
+	    	
+    	
+    }
+    
     public Commentaire getCommentairePrincipalByIdTopic(int idTopic){
     	Commentaire commentaire = null;
         try {
@@ -360,6 +390,22 @@ public class SQLForumVieScolaire extends SQL {
    	
    	try {
 			int statut =  this.getStatement().executeUpdate( "INSERT INTO Sujet (id_Module, id_Forum,Nom,Numero,DateS) VALUES ("+idModule+","+idForum+",'"+nom+"',"+numero+", NOW());" );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public void ajouterQuestion(String idUtilisateur,int idSujet, String question, String texte){
+    	try {
+            this.setStatement( this.getConnexion().createStatement() );
+        } catch ( SQLException e ) {
+            System.out.println( "erreur dans la création du statement" );
+            e.printStackTrace();
+        }    	
+   	
+   	try {
+			int statut =  this.getStatement().executeUpdate( "INSERT INTO Commentaire (id_Utilisateur, id_Sujet, Question, Texte, Statut, DateC) VALUES ('"+idUtilisateur+"',"+idSujet+",'"+question+"','"+texte+"','en cours', NOW());" );
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
