@@ -96,10 +96,10 @@
 	<servlet-class>Servlets.ServletUpload</servlet-class>
 	<init-param>
 		<param-name>chemin</param-name> 
-		<param-value>c:/fichiers/</param-value> 
+		<param-value>c:/Users/Flo/Desktop/Travail/PETUT S3/PETUT/PETUT/WebContent/WEB-INF/fichiers/</param-value> 
 	</init-param>
 	<multipart-config>
-		<location>c:/fichiers</location>
+		<location>c:/Users/Flo/Desktop/Travail/PETUT S3/PETUT/PETUT/WebContent/WEB-INF/fichiers</location>
 		<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
 		<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
 		<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
