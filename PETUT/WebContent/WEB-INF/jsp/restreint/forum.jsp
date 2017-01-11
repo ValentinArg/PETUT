@@ -3,27 +3,17 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel ="stylesheet" href = "/PE2I/css/forum.css"/>
-		<link rel ="stylesheet" href = "/PE2I/css/menu.css"/>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 		<title>PE2I</title>
 	</head>
-	
-<body>
-<header>
-	<img src="/PE2I/images/general/logo.png" alt="banniere" class="banniere">
-	<img style="float:right" src="/PE2I/images/general/logoiut.jpg" alt="logoiut" class="logoiut">
-</header>
-
-<nav>
-	<c:import url="/WEB-INF/jsp/restreint/menu.jsp" />
-</nav>
-
+	<body>
 		<div style="position: fixed;width:100%;z-index:10;">
 			<div class=enTete>
+				<a href="/PE2I/restreint/moncompte" class="monCompte" ><c:out value="${ utilisateur.prenom }"/> <c:out value="${ utilisateur.nom }"/></a>
+				<a class="home" href="/PE2I/restreint/accueil"><img src="/PE2I/images/general/logo_reduit.png"/></a>
 				<p class="boutonHautBas" id="boutonHautBas">Modules</p>
 				<ul class="nav" id="nav">
 					<c:forEach var="forum" items="${listeForum}">
