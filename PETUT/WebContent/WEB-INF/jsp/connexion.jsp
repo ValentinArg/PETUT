@@ -23,11 +23,13 @@
 		<form method="post" action="connexion">
 		   		<h2>Connexion</h2>               
 				<div class="inputspan"><img src="/PE2I/images/iconeid.png" alt="iconeid"/>
-		           <input type="text" name="identifiant" size="30" maxlength="60" placeholder="Identifiant ..."/></div>
-		           <span class="erreur">${traitement.erreurs['identifiant']}</span>           
+		           <input type="text" name="identifiant" size="30" maxlength="60" placeholder="Identifiant ..."/>
+		           <span class="erreur">${traitement.erreurs['identifiant']} </span>  </div>
+		                    
 		        <div class="inputspan"><img src="/PE2I/images/iconepw.png" alt="iconepw"/>
-		           <input type="password" name="motdepasse" value="" size="30" maxlength="20" placeholder="Mot de passe ..."/></div>
-		           <span class="erreur">${traitement.erreurs['motdepasse']}</span>   
+		           <input type="password" name="motdepasse" value="" size="30" maxlength="20" placeholder="Mot de passe ..."/>
+		           <span class="erreur">${traitement.erreurs['motdepasse']} </span></div>
+		              
 		           <div class="spancheck">
 		        <input type="checkbox" id="souvenir" name="souvenir" class="check"><span>Se souvenir de moi</span></div>
 		                
