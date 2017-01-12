@@ -44,5 +44,5 @@ public class ServletModifiercompte extends HttpServlet{
 		sql.disconnect();
 		
 		response.sendRedirect(REDIRECT);
-}
+	}
 }
