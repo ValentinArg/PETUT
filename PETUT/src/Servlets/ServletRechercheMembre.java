@@ -18,7 +18,13 @@ public class ServletRechercheMembre extends HttpServlet{
 	
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 	
-		request.setAttribute("resultat", "Entrez un nom");
+		if(request.getParameter("membre")!=null){
+			SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
+			String membre = (String) request.getParameter("membre");
+			Utilisateur utilisateur = sql.getUtilisateurByNom(membre);
+			request.setAttribute("utilisateur", utilisateur);
+		}
+		request.setAttribute("resultat", "Entrez un nom ou un identifiant");
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 	
@@ -26,11 +32,11 @@ public class ServletRechercheMembre extends HttpServlet{
 		
 		SQLInfoUtilisateur sql = new SQLInfoUtilisateur();
 		String nom = (String) request.getParameter("nom");
-		Utilisateur utilisateur = sql.getUtilisateurByNom(nom);
-		if(utilisateur == null){
+		List<Utilisateur> utilisateurs = sql.getListUtilisateurs(nom);
+		if(utilisateurs.isEmpty()){
 			request.setAttribute("resultat", "Le membre "+nom+" n'existe pas");
 		}else{
-			request.setAttribute("utilisateur", utilisateur);
+			request.setAttribute("utilisateurs", utilisateurs);
 		}
 		sql.disconnect();
 		

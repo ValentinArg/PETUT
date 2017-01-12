@@ -32,6 +32,17 @@
 	</div>
 
 	
+	<c:if test="${utilisateurs != null }">
+	<table class="listemembres">
+	        <c:forEach items="${ utilisateurs }" var="utilisateur">
+	        <tr>
+	                <td><a href="/PE2I/restreint/rechercheMembre?membre=${ utilisateur.id_Utilisateur }"><b style="color: rgb(158,37,0);"><c:out value="${ utilisateur.id_Utilisateur } "/></b><c:out value=" ${ utilisateur.nom } "/><b><c:out value=" ${ utilisateur.prenom }"/></b></a></td>
+	        </tr>
+	        </c:forEach>
+	</table>
+	</c:if>
+	
+	</br>
 	<c:if test="${utilisateur != null }">
 	<div class="infomembre">
 		<ul class="infos">

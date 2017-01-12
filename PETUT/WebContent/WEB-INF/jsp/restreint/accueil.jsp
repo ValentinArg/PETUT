@@ -40,6 +40,7 @@
 	                    	<c:when test="${ sujets.type == 'Travaux Pratiques'}"><img src="/PE2I/images/iconetp.png" alt="iconetp" title="Travaux Pratiques"/></c:when>
 	                    	<c:when test="${ sujets.type == 'Cours'}"><img src="/PE2I/images/iconecm.jpg" alt="iconecm"  title="Cours Magistraux"/></c:when>
 	                    	<c:when test="${ sujets.type == 'Travaux Dirigés'}"><img src="/PE2I/images/iconetd.png" alt="iconetd"  title="Travaux Dirigés"/></c:when>
+	                    	<c:when test="${ sujets.type == 'Partiels'}"><img src="/PE2I/images/iconepar.jpg" alt="iconepar"  title="Partiels"/></c:when>
 	                    </c:choose>
 	                    </td>
 	                    <td><c:out value="${ sujets.module } : ${sujets.numero}) ${ sujets.nom }"/></td>

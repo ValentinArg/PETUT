@@ -263,26 +263,9 @@
 					data : 'idSujet=' + idSujet,
 					success : function(valeur){
 						
-						var poserUneQuestion = $('<div class="poserUneQuestion"><textarea name="question" id="textAreaQuestion" class="textAreaQuestion"></textarea><textarea name="texteQuestion" id="textAreaTexteQuestion" class="textAreaTexteQuestion"></textarea><button id="boutonQuestion" class="button" type="submit" name="boutonQuestion" ><span>Poser la question</span></button></div>')
-						$(poserUneQuestion).appendTo($('.conteneurGeneral'));
+						var poserUneQuestion = $('<div class="poserUneQuestion"><textarea name="question" placeholder="Posez votre question ..." id="textAreaQuestion" class="textAreaQuestion"></textarea><textarea name="texteQuestion" placeholder="Expliquez ... " id="textAreaTexteQuestion" class="textAreaTexteQuestion"></textarea><button id="boutonQuestion" class="button" type="submit" name="boutonQuestion" ><span>Poser la question</span></button></div>')
+						$(poserUneQuestion).appendTo($('.conteneurGeneral'));						
 						
-						document.getElementById('textAreaQuestion').value = "Question :";
-						document.getElementById('textAreaTexteQuestion').value = "Texte :";
-						
-						$('.textAreaQuestion').click(function(){
-							document.getElementById('textAreaQuestion').value = "";
-						})
-						$('.textAreaQuestion').mouseout(function(){
-							if(document.getElementById('textAreaQuestion').value == "")
-								document.getElementById('textAreaQuestion').value = "Question :";
-						})
-						$('.textAreaTexteQuestion').click(function(){
-							document.getElementById('textAreaTexteQuestion').value = "";
-						})
-						$('.textAreaTexteQuestion').mouseout(function(){
-							if(document.getElementById('textAreaTexteQuestion').value == "")
-								document.getElementById('textAreaTexteQuestion').value = "Texte :";
-						})
 						$('#boutonQuestion').click(function(){
 							question = document.getElementById("textAreaQuestion").value;
 							texte = document.getElementById("textAreaTexteQuestion").value;
